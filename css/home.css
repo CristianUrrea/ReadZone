@@ -1,0 +1,15 @@
+/*################ BAR NAV ################*/
+
+
+#input-search-nav-home {
+    height: 45px !important;
+    margin-top: 10px;
+}
+
+#image-profile-nav {
+  margin-top: 7px;
+  height: 50px;
+  width: 50px;
+  border-radius: 20px;
+  border: solid;
+}
