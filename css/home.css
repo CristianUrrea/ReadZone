@@ -1,15 +1,36 @@
 /*################ BAR NAV ################*/
-
-
-#input-search-nav-home {
-    height: 45px !important;
-    margin-top: 10px;
+#input-search-nav-home, #image-profile-nav {
+  margin-top: 10px;
+  height: 45px;
 }
-
 #image-profile-nav {
-  margin-top: 7px;
-  height: 50px;
-  width: 50px;
+  width: 45px;
   border-radius: 20px;
-  border: solid;
+  border: solid 2px;
+}
+/*################ CONTENT  ################*/
+#divFather, #divFather2 {
+  height: 400px;
+}
+#content-home {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#div1, #div2 {
+  height: 100%;
+}
+#div1 {
+}
+#div2 {
+  background-color: grey;
+}
+#btn-sign-up {
+  background-color: #ef5350;
+}
+.slider .indicators .indicator-item.active {
+  background-color: #ef5350;
+}
+.slider .indicators {
+  bottom: 60px;
+  z-index: 100;
 }
