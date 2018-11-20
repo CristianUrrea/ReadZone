@@ -14,12 +14,12 @@
 }
 #content-home {
   margin-top: 20px;
-  margin-bottom: 20px;
 }
 #div1, #div2 {
   height: 100%;
 }
 #div1 {
+  background-color: lightgreen;
 }
 #div2 {
   background-color: grey;
@@ -27,10 +27,39 @@
 #btn-sign-up {
   background-color: #ef5350;
 }
-.slider .indicators .indicator-item.active {
-  background-color: #ef5350;
+
+
+/*################ BARRA DE PROGRESO  ################*/
+.carousel-progress-bar-timer {
+  display: block;
+  height: 5px;
+  background-color: #039be5;
+  width: 0%;
+  margin: 0;
+  border: none;
+  z-index: 11;
+  position: fixed;
+  top: 0px;
 }
-.slider .indicators {
-  bottom: 60px;
-  z-index: 100;
+
+.carousel-progress-bar-timer.animate {
+  /* We make the transition time shorter to avoid the slide transitioning
+    before the timer bar is "full" - change the 4.25s here to fit your
+    carousel's transition time */
+  -webkit-transition: width 4s linear;
+  -moz-transition: width 4s linear;
+  -ms-transition: width 4s linear;
+  -o-transition: width 4s linear;
+  transition: width 4s linear;
+}
+
+.carousel
+  .transition-timer-carousel-left-progress-bar.stopanimation,
+.carousel
+  .transition-timer-carousel-progress-bar.stopanimation {
+  /* class to fix IE bug that make transition continue even when you remove the class .animate */
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
 }
