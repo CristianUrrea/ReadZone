@@ -17,27 +17,29 @@
     <!--################ BAR NAV ################-->
     <!-- Bar nav desktop -->
     <header>
-        <nav class="nav-wrapper">
-            <div class="">
+        <div class="navbar-fixed">
+            <nav class="nav-wrapper">
                 <div class="row">
-                    <div class="col s12 m1 l2">
-                      <div class="right">
-                        <img id="image-profile-nav" class="brand-logo" src="https://vignette.wikia.nocookie.net/mahouka-koukou-no-rettousei/images/0/0c/Shiba_Tatsuya_Light_nOvel.png/revision/latest?cb=20160101144521" style="">
-                        <!--<a href="#" class="brand-logo white-text">Logo</a>-->
-                      </div>
+                  <div class="col s12 m2 l1">
+                  </div>
+                    <div class="col s12 m2 l2">
+                        <div id="div-nav-home-logo">
+                            <img id="image-profile-nav" class="brand-logo" src="https://vignette.wikia.nocookie.net/mahouka-koukou-no-rettousei/images/0/0c/Shiba_Tatsuya_Light_nOvel.png/revision/latest?cb=20160101144521" style="">
+                            <!--<a href="#" class="brand-logo white-text">Logo</a>-->
+                        </div>
                         <a href="#" class="sidenav-trigger" data-target="mobile-nav">
                             <i class="material-icons white-text">menu</i>
                         </a>
                     </div>
-                    <div class="col s12 m5 l4">
-                        <ul id="ul-nav-home" class="right hide-on-med-and-down">
+                    <div id="div-ul-nav-home-other" class="col s12 m4 l3">
+                        <ul class="hide-on-med-and-down">
                             <li><a href="#" class="white-text">Biblioteca</a></li>
                             <li><a href="#" class="white-text">Wiki</a></li>
                             <li><a href="#" class="white-text">Noticias</a></li>
                         </ul>
                     </div>
-                    <div class="col s12 m4 l4">
-                        <ul id="ul-nav-home" class=" right hide-on-med-and-down">
+                    <div id="div-ul-nav-home-input" class="col s12 m4 l3">
+                        <ul class="hide-on-med-and-down">
                             <li>
                                 <form>
                                     <div class="input-field">
@@ -54,15 +56,18 @@
                     <img id="image-profile-nav" src="https://vignette.wikia.nocookie.net/mahouka-koukou-no-rettousei/images/0/0c/Shiba_Tatsuya_Light_nOvel.png/revision/latest?cb=20160101144521" style="">
                  </div>
                  -->
-                    <div class="col s12 m2 l2">
-                      <ul id="ul-nav-home" class="center hide-on-med-and-down">
-                          <li><a href="#" class="white-text">Login</a></li>
-                          <li><a href="#" class="white-text">Registro</a></li>
-                      </ul>
+                    <div id="div-ul-nav-home-access" class="col s12 m2 l2">
+                        <ul class="hide-on-med-and-down">
+                            <li><a href="#" class="white-text">Login</a></li>
+                            <li><a href="#" class="white-text">Registro</a></li>
+                        </ul>
+                    </div>
+                    <div class="col s12 m2 l1">
                     </div>
                 </div>
-            </div>
-        </nav>
+
+            </nav>
+        </div>
         <!-- Bar nav mobile -->
         <ul class="sidenav" id="mobile-nav">
             <li><a href="#">Biblioteca</a></li>

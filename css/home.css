@@ -1,12 +1,16 @@
 /*################ BAR NAV ################*/
 #input-search-nav-home, #image-profile-nav {
   margin-top: 10px;
-  height: 45px;
+  height: 45.5px;
 }
 #image-profile-nav {
   width: 45px;
   border-radius: 20px;
   border: solid 2px;
+}
+ #div-nav-home-logo, #div-ul-nav-home-other ul, #div-ul-nav-home-input, #div-ul-nav-home-access {
+  display: flex;
+  justify-content: center;
 }
 /*################ CONTENT  ################*/
 #divFather, #divFather2 {
