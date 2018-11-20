@@ -1,15 +1,69 @@
 /*################ BAR NAV ################*/
-
-
-#input-search-nav-home {
-    height: 45px !important;
-    margin-top: 10px;
+#input-search-nav-home, #image-profile-nav {
+  margin-top: 10px;
+  height: 45.5px;
+}
+#image-profile-nav {
+  width: 45px;
+  border-radius: 20px;
+  border: solid 2px;
+}
+ #div-nav-home-logo, #div-ul-nav-home-other ul, #div-ul-nav-home-input, #div-ul-nav-home-access {
+  display: flex;
+  justify-content: center;
+}
+/*################ CONTENT  ################*/
+#divFather, #divFather2 {
+  height: 400px;
+}
+#content-home {
+  margin-top: 20px;
+}
+#div1, #div2 {
+  height: 100%;
+}
+#div1 {
+  background-color: lightgreen;
+}
+#div2 {
+  background-color: grey;
+}
+#btn-sign-up {
+  background-color: #ef5350;
 }
 
-#image-profile-nav {
-  margin-top: 7px;
-  height: 50px;
-  width: 50px;
-  border-radius: 20px;
-  border: solid;
+
+/*################ BARRA DE PROGRESO  ################*/
+.carousel-progress-bar-timer {
+  display: block;
+  height: 5px;
+  background-color: #039be5;
+  width: 0%;
+  margin: 0;
+  border: none;
+  z-index: 11;
+  position: fixed;
+  top: 0px;
+}
+
+.carousel-progress-bar-timer.animate {
+  /* We make the transition time shorter to avoid the slide transitioning
+    before the timer bar is "full" - change the 4.25s here to fit your
+    carousel's transition time */
+  -webkit-transition: width 4s linear;
+  -moz-transition: width 4s linear;
+  -ms-transition: width 4s linear;
+  -o-transition: width 4s linear;
+  transition: width 4s linear;
+}
+
+.carousel
+  .transition-timer-carousel-left-progress-bar.stopanimation,
+.carousel
+  .transition-timer-carousel-progress-bar.stopanimation {
+  /* class to fix IE bug that make transition continue even when you remove the class .animate */
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
 }
