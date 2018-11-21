@@ -10,81 +10,104 @@
     <!-- My css -->
     <link rel="stylesheet" href="css/home.css">
     <!--Let browser know website is optimized for mobile-->
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style type="text/css">
+        @media only screen and (max-width: 600px) {
+            .searchbarfix {
+                height: 56px !important;
+            }
+        }
+        @media only screen and (min-width: 601px) {
+            .searchbarfix {
+                height: 54px !important;
+            }
+        }
+        .navfix {
+            position: relative;
+            margin-right: 0;
+        }
+        .navfix2 {
+            position: absolute;
+        }
+    </style>
 </head>
 
 <body>
     <!--################ BAR NAV ################-->
-    <!-- Bar nav desktop -->
     <header>
         <div class="navbar-fixed">
-            <nav class="nav-wrapper">
-                <div class="row">
-                  <div class="col s12 m2 l1">
-                  </div>
-                    <div class="col s12 m2 l2">
-                        <div id="div-nav-home-logo">
-                            <img id="image-profile-nav" class="brand-logo" src="https://vignette.wikia.nocookie.net/mahouka-koukou-no-rettousei/images/0/0c/Shiba_Tatsuya_Light_nOvel.png/revision/latest?cb=20160101144521" style="">
-                            <!--<a href="#" class="brand-logo white-text">Logo</a>-->
+            <nav class="nav-border">
+                <div class="nav-wrapper">
+                    <div class="row">
+                        <div class="col s12 m2 l3">
+                            <a hef="#!" class="brand-logo "><i class="material-icons">tag_faces</i></a>
+                            <a href="#" class="left sidenav-trigger" data-target="mobile-nav">
+                                <i class="material-icons white-text">menu</i>
+                            </a>
                         </div>
-                        <a href="#" class="sidenav-trigger" data-target="mobile-nav">
-                            <i class="material-icons white-text">menu</i>
-                        </a>
-                    </div>
-                    <div id="div-ul-nav-home-other" class="col s12 m4 l3">
-                        <ul class="hide-on-med-and-down">
-                            <li><a href="#" class="white-text">Biblioteca</a></li>
-                            <li><a href="#" class="white-text">Wiki</a></li>
-                            <li><a href="#" class="white-text">Noticias</a></li>
-                        </ul>
-                    </div>
-                    <div id="div-ul-nav-home-input" class="col s12 m4 l3">
-                        <ul class="hide-on-med-and-down">
-                            <li>
-                                <form>
-                                    <div class="input-field">
-                                        <input id="input-search-nav-home" placeholder="Search..." class="white" type="search" required>
-                                        <label class="label-icon" for="search"><i class="material-icons black-text" style="margin-top: -7px;">search</i></label>
-                                    </div>
-                                    </label>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--
-                 <div class="col s12 m3 l2 center hide-on-med-and-down right">
-                    <img id="image-profile-nav" src="https://vignette.wikia.nocookie.net/mahouka-koukou-no-rettousei/images/0/0c/Shiba_Tatsuya_Light_nOvel.png/revision/latest?cb=20160101144521" style="">
-                 </div>
-                 -->
-                    <div id="div-ul-nav-home-access" class="col s12 m2 l2">
-                        <ul class="hide-on-med-and-down">
-                            <li><a href="#" class="white-text">Login</a></li>
-                            <li><a href="#" class="white-text">Registro</a></li>
-                        </ul>
-                    </div>
-                    <div class="col s12 m2 l1">
+                        <div class="col s12 m3 l4">
+                            <ul class="hide-on-med-and-down">
+                                <li>
+                                    <a class="search-hide" href="#">Biblioteca</a>
+                                </li>
+                                <li>
+                                    <a class="search-hide" href="#">Wiki</a>
+                                </li>
+                                <li>
+                                    <a class="search-hide" href="#">Noticias</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col s12 m3 l3">
+                            <ul class="right hide-on-med-and-down">
+                                <li>
+                                    <form id="navbarsearch">
+                                        <div class="navfix">
+                                            <div id="navfix2" style="">
+                                                <div class="input-field">
+                                                    <input id="search" type="search" style="" required="" placeholder="Buscar..." class="searchbarfix white">
+                                                    <label id="icon-search" class="label-icon" for="search"><i class="material-icons black-text">search</i></label>
+                                                    <i id="icon-search" class="material-icons">close</i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col s12 m2 l2">
+                            <ul class="hide-on-med-and-down">
+                                <li><a href="#" class="white-text">Login</a></li>
+                                <li><a href="#" class="white-text">Registro</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-
             </nav>
         </div>
-        <!-- Bar nav mobile -->
-        <ul class="sidenav" id="mobile-nav">
-            <li><a href="#">Biblioteca</a></li>
-            <li><a href="#">Wiki</a></li>
-            <li><a href="#">Noticas</a></li>
-            <li><a href="#">Perfil</a></li>
-        </ul>
     </header>
+
+    <!-- Bar nav mobile -->
+    <ul class="sidenav left" id="mobile-nav">
+        <li><a href="#">Biblioteca</a></li>
+        <li><a href="#">Wiki</a></li>
+        <li><a href="#">Noticas</a></li>
+        <li><a href="#">Perfil</a></li>
+    </ul>
     <!--################################-->
     <main>
-        <div id="content-home" class="row">
-            <!--################ POPULAR AND RANKING ################-->
-            <div id="divFather">
+
+        <!--################ POPULAR AND RANKING ################-->
+        <div id="divFather">
+            <div class="row">
                 <div class="col s12 m1 l1">
                 </div>
                 <!--################ POPULAR ################-->
-                <div class="carousel carousel-slider center col s12 m10 l6">
+                <div class="carousel carousel-slider center col s12 m10 l7">
                     <div class="carousel-fixed-item center">
                         <!-- Timer "progress bar"-->
                         <hr class="carousel-progress-bar-timer animate" />
@@ -106,10 +129,11 @@
                         <p class="white-text">This is your fourth panel</p>
                     </div>
                 </div>
-                <div class="col s12 m1 l1">
+                <div class="col s15">
                 </div>
                 <!--################ RANKING ################-->
                 <div id="div2" class="col s12 m3 l3 hide-on-med-and-down">
+
                 </div>
                 <div class="col s12 m1 l1">
                 </div>
@@ -155,6 +179,7 @@
     <!--################################-->
 
     <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="js/home.js"></script>

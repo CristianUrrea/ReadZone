@@ -1,28 +1,22 @@
 /*################ BAR NAV ################*/
-#input-search-nav-home, #image-profile-nav {
-  margin-top: 10px;
-  height: 45.5px;
+#search {
+  margin-top: 5px;
 }
-#image-profile-nav {
-  width: 45px;
-  border-radius: 20px;
-  border: solid 2px;
-}
- #div-nav-home-logo, #div-ul-nav-home-other ul, #div-ul-nav-home-input, #div-ul-nav-home-access {
-  display: flex;
-  justify-content: center;
+
+#icon-search {
+  margin-top: -4px;
 }
 /*################ CONTENT  ################*/
-#divFather, #divFather2 {
+
+#divFather {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#divFather, #divFather2, #div2{
   height: 400px;
 }
-#content-home {
-  margin-top: 20px;
-}
-#div1, #div2 {
-  height: 100%;
-}
 #div1 {
+  height: 100%;
   background-color: lightgreen;
 }
 #div2 {
@@ -31,7 +25,6 @@
 #btn-sign-up {
   background-color: #ef5350;
 }
-
 
 /*################ BARRA DE PROGRESO  ################*/
 .carousel-progress-bar-timer {
