@@ -9,7 +9,7 @@ $(document).ready(function() {
     });
 
     /*################## INPUT SEARCH ##################*/
-    /*
+/*
     window.onload = function() {
         $(document).ready(function() {
             var trig = 1;

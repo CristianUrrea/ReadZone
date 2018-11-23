@@ -21,19 +21,27 @@
                 height: 56px !important;
             }
         }
+
         @media only screen and (min-width: 601px) {
             .searchbarfix {
                 height: 54px !important;
             }
         }
+
         .navfix {
             position: relative;
             margin-right: 0;
         }
+
         .navfix2 {
             position: absolute;
         }
+
+        .dropdown-content{
+            overflow: visible !important;
+        }
     </style>
+
 </head>
 
 <body>
@@ -43,14 +51,16 @@
             <nav class="nav-border">
                 <div class="nav-wrapper">
                     <div class="row">
-                        <div id="div-logo" class="col s12 m2 l2">
-                            <a hef="#!" class="brand-logo"><i class="material-icons">tag_faces</i></a>
+                        <div class="col s12 m2 l2">
                             <a href="#" class="left sidenav-trigger" data-target="mobile-nav">
                                 <i class="material-icons white-text">menu</i>
                             </a>
                         </div>
-                        <div class="col s12 m4 l4">
+                        <div class="col s12 m3 l4">
+                            <a hef="#!" class="brand-logo"><i class="material-icons">tag_faces</i></a>
                             <ul id="ul-div-nav-home-links" class="hide-on-med-and-down">
+                                <li></li>
+                                <li></li>
                                 <li>
                                     <a class="search-hide" href="#">Biblioteca</a>
                                 </li>
@@ -62,33 +72,39 @@
                                 </li>
                             </ul>
                         </div>
-                        <!--
                         <div class="col s12 m3 l4">
-                            <ul class="right hide-on-med-and-down">
-
+                            <ul id="ul-div-nav-home-search-login" class="hide-on-med-and-down right">
+                                <li>
+                                    <div class="navfix">
+                                        <div id="navfix2" style="">
+                                            <div class="input-field">
+                                                <input id="search" type="search" required="" placeholder="Buscar..." class="searchbarfix white">
+                                                <label id="icon-search" class="label-icon" for="search"><i class="material-icons black-text">search</i></label>
+                                                <i id="icon-search" class="material-icons">close</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </form>
+                                </li>
+                                <li>
+                                  <!-- Dropdown Trigger -->
+                                  <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
+                                  <!-- Dropdown Structure -->
+                                  <ul id='dropdown1' class='dropdown-content'>
+                                    <li><a href="#!">one</a></li>
+                                    <li><a href="#!">two</a></li>
+                                    <li class="divider" tabindex="-1"></li>
+                                    <li><a href="#!">three</a></li>
+                                    <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+                                    <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+                                  </ul>
+                                </li>
                             </ul>
                         </div>
-                      -->
-                        <div class="col s12 m2 l6">
-                            <ul class="hide-on-med-and-down">
-                              <li>
-                                  <form id="navbarsearch">
-                                      <div class="navfix">
-                                          <div id="navfix2" style="">
-                                              <div class="input-field">
-                                                  <input id="search" type="search" required="" placeholder="Buscar..." class="searchbarfix white">
-                                                  <label id="icon-search" class="label-icon" for="search"><i class="material-icons black-text">search</i></label>
-                                                  <i id="icon-search" class="material-icons">close</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </form>
-                              </li>
-                                <li><a href="#" class="white-text">Login</a></li>
-                            </ul>
+                        <div style="background-color: grey" class="col s12 m2 l2">
                         </div>
                     </div>
-              </div>
+                </div>
             </nav>
         </div>
     </header>
@@ -101,15 +117,17 @@
         <li><a href="#">Perfil</a></li>
     </ul>
     <!--################################-->
+
+
     <main>
 
         <!--################ POPULAR AND RANKING ################-->
-        <div id="divFather">
+        <div id="div-content-home">
             <div class="row">
                 <div class="col s12 m1 l2">
                 </div>
                 <!--################ POPULAR ################-->
-                <div class="carousel carousel-slider center col s12 m10 l5">
+                <div id="div-content-home-popular" class="carousel carousel-slider center col s12 m10 l5">
                     <div class="carousel-fixed-item center">
                         <!-- Timer "progress bar"-->
                         <hr class="carousel-progress-bar-timer animate" />
@@ -131,59 +149,62 @@
                         <p class="white-text">This is your fourth panel</p>
                     </div>
                 </div>
-                <div class="col s15">
-                </div>
                 <!--################ RANKING ################-->
-                <div id="div2" class="col s12 m3 l3 hide-on-med-and-down">
-
-                </div>
-                <div class="col s12 m1 l12">
+                <div id="div-content-home-one-ranking" class="col s12 m3 l3 hide-on-med-and-down">
                 </div>
             </div>
             <!--################ RECOMENDATIONS ################-->
-            <div id="divFather2">
-                <div class="col s12 m1 l1">
+            <div class="row">
+              <div id="div-content-home-two">
+                <div class="col s12 m1 l2">
                 </div>
-                <div id="div3" class="col s12 m10 l10">
+                <div id="div-content-home-recomendations" class="col s12 m10 l8">
                 </div>
-                <div class="col s12 m1 l1">
-                </div>
+              </div>
             </div>
         </div>
     </main>
     <!--################################-->
     <!--################ FOOTER ################-->
     <footer class="page-footer">
-        <div class="container">
+          <div class="container">
             <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                    </ul>
-                </div>
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                </ul>
+              </div>
             </div>
-        </div>
-        <div class="footer-copyright">
+          </div>
+          <div class="footer-copyright">
             <div class="container">
-                © 2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
             </div>
-        </div>
-    </footer>
+          </div>
+        </footer>
     <!--################################-->
 
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="js/home.js"></script>
+    <script type="text/javascript">
+      $('.dropdown-trigger').dropdown({
+       inDuration: 300,
+       outDuration: 225,
+       constrain_width: false, // Does not change width of dropdown to that of the activator
+       hover: false, // Activate on hover
+       gutter: ($('.dropdown-content').width()*3)/2.5 + 5, // Spacing from edge
+       belowOrigin: false, // Displays dropdown below the button
+       alignment: 'rigth' // Displays dropdown with edge aligned to the left of button
+     }
+   );
+    </script>
 </body>
 
 </html>

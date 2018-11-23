@@ -1,74 +1,116 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+}
 /*################ HEADER ################*/
+
+
 /*################ BAR NAV ################*/
+
 #search {
-  width: 200px;
     margin-top: 5px;
     border-radius: 8px;
     -webkit-appearance: none
 }
+
 #icon-search {
-  margin-top: -4px;
+    margin-top: -4px;
 }
+
+#ul-div-nav-home-links {
+    text-align: center;
+}
+
+#ul-div-nav-home-links li {
+    display: inline;
+    float: none;
+}
+
+#ul-div-nav-home-links li a {
+    display: inline-block;
+}
+
+
 /*#######################################*/
+
+
 /*################ MAIN ################*/
+
+
 /*################ CONTENT  ################*/
 
-#divFather {
-  margin-top: 20px;
-  margin-bottom: 20px;
+#div-content-home {
+    margin-top: 20px;
 }
-#divFather, #divFather2, #div2{
-  height: 400px;
+
+#div-content-home,
+#div-content-home-recomendations,
+#div-content-home-one-ranking {
+    height: 400px;
 }
-#div1 {
-  height: 100%;
-  background-color: lightgreen;
-}
-#div2 {
-  background-color: grey;
-}
+
 #btn-sign-up {
-  background-color: #ef5350;
+    background-color: #ef5350;
 }
+
+#div-content-home-one-ranking {
+    background-color: grey;
+}
+
+#div-content-home-recomendations {
+  background-color: blue;
+  margin-top: -20px;
+}
+
+
 /*################ BARRA DE PROGRESO  ################*/
+
 .carousel-progress-bar-timer {
-  display: block;
-  height: 5px;
-  background-color: #039be5;
-  width: 0%;
-  margin: 0;
-  border: none;
-  z-index: 11;
-  position: fixed;
-  top: 0px;
+    display: block;
+    height: 5px;
+    background-color: #039be5;
+    width: 0%;
+    margin: 0;
+    border: none;
+    z-index: 11;
+    position: fixed;
+    top: 0px;
 }
 
 .carousel-progress-bar-timer.animate {
-  /* We make the transition time shorter to avoid the slide transitioning
+    /* We make the transition time shorter to avoid the slide transitioning
     before the timer bar is "full" - change the 4.25s here to fit your
     carousel's transition time */
-  -webkit-transition: width 4s linear;
-  -moz-transition: width 4s linear;
-  -ms-transition: width 4s linear;
-  -o-transition: width 4s linear;
-  transition: width 4s linear;
+    -webkit-transition: width 4s linear;
+    -moz-transition: width 4s linear;
+    -ms-transition: width 4s linear;
+    -o-transition: width 4s linear;
+    transition: width 4s linear;
 }
 
-.carousel
-  .transition-timer-carousel-left-progress-bar.stopanimation,
-.carousel
-  .transition-timer-carousel-progress-bar.stopanimation {
-  /* class to fix IE bug that make transition continue even when you remove the class .animate */
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -o-transition: none !important;
-  transition: none !important;
+.carousel .transition-timer-carousel-left-progress-bar.stopanimation,
+.carousel .transition-timer-carousel-progress-bar.stopanimation {
+    /* class to fix IE bug that make transition continue even when you remove the class .animate */
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
 }
+
+
 /*#######################################*/
+
+
 /*################ FOOTER ################*/
+
 footer {
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
+  margin-top: 20px;
+}
+
+.dropdown-content{
+    overflow: visible !important;
 }
