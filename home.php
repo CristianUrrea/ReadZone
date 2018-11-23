@@ -43,14 +43,14 @@
             <nav class="nav-border">
                 <div class="nav-wrapper">
                     <div class="row">
-                        <div class="col s12 m2 l3">
+                        <div class="col s12 m2 l2 center">
                             <a hef="#!" class="brand-logo "><i class="material-icons">tag_faces</i></a>
                             <a href="#" class="left sidenav-trigger" data-target="mobile-nav">
                                 <i class="material-icons white-text">menu</i>
                             </a>
                         </div>
-                        <div class="col s12 m3 l4">
-                            <ul class="hide-on-med-and-down">
+                        <div class="col s12 m4 l5">
+                            <ul id="ul-div-nav-home" class="hide-on-med-and-down">
                                 <li>
                                     <a class="search-hide" href="#">Biblioteca</a>
                                 </li>
@@ -62,7 +62,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col s12 m3 l3">
+                        <div class="col s12 m3 l2">
                             <ul class="right hide-on-med-and-down">
                                 <li>
                                     <form id="navbarsearch">
@@ -79,7 +79,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col s12 m2 l2">
+                        <div class="col s12 m3 l3">
                             <ul class="hide-on-med-and-down">
                                 <li><a href="#" class="white-text">Login</a></li>
                                 <li><a href="#" class="white-text">Registro</a></li>

@@ -21,17 +21,17 @@ $(document).ready(function() {
                 //$('.search-hide').addClass('hide');
                 if (trig == 1) {
                     $('#navfix2').animate({
-                        width: '+=10',
+                        width: '+=100',
                         marginRight: 0
-                    }, 10);
+                    }, 400);
                     trig++;
                 }
             });
             // if user leaves the form the width will go back to original state
             $("#search").focusout(function() {
                 $('#navfix2').animate({
-                    width: '-=10'
-                }, 10);
+                    width: '-=100'
+                }, 400);
                 trig = trig - 1;
                 //handle other nav elements visibility first to avoid push down
                 //$('.search-hide').removeClass('hide');

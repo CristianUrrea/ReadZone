@@ -1,11 +1,17 @@
 /*################ BAR NAV ################*/
 #search {
-  margin-top: 5px;
+    margin-top: 5px;
+    border-radius: 8px;
+    -webkit-appearance: none
 }
-
 #icon-search {
   margin-top: -4px;
 }
+#ul-div-nav-home {
+  width: 75%;
+  margin: auto;
+}
+
 /*################ CONTENT  ################*/
 
 #divFather {
