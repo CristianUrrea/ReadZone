@@ -9,6 +9,7 @@ $(document).ready(function() {
     });
 
     /*################## INPUT SEARCH ##################*/
+    /*
     window.onload = function() {
         $(document).ready(function() {
             var trig = 1;
@@ -21,7 +22,7 @@ $(document).ready(function() {
                 //$('.search-hide').addClass('hide');
                 if (trig == 1) {
                     $('#navfix2').animate({
-                        width: '+=100',
+                        width: '+=600',
                         marginRight: 0
                     }, 400);
                     trig++;
@@ -30,7 +31,7 @@ $(document).ready(function() {
             // if user leaves the form the width will go back to original state
             $("#search").focusout(function() {
                 $('#navfix2').animate({
-                    width: '-=100'
+                    width: '-=600'
                 }, 400);
                 trig = trig - 1;
                 //handle other nav elements visibility first to avoid push down
@@ -38,7 +39,7 @@ $(document).ready(function() {
             });
         });
     }
-
+    */
     setTimeout(autoplay, 4000);
 
     function autoplay() {

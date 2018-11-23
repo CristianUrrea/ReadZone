@@ -1,5 +1,7 @@
+/*################ HEADER ################*/
 /*################ BAR NAV ################*/
 #search {
+  width: 200px;
     margin-top: 5px;
     border-radius: 8px;
     -webkit-appearance: none
@@ -7,11 +9,8 @@
 #icon-search {
   margin-top: -4px;
 }
-#ul-div-nav-home {
-  width: 75%;
-  margin: auto;
-}
-
+/*#######################################*/
+/*################ MAIN ################*/
 /*################ CONTENT  ################*/
 
 #divFather {
@@ -31,7 +30,6 @@
 #btn-sign-up {
   background-color: #ef5350;
 }
-
 /*################ BARRA DE PROGRESO  ################*/
 .carousel-progress-bar-timer {
   display: block;
@@ -65,4 +63,12 @@
   -moz-transition: none !important;
   -o-transition: none !important;
   transition: none !important;
+}
+/*#######################################*/
+/*################ FOOTER ################*/
+footer {
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
 }
