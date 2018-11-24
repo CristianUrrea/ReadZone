@@ -3,22 +3,30 @@ body {
     min-height: 100vh;
     flex-direction: column;
 }
+
 main {
     flex: 1 0 auto;
 }
+
+
 /*################ HEADER ################*/
+
+.dropdown-content {
+    top: 100% !important;
+    width: 10px;
+}
 
 
 /*################ BAR NAV ################*/
 
 #search {
-    margin-top: 5px;
-    border-radius: 8px;
+    margin-top: 12px;
+    border-radius: 3px;
     -webkit-appearance: none
 }
 
 #icon-search {
-    margin-top: -4px;
+    margin-top: -10px;
 }
 
 #ul-div-nav-home-links {
@@ -62,8 +70,8 @@ main {
 }
 
 #div-content-home-recomendations {
-  background-color: blue;
-  margin-top: -20px;
+    background-color: blue;
+    margin-top: -20px;
 }
 
 
@@ -108,5 +116,5 @@ main {
 /*################ FOOTER ################*/
 
 footer {
-  margin-top: 20px;
+    margin-top: 20px;
 }

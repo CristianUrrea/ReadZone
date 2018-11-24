@@ -24,7 +24,7 @@
 
         @media only screen and (min-width: 601px) {
             .searchbarfix {
-                height: 54px !important;
+                height: 40px !important;
             }
         }
 
@@ -36,7 +36,15 @@
         .navfix2 {
             position: absolute;
         }
+        nav, .page-footer{
+          background-color: #455a64;
+        }
 
+        .dropdown-trigger:hover {
+          border-radius: 2px;
+          border-color: white;
+          border: solid 1px;
+        }
     </style>
 
 </head>
@@ -69,42 +77,38 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col s12 m3 l4">
-                            <ul id="ul-div-nav-home-search-login" class="hide-on-med-and-down right">
+                        <div class="col s12 m3 l3">
+                          <div class="navfix hide-on-med-and-down">
+                              <div id="navfix2" style="">
+                                  <div class="input-field">
+                                      <input id="search" type="search" required="" placeholder="Buscar..." class="searchbarfix white">
+                                      <label id="icon-search" class="label-icon" for="search"><i class="material-icons black-text">search</i></label>
+                                      <i id="icon-search" class="material-icons">close</i>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                        <div class="col s12 m3 l1">
+                          <div class="">
+                            <ul class="hide-on-med-and-down right">
                                 <li>
-                                    <div class="navfix">
-                                        <div id="navfix2" style="">
-                                            <div class="input-field">
-                                                <input id="search" type="search" required="" placeholder="Buscar..." class="searchbarfix white">
-                                                <label id="icon-search" class="label-icon" for="search"><i class="material-icons black-text">search</i></label>
-                                                <i id="icon-search" class="material-icons">close</i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </form>
-                                </li>
-                                <li>
-                                  <ul id="dropdown2" class="dropdown-content">
-  <li><a href="#">Ustawienia</a></li>
-  <li><a href="#">Panel administratora</a></li>
-</ul>
-
-<li>
-  <a class="dropdown-button btn" href="#!" data-activates="dropdown2">Dropdown
-    <i class="material-icons right">arrow_drop_down</i>
-  </a>
-</li>
+                                  <a class='dropdown-trigger' data-options="align:down" href='#' data-target='dropdown1'>Login<i class="material-icons right">arrow_drop_down</i></a>
                                 </li>
                             </ul>
+                            <ul id='dropdown1' class='dropdown-content hide-on-med-and-down right'>
+                              <li><a href="#!">one</a></li>
+                              <li><a href="#!">two</a></li>
+                            </ul>
+                          </div>
+
                         </div>
-                        <div style="background-color: grey" class="col s12 m2 l2">
+                        <div class="col s12 m2 l2">
                         </div>
                     </div>
                 </div>
             </nav>
         </div>
     </header>
-
     <!-- Bar nav mobile -->
     <ul class="sidenav left" id="mobile-nav">
         <li><a href="#">Biblioteca</a></li>
@@ -113,7 +117,6 @@
         <li><a href="#">Perfil</a></li>
     </ul>
     <!--################################-->
-
 
     <main>
 
@@ -151,38 +154,38 @@
             </div>
             <!--################ RECOMENDATIONS ################-->
             <div class="row">
-              <div id="div-content-home-two">
-                <div class="col s12 m1 l2">
+                <div id="div-content-home-two">
+                    <div class="col s12 m1 l2">
+                    </div>
+                    <div id="div-content-home-recomendations" class="col s12 m10 l8">
+                    </div>
                 </div>
-                <div id="div-content-home-recomendations" class="col s12 m10 l8">
-                </div>
-              </div>
             </div>
         </div>
     </main>
     <!--################################-->
     <!--################ FOOTER ################-->
     <footer class="page-footer">
-          <div class="container">
+        <div class="container">
             <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                </ul>
-              </div>
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                    </ul>
+                </div>
             </div>
-          </div>
-          <div class="footer-copyright">
+        </div>
+        <div class="footer-copyright">
             <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                © 2014 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
             </div>
-          </div>
-        </footer>
+        </div>
+    </footer>
     <!--################################-->
 
     <!--Import jQuery before materialize.js-->
@@ -190,7 +193,18 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="js/home.js"></script>
     <script type="text/javascript">
-   $('.dropdown-button').dropdown();
+    $(document).ready(function() {
+         $('.dropdown-trigger').dropdown({
+           inDuration: 300,
+           outDuration: 225,
+           gutter: 0, // Spacing from edge
+           belowOrigin: true, // Displays dropdown below the button
+           constrainWidth: false,
+           stopPropogation: true,
+           alignment: 'right',
+           hover: true
+         });
+       });
     </script>
 </body>
 
