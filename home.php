@@ -37,9 +37,6 @@
             position: absolute;
         }
 
-        .dropdown-content{
-            overflow: visible !important;
-        }
     </style>
 
 </head>
@@ -87,17 +84,16 @@
                                     </form>
                                 </li>
                                 <li>
-                                  <!-- Dropdown Trigger -->
-                                  <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
-                                  <!-- Dropdown Structure -->
-                                  <ul id='dropdown1' class='dropdown-content'>
-                                    <li><a href="#!">one</a></li>
-                                    <li><a href="#!">two</a></li>
-                                    <li class="divider" tabindex="-1"></li>
-                                    <li><a href="#!">three</a></li>
-                                    <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-                                    <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
-                                  </ul>
+                                  <ul id="dropdown2" class="dropdown-content">
+  <li><a href="#">Ustawienia</a></li>
+  <li><a href="#">Panel administratora</a></li>
+</ul>
+
+<li>
+  <a class="dropdown-button btn" href="#!" data-activates="dropdown2">Dropdown
+    <i class="material-icons right">arrow_drop_down</i>
+  </a>
+</li>
                                 </li>
                             </ul>
                         </div>
@@ -194,16 +190,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="js/home.js"></script>
     <script type="text/javascript">
-      $('.dropdown-trigger').dropdown({
-       inDuration: 300,
-       outDuration: 225,
-       constrain_width: false, // Does not change width of dropdown to that of the activator
-       hover: false, // Activate on hover
-       gutter: ($('.dropdown-content').width()*3)/2.5 + 5, // Spacing from edge
-       belowOrigin: false, // Displays dropdown below the button
-       alignment: 'rigth' // Displays dropdown with edge aligned to the left of button
-     }
-   );
+   $('.dropdown-button').dropdown();
     </script>
 </body>
 
