@@ -1,69 +1,150 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+nav,
+.page-footer,
+#btn-div-login-form-inicio-sesion {
+    background-color: #455a64;
+}
+
+
+/*################ HEADER ################*/
+
 /*################ BAR NAV ################*/
-#input-search-nav-home, #image-profile-nav {
-  margin-top: 10px;
-  height: 45.5px;
+
+#input-div-nav-search {
+    width: 100%;
+    margin-top: 12px;
+    border-radius: 3px;
+    -webkit-appearance: none
 }
-#image-profile-nav {
-  width: 45px;
-  border-radius: 20px;
-  border: solid 2px;
+
+#label-div-nav-icon-search {
+    margin-top: -10px;
 }
- #div-nav-home-logo, #div-ul-nav-home-other ul, #div-ul-nav-home-input, #div-ul-nav-home-access {
-  display: flex;
-  justify-content: center;
+
+#ul-div-nav-links {
+    text-align: center;
 }
+
+#ul-div-nav-links li {
+    display: inline;
+    float: none;
+}
+
+#ul-div-nav-links li a {
+    display: inline-block;
+}
+
+#a-div-nav-img-perfil {
+    width: 11%;
+}
+
+#ul-div-nav-dropdown li {
+    margin-left: 18%;
+}
+
+
+/*################ DROPDOWN CONTENT ################*/
+
+#div-nav-login-form {
+}
+
+#btn-div-login-form-inicio-sesion {
+    width: 100%;
+    margin: auto;
+}
+
+#div-nav-login-form {
+    text-align: center;
+}
+
+#div-nav-login-form li {
+    display: inline;
+    float: none;
+}
+
+#div-nav-login-form li a {
+    font-size: 14px;
+    display: inline-block;
+}
+
+/*#######################################*/
+
+
+/*################ MAIN ################*/
+
+
 /*################ CONTENT  ################*/
-#divFather, #divFather2 {
-  height: 400px;
+
+#div-content {
+    margin-top: 20px;
 }
-#content-home {
-  margin-top: 20px;
+
+#div-content,
+#div-content-recomendations,
+#div-content-one-ranking {
+    height: 400px;
 }
-#div1, #div2 {
-  height: 100%;
+
+#div-content-one-ranking {
+    background-color: grey;
 }
-#div1 {
-  background-color: lightgreen;
-}
-#div2 {
-  background-color: grey;
-}
-#btn-sign-up {
-  background-color: #ef5350;
+
+#div-content-recomendations {
+    background-color: blue;
+    margin-top: -20px;
 }
 
 
 /*################ BARRA DE PROGRESO  ################*/
+
 .carousel-progress-bar-timer {
-  display: block;
-  height: 5px;
-  background-color: #039be5;
-  width: 0%;
-  margin: 0;
-  border: none;
-  z-index: 11;
-  position: fixed;
-  top: 0px;
+    display: block;
+    height: 5px;
+    background-color: #039be5;
+    width: 0%;
+    margin: 0;
+    border: none;
+    z-index: 11;
+    position: fixed;
+    top: 0px;
 }
 
 .carousel-progress-bar-timer.animate {
-  /* We make the transition time shorter to avoid the slide transitioning
+    /* We make the transition time shorter to avoid the slide transitioning
     before the timer bar is "full" - change the 4.25s here to fit your
     carousel's transition time */
-  -webkit-transition: width 4s linear;
-  -moz-transition: width 4s linear;
-  -ms-transition: width 4s linear;
-  -o-transition: width 4s linear;
-  transition: width 4s linear;
+    -webkit-transition: width 4s linear;
+    -moz-transition: width 4s linear;
+    -ms-transition: width 4s linear;
+    -o-transition: width 4s linear;
+    transition: width 4s linear;
 }
 
-.carousel
-  .transition-timer-carousel-left-progress-bar.stopanimation,
-.carousel
-  .transition-timer-carousel-progress-bar.stopanimation {
-  /* class to fix IE bug that make transition continue even when you remove the class .animate */
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -o-transition: none !important;
-  transition: none !important;
+.carousel .transition-timer-carousel-left-progress-bar.stopanimation,
+.carousel .transition-timer-carousel-progress-bar.stopanimation {
+    /* class to fix IE bug that make transition continue even when you remove the class .animate */
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
 }
+
+
+/*#######################################*/
+
+
+/*################ FOOTER ################*/
