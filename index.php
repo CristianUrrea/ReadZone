@@ -12,7 +12,7 @@
     <!-- Compiled and minified webuiPopover CSS -->
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css'>
     <!-- Mis css -->
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/index.css">
     <!--Let browser know website is optimized for mobile-->
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="robots" content="noindex, nofollow">
@@ -168,14 +168,14 @@
         </div>
         <!-- Back to top -->
         <div class="fixed-action-btn">
-            <a id="back-to-top" class="btn-floating btn-large red scale-transition">
+            <a id="back-to-top" class="btn-floating btn-large  light-blue darken-4 scale-transition">
                 <i class="large material-icons">keyboard_arrow_up</i>
             </a>
         </div>
     </main>
     <!--################################-->
     <!--################ FOOTER ################-->
-    <footer class="page-footer">
+    <footer id="footer" class="page-footer">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
@@ -203,7 +203,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!--Import jQuery before webuiPopover.js-->
     <script src='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js'></script>
-    <script type="text/javascript" src="scripts/home.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             /*################ DROPDOWN DIV DEL LOGIN ################*/
