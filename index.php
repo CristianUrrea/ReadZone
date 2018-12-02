@@ -37,9 +37,6 @@
             margin-right: 0;
         }
 
-        .navfix2 {
-            position: absolute;
-        }
     </style>
 
 </head>
@@ -50,14 +47,15 @@
         <nav class="nav-border">
             <div class="nav-wrapper">
                 <div class="row">
-                    <div class="col s12 m2 l2">
-                        <a href="#" class="left sidenav-trigger" data-target="mobile-nav">
-                            <i class="material-icons white-text">menu</i>
-                        </a>
-                    </div>
-                    <a hef="#!" class="brand-logo"><i class="material-icons">tag_faces</i></a>
-                    <div class="col s12 m4 l4">
-                        <ul id="ul-div-nav-links" class="hide-on-med-and-down">
+                  <div class="col s12 m12 l10 offset-l1">
+                    <div class="col s12 m12 l5">
+                      <a href="#" class="right sidenav-trigger" data-target="mobile-nav">
+                          <i class="material-icons">menu</i>
+                      </a>
+                        <ul id="ul-div-nav-links" style="margin-left: -20px;" class="left">
+                           <li>
+                              <a class="search-hide" href="#">Logo</a>
+                           </li>
                             <li>
                                 <a class="search-hide" href="#">Biblioteca</a>
                             </li>
@@ -69,9 +67,9 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col s12 m2 l2">
+                    <div class="col s12 m2 l5">
                         <div class="navfix hide-on-med-and-down">
-                            <div id="navfix2" style="">
+                            <div id="nav-div-search">
                                 <div class="input-field">
                                     <input id="input-div-nav-search" type="search" required="" placeholder="Buscar..." class="searchbarfix white">
                                     <label id="label-div-nav-icon-search" class="label-icon" for="search"><i class="material-icons black-text">search</i></label>
@@ -80,15 +78,13 @@
                         </div>
                     </div>
                     <div class="col s12 m2 l2">
-                        <a id="a-div-nav-img-perfil" hef="#!" class="brand-logo hide-on-med-and-down"><i class="material-icons right">tag_faces</i></a>
                         <ul id="ul-div-nav-dropdown" class="hide-on-med-and-down right">
                             <li>
-                                <a id="a-div-login" href="#">Login</a>
+                                <a style="margin-right: -24px;"  id="a-div-login" href="#">Login</a>
                             </li>
                         </ul>
                     </div>
-                    <div class="col s12 m2 l2">
-                    </div>
+                  </div>
                 </div>
             </div>
         </nav>
@@ -104,14 +100,14 @@
     <div id="div-nav-login-form" style="" class="webui-popover-content">
         <form action="" method="post">
             <div class="input-field">
-                <i style="margin-left: -10px;" class="material-icons iconis prefix">account_box</i>
+                <i class="material-icons iconis prefix">account_box</i>
                 <input type="text" placeholder="username">
             </div>
             <div class="input-field">
-                <i style="margin-left: -10px;" class="material-icons iconis prefix">lock</i>
+                <i class="material-icons iconis prefix">lock</i>
                 <input type="password" placeholder="password">
             </div>
-            <button id="btn-div-login-form-inicio-sesion" class="btn waves-effect" type="submit" name="action">Inciar sesión</button>
+            <button id="btn-div-login-form-inicio-sesion" class="btn waves-effect black-text" type="submit" name="action">Inciar sesión</button>
         </form>
         <br>
         <ul>
@@ -123,14 +119,11 @@
     <!--################################-->
 
     <main>
-
         <!--################ POPULAR AND RANKING ################-->
         <div id="div-content">
             <div class="row">
-                <div class="col s12 m1 l2">
-                </div>
                 <!--################ POPULAR ################-->
-                <div id="div-content-popular" class="carousel carousel-slider center col s12 m12 l5">
+                <div id="div-content-popular" class="carousel carousel-slider center col s12 m12 l10 offset-l1">
                     <div class="carousel-fixed-item center">
                         <!-- Timer "progress bar"-->
                         <hr class="carousel-progress-bar-timer animate" />
@@ -152,35 +145,28 @@
                         <p class="white-text">This is your fourth panel</p>
                     </div>
                 </div>
-                <!--################ RANKING ################-->
-                <div id="div-content-one-ranking" class="col s12 m3 l3 hide-on-med-and-down">
-                </div>
             </div>
             <!--################ RECOMENDATIONS ################-->
             <div class="row">
-                <div id="div-content-two">
-                    <div class="col s12 m1 l2">
-                    </div>
-                    <div id="div-content-recomendations" class="col s12 m12 l8">
-                    </div>
+                <div id="div-content-two" style="height: 100px;"class="col s12 m1 l10 offset-l1 blue">
                 </div>
             </div>
         </div>
         <!-- Back to top -->
         <div class="fixed-action-btn">
-            <a id="back-to-top" class="btn-floating btn-large  light-blue darken-4 scale-transition">
+            <a id="back-to-top" class="btn-floating btn-large grey darken-4 scale-transition">
                 <i class="large material-icons">keyboard_arrow_up</i>
             </a>
         </div>
     </main>
     <!--################################-->
     <!--################ FOOTER ################-->
-    <footer id="footer" class="page-footer">
+    <footer class="page-footer">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                    <p class="white-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">Links</h5>
@@ -192,7 +178,7 @@
         <div class="footer-copyright">
             <div class="container">
                 © 2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                <a class="white-text text-lighten-4 right" href="#!">More Links</a>
             </div>
         </div>
     </footer>

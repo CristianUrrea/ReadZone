@@ -7,7 +7,6 @@ body {
 
 main {
     flex: 1 0 auto;
-    margin-top: 20px;
 }
 
 footer {
@@ -17,18 +16,23 @@ footer {
 nav,
 .page-footer,
 #btn-div-login-form-inicio-sesion {
-    background-color: #0288d1;
+    background-color: white;
 }
 
 
 /*################ HEADER ################*/
 
 /*################ BAR NAV ################*/
+.nav-wrapper a, #div-nav-login-form a {
+  color: black;
+}
 
 #input-div-nav-search {
     width: 100%;
     margin-top: 12px;
     border-radius: 5px;
+    border: solid 1px;
+    border-color: #bdbdbd;
     -webkit-appearance: none
 }
 
@@ -50,13 +54,7 @@ nav,
 }
 
 #a-div-nav-img-perfil {
-    width: 11%;
 }
-
-#ul-div-nav-dropdown li {
-    margin-left: 18%;
-}
-
 
 /*################ DROPDOWN CONTENT ################*/
 
@@ -79,6 +77,9 @@ nav,
     display: inline-block;
 }
 
+#div-nav-login-form i {
+  margin-left: -10px;
+}
 /*#######################################*/
 
 
@@ -87,18 +88,15 @@ nav,
 
 /*################ CONTENT  ################*/
 
+#div-content {
+  background-color: #bdbdbd;
+}
 #div-content,
-#div-content-recomendations,
-#div-content-one-ranking {
+#div-content-recomendations {
     height: 400px;
 }
 
-#div-content-one-ranking {
-    background-color: grey;
-}
-
 #div-content-recomendations {
-    background-color: blue;
     margin-top: -20px;
 }
 
@@ -142,3 +140,6 @@ nav,
 
 
 /*################ FOOTER ################*/
+.page-footer{
+  background-color: #424242;
+}
