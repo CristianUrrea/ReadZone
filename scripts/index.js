@@ -2,7 +2,7 @@ $(document).ready(function() {
     $(".sidenav").sidenav();
 
     /*################ CAROUSEL DEL COTENIDO POPULAR ################*/
-    $(".carousel.carousel-slider").carousel({
+    $("#div-content-carousel-popular.carousel-slider").carousel({
         dist: 0,
         padding: 0,
         fullWidth: true,
@@ -37,5 +37,11 @@ $(document).ready(function() {
             .addClass("animate");
         $(".carousel-progress-bar-timer").css("width", 100 + "%");
     }
-
+    /*################ CAROUSEL DEL COTENIDO DE RECOMENDACIONES ################*/
+    $('#div-content-carousel-recomendations.carousel').carousel({
+      dist:0,
+      shift:0,
+      padding: 70,
+      numVisible: 5,
+    });
 });

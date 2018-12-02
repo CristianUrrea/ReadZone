@@ -99,14 +99,19 @@ nav,
 #div-content-recomendations {
     margin-top: -20px;
 }
-
-
+#div-content-carousel-recomendations {
+  height: 330px;
+}
+#div-content-carousel-recomendations .carousel-item {
+  margin-top: -4.5%;
+  opacity: 1 !important;
+}
 /*################ BARRA DE PROGRESO  ################*/
 
 .carousel-progress-bar-timer {
     display: block;
     height: 5px;
-    background-color: #039be5;
+    background-color: red;
     width: 0%;
     margin: 0;
     border: none;
@@ -141,5 +146,5 @@ nav,
 
 /*################ FOOTER ################*/
 .page-footer{
-  background-color: #424242;
+  background-color: #263238;
 }
