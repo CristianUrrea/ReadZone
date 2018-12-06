@@ -14,6 +14,7 @@
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css'>
     <!-- Mis css -->
     <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="css/comun.css">
     <!--Let browser know website is optimized for mobile-->
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="robots" content="noindex, nofollow">

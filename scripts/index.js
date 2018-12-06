@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    $(".sidenav").sidenav();
 
     /*################ CAROUSEL DEL COTENIDO POPULAR ################*/
     $("#div-content-carousel-popular.carousel-slider").carousel({
@@ -39,9 +38,9 @@ $(document).ready(function() {
     }
     /*################ CAROUSEL DEL COTENIDO DE RECOMENDACIONES ################*/
     $('#div-content-carousel-recomendations.carousel').carousel({
-      dist:0,
-      shift:0,
-      padding: 70,
-      numVisible: 5,
+        dist: 0,
+        shift: 0,
+        padding: 35,
+        numVisible: 5,
     });
 });

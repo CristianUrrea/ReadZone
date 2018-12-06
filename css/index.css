@@ -1,96 +1,12 @@
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    font-family: 'Roboto', sans-serif;
-}
-
-main {
-    flex: 1 0 auto;
-}
-
-footer {
-    margin-top: 20px;
-}
-
-nav,
-.page-footer,
-#btn-div-login-form-inicio-sesion {
-    background-color: white;
-}
-
-
-/*################ HEADER ################*/
-
-/*################ BAR NAV ################*/
-.nav-wrapper a, #div-nav-login-form a {
-  color: black;
-}
-
-#input-div-nav-search {
-    width: 100%;
-    margin-top: 12px;
-    border-radius: 5px;
-    border: solid 1px;
-    border-color: #bdbdbd;
-    -webkit-appearance: none
-}
-
-#label-div-nav-icon-search {
-    margin-top: -10px;
-}
-
-#ul-div-nav-links {
-    text-align: center;
-}
-
-#ul-div-nav-links li {
-    display: inline;
-    float: none;
-}
-
-#ul-div-nav-links li a {
-    display: inline-block;
-}
-
-#a-div-nav-img-perfil {
-}
-
-/*################ DROPDOWN CONTENT ################*/
-
-#btn-div-login-form-inicio-sesion {
-    width: 100%;
-    margin: auto;
-}
-
-#div-nav-login-form {
-    text-align: center;
-}
-
-#div-nav-login-form li {
-    display: inline;
-    float: none;
-}
-
-#div-nav-login-form li a {
-    font-size: 14px;
-    display: inline-block;
-}
-
-#div-nav-login-form i {
-  margin-left: -10px;
-}
-/*#######################################*/
-
-
 /*################ MAIN ################*/
 
 
 /*################ CONTENT  ################*/
 
 #div-content {
-  background-color: #bdbdbd;
+    background-color: #bdbdbd;
 }
+
 #div-content,
 #div-content-recomendations {
     height: 400px;
@@ -99,13 +15,17 @@ nav,
 #div-content-recomendations {
     margin-top: -20px;
 }
+
 #div-content-carousel-recomendations {
-  height: 330px;
+    height: 330px;
 }
+
 #div-content-carousel-recomendations .carousel-item {
-  margin-top: -4.5%;
-  opacity: 1 !important;
+    margin-top: -4.5%;
+    opacity: 1 !important;
 }
+
+
 /*################ BARRA DE PROGRESO  ################*/
 
 .carousel-progress-bar-timer {
@@ -142,9 +62,3 @@ nav,
 
 
 /*#######################################*/
-
-
-/*################ FOOTER ################*/
-.page-footer{
-  background-color: #263238;
-}

@@ -13,32 +13,12 @@
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css'>
     <!-- Mis css -->
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/comun.css">
     <!--Let browser know website is optimized for mobile-->
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <style type="text/css">
-        @media only screen and (max-width: 600px) {
-            .searchbarfix {
-                height: 56px !important;
-            }
-        }
-
-        @media only screen and (min-width: 601px) {
-            .searchbarfix {
-                height: 40px !important;
-            }
-        }
-
-        .navfix {
-            position: relative;
-            margin-right: 0;
-        }
-
-    </style>
-
 </head>
 
 <body>
@@ -47,55 +27,77 @@
         <nav class="nav-border">
             <div class="nav-wrapper">
                 <div class="row">
-                  <div class="col s12 m12 l8 offset-l2">
-                    <div class="col s12 m12 l6">
-                      <a href="#" class="right sidenav-trigger" data-target="mobile-nav">
-                          <i class="material-icons">menu</i>
-                      </a>
-                        <ul id="ul-div-nav-links" style="margin-left: -23px;" class="left">
-                           <li>
-                              <a class="search-hide" href="#">Logo</a>
-                           </li>
-                            <li>
-                                <a class="search-hide" href="#">Biblioteca</a>
-                            </li>
-                            <li>
-                                <a class="search-hide" href="#">Wiki</a>
-                            </li>
-                            <li>
-                                <a class="search-hide" href="#">Noticias</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col s12 m2 l4">
-                        <div class="navfix hide-on-med-and-down">
-                            <div id="nav-div-search">
-                                <div class="input-field">
-                                    <input id="input-div-nav-search" type="search" required="" placeholder="Buscar..." class="searchbarfix white">
-                                    <label id="label-div-nav-icon-search" class="label-icon" for="search"><i class="material-icons black-text">search</i></label>
+                    <div class="col s12 m12 l8 offset-l2">
+                        <div class="col s12 m12 l6">
+                            <a id="nav-a-icon-menu-sidenav" href="#" class="right sidenav-trigger" data-target="mobile-nav">
+                                <i class="material-icons">menu</i>
+
+                            </a>
+                            <a href="#"><i class="material-icons right hide-on-large-only">search</i></a>
+                            <ul id="ul-div-nav-links" class="left">
+                                <li>
+                                    <a class="search-hide" href="index.php">Logo</a>
+                                </li>
+                                <li>
+                                    <a class="search-hide" href="biblioteca.php">Biblioteca</a>
+                                </li>
+                                <li>
+                                    <a class="search-hide" href="#">Wiki</a>
+                                </li>
+                                <li>
+                                    <a class="search-hide" href="#">Noticias</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col s12 m2 l4">
+                            <div class="navfix hide-on-med-and-down">
+                                <div id="nav-div-search">
+                                    <div class="input-field">
+                                        <input id="input-div-nav-search" type="search" required="" placeholder="Buscar..." class="searchbarfix white">
+                                        <label id="label-div-nav-icon-search" class="label-icon" for="search"><i class="material-icons grey-text">search</i></label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col s12 m2 l2">
+                            <ul id="ul-div-nav-dropdown" class="hide-on-med-and-down right">
+                                <li>
+                                    <a id="a-div-login" href="#">Login</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col s12 m2 l2">
-                        <ul id="ul-div-nav-dropdown" class="hide-on-med-and-down right">
-                            <li>
-                                <a style="margin-right: -24px;"  id="a-div-login" href="#">Login</a>
-                            </li>
-                        </ul>
-                    </div>
-                  </div>
                 </div>
             </div>
         </nav>
+        <!-- Bar nav mobile -->
+        <ul id="mobile-nav" class="sidenav right">
+            <li id="li-nav-login-form">
+                <div id="div-nav-login-form" style="">
+                    <form action="" method="post">
+                        <div class="input-field">
+                            <i class="material-icons iconis prefix">account_box</i>
+                            <input type="text" placeholder="nombre">
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons iconis prefix">lock</i>
+                            <input type="password" placeholder="contraseña">
+                        </div>
+                        <button id="btn-div-login-form-inicio-sesion" class="btn waves-effect waves-red white-text red" type="submit" name="action">Inciar sesión</button>
+                    </form>
+                    <ul>
+                        <li><a style="font-size: 8px;" href="registro.php">Registrar</a></li>
+                        <li><a style="font-size: 8px;" href="#">¿Olvidates tu contraseña? </a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="biblioteca.php">Biblioteca</a></li>
+            <li><a href="#">Wiki</a></li>
+            <li><a href="#">Noticas</a></li>
+
+        </ul>
     </header>
-    <!-- Bar nav mobile -->
-    <ul class="sidenav left" id="mobile-nav">
-        <li><a href="#">Biblioteca</a></li>
-        <li><a href="#">Wiki</a></li>
-        <li><a href="#">Noticas</a></li>
-        <li><a href="#">Perfil</a></li>
-    </ul>
+
     <!-- Div content login -->
     <div id="div-nav-login-form" class="webui-popover-content">
         <form action="" method="post">
@@ -107,7 +109,7 @@
                 <i class="material-icons iconis prefix">lock</i>
                 <input type="password" placeholder="contraseña">
             </div>
-            <button id="btn-div-login-form-inicio-sesion" class="btn waves-effect waves-red white-text red" type="submit" name="action">Inciar sesión</button>
+            <button id="btn-div-login-form-inicio-sesion-2" class="btn waves-effect waves-red white-text red" type="submit" name="action">Inciar sesión</button>
         </form>
         <br>
         <ul>
@@ -147,310 +149,310 @@
                 </div>
             </div>
             <!--################ RECOMENDATIONS LIBROS ################-->
-            <div class="row">
-              <div class="col s12 m12 l8 offset-l2">
-                <h5 style="margin-left: -12px;">Recomendaciones libros</h5>
-              </div>
-              <div id="div-content-carousel-recomendations" class="carousel center col s12 m12 l8 offset-l2">
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                              <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <!--################ RECOMENDATIONS MANGAS ################-->
-              <div style="margin-top: 10px;" class="col s12 m12 l8 offset-l2">
-                <h5 style="margin-left: -12px;">Recomendaciones mangas</h5>
-              </div>
-              <div id="div-content-carousel-recomendations" class="carousel center col s12 m12 l8 offset-l2">
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                              <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <!--################ RECOMENDATIONS NOVELAS ################-->
-              <div style="margin-top: 10px;" class="col s12 m12 l8 offset-l2">
-                <h5 style="margin-left: -12px;">Recomendaciones novelas</h5>
-              </div>
-              <div id="div-content-carousel-recomendations" class="carousel center col s12 m12 l8 offset-l2">
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                              <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <!--################ RECOMENDATIONS COMICS ################-->
-              <div style="margin-top: 10px;" class="col s12 m12 l8 offset-l2">
-                <h5 style="margin-left: -12px;">Recomendaciones comics</h5>
-              </div>
-              <div id="div-content-carousel-recomendations" class="carousel center col s12 m12 l8 offset-l2">
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                              <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="card sticky-action">
-                          <div class="card-image ">
-                            <img src="http://placehold.it/1920/999/fff"> </img>
-                          </div>
-                          <div class="card-content">
-                              <p>I am a very simple card.</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+            <div id="div-content-recomendations" class="row">
+                <div class="col s12 m12 l8 offset-l2">
+                    <h5>Recomendaciones libros</h5>
+                </div>
+                <div id="div-content-carousel-recomendations" class="carousel center col s12 m12 l8 offset-l2">
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--################ RECOMENDATIONS MANGAS ################-->
+                <div style="margin-top: 10px;" class="col s12 m12 l8 offset-l2">
+                    <h5>Recomendaciones mangas</h5>
+                </div>
+                <div id="div-content-carousel-recomendations" class="carousel center col s12 m12 l8 offset-l2">
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--################ RECOMENDATIONS NOVELAS ################-->
+                <div style="margin-top: 10px;" class="col s12 m12 l8 offset-l2">
+                    <h5>Recomendaciones novelas</h5>
+                </div>
+                <div id="div-content-carousel-recomendations" class="carousel center col s12 m12 l8 offset-l2">
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--################ RECOMENDATIONS COMICS ################-->
+                <div style="margin-top: 10px;" class="col s12 m12 l8 offset-l2">
+                    <h5>Recomendaciones comics</h5>
+                </div>
+                <div id="div-content-carousel-recomendations" class="carousel center col s12 m12 l8 offset-l2">
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card sticky-action">
+                            <div class="card-image ">
+                                <img src="http://placehold.it/1920/999/fff"> </img>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Back to top -->
@@ -490,42 +492,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!--Import jQuery before webuiPopover.js-->
     <script src='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js'></script>
+    <script type="text/javascript" src="scripts/comun.js"></script>
     <script type="text/javascript" src="scripts/index.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            /*################ DROPDOWN DIV DEL LOGIN ################*/
-            $('#a-div-login').webuiPopover({
-                html: true,
-                url: '#div-nav-login-form',
-                animation: 'fade',
-                placement: 'bottom-left'
-            });
-
-            /*################ BOTÓN PARA REGRESAR A LA PARTE SUPERIOR DE LA PÁGINA ################*/
-            if ($('#back-to-top').length) {
-                var scrollTrigger = 100, // px
-                    backToTop = function() {
-                        var scrollTop = $(window).scrollTop();
-                        if (scrollTop > scrollTrigger) {
-                            $('#back-to-top').removeClass('scale-out');
-                        } else {
-                            $('#back-to-top').addClass('scale-out');
-                        }
-                    };
-                backToTop();
-                $(window).on('scroll', function() {
-                    backToTop();
-                });
-
-                $('#back-to-top').on('click', function(e) {
-                    e.preventDefault();
-                    $('html,body').animate({
-                        scrollTop: 0
-                    }, 700);
-                });
-            }
-        });
-    </script>
 </body>
 
 </html>

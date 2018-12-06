@@ -1,0 +1,168 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+nav,
+.page-footer,
+#btn-div-login-form-inicio-sesion, #btn-div-login-form-inicio-sesion-2 {
+    background-color: white;
+}
+
+
+/*################ MEDIA QUERY ################*/
+
+@media only screen and (max-width: 600px) {
+    .searchbarfix {
+        height: 56px !important;
+    }
+}
+
+@media only screen and (min-width: 990px) {
+    #div-content-recomendations div h5 {
+        margin-left: -12px;
+    }
+}
+
+@media only screen and (min-width: 450px) and (max-width: 990px) {
+    #div-content-recomendations {
+        width: 96%;
+    }
+    #div-content-recomendations div h5 {
+        margin-left: -14px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    #ul-div-nav-links {
+        margin-left: -28px;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    .searchbarfix {
+        height: 40px !important;
+    }
+}
+
+.navfix {
+    position: relative;
+    margin-right: 0;
+}
+
+
+/*#######################################*/
+
+
+/*################ HEADER ################*/
+
+
+/*################ BAR NAV ################*/
+
+.nav-wrapper a,
+#div-nav-login-form a {
+    color: black;
+}
+
+#input-div-nav-search {
+    width: 100%;
+    margin-top: 11px;
+    border-radius: 5px;
+    border: solid 1px;
+    border-color: #bdbdbd;
+    -webkit-appearance: none
+}
+
+#label-div-nav-icon-search {
+    margin-top: -10px;
+}
+
+#ul-div-nav-links {
+    text-align: center;
+    margin-left: -23px;
+}
+
+#ul-div-nav-links li {
+    display: inline;
+    float: none;
+}
+
+#ul-div-nav-links li a {
+    display: inline-block;
+}
+
+#ul-div-nav-links li a:hover,
+#ul-div-nav-dropdown li a:hover {
+    background-color: #ffffff;
+    color: red;
+}
+
+#ul-div-nav-dropdown li a {
+    margin-right: -23px;
+}
+
+#nav-a-icon-menu-sidenav {
+    margin-right: -1.7%;
+}
+
+
+/*################ DROPDOWN CONTENT ################*/
+
+#btn-div-login-form-inicio-sesion, #btn-div-login-form-inicio-sesion-2 {
+    width: 100%;
+    margin: auto;
+}
+
+#div-nav-login-form {
+    text-align: center;
+}
+
+#div-nav-login-form li {
+    display: inline;
+    float: none;
+}
+
+#div-nav-login-form li a {
+    font-size: 14px;
+    display: inline-block;
+}
+
+#div-nav-login-form li a:hover {
+    color: red;
+}
+
+#div-nav-login-form i {
+    margin-left: -10px;
+}
+
+
+/*################ MENU SIDENAV ################*/
+
+#mobile-nav #li-nav-login-form {
+    border-bottom: solid;
+}
+
+#mobile-nav li #div-nav-login-form {
+    width: 90%;
+    margin-left: 15px;
+}
+
+
+/*#######################################*/
+
+
+/*################ FOOTER ################*/
+
+.page-footer {
+    background-color: #263238;
+}
