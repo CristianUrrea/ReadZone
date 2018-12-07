@@ -2,7 +2,6 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <meta charset="utf-8">
     <title>ReadZone</title>
     <!-- Import font googleapis -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -20,61 +19,90 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style media="screen">
+        @media only screen and (min-width: 601px) {
+            .searchbarfix {
+                height: 40px !important;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .searchbarfix {
+                height: 56px !important;
+            }
+        }
+
+        @media only screen and (max-width: 599px) {
+            .searchbarfix {
+                height: 40px !important;
+            }
+        }
+
+        .card-container {
+            -moz-column-width: 23rem;
+            -webkit-column-width: 23rem;
+            -moz-column-gap: 1rem;
+            -webkit-column-gap: 1rem;
+        }
+
+        .card-panel {
+            display: inline-block;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
-    <!--################ BAR NAV ################-->
     <header>
-        <nav class="nav-border">
-            <div class="nav-wrapper">
-                <div class="row">
-                    <div class="col s12 m12 l8 offset-l2">
-                        <div class="col s12 m12 l6">
-                            <a href="#" style="margin-right: -1.7%;" class="right sidenav-trigger" data-target="mobile-nav">
-                                <i class="material-icons">menu</i>
+        <!--################ BAR NAV ################-->
 
-                            </a>
-                            <a href="#"><i class="material-icons right hide-on-large-only">search</i></a>
-                            <ul id="ul-div-nav-links" style="margin-left: -23px;" class="left">
-                                <li>
-                                    <a class="search-hide" href="index.php">Logo</a>
-                                </li>
-                                <li>
-                                    <a class="search-hide" href="biblioteca.php">Biblioteca</a>
-                                </li>
-                                <li>
-                                    <a class="search-hide" href="#">Wiki</a>
-                                </li>
-                                <li>
-                                    <a class="search-hide" href="#">Noticias</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col s12 m2 l4">
-                            <div class="navfix hide-on-med-and-down">
-                                <div id="nav-div-search">
-                                    <div class="input-field">
-                                        <input id="input-div-nav-search" type="search" required="" placeholder="Buscar..." class="searchbarfix white">
-                                        <label id="label-div-nav-icon-search" class="label-icon" for="search"><i class="material-icons black-text">search</i></label>
-                                    </div>
+        <nav class="nav-border">
+            <div class="row">
+                <div class="col s12 m12 l8 offset-l2">
+                    <div class="col s12 m12 l6 nav-wrapper">
+                        <a id="nav-a-icon-menu-sidenav" href="#" class="right sidenav-trigger" data-target="mobile-nav">
+                            <i class="material-icons">menu</i>
+                        </a>
+                        <!--<a href="#"><i class="material-icons right hide-on-large-only">search</i></a>-->
+                        <ul id="ul-div-nav-links" class="left">
+                            <li>
+                                <a class="search-hide" href="index.php">Logo</a>
+                            </li>
+                            <li>
+                                <a class="search-hide" href="biblioteca.php">Biblioteca</a>
+                            </li>
+                            <li>
+                                <a class="search-hide" href="#">Wiki</a>
+                            </li>
+                            <li>
+                                <a class="search-hide" href="#">Noticias</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col s12 m2 l4">
+                        <div class="hide-on-med-and-down">
+                            <div id="nav-div-search" class="search-wrapper">
+                                <div class="input-field">
+                                    <input id="input-div-nav-search" type="search" placeholder="Buscar..." class="right searchbarfix white">
+                                    <i id="i-div-nav-search" class="material-icons grey-text">search</i>
                                 </div>
                             </div>
                         </div>
-                        <div class="col s12 m2 l2">
-                            <ul id="ul-div-nav-dropdown" class="hide-on-med-and-down right">
-                                <li>
-                                    <a style="margin-right: -23px;" id="a-div-login" href="#">Login</a>
-                                </li>
-                            </ul>
-                        </div>
+                    </div>
+                    <div class="col s12 m2 l2 nav-wrapper">
+                        <ul id="ul-div-nav-dropdown" class="hide-on-med-and-down right">
+                            <li>
+                                <a id="a-div-login" href="#">Login</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </nav>
         <!-- Bar nav mobile -->
         <ul id="mobile-nav" class="sidenav right">
-            <li style="border-bottom: solid;">
-                <div id="div-nav-login-form" style="width: 90%; margin-left: 15px;">
+            <li id="li-nav-login-form">
+                <div id="div-nav-login-form" style="">
                     <form action="" method="post">
                         <div class="input-field">
                             <i class="material-icons iconis prefix">account_box</i>
@@ -110,7 +138,7 @@
                 <i class="material-icons iconis prefix">lock</i>
                 <input type="password" placeholder="contraseña">
             </div>
-            <button id="btn-div-login-form-inicio-sesion" class="btn waves-effect waves-red white-text red" type="submit" name="action">Inciar sesión</button>
+            <button id="btn-div-login-form-inicio-sesion-2" class="btn waves-effect waves-red white-text red" type="submit" name="action">Inciar sesión</button>
         </form>
         <br>
         <ul>
@@ -120,16 +148,150 @@
         </ul>
     </div>
     <!--################################-->
-    <main>
 
+    <main>
+        <div id="div-search-type">
+            <div class="row" style="background-color: green;margin-top: 50px;">
+                <div style="height: 64px;" class="col s12 m12 l8 offset-l2">
+                    <div class="col s3 m3 l3">
+                        <button style="height: 44px; margin-left: -20px; margin-top: 10px; font-size: 12px;" class="btn" type="button" name="button">Búsqueda avanzada<i class="material-icons right">arrow_drop_down</i></button>
+                    </div>
+                    <div class="search-wrapper">
+                        <div id="div-type-search-one" class="input-field col s9 m9 l9">
+                            <input id="input-div-search" style="width: 100%;padding: 0 20px 2px 15px; margin-right: -22px;" type="search" placeholder="Buscar..." class="right searchbarfix white">
+                            <i style="margin-top: 7px; margin-right: -15px; " class="material-icons grey-text">search</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div id="div-biblioteca" style="height: 696px; background-color: lightgrey;" class="col s12 m12 l8 offset-l2 card-container">
+                    <div class="card-panel">
+                        <h5 id="title">Title</h5>
+                        <p id="description">Description</p>
+                        <div>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="card-panel">
+                        <h5 id="title">Title</h5>
+                        <p id="description">Description</p>
+                        <div>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="card-panel">
+                        <h5 id="title">Title</h5>
+                        <p id="description">Description</p>
+                        <div>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="card-panel">
+                        <h5 id="title">Title</h5>
+                        <p id="description">Description</p>
+                        <div>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="card-panel">
+                        <h5 id="title">Title</h5>
+                        <p id="description">Description</p>
+                        <div>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="card-panel">
+                        <h5 id="title">Title</h5>
+                        <p id="description">Description</p>
+                        <div>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="card-panel">
+                        <h5 id="title">Title</h5>
+                        <p id="description">Description</p>
+                        <div>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="card-panel">
+                        <h5 id="title">Title</h5>
+                        <p id="description">Description</p>
+                        <div>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="card-panel">
+                        <h5 id="title">Title</h5>
+                        <p id="description">Description</p>
+                        <div>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Back to top -->
+        <div class="fixed-action-btn">
+            <a id="back-to-top" class="btn-floating btn-large red scale-transition">
+                <i class="large material-icons">keyboard_arrow_up</i>
+            </a>
+        </div>
     </main>
+    <!--################################-->
     <!--################ FOOTER ################-->
-    <footer id="footer" class="page-footer">
+    <footer class="page-footer">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                    <p class="white-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">Links</h5>
@@ -141,10 +303,12 @@
         <div class="footer-copyright">
             <div class="container">
                 © 2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                <a class="white-text text-lighten-4 right" href="#!">More Links</a>
             </div>
         </div>
     </footer>
+    <!--################################-->
+
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

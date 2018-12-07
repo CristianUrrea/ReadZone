@@ -1,0 +1,19 @@
+/*################ MAIN ################*/
+
+/*################ SEARCH AND SEARCH ADBANCED ################*/
+
+#div-type-search-one {
+    margin-top: 11px;
+}
+
+#input-div-search {
+    width: 80%;
+    border-radius: 5px;
+    border: solid 1px;
+    border-color: #bdbdbd;
+    -webkit-appearance: none
+}
+
+#label-div-icon-search {
+    margin-top: 7px;
+}

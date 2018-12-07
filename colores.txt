@@ -1,1 +1,1 @@
-white, #424242, black, grey darken-4, #bdbdbd, red, #263238 
+#f5f5f5, white, #424242, black, grey darken-4, #bdbdbd, red, #37474f

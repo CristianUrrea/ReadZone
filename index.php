@@ -22,50 +22,48 @@
 </head>
 
 <body>
-    <!--################ BAR NAV ################-->
     <header>
-        <nav class="nav-border">
-            <div class="nav-wrapper">
-                <div class="row">
-                    <div class="col s12 m12 l8 offset-l2">
-                        <div class="col s12 m12 l6">
-                            <a id="nav-a-icon-menu-sidenav" href="#" class="right sidenav-trigger" data-target="mobile-nav">
-                                <i class="material-icons">menu</i>
+        <!--################ BAR NAV ################-->
 
-                            </a>
-                            <a href="#"><i class="material-icons right hide-on-large-only">search</i></a>
-                            <ul id="ul-div-nav-links" class="left">
-                                <li>
-                                    <a class="search-hide" href="index.php">Logo</a>
-                                </li>
-                                <li>
-                                    <a class="search-hide" href="biblioteca.php">Biblioteca</a>
-                                </li>
-                                <li>
-                                    <a class="search-hide" href="#">Wiki</a>
-                                </li>
-                                <li>
-                                    <a class="search-hide" href="#">Noticias</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col s12 m2 l4">
-                            <div class="navfix hide-on-med-and-down">
-                                <div id="nav-div-search">
-                                    <div class="input-field">
-                                        <input id="input-div-nav-search" type="search" required="" placeholder="Buscar..." class="searchbarfix white">
-                                        <label id="label-div-nav-icon-search" class="label-icon" for="search"><i class="material-icons grey-text">search</i></label>
-                                    </div>
+        <nav class="nav-border">
+            <div class="row">
+                <div class="col s12 m12 l8 offset-l2">
+                    <div class="col s12 m12 l6 nav-wrapper">
+                        <a id="nav-a-icon-menu-sidenav" href="#" class="right sidenav-trigger" data-target="mobile-nav">
+                            <i class="material-icons">menu</i>
+                        </a>
+                        <!--<a href="#"><i class="material-icons right hide-on-large-only">search</i></a>-->
+                        <ul id="ul-div-nav-links" class="left">
+                            <li>
+                                <a class="search-hide" href="index.php">Logo</a>
+                            </li>
+                            <li>
+                                <a class="search-hide" href="biblioteca.php">Biblioteca</a>
+                            </li>
+                            <li>
+                                <a class="search-hide" href="#">Wiki</a>
+                            </li>
+                            <li>
+                                <a class="search-hide" href="#">Noticias</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col s12 m2 l4">
+                        <div class="hide-on-med-and-down">
+                            <div id="nav-div-search" class="search-wrapper">
+                                <div class="input-field">
+                                    <input id="input-div-nav-search" type="search" placeholder="Buscar..." class="right searchbarfix white">
+                                    <i id="i-div-nav-search" class="material-icons grey-text">search</i>
                                 </div>
                             </div>
                         </div>
-                        <div class="col s12 m2 l2">
-                            <ul id="ul-div-nav-dropdown" class="hide-on-med-and-down right">
-                                <li>
-                                    <a id="a-div-login" href="#">Login</a>
-                                </li>
-                            </ul>
-                        </div>
+                    </div>
+                    <div class="col s12 m2 l2 nav-wrapper">
+                        <ul id="ul-div-nav-dropdown" class="hide-on-med-and-down right">
+                            <li>
+                                <a id="a-div-login" href="#">Login</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
