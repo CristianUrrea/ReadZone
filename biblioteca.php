@@ -37,18 +37,38 @@
                 height: 40px !important;
             }
         }
+        .cards-container {
+  column-break-inside: avoid;
+}
+.cards-container .card {
+  display: inline-block;
+  overflow: visible;
+}
 
-        .card-container {
-            -moz-column-width: 23rem;
-            -webkit-column-width: 23rem;
-            -moz-column-gap: 1rem;
-            -webkit-column-gap: 1rem;
-        }
-
-        .card-panel {
-            display: inline-block;
-            width: 100%;
-        }
+@media only screen and (max-width : 600px) {
+  .cards-container {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 2;
+  }
+}
+@media only screen and (min-width : 601px) {
+  .cards-container {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 3;
+  }
+}
+@media only screen and (min-width : 993px) {
+  .cards-container {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 4;
+  }
+}
+.text-center {
+  text-align: center;
+}
     </style>
 </head>
 
@@ -151,129 +171,117 @@
 
     <main>
         <div id="div-search-type">
-            <div class="row" style="background-color: green;margin-top: 50px;">
+            <div class="row" style="margin-top: 50px;">
                 <div style="height: 64px;" class="col s12 m12 l8 offset-l2">
                     <div class="col s3 m3 l3">
                         <button style="height: 44px; margin-left: -20px; margin-top: 10px; font-size: 12px;" class="btn" type="button" name="button">Búsqueda avanzada<i class="material-icons right">arrow_drop_down</i></button>
                     </div>
                     <div class="search-wrapper">
                         <div id="div-type-search-one" class="input-field col s9 m9 l9">
-                            <input id="input-div-search" style="width: 100%;padding: 0 20px 2px 15px; margin-right: -22px;" type="search" placeholder="Buscar..." class="right searchbarfix white">
+                            <input id="input-div-search" style="width: 80%;padding: 0 20px 2px 15px; margin-right: -15px;" type="search" placeholder="Buscar..." class="right searchbarfix white">
                             <i style="margin-top: 7px; margin-right: -15px; " class="material-icons grey-text">search</i>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div id="div-biblioteca" style="height: 696px; background-color: lightgrey;" class="col s12 m12 l8 offset-l2 card-container">
-                    <div class="card-panel">
-                        <h5 id="title">Title</h5>
-                        <p id="description">Description</p>
-                        <div>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                        </div>
-                    </div>
-                    <div class="card-panel">
-                        <h5 id="title">Title</h5>
-                        <p id="description">Description</p>
-                        <div>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                        </div>
-                    </div>
-                    <div class="card-panel">
-                        <h5 id="title">Title</h5>
-                        <p id="description">Description</p>
-                        <div>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                        </div>
-                    </div>
-                    <div class="card-panel">
-                        <h5 id="title">Title</h5>
-                        <p id="description">Description</p>
-                        <div>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                        </div>
-                    </div>
-                    <div class="card-panel">
-                        <h5 id="title">Title</h5>
-                        <p id="description">Description</p>
-                        <div>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                        </div>
-                    </div>
-                    <div class="card-panel">
-                        <h5 id="title">Title</h5>
-                        <p id="description">Description</p>
-                        <div>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                        </div>
-                    </div>
-                    <div class="card-panel">
-                        <h5 id="title">Title</h5>
-                        <p id="description">Description</p>
-                        <div>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                        </div>
-                    </div>
-                    <div class="card-panel">
-                        <h5 id="title">Title</h5>
-                        <p id="description">Description</p>
-                        <div>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                        </div>
-                    </div>
-                    <div class="card-panel">
-                        <h5 id="title">Title</h5>
-                        <p id="description">Description</p>
-                        <div>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                            <a href="#" target="main" class="pink-text text-accent-2">Link!</a>
-                            <br>
-                        </div>
-                    </div>
+                <div id="div-biblioteca" style="" class="col s12 m12 l8 offset-l2 cards-container">
+                  <div class="card sticky-action">
+                      <div class="card-image ">
+                          <img style=""src="http://placehold.it/1920/999/fff"> </img>
+                      </div>
+                      <div class="card-content">
+                          <p>I am a very simple card.</p>
+                      </div>
+                  </div>
+                  <div class="card sticky-action">
+                      <div class="card-image ">
+                          <img style=""src="http://placehold.it/1920/999/fff"> </img>
+                      </div>
+                      <div class="card-content">
+                          <p>I am a very simple card.</p>
+                      </div>
+                  </div>
+                  <div class="card sticky-action">
+                      <div class="card-image ">
+                          <img style=""src="http://placehold.it/1920/999/fff"> </img>
+                      </div>
+                      <div class="card-content">
+                          <p>I am a very simple card.</p>
+                      </div>
+                  </div>
+                  <div class="card sticky-action">
+                      <div class="card-image ">
+                          <img style=""src="http://placehold.it/1920/999/fff"> </img>
+                      </div>
+                      <div class="card-content">
+                          <p>I am a very simple card.</p>
+                      </div>
+                  </div>
+                  <div class="card sticky-action">
+                      <div class="card-image ">
+                          <img style=""src="http://placehold.it/1920/999/fff"> </img>
+                      </div>
+                      <div class="card-content">
+                          <p>I am a very simple card.</p>
+                      </div>
+                  </div>
+                  <div class="card sticky-action">
+                      <div class="card-image ">
+                          <img style=""src="http://placehold.it/1920/999/fff"> </img>
+                      </div>
+                      <div class="card-content">
+                          <p>I am a very simple card.</p>
+                      </div>
+                  </div>
+                  <div class="card sticky-action">
+                      <div class="card-image ">
+                          <img style=""src="http://placehold.it/1920/999/fff"> </img>
+                      </div>
+                      <div class="card-content">
+                          <p>I am a very simple card.</p>
+                      </div>
+                  </div>
+                  <div class="card sticky-action">
+                      <div class="card-image ">
+                          <img style=""src="http://placehold.it/1920/999/fff"> </img>
+                      </div>
+                      <div class="card-content">
+                          <p>I am a very simple card.</p>
+                      </div>
+                  </div>
+                  <div class="card sticky-action">
+                      <div class="card-image ">
+                          <img style=""src="http://placehold.it/1920/999/fff"> </img>
+                      </div>
+                      <div class="card-content">
+                          <p>I am a very simple card.</p>
+                      </div>
+                  </div>
+                  <div class="card sticky-action">
+                      <div class="card-image ">
+                          <img style=""src="http://placehold.it/1920/999/fff"> </img>
+                      </div>
+                      <div class="card-content">
+                          <p>I am a very simple card.</p>
+                      </div>
+                  </div>
+                  <div class="card sticky-action">
+                      <div class="card-image ">
+                          <img style=""src="http://placehold.it/1920/999/fff"> </img>
+                      </div>
+                      <div class="card-content">
+                          <p>I am a very simple card.</p>
+                      </div>
+                  </div>
+                  <div class="card sticky-action">
+                      <div class="card-image ">
+                          <img style=""src="http://placehold.it/1920/999/fff"> </img>
+                      </div>
+                      <div class="card-content">
+                          <p>I am a very simple card.</p>
+                      </div>
+                  </div>
                 </div>
             </div>
         </div>
