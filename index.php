@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
+    <meta charset="utf-8">
     <title>ReadZone</title>
     <!-- Import font googleapis -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -84,8 +85,8 @@
                         <button id="btn-div-login-form-inicio-sesion" class="btn waves-effect waves-red white-text red" type="submit" name="action">Inciar sesión</button>
                     </form>
                     <ul>
-                        <li><a style="font-size: 8px;" href="registro.php">Registrar</a></li>
-                        <li><a style="font-size: 8px;" href="#">¿Olvidates tu contraseña? </a></li>
+                        <li><a style="font-size: 13px;" href="registro.php">Registrar</a></li>
+                        <li><a style="font-size: 13px;" href="#">¿Olvidates tu contraseña? </a></li>
                     </ul>
                 </div>
             </li>
@@ -124,26 +125,36 @@
             <div class="row">
                 <!--################ POPULAR ################-->
                 <div id="div-content-carousel-popular" class="carousel carousel-slider center col s12 m12 l8 offset-l2">
-                    <div class="carousel-fixed-item center">
-                        <!-- Timer "progress bar"-->
-                        <hr class="carousel-progress-bar-timer animate" />
-                    </div>
-                    <div class="carousel-item orange white-text" href="#one!">
-                        <h2>Primer libro</h2>
-                        <p class="white-text">This is your first panel</p>
-                    </div>
-                    <div class="carousel-item amber white-text" href="#two!">
-                        <h2>Primer manga</h2>
-                        <p class="white-text">This is your second panel</p>
-                    </div>
-                    <div class="carousel-item green white-text" href="#three!">
-                        <h2>Primera novela</h2>
-                        <p class="white-text">This is your third panel</p>
-                    </div>
-                    <div class="carousel-item grey white-text" href="#four!">
-                        <h2>Primer comic</h2>
-                        <p class="white-text">This is your fourth panel</p>
-                    </div>
+                  <div class="carousel-fixed-item center">
+                      <!-- Timer "progress bar"-->
+                      <hr class="carousel-progress-bar-timer animate" />
+                  </div>
+                    <a href="contenido.php">
+                        <div class="carousel-item orange white-text" href="#one!">
+                            <h2>Primer libro</h2>
+
+                            <p class="white-text">This is your first panel</p>
+                        </div>
+                    </a>
+                    <a href="contenido.php">
+                        <div class="carousel-item amber white-text" href="#two!">
+                            <h2>Primer manga</h2>
+                            <p class="white-text">This is your second panel</p>
+                        </div>
+                    </a>
+                    <a href="contenido.php">
+                        <div class="carousel-item green white-text" href="#three!">
+                            <h2>Primera novela</h2>
+                            <p class="white-text">This is your third panel</p>
+                        </div>
+                    </a>
+                    <a href="contenido.php">
+                        <div class="carousel-item grey white-text" href="#four!">
+                            <h2>Primer comic</h2>
+                            <p class="white-text">This is your fourth panel</p>
+                        </div>
+                    </a>
+
                 </div>
             </div>
             <!--################ RECOMENDATIONS LIBROS ################-->
@@ -155,7 +166,8 @@
                     <div class="carousel-item">
                         <div class="card sticky-action">
                             <div class="card-image ">
-                                <img src="http://placehold.it/1920/999/fff"> </img>
+                                <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"> </img>
+                                </a>
                             </div>
                             <div class="card-content">
                                 <p>I am a very simple card.</p>
@@ -165,7 +177,8 @@
                     <div class="carousel-item">
                         <div class="card sticky-action">
                             <div class="card-image ">
-                                <img src="http://placehold.it/1920/999/fff"> </img>
+                                <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"> </img>
+                                </a>
                             </div>
                             <div class="card-content">
                                 <p>I am a very simple card.</p>
@@ -175,7 +188,8 @@
                     <div class="carousel-item">
                         <div class="card sticky-action">
                             <div class="card-image ">
-                                <img src="http://placehold.it/1920/999/fff"> </img>
+                                <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"> </img>
+                                </a>
                             </div>
                             <div class="card-content">
                                 <p>I am a very simple card.</p>
@@ -185,7 +199,8 @@
                     <div class="carousel-item">
                         <div class="card sticky-action">
                             <div class="card-image ">
-                                <img src="http://placehold.it/1920/999/fff"> </img>
+                                <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"> </img>
+                                </a>
                             </div>
                             <div class="card-content">
                                 <p>I am a very simple card.</p>
@@ -195,7 +210,8 @@
                     <div class="carousel-item">
                         <div class="card sticky-action">
                             <div class="card-image ">
-                                <img src="http://placehold.it/1920/999/fff"> </img>
+                                <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"> </img>
+                                </a>
                             </div>
                             <div class="card-content">
                                 <p>I am a very simple card.</p>
@@ -205,7 +221,8 @@
                     <div class="carousel-item">
                         <div class="card sticky-action">
                             <div class="card-image ">
-                                <img src="http://placehold.it/1920/999/fff"> </img>
+                                <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"> </img>
+                                </a>
                             </div>
                             <div class="card-content">
                                 <p>I am a very simple card.</p>
@@ -215,7 +232,8 @@
                     <div class="carousel-item">
                         <div class="card sticky-action">
                             <div class="card-image ">
-                                <img src="http://placehold.it/1920/999/fff"> </img>
+                                <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"> </img>
+                                </a>
                             </div>
                             <div class="card-content">
                                 <p>I am a very simple card.</p>

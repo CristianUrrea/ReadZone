@@ -144,6 +144,9 @@ nav,
     margin-left: 15px;
 }
 
+#li-nav-login-form ul li a{
+  font-size: 10px;
+}
 
 /*#######################################*/
 

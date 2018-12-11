@@ -1,0 +1,28 @@
+/*################ MAIN ################*/
+
+/*################ INFO CONTENT ################*/
+
+#div-row-contenido-info {
+  margin-top: 20px;
+}
+/*################ UL LIKE FAVORITE ADD ################*/
+#div-card-horizontal {
+  margin-top: -20px;
+}
+#div-ul-like-favorite-add-list li {
+  display: inline;
+  float: none;
+  margin: 5%;
+}
+
+/*################ LISTA CAPITULOS ################*/
+/*
+#datalist li:nth-child(n+4) {
+    display:none;
+}
+
+#span-read-more {
+    cursor: pointer;
+    color: #f00;
+}
+*/

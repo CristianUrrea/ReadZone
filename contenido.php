@@ -9,11 +9,12 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified webuiPopover CSS -->
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css'>
     <!-- Mis css -->
-    <link rel="stylesheet" href="css/biblioteca.css">
+    <link rel="stylesheet" href="css/contenido.css">
     <link rel="stylesheet" href="css/comun.css">
     <!--Let browser know website is optimized for mobile-->
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -85,8 +86,8 @@
                         <button id="btn-div-login-form-inicio-sesion" class="btn waves-effect waves-red white-text red" type="submit" name="action">Inciar sesión</button>
                     </form>
                     <ul>
-                        <li><a style="font-size: 13px;" href="registro.php">Registrar</a></li>
-                        <li><a style="font-size: 13px;" href="#">¿Olvidates tu contraseña? </a></li>
+                        <li><a href="registro.php">Registrar</a></li>
+                        <li><a href="#">¿Olvidates tu contraseña? </a></li>
                     </ul>
                 </div>
             </li>
@@ -112,126 +113,136 @@
         </form>
         <br>
         <ul>
-            <li><a href="registro.php">Registrar</a></li>
-            <li>&nbsp</li>
-            <li><a href="#">¿Olvidates tu contraseña? </a></li>
+            <li><a style="font-size: 13px;" href="registro.php">Registrar</a></li>
+            <li><a style="font-size: 13px;"href="#">¿Olvidates tu contraseña?</a></li>
         </ul>
     </div>
     <!--################################-->
 
     <main>
-        <div id="div-search-type">
-            <div id="div-row-search-input" class="row">
-                <div class="col s12 m12 l8 offset-l2">
-                    <div class="col s3 m3 l3">
-                        <button class="btn" type="button" name="button">Búsqueda avanzada<i class="material-icons right">arrow_drop_down</i></button>
+        <div id="div-row-contenido-info" class="row">
+            <div class="col s12 m12 l8 offset-l2">
+                <div class="card horizontal">
+                    <div class="card-image">
+                        <img style="height:200px;" src="http://placehold.it/1920/999/fff" class="fadeIn">
+                        <div class="card-content">
+                            <p>I am a very simple card.</p>
+                        </div>
                     </div>
-                    <div class="search-wrapper">
-                        <div id="div-type-search-one" class="input-field col s9 m9 l9">
-                            <input id="input-div-search" type="search" placeholder="Buscar..." class="right searchbarfix white">
-                            <i class="material-icons grey-text">search</i>
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <span class="card-title">Lorem fistrum</span>
+                            <p>amatomaa diodeno no puedor te va a hasé pupitaa sexuarl te voy a borrar el cerito no puedor a wan a peich. Te va a hasé pupitaa jarl la caidita a wan está la cosa muy malar
+                            </p>
+                        </div>
+                        <div class="card-action">
+                            <p>Generos</p>
+                            <p>Autor</p>
                         </div>
                     </div>
                 </div>
+                <div id="div-card-horizontal" class="card horizontal red">
+                    <div class="card-stacked center">
+                        <ul id="div-ul-like-favorite-add-list">
+                            <li><a href=""><i class="material-icons white-text">thumb_up</i></a></li>
+                            <li><a href=""><i class="material-icons white-text">thumb_down</i></a></li>
+                            <li><a href=""><i class="material-icons white-text">favorite</i></a></li>
+                            <li><a href=""><i class="material-icons white-text">library_add</i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
             </div>
-            <div class="row">
-                <div id="div-biblioteca" style="" class="col s12 m12 l8 offset-l2 cards-container">
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12 l8 offset-l2">
+              <table style="background-color: white;"cellpadding="1" cellspacing="1" class="table table-hover" id="myTable">
+          <tbody>
+            <tr>
+            	<td>Capitulo1</td>
+            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            <tr>
+            	<td>Capitulo2</td>
+            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            <tr>
+            	<td>Capitulo3</td>
+            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            <tr>
+            	<td>Capitulo4</td>
+            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            <tr>
+            	<td>Capitulo5</td>
+            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            <tr>
+            	<td>Capitulo6</td>
+            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            <tr>
+            	<td>Capitulo7</td>
+            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            <tr>
+            	<td>Capitulo8</td>
+            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            <tr>
+            	<td>Capitulo9</td>
+            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            <tr>
+            	<td>Capitulo10</td>
+            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            <tr>
+            	<td>Capitulo11</td>
+            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            <tr>
+            	<td>Capitulo12</td>
+            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            <tr>
+            	<td>Capitulo13</td>
+            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            <tr>
+            	<td>Capitulo14</td>
+            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            <tr>
+            	<td>Capitulo15</td>
+            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            <tr>
+            	<td>Capitulo16</td>
+            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            <tr>
+              <td>Capitulo17</td>
+              <td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            <tr>
+            	<td>Capitulo18</td>
+            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            <tr>
+            	<td>Capitulo19</td>
+            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            <tr>
+            	<td>Capitulo20</td>
+            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
+            </tr>
+            </tbody>
+          </table>
+                <!--<button id="btn-read-more" type="button" name="button" class="col s12 m12 l12 btn red white-text">Ver más</button>-->
+                <div class="col-md-12 center text-center">
+                  <ul class="pagination pager" id="myPager"></ul>
                 </div>
             </div>
         </div>
@@ -272,7 +283,20 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!--Import jQuery before webuiPopover.js-->
     <script src='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js'></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/pinzon1992/materialize_table_pagination/f9a8478f/js/pagination.js"></script>
     <script type="text/javascript" src="scripts/comun.js"></script>
+    <script type="text/javascript" src="scripts/contenido.js"></script>
+    <script type="text/javascript">
+    $('#myTable').pageMe({
+       pagerSelector:'#myPager',
+       activeColor: 'red',
+       prevText:'Anterior',
+       nextText:'Siguiente',
+       showPrevNext:true,
+       hidePageNumbers:false,
+       perPage:10
+      });
+    </script>
 </body>
 
 </html>

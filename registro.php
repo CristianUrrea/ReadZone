@@ -30,9 +30,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col s12 m2 l4">
-            </div>
-            <form id="form-div-registro" class="col s12 m8 l4">
+            <form id="form-div-registro" class="col s12 m8 l4 offset-l4 offset-m2">
                 <div class="row">
                     <div class="col s12 m12 l12 center">
                         <h5>Registro</h5>
@@ -79,6 +77,11 @@
                     <div class="input-field col s12 m12">
                         <input id="password-confirm" type="password" class="validate">
                         <label for="password-confirm">Confirma tu contraseña</label>
+                    </div>
+                </div>
+                <div id="form-div-input-form" class="row">
+                    <div class="input-field col s12 m12 l2 offset-l4">
+                        <button type="button" name="button" class="btn red">Registrar</button>
                     </div>
                 </div>
             </form>
