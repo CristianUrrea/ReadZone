@@ -124,7 +124,7 @@
             <div id="div-row-search-input" class="row">
                 <div class="col s12 m12 l8 offset-l2">
                     <div class="col s3 m3 l3">
-                        <button class="btn" type="button" name="button">Búsqueda avanzada<i class="material-icons right">arrow_drop_down</i></button>
+                        <button id="btn-search-advanced" class="btn" type="button" name="button">Búsqueda avanzada<i class="material-icons right">arrow_drop_down</i></button>
                     </div>
                     <div class="search-wrapper">
                         <div id="div-type-search-one" class="input-field col s9 m9 l9">
@@ -135,7 +135,7 @@
                 </div>
             </div>
             <div class="row">
-                <div id="div-biblioteca" style="" class="col s12 m12 l8 offset-l2 cards-container">
+                <div id="div-biblioteca" class="col s12 m12 l8 offset-l2 cards-container">
                     <div class="card sticky-action">
                         <div class="card-image ">
                             <img style="" src="http://placehold.it/1920/999/fff"> </img>

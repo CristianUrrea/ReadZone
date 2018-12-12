@@ -480,7 +480,7 @@
     </main>
     <!--################################-->
     <!--################ FOOTER ################-->
-    <footer class="page-footer">
+    <footer style="margin-top: 20px;" class="page-footer">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">

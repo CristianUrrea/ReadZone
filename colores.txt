@@ -1,1 +1,9 @@
 #f5f5f5, white, #424242, black, grey darken-4, #bdbdbd, red, #37474f
+
+
+.ten-columns .et_pb_module {width: 10%; float: left;}
+.nine-columns .et_pb_module {width: 11.11%; float: left;}
+.eight-columns .et_pb_module {width: 12.5%; float: left;}
+.seven-columns .et_pb_module {width: 14.28%; float: left;}
+.six-columns .et_pb_module {width: 16.66%; float: left;}
+.five-columns .et_pb_module {width: 20%; float: left;}
