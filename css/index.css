@@ -6,21 +6,20 @@
     #div-content-recomendations div h5 {
         margin-left: -12px;
     }
+    #div-content-recomendations-gallery {
+      margin-left: 15.85%;
+      width: 68.2%;
+    }
 }
 
 @media only screen and (min-width: 450px) and (max-width: 990px) {
-    #div-content-recomendations {
-        width: 96%;
-    }
     #div-content-recomendations div h5 {
-        margin-left: -14px;
+        margin-left: -0px;
     }
 }
 
 @media only screen and (max-width: 422px) {
-  #div-content-recomendations {
-      width: 96%;
-  }
+
   #div-content-recomendations div h5 {
       margin-left: -14px;
   }
@@ -49,6 +48,14 @@
     opacity: 1 !important;
 }
 
+.gallery-cell {
+  width: 29%;
+  margin-right: 15px;
+}
+.flickity-page-dots {
+  bottom: 0px;
+  display: none;
+}
 
 /*################ BARRA DE PROGRESO  ################*/
 

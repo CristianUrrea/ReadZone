@@ -1,7 +1,9 @@
 /*################ MAIN ################*/
 
 /*################ INFO CONTENT ################*/
-
+#image-div-content-type-book {
+  height:200px;
+}
 #div-row-contenido-info {
   margin-top: 20px;
 }
@@ -16,13 +18,3 @@
 }
 
 /*################ LISTA CAPITULOS ################*/
-/*
-#datalist li:nth-child(n+4) {
-    display:none;
-}
-
-#span-read-more {
-    cursor: pointer;
-    color: #f00;
-}
-*/

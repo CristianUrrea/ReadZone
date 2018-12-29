@@ -1,4 +1,4 @@
-  /*################ MAIN ################*/
+/*################ MAIN ################*/
 
 
 /*################ SEARCH AND SEARCH ADBANCED ################*/
@@ -8,7 +8,7 @@
         height: 40px !important;
     }
     #btn-search-advanced {
-      margin-left: -11px !important;
+        margin-left: -11px !important;
     }
 }
 
@@ -17,7 +17,7 @@
         height: 56px !important;
     }
     #btn-search-advanced {
-      margin-left: -11px !important;
+        margin-left: -11px !important;
     }
 }
 
@@ -26,7 +26,7 @@
         height: 40px !important;
     }
     #btn-search-advanced {
-      margin-left: -11px !important;
+        margin-left: -11px !important;
     }
 }
 
@@ -65,7 +65,7 @@
     border-radius: 5px;
     border: solid 1px;
     border-color: #bdbdbd;
-    -webkit-appearance: none;
+    -webkit-appearance: none
 }
 
 #label-div-icon-search {
@@ -74,10 +74,6 @@
 
 
 /*################ CARDS CONTENT ################*/
-
-#div-biblioteca {
-}
-
 
 .cards-container {
     column-break-inside: avoid;
