@@ -20,8 +20,8 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <?php include_once('acciones/adminpass.php'); ?>
 </head>
-
 <body>
     <header>
         <!--################ BAR NAV ################-->
@@ -75,13 +75,13 @@
                     <form action="" method="post">
                         <div class="input-field">
                             <i class="material-icons iconis prefix">account_box</i>
-                            <input type="text" placeholder="nombre">
+                            <input type="text" name="usuario" placeholder="usuario">
                         </div>
                         <div class="input-field">
                             <i class="material-icons iconis prefix">lock</i>
-                            <input type="password" placeholder="contraseña">
+                            <input type="password" name="password" placeholder="contraseña">
                         </div>
-                        <button id="btn-div-login-form-inicio-sesion" class="btn waves-effect waves-red white-text red" type="submit" name="action">Inciar sesión</button>
+                        <button id="btn-div-login-form-inicio-sesion" class="btn waves-effect waves-red white-text red" type="submit" name="btn-div-login-form-inicio-sesion-2">Inciar sesión</button>
                     </form>
                     <ul>
                         <li><a style="font-size: 13px;" href="registro.php">Registrar</a></li>

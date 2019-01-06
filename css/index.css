@@ -8,7 +8,7 @@
     }
     #div-content-recomendations-gallery {
       margin-left: 15.85%;
-      width: 68.2%;
+      width: 68.1%;
     }
 }
 
@@ -39,17 +39,8 @@
     margin-top: -20px;
 }
 
-#div-content-carousel-recomendations {
-    height: 330px;
-}
-
-#div-content-carousel-recomendations .carousel-item {
-    margin-top: -4.5%;
-    opacity: 1 !important;
-}
-
 .gallery-cell {
-  width: 29%;
+  width: 20%;
   margin-right: 15px;
 }
 .flickity-page-dots {

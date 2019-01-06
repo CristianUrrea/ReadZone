@@ -20,6 +20,14 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <?php
+      include_once('db/conexiondb.php');
+     ?>
+     <style media="screen">
+     #example2-pagination {
+         display: none;
+     }
+     </style>
 </head>
 
 <body>
@@ -43,106 +51,41 @@
                 </div>
             </div>
             <div class="row">
-                <div id="div-biblioteca" style="" class="col s12 m12 l8 offset-l2 cards-container">
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
+                <div id="div-biblioteca" style="" class="col s12 m12 l8 offset-l2">
+                  <ul id="example2" class="cards-container">
+                  <?php
+                  $query = mysqli_query($conn, "SELECT * FROM Books");
+                  if (mysqli_num_rows($query) > 0) {
+                      while ($row = mysqli_fetch_assoc($query)) {
+                ?>
+                <li>
+                  <div class="card sticky-action">
+                        <div class="card-image center">
+                          <form method="post">
+                            <a href="contenido.php?id_book=<?php echo $row['id_book'] ?>"><img class="center" src="data:image/jpg;base64,<?php echo base64_encode($row['imagen']); ?>" height="250px"></img>
+                            </a>
+                          </form>
+
                         </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
+                        <div class="card-content center">
+                            <p><?php echo $row['titulo']; ?></p>
                         </div>
                     </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
-                    <div class="card sticky-action">
-                        <div class="card-image ">
-                            <img style="" src="http://placehold.it/1920/999/fff"> </img>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
-                        </div>
-                    </div>
+                  </li>
+                    <?php
+                  }
+                  }
+                  ?>
+                </ul>
                 </div>
+
             </div>
         </div>
+          <div id="example2-pagination" style="" class="col s12 m12 l6 offset-l4 center">
+            <a id="example2-previous" href="#">&laquo; Previous</a>
+            <a id="example2-next" href="#">Next &raquo;</a>
+        </div>
+
         <!-- Back to top -->
         <div class="fixed-action-btn">
             <a id="back-to-top" class="btn-floating btn-large red scale-transition">
@@ -160,7 +103,16 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!--Import jQuery before webuiPopover.js-->
     <script src='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js'></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/pinzon1992/materialize_table_pagination/f9a8478f/js/pagination.js"></script>
+
     <script type="text/javascript" src="scripts/comun.js"></script>
+    <script type="text/javascript" src="scripts/jquery.paginate.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function()    {
+      $('#example2').paginate({itemsPerPage: 12});
+    });
+    </script>
 </body>
 
 </html>

@@ -24,6 +24,9 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <?php
+      include_once('db/conexiondb.php');
+     ?>
 </head>
 
 <body>
@@ -52,13 +55,6 @@
                             <hr class="carousel-progress-bar-timer animate" />
                         </div>
                         <a href="contenido.php">
-                            <div class="carousel-item orange white-text" href="#one!">
-                                <h2>Primer libro</h2>
-
-                                <p class="white-text">This is your first panel</p>
-                            </div>
-                        </a>
-                        <a href="contenido.php">
                             <div class="carousel-item amber white-text" href="#two!">
                                 <h2>Primer manga</h2>
                                 <p class="white-text">This is your second panel</p>
@@ -79,250 +75,86 @@
 
                     </div>
                 </div>
-                <!--################ RECOMENDATIONS LIBROS ################-->
+                <!--################ RECOMENDATIONS NOVELAS ################-->
                 <div id="div-content-recomendations" class="row">
-                    <div class="col s12 m12 l8 offset-l2">
-                        <h5>Recomendaciones libros</h5>
-                    </div>
+                  <div style="margin-top: 10px;" class="col s12 m12 l8 offset-l2">
+                      <h5>Recomendaciones novelas</h5>
+                  </div>
+
                     <div id="div-content-recomendations-gallery" class="col s12 m12 l8 offset-l2 colgallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+                      <?php
+                      $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo = 'Novela'");
+                      if (mysqli_num_rows($query) > 0) {
+                          while ($row = mysqli_fetch_assoc($query)) {
+                    ?>
                         <div class="gallery-cell">
                             <div class="card sticky-action">
                                 <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
+                                    <a href="contenido.php?id_book=<?php echo $row['id_book'] ?>"><img class="center" src="data:image/jpg;base64,<?php echo base64_encode($row['imagen']); ?>" height="250px"></img>
                                     </a>
                                 </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
+                                <div class="card-content center">
+                                    <p><?php echo $row['titulo']; ?></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="gallery-cell">
-                            <div style="" class="card sticky-action">
-                                <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
-                                    </a>
-                                </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gallery-cell">
-                            <div style="" class="card sticky-action">
-                                <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
-                                    </a>
-                                </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gallery-cell">
-                            <div style="" class="card sticky-action">
-                                <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
-                                    </a>
-                                </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gallery-cell">
-                            <div style="" class="card sticky-action">
-                                <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
-                                    </a>
-                                </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php
+                      }
+                      }
+                      ?>
                     </div>
                     <!--################ RECOMENDATIONS MANGAS ################-->
                     <div style="margin-top: 10px;" class="col s12 m12 l8 offset-l2">
                         <h5>Recomendaciones mangas</h5>
                     </div>
                     <div id="div-content-recomendations-gallery" class="col s12 m12 l8 offset-l2 colgallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+                      <?php
+                      $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo = 'Manga'");
+                      if (mysqli_num_rows($query) > 0) {
+                          while ($row = mysqli_fetch_assoc($query)) {
+                    ?>
                         <div class="gallery-cell">
                             <div class="card sticky-action">
                                 <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
+                                  <a href="contenido.php?id_book=<?php echo $row['id_book'] ?>"><img class="center" src="data:image/jpg;base64,<?php echo base64_encode($row['imagen']); ?>" height="250px"></img>
                                     </a>
                                 </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
+                                <div class="card-content center">
+                                    <p><?php echo $row['titulo']; ?></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="gallery-cell">
-                            <div style="" class="card sticky-action">
-                                <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
-                                    </a>
-                                </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gallery-cell">
-                            <div style="" class="card sticky-action">
-                                <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
-                                    </a>
-                                </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gallery-cell">
-                            <div style="" class="card sticky-action">
-                                <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
-                                    </a>
-                                </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gallery-cell">
-                            <div style="" class="card sticky-action">
-                                <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
-                                    </a>
-                                </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--################ RECOMENDATIONS NOVELAS ################-->
-                    <div style="margin-top: 10px;" class="col s12 m12 l8 offset-l2">
-                        <h5>Recomendaciones novelas</h5>
-                    </div>
-                    <div id="div-content-recomendations-gallery" class="col s12 m12 l8 offset-l2 colgallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-                        <div class="gallery-cell">
-                            <div class="card sticky-action">
-                                <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
-                                    </a>
-                                </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gallery-cell">
-                            <div style="" class="card sticky-action">
-                                <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
-                                    </a>
-                                </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gallery-cell">
-                            <div style="" class="card sticky-action">
-                                <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
-                                    </a>
-                                </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gallery-cell">
-                            <div style="" class="card sticky-action">
-                                <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
-                                    </a>
-                                </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gallery-cell">
-                            <div style="" class="card sticky-action">
-                                <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
-                                    </a>
-                                </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php
+                      }
+                      }
+                      ?>
                     </div>
                     <!--################ RECOMENDATIONS COMICS ################-->
                     <div style="margin-top: 10px;" class="col s12 m12 l8 offset-l2">
                         <h5>Recomendaciones comics</h5>
                     </div>
                     <div id="div-content-recomendations-gallery" class="col s12 m12 l8 offset-l2 colgallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+                      <?php
+                      $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo = 'Comic'");
+                      if (mysqli_num_rows($query) > 0) {
+                          while ($row = mysqli_fetch_assoc($query)) {
+                    ?>
                         <div class="gallery-cell">
                             <div class="card sticky-action">
                                 <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
+                                  <a href="contenido.php?id_book=<?php echo $row['id_book'] ?>"><img class="center" src="data:image/jpg;base64,<?php echo base64_encode($row['imagen']); ?>" height="250px"></img>
                                     </a>
                                 </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
+                                <div class="card-content center">
+                                    <p><?php echo $row['titulo']; ?></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="gallery-cell">
-                            <div style="" class="card sticky-action">
-                                <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
-                                    </a>
-                                </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gallery-cell">
-                            <div style="" class="card sticky-action">
-                                <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
-                                    </a>
-                                </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gallery-cell">
-                            <div style="" class="card sticky-action">
-                                <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
-                                    </a>
-                                </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gallery-cell">
-                            <div style="" class="card sticky-action">
-                                <div class="card-image ">
-                                    <a href="contenido.php"><img src="http://placehold.it/1920/999/fff"></img>
-                                    </a>
-                                </div>
-                                <div class="card-content">
-                                    <p>I am a very simple card.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php
+                      }
+                      }
+                      $conn->close();
+                      ?>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-<?php include_once("acciones/registrar.php"); ?>
+<?php //include_once("acciones/registrar.php"); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 

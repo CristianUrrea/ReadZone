@@ -4,8 +4,6 @@
 <head>
     <meta charset="utf-8">
     <title>ReadZone</title>
-    <!-- Import flickty -->
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <!-- Import font googleapis -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!--Import Google Icon Font-->
@@ -56,8 +54,6 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!--Import jQuery before webuiPopover.js -->
     <script src='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js'></script>
-    <!-- Import flickty -->
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
     <script type="text/javascript" src="scripts/comun.js"></script>
 </body>

@@ -21,6 +21,10 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <?php
+      include_once('db/conexiondb.php');
+      $id_book=$_REQUEST['id_book'];
+     ?>
 </head>
 
 <body>
@@ -32,11 +36,21 @@
         <div id="div-row-contenido-info" class="row">
             <div class="col s12 m12 l8 offset-l2">
                 <div class="card horizontal">
-                    <div class="card-image">
-                        <img id="image-div-content-type-book" src="http://placehold.it/1920/999/fff" class="fadeIn">
-                        <div class="card-content">
-                            <p>I am a very simple card.</p>
+                    <div class="card-image" style="width: 200px;">
+                      <?php
+                      $query = mysqli_query($conn, "SELECT * FROM Books WHERE id_book = '$id_book'");
+                      if (mysqli_num_rows($query) > 0) {
+                          while ($row = mysqli_fetch_assoc($query)) {
+                    ?>
+                        <img id="image-div-content-type-book" src="data:image/jpg;base64,<?php echo base64_encode($row['imagen']); ?>" class="center" height="200px">
+                        <div class="card-content center">
+                            <p><?php echo $row['titulo']; ?></p>
                         </div>
+                        <?php
+                      }
+                      }
+                      $conn->close();
+                      ?>
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">
