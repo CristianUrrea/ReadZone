@@ -15,7 +15,7 @@
     <!-- Compiled and minified webuiPopover CSS -->
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css'>
     <!-- Mis css -->
-    <link rel="stylesheet" href="css/wiki.css">
+    <!-- <link rel="stylesheet" href="css/wiki.css"> -->
     <link rel="stylesheet" href="css/comun.css">
     <!--Let browser know website is optimized for mobile-->
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -24,7 +24,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style media="screen">
     #image-div-content-type-book {
-      height:200px;
+      height: 200px;
+      width: 300px;
     }
     </style>
 </head>
@@ -38,24 +39,26 @@
           <div style="height: 100px; margin-top: 20px;"class="row">
             <div class="col s12 m12 l8 offset-l2">
               <ul class="tabs">
-                <li class="tab col s4 m4 l4"><a class="red-text" href="#test1">General</a></li>
-                <li class="tab col s4 m4 l4"><a class="red-text" href="#test2">Novelas</a></li>
-                <li class="tab col s4 m4 l4"><a class="red-text" href="#test3">Mangas</a></li>
+                <li class="tab col s4 m4 l4"><a class="red-text" href="#general">General</a></li>
+                <li class="tab col s4 m4 l4"><a class="red-text" href="#novela">Novelas</a></li>
+                <li class="tab col s4 m4 l4"><a class="red-text" href="#manga">Mangas</a></li>
               </ul>
             </div>
           </div>
           <div class="row">
-            <div id="test1" class="col s12 m12 l8 offset-l2">
+            <!--################ GENEROS GENERALES ################-->
+
+            <div id="general" class="col s12 m12 l8 offset-l2">
                 <div id="div-row-contenido-info" class="row">
                     <div class="col s12 m12 l12">
                         <div class="card horizontal">
                             <div class="card-image">
-                                <img id="image-div-content-type-book" src="http://placehold.it/1920/999/fff" class="fadeIn">
+                                <img id="image-div-content-type-book" src="imagenes/Wiki/fantasia.png" class="fadeIn">
                             </div>
                             <div class="card-stacked">
                                 <div class="card-content">
-                                    <span class="card-title">Lorem fistrum</span>
-                                    <p>amatomaa diodeno no puedor te va a hasé pupitaa sexuarl te voy a borrar el cerito no puedor a wan a peich. Te va a hasé pupitaa jarl la caidita a wan está la cosa muy malar
+                                    <span class="card-title">Fantasía</span>
+                                    <p>El genero fantasía gira a entorno a representar mentalmente sucesos, historias o imágenes de cosas que no existen en la realidad o que son o fueron reales pero no están presentes.
                                     </p>
                                 </div>
                             </div>
@@ -66,12 +69,12 @@
                     <div class="col s12 m12 l12">
                         <div class="card horizontal">
                             <div class="card-image">
-                                <img id="image-div-content-type-book" src="http://placehold.it/1920/999/fff" class="fadeIn">
+                                <img id="image-div-content-type-book" src="imagenes/Wiki/historico.png" class="fadeIn">
                             </div>
                             <div class="card-stacked">
                                 <div class="card-content">
-                                    <span class="card-title">Lorem fistrum</span>
-                                    <p>amatomaa diodeno no puedor te va a hasé pupitaa sexuarl te voy a borrar el cerito no puedor a wan a peich. Te va a hasé pupitaa jarl la caidita a wan está la cosa muy malar
+                                    <span class="card-title">Histórico</span>
+                                    <p>El genero histórico gira entorno a acontecimientos reales del pasado.
                                     </p>
                                 </div>
                             </div>
@@ -82,12 +85,12 @@
                     <div class="col s12 m12 l12">
                         <div class="card horizontal">
                             <div class="card-image">
-                                <img id="image-div-content-type-book" src="http://placehold.it/1920/999/fff" class="fadeIn">
+                                <img id="image-div-content-type-book" src="imagenes/Wiki/cienciaficcion.png" class="fadeIn">
                             </div>
                             <div class="card-stacked">
                                 <div class="card-content">
-                                    <span class="card-title">Lorem fistrum</span>
-                                    <p>amatomaa diodeno no puedor te va a hasé pupitaa sexuarl te voy a borrar el cerito no puedor a wan a peich. Te va a hasé pupitaa jarl la caidita a wan está la cosa muy malar
+                                    <span class="card-title">Ciencia Ficción</span>
+                                    <p>El genero de ciencia ficción gira entorno a hipotético logros científicos y técnicos que podrían sucederse en el futuro próximo, en los cuales resultan ser el fruto de la imaginación.
                                     </p>
                                 </div>
                             </div>
@@ -98,12 +101,12 @@
                     <div class="col s12 m12 l12">
                         <div class="card horizontal">
                             <div class="card-image">
-                                <img id="image-div-content-type-book" src="http://placehold.it/1920/999/fff" class="fadeIn">
+                                <img id="image-div-content-type-book" src="imagenes/Wiki/cyberpunk.png" class="fadeIn">
                             </div>
                             <div class="card-stacked">
                                 <div class="card-content">
-                                    <span class="card-title">Lorem fistrum</span>
-                                    <p>amatomaa diodeno no puedor te va a hasé pupitaa sexuarl te voy a borrar el cerito no puedor a wan a peich. Te va a hasé pupitaa jarl la caidita a wan está la cosa muy malar
+                                    <span class="card-title">Cyberpunk</span>
+                                    <p>Cyberpunk es un subgenero de la cienca ficción que gira entorno a la alta tecnología y de la redes informáticas en una sociedad que se viene abajo y profiere gritos de rebeldía.
                                     </p>
                                 </div>
                             </div>
@@ -114,12 +117,12 @@
                     <div class="col s12 m12 l12">
                         <div class="card horizontal">
                             <div class="card-image">
-                                <img id="image-div-content-type-book" src="http://placehold.it/1920/999/fff" class="fadeIn">
+                                <img id="image-div-content-type-book" src="imagenes/Wiki/terror.png" class="fadeIn">
                             </div>
                             <div class="card-stacked">
                                 <div class="card-content">
-                                    <span class="card-title">Lorem fistrum</span>
-                                    <p>amatomaa diodeno no puedor te va a hasé pupitaa sexuarl te voy a borrar el cerito no puedor a wan a peich. Te va a hasé pupitaa jarl la caidita a wan está la cosa muy malar
+                                    <span class="card-title">Terror</span>
+                                    <p>El genero de terror gira entorno a acontecimientos que produsan una sensación de miedo o angustia en su escala máxima.
                                     </p>
                                 </div>
                             </div>
@@ -127,17 +130,19 @@
                     </div>
                 </div>
             </div>
-            <div id="test2" class="col s12 m12 l8 offset-l2">
+            <!--################################-->
+            <!--################ GENEROS DE NOVELAS ################-->
+            <div id="novela" class="col s12 m12 l8 offset-l2">
               <div id="div-row-contenido-info" class="row">
                   <div class="col s12 m12 l12">
                       <div class="card horizontal">
                           <div class="card-image">
-                              <img id="image-div-content-type-book" src="http://placehold.it/1920/999/fff" class="fadeIn">
+                              <img id="image-div-content-type-book" src="imagenes/Wiki/wuxia.png" class="fadeIn">
                           </div>
                           <div class="card-stacked">
                               <div class="card-content">
-                                  <span class="card-title">Lorem fistrum</span>
-                                  <p>amatomaa diodeno no puedor te va a hasé pupitaa sexuarl te voy a borrar el cerito no puedor a wan a peich. Te va a hasé pupitaa jarl la caidita a wan está la cosa muy malar
+                                  <span class="card-title">Wuxia</span>
+                                  <p>El genero wuxia significa literalmente "Héroes marciales". Historias ficticias sobre humanos normales que pueden lograr habilidades de lucha sobrenaturales a través del entrenamiento de artes marciales chinas y el cultivo de energía interna. Los temas de caballería, tragedia, venganza y romance son comunes.
                                   </p>
                               </div>
                           </div>
@@ -148,12 +153,28 @@
                   <div class="col s12 m12 l12">
                       <div class="card horizontal">
                           <div class="card-image">
-                              <img id="image-div-content-type-book" src="http://placehold.it/1920/999/fff" class="fadeIn">
+                              <img id="image-div-content-type-book" src="imagenes/Wiki/xianxia.png" class="fadeIn">
                           </div>
                           <div class="card-stacked">
                               <div class="card-content">
-                                  <span class="card-title">Lorem fistrum</span>
-                                  <p>amatomaa diodeno no puedor te va a hasé pupitaa sexuarl te voy a borrar el cerito no puedor a wan a peich. Te va a hasé pupitaa jarl la caidita a wan está la cosa muy malar
+                                  <span class="card-title">Xianxia</span>
+                                  <p>El genero xianxia significa literalmente "Héroes inmortales". Historias de ficción con magia, demonios, fantasmas, inmortales y una gran cantidad de folklore / mitología china. Los protagonistas (por lo general) intentan cultivarse a la inmortalidad, buscando la vida eterna y el pináculo de la fuerza. Muy inspirado en el taoísmo.
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div id="div-row-contenido-info" class="row">
+                  <div class="col s12 m12 l12">
+                      <div class="card horizontal">
+                          <div class="card-image">
+                              <img id="image-div-content-type-book" src="imagenes/Wiki/xuanhuan.png" class="fadeIn">
+                          </div>
+                          <div class="card-stacked">
+                              <div class="card-content">
+                                  <span class="card-title">Xuanhuan</span>
+                                  <p>El genero Xuanhuan significa literalmente "Fantasía Misteriosa". Un amplio género de historias de ficción que mezcla el folclore / mitología china con elementos y escenarios extranjeros.
                                   </p>
                               </div>
                           </div>
@@ -161,23 +182,9 @@
                   </div>
               </div>
             </div>
-            <div id="test3" class="col s12 m12 l8 offset-l2">
-              <div id="div-row-contenido-info" class="row">
-                  <div class="col s12 m12 l12">
-                      <div class="card horizontal">
-                          <div class="card-image">
-                              <img id="image-div-content-type-book" src="http://placehold.it/1920/999/fff" class="fadeIn">
-                          </div>
-                          <div class="card-stacked">
-                              <div class="card-content">
-                                  <span class="card-title">Lorem fistrum</span>
-                                  <p>amatomaa diodeno no puedor te va a hasé pupitaa sexuarl te voy a borrar el cerito no puedor a wan a peich. Te va a hasé pupitaa jarl la caidita a wan está la cosa muy malar
-                                  </p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+            <!--################################-->
+            <!--################ GENEROS DE MANGAS ################-->
+            <div id="manga" class="col s12 m12 l8 offset-l2">
               <div id="div-row-contenido-info" class="row">
                   <div class="col s12 m12 l12">
                       <div class="card horizontal">

@@ -27,6 +27,7 @@
      #example2-pagination {
          display: none;
      }
+
      </style>
 </head>
 
@@ -40,16 +41,26 @@
             <div id="div-row-search-input" class="row">
                 <div class="col s12 m12 l8 offset-l2">
                     <div class="col s3 m3 l3">
-                        <button id="btn-search-advanced" class="btn" type="button" name="button">Búsqueda avanzada<i class="material-icons right">arrow_drop_down</i></button>
+                        <button id="btn-search-advanced" class="btn" type="button" name="button" data-activates="services-dropdown"><span class="button-text"></span><!--<i class="material-icons right">arrow_drop_down</i>--></button>
                     </div>
                     <div class="search-wrapper">
                         <div id="div-type-search-one" class="input-field col s9 m9 l9">
                             <input id="input-div-search" type="search" placeholder="Buscar..." class="right searchbarfix white">
-                            <i class="material-icons grey-text">search</i>
+                            <i id="i-div-search-two" class="material-icons grey-text">search</i>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Dropdown Structure -->
+            <ul id='dropdown1' class='dropdown-content'>
+              <li><a href="#!">one</a></li>
+              <li><a href="#!">two</a></li>
+              <li class="divider" tabindex="-1"></li>
+              <li><a href="#!">three</a></li>
+              <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+              <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+            </ul>
+
             <div class="row">
                 <div id="div-biblioteca" style="" class="col s12 m12 l8 offset-l2">
                   <ul id="example2" class="cards-container">
@@ -67,8 +78,8 @@
                           </form>
 
                         </div>
-                        <div class="card-content center">
-                            <p><?php echo $row['titulo']; ?></p>
+                        <div class="card-content">
+                            <p style="font-size: 12px;"><?php echo $row['titulo']; ?></p>
                         </div>
                     </div>
                   </li>
@@ -111,6 +122,8 @@
     <script type="text/javascript">
     $(document).ready(function()    {
       $('#example2').paginate({itemsPerPage: 12});
+      $('.dropdown-trigger').dropdown();
+
     });
     </script>
 </body>

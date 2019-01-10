@@ -11,7 +11,7 @@ if(isset($_POST["btn-insertar-libro"])){
   $artista = $_POST["artista"];
   $imagen = addslashes(file_get_contents($_FILES['imagen-book']['tmp_name']));
 
-    mysqli_query($conn, "INSERT INTO Books (id_book, tipo, titulo, descripcion, autor, artista, imagen) VALUES ('','$tipo_libro','$titulo','$descripcion','$autor','$artista','$imagen')");
+  mysqli_query($conn, "INSERT INTO Books (id_book, tipo, titulo, descripcion, autor, artista, imagen) VALUES ('','$tipo_libro','$titulo','$descripcion','$autor','$artista','$imagen')");
 
 }
  ?>

@@ -1,3 +1,21 @@
+<?php
+  include('acciones/server.php');
+  require 'acciones/adminpass.php';
+  if (!isset($_SESSION['username'])) {
+    $_SESSION['msg'] = "You must log in first";
+    // header('location: index.php');
+    echo ' <script type="text/javascript">alert("No logeado")</script>';
+  } else {
+    echo ' <script type="text/javascript">alert("Logeado")</script>';
+  }
+  if (isset($_GET['logout'])) {
+  		session_destroy();
+  		unset($_SESSION['username']);
+  		header("location: index.php");
+  	}
+  require 'db/conexiondb.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -20,7 +38,6 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <?php include_once('acciones/adminpass.php'); ?>
 </head>
 <body>
     <header>
@@ -61,27 +78,53 @@
                     <div class="col s12 m2 l2 nav-wrapper">
                         <ul id="ul-div-nav-dropdown" class="hide-on-med-and-down right">
                             <li>
+                              <?php  if (isset($_SESSION['username'])) { ?>
+                                <a id="a-div-log-out" name="a-div-log-out" href="index.php?logout='1'">logout</a>
+                              <?php } else {?>
                                 <a id="a-div-login" href="#">Login</a>
+                              <?php } ?>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </nav>
+        <!-- Div content login -->
+        <div id="div-nav-login-form" class="webui-popover-content">
+            <form action="index.php" method="post">
+              <?php include('acciones/errors.php'); ?>
+                <div class="input-field">
+                    <i class="material-icons iconis prefix">account_box</i>
+                    <input id="username-login" type="text" name="username-login" placeholder="nombre">
+                </div>
+
+                <div class="input-field">
+                    <i class="material-icons iconis prefix">lock</i>
+                    <input id="userpass-login" type="password" name="userpass-login" placeholder="contraseña">
+                </div>
+                <button id="btn-div-login-form-inicio-sesion" class="btn waves-effect waves-red white-text red" type="submit" name="btn-div-login-form-inicio-sesion">Inciar sesión</button>
+            </form>
+            <br>
+            <ul>
+                <li><a href="registro.php">Registrar</a></li>
+                <li>&nbsp</li>
+                <li><a href="#">¿Olvidates tu contraseña? </a></li>
+            </ul>
+        </div>
         <!-- Bar nav mobile -->
         <ul id="mobile-nav" class="sidenav right">
             <li id="li-nav-login-form">
                 <div id="div-nav-login-form" style="">
-                    <form action="" method="post">
+                    <form action="acciones/logear.php" method="post">
                         <div class="input-field">
                             <i class="material-icons iconis prefix">account_box</i>
-                            <input type="text" name="usuario" placeholder="usuario">
+                            <input id="useremail-login-mobile" type="email" name="useremail-login-mobile" placeholder="usuario">
                         </div>
                         <div class="input-field">
                             <i class="material-icons iconis prefix">lock</i>
-                            <input type="password" name="password" placeholder="contraseña">
+                            <input id="userpass-login-mobile" type="password" name="userpass-login-mobile" placeholder="contraseña">
                         </div>
-                        <button id="btn-div-login-form-inicio-sesion" class="btn waves-effect waves-red white-text red" type="submit" name="btn-div-login-form-inicio-sesion-2">Inciar sesión</button>
+                        <button id="btn-div-login-form-inicio-sesion-mobile" class="btn waves-effect waves-red white-text red" type="submit" name="btn-div-login-form-inicio-sesion-mobile">Inciar sesión</button>
                     </form>
                     <ul>
                         <li><a style="font-size: 13px;" href="registro.php">Registrar</a></li>
@@ -95,27 +138,6 @@
 
         </ul>
     </header>
-
-    <!-- Div content login -->
-    <div id="div-nav-login-form" class="webui-popover-content">
-        <form action="" method="post">
-            <div class="input-field">
-                <i class="material-icons iconis prefix">account_box</i>
-                <input type="text" placeholder="nombre">
-            </div>
-            <div class="input-field">
-                <i class="material-icons iconis prefix">lock</i>
-                <input type="password" placeholder="contraseña">
-            </div>
-            <button id="btn-div-login-form-inicio-sesion-2" class="btn waves-effect waves-red white-text red" type="submit" name="action">Inciar sesión</button>
-        </form>
-        <br>
-        <ul>
-            <li><a href="registro.php">Registrar</a></li>
-            <li>&nbsp</li>
-            <li><a href="#">¿Olvidates tu contraseña? </a></li>
-        </ul>
-    </div>
     <!--################################-->
 
     <!--Import jQuery before materialize.js -->

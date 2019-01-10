@@ -1,23 +1,36 @@
 /*################ MAIN ################*/
 
-
 /*################ SEARCH AND SEARCH ADBANCED ################*/
-
-@media only screen and (min-width: 601px) {
+#i-div-search-two {
+  margin-right: -10px !important;
+}
+#btn-search-advanced {
+  /* height: 14px !important; */
+}
+@media only screen and (min-width: 723px) {
     #input-div-search {
         height: 40px !important;
+        padding: 0 40px 0 15px !important;
     }
     #btn-search-advanced {
         margin-left: -11px !important;
     }
+    .button-text:after {
+      content: 'Búsqueda avanzada' !important;
+
+    }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 722px) {
     #input-div-search {
         height: 56px !important;
     }
     #btn-search-advanced {
         margin-left: -11px !important;
+    }
+    .button-text:after {
+      content: 'Búsqueda' !important;
+
     }
 }
 
@@ -27,6 +40,9 @@
     }
     #btn-search-advanced {
         margin-left: -11px !important;
+    }
+    .button-text:after {
+      content: 'Búsqueda' !important;
     }
 }
 

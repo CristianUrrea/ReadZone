@@ -1,4 +1,4 @@
-<?php //include_once("acciones/registrar.php"); ?>
+<?php include('acciones/server.php') ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -31,8 +31,8 @@
             </div>
         </div>
         <div class="row">
-            <form id="form-div-registro" class="col s12 m8 l4 offset-l4 offset-m2" method="post">
-
+            <form id="form-div-registro" class="col s12 m8 l4 offset-l4 offset-m2" action="registro.php" method="post">
+              <?php include('acciones/errors.php'); ?>
                 <div class="row">
                     <div class="col s12 m12 l12 center">
                         <h5>Registro</h5>
@@ -40,32 +40,32 @@
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12">
-                        <input id="username" type="text" class="validate" aria-required="true">
+                        <input id="username" type="text" name="username" class="validate" aria-required="false" value="<?php  echo $username ?>">
                         <label for="username">Nombre de usuario</label>
                     </div>
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12">
-                        <input id="email" type="email" class="validate" aria-required="true">
+                        <input id="useremail" type="email" name="useremail" class="validate" aria-required="false" value="<?php echo $useremail ?>">
                         <label for="email">Email</label>
                     </div>
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12">
-                        <input id="password" type="password" class="validate" required="" aria-required="true">
+                        <input id="userpass_1" type="password" name="userpass_1" class="validate" aria-required="false">
                         <label for="password">Contraseña</label>
                     </div>
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12 m12">
-                        <input id="password-confirm" type="password" class="validate" required="" aria-required="true">
+                        <input id="userpass_2" type="password" name="userpass_2" class="validate" aria-required="false">
                         <label for="password-confirm">Confirma tu contraseña</label>
                     </div>
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="col s12 m12">
                       <label>
-                        <input type="checkbox" class="filled-in"/  aria-required="true">
+                        <input type="checkbox" class="filled-in"  aria-required="false">
                         <span>Aceptar términos y condiciones</span>
                       </label>
                     </div>
@@ -73,7 +73,7 @@
                 <br>
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12 m12 l2 offset-l4">
-                        <button id="btn-registro" type="submit" name="button" class="btn red">Registrar</button>
+                        <button id="btn-registro" type="submit" name="btn-registro" class="btn red">Registrar</button>
                     </div>
                 </div>
             </form>

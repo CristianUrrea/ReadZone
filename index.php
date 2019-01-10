@@ -1,8 +1,5 @@
-<?php //include("db/conexiondb.php");?>
-
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
     <meta charset="utf-8">
     <title>ReadZone</title>
@@ -24,14 +21,11 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <?php
-      include_once('db/conexiondb.php');
-     ?>
 </head>
 
 <body>
     <!--################ NAV ################-->
-    <?php include 'nav.php'; ?>
+    <?php include 'nav.php';?>
         <!--################################-->
 
         <main>
@@ -94,7 +88,7 @@
                                     </a>
                                 </div>
                                 <div class="card-content center">
-                                    <p><?php echo $row['titulo']; ?></p>
+                                    <p style="font-size: 12px;"><?php echo $row['titulo']; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +114,7 @@
                                     </a>
                                 </div>
                                 <div class="card-content center">
-                                    <p><?php echo $row['titulo']; ?></p>
+                                    <p style="font-size: 12px;"><?php echo $row['titulo']; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -146,7 +140,7 @@
                                     </a>
                                 </div>
                                 <div class="card-content center">
-                                    <p><?php echo $row['titulo']; ?></p>
+                                    <p style="font-size: 12px;"><?php echo $row['titulo']; ?></p>
                                 </div>
                             </div>
                         </div>
