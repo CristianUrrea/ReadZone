@@ -36,8 +36,8 @@
                     <select name="tipo-libro">
                       <option value="" disabled selected>Tipo de libro</option>
                       <option value="Novela">Novela</option>
-                      <option value="Comic">Comic</option>
                       <option value="Manga">Manga</option>
+                      <option value="Comic">Comic</option>
                     </select>
                   </div>
                 </div>
@@ -69,7 +69,7 @@
                     <div class="file-field input-field">
                         <div class="btn">
                             <span>Imagen</span>
-                            <input id="imagen-book" type="file" name="imagen-book">
+                            <input id="imagen-book" type="file" name="fileimgbook">
                         </div>
                         <div class="file-path-wrapper">
                             <input class="file-path validate" type="text">

@@ -3,40 +3,61 @@
 /*################ MEDIA QUERY CONTENT ################*/
 
 @media only screen and (min-width: 990px) {
-    #div-content-recomendations div h5 {
-        margin-left: -12px;
-    }
-    #div-content-recomendations-gallery {
-      margin-left: 15.85%;
-      width: 68.1%;
-    }
+  #div-content-recomendations div h5 {
+    margin-left: -12px;
+  }
+  #div-content-recomendations-gallery {
+    margin-left: 15.85%;
+    width: 68.1%; /*68.1%*/
+  }
 }
 
+@media only screen and (min-width: 601px) {
+  .gallery-cell {
+    width: 28.1% !important;
+    margin-right: 15px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .gallery-cell {
+    width: 50.1% !important;
+    margin-right: 15px;
+  }
+}
+
+
 @media only screen and (min-width: 450px) and (max-width: 990px) {
-    #div-content-recomendations div h5 {
-        margin-left: -0px;
-    }
+  #div-content-recomendations div h5 {
+    margin-left: -0px;
+  }
 }
 
 @media only screen and (max-width: 422px) {
-
   #div-content-recomendations div h5 {
-      margin-left: -14px;
+    margin-left: -14px;
   }
 }
 /*################ CONTENT  ################*/
 
 #div-content {
-    background-color: #ef9a9a;
+  background-color: #ef9a9a;
 }
 
 #div-content,
 #div-content-recomendations {
-    height: 400px;
+  height: 400px;
 }
 
 #div-content-recomendations {
-    margin-top: -20px;
+  margin-top: -20px;
+}
+#div-content-recomendations #div-content-recomendations-title {
+  margin-top: 10px;
+}
+
+#div-content-recomendations-gallery-title-book {
+  font-size: 12px;
 }
 
 .gallery-cell {
@@ -55,36 +76,35 @@
 /*################ BARRA DE PROGRESO  ################*/
 
 .carousel-progress-bar-timer {
-    display: block;
-    height: 5px;
-    background-color: red;
-    width: 0%;
-    margin: 0;
-    border: none;
-    z-index: 11;
-    position: fixed;
-    top: 0px;
+  display: block;
+  height: 5px;
+  background-color: red;
+  width: 0%;
+  margin: 0;
+  border: none;
+  z-index: 11;
+  position: fixed;
+  top: 0px;
 }
 
 .carousel-progress-bar-timer.animate {
-    /* We make the transition time shorter to avoid the slide transitioning
+  /* We make the transition time shorter to avoid the slide transitioning
     before the timer bar is "full" - change the 4.25s here to fit your
     carousel's transition time */
-    -webkit-transition: width 4s linear;
-    -moz-transition: width 4s linear;
-    -ms-transition: width 4s linear;
-    -o-transition: width 4s linear;
-    transition: width 4s linear;
+  -webkit-transition: width 4s linear;
+  -moz-transition: width 4s linear;
+  -ms-transition: width 4s linear;
+  -o-transition: width 4s linear;
+  transition: width 4s linear;
 }
 
 .carousel .transition-timer-carousel-left-progress-bar.stopanimation,
 .carousel .transition-timer-carousel-progress-bar.stopanimation {
-    /* class to fix IE bug that make transition continue even when you remove the class .animate */
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
+  /* class to fix IE bug that make transition continue even when you remove the class .animate */
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
 }
-
 
 /*#######################################*/

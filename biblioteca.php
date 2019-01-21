@@ -41,7 +41,9 @@
             <div id="div-row-search-input" class="row">
                 <div class="col s12 m12 l8 offset-l2">
                     <div class="col s3 m3 l3">
-                        <button id="btn-search-advanced" class="btn" type="button" name="button" data-activates="services-dropdown"><span class="button-text"></span><!--<i class="material-icons right">arrow_drop_down</i>--></button>
+                        <button id="btn-search-advanced" class='dropdown-trigger btn'data-target='dropdown1' type="button" name="button" data-activates="services-dropdown">
+                          <span class="button-text"></span>
+                        </button>
                     </div>
                     <div class="search-wrapper">
                         <div id="div-type-search-one" class="input-field col s9 m9 l9">
@@ -65,31 +67,29 @@
                 <div id="div-biblioteca" style="" class="col s12 m12 l8 offset-l2">
                   <ul id="example2" class="cards-container">
                   <?php
-                  $query = mysqli_query($conn, "SELECT * FROM Books");
-                  if (mysqli_num_rows($query) > 0) {
-                      while ($row = mysqli_fetch_assoc($query)) {
-                ?>
+                    $query = mysqli_query($conn, "SELECT * FROM Books");
+                    if (mysqli_num_rows($query) > 0) {
+                        while ($row = mysqli_fetch_assoc($query)) {
+                            ?>
                 <li>
                   <div class="card sticky-action">
                         <div class="card-image center">
                           <form method="post">
-                            <a href="contenido.php?id_book=<?php echo $row['id_book'] ?>"><img class="center" src="data:image/jpg;base64,<?php echo base64_encode($row['imagen']); ?>" height="250px"></img>
+                            <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
                             </a>
                           </form>
-
                         </div>
                         <div class="card-content">
-                            <p style="font-size: 12px;"><?php echo $row['titulo']; ?></p>
+                            <p id="p-div-title-book" style="font-size: 12px;"><?php echo $row['titulo']; ?></p>
                         </div>
                     </div>
                   </li>
                     <?php
-                  }
-                  }
+                        }
+                    }
                   ?>
                 </ul>
                 </div>
-
             </div>
         </div>
           <div id="example2-pagination" style="" class="col s12 m12 l6 offset-l4 center">
@@ -123,7 +123,9 @@
     $(document).ready(function()    {
       $('#example2').paginate({itemsPerPage: 12});
       $('.dropdown-trigger').dropdown();
-
+      // $('#p-div-title-book').text(function(index, currentText) {
+      //   return currentText.substr(0, 10);
+      // });
     });
     </script>
 </body>

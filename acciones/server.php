@@ -1,76 +1,73 @@
 <?php
-	session_start();
+    session_start();
 
-	// variable declaration
-	$username = "";
-	$email    = "";
-	$errors = array();
-	$_SESSION['success'] = "";
+    // VARIABLES
+    $errors = array();
+    $_SESSION['success'] = "";
 
-	// connect to database
-	$db = mysqli_connect('localhost', 'root', '', 'readzonedb');
+    require_once("./db/conexiondb.php");
 
-	// REGISTER USER
-	if (isset($_POST['btn-registro'])) {
-		// receive all input values from the form
-		$username = mysqli_real_escape_string($db, $_POST['username']);
-		$useremail = mysqli_real_escape_string($db, $_POST['useremail']);
-		$userpass_1 = mysqli_real_escape_string($db, $_POST['userpass_1']);
-		$userpass_2 = mysqli_real_escape_string($db, $_POST['userpass_2']);
+    // REGISTRO DE USUARIO
+    if (isset($_POST['btn-registro'])) {
+        //Inputs del formulario
+        $username = mysqli_real_escape_string($conn, $_POST['username']);
+        $useremail = mysqli_real_escape_string($conn, $_POST['useremail']);
+        $userpass_1 = mysqli_real_escape_string($conn, $_POST['userpass_1']);
+        $userpass_2 = mysqli_real_escape_string($conn, $_POST['userpass_2']);
 
-		// form validation: ensure that the form is correctly filled
-		if (empty($username)) { array_push($errors, "Username is required"); }
-		if (empty($useremail)) { array_push($errors, "Email is required"); }
-		if (empty($userpass_1)) { array_push($errors, "Password is required"); }
+        //Validacion de formulario:
+        if (empty($username)) {
+            array_push($errors, "Username is required");
+        }
+        if (empty($useremail)) {
+            array_push($errors, "Email is required");
+        }
+        if (empty($userpass_1)) {
+            array_push($errors, "Password is required");
+        }
 
-		if ($userpass_1 != $userpass_2) {
-			array_push($errors, "The two passwords do not match");
-		}
+        if ($userpass_1 != $userpass_2) {
+            array_push($errors, "The two passwords do not match");
+        }
 
-		// register user if there are no errors in the form
-		if (count($errors) == 0) {
-			$userpass_encryp = md5($userpass_1);//encrypt the password before saving in the database
-			$query = "INSERT INTO users (nombre, correo, contrasena)
+        //Registrar usuario si no encuntra errores en el formulario
+        if (count($errors) == 0) {
+            $userpass_encryp = md5($userpass_1);//encrypt the password before saving in the database
+            $query = "INSERT INTO users (nombre, correo, contrasena)
 					  VALUES('$username', '$useremail', '$userpass_encryp')";
-			mysqli_query($db, $query);
+            mysqli_query($conn, $query);
 
-			$_SESSION['username'] = $username;
-			$_SESSION['success'] = "You are now logged in";
-			header('location: index.php');
-		}
+            $_SESSION['username'] = $username;
+            $_SESSION['success'] = "You are now logged in";
+            header('location: index.php');
+        }
+    }
+    // filter_var($email, FILTER_VALIDATE_EMAIL)
 
-	}
+    //LOGIN USUARIO
 
-	// ...
+    if (isset($_POST['btn-div-login-form-inicio-sesion'])) {
+        $username_login = mysqli_real_escape_string($conn, $_POST['username-login']);
+        $userpass_login = mysqli_real_escape_string($conn, $_POST['userpass-login']);
 
-	//LOGIN USER
+        if (empty($username_login)) {
+            array_push($errors, "Username is required");
+        }
+        if (empty($userpass_login)) {
+            array_push($errors, "Password is required");
+        }
 
-	if (isset($_POST['btn-div-login-form-inicio-sesion'])) {
-		$username_login = mysqli_real_escape_string($db, $_POST['username-login']);
-		$userpass_login = mysqli_real_escape_string($db, $_POST['userpass-login']);
+        if (count($errors) == 0) {
+            $userpass_login_encryp = md5($userpass_login);
+            $query = "SELECT * FROM users WHERE nombre='$username_login' OR correo='$username_login' AND contrasena='$userpass_login_encryp'";
+            $results = mysqli_query($conn, $query);
 
-		if (empty($username_login)) {
-			array_push($errors, "Username is required");
-		}
-		if (empty($userpass_login)) {
-			array_push($errors, "Password is required");
-		}
-
-		if (count($errors) == 0) {
-			$userpass_login_encryp = md5($userpass_login);
-			$query = "SELECT * FROM users WHERE nombre='$username_login' AND contrasena='$userpass_login_encryp'";
-			$results = mysqli_query($db, $query);
-
-			if (mysqli_num_rows($results) == 1) {
-				$_SESSION['username'] = $username_login;
-				$_SESSION['success'] = "You are now logged in";
-				header('location: index.php');
-			}else {
-				array_push($errors, "Wrong username/password combination");
-
-			}
-		}
-	}
-
-
-?>
+            if (mysqli_num_rows($results) == 1) {
+                $_SESSION['username'] = $username_login;
+                $_SESSION['success'] = "You are now logged in";
+                header('location: index.php');
+            } else {
+                array_push($errors, "Wrong username/email/password combination");
+            }
+        }
+    }

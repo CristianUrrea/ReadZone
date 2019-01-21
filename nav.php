@@ -2,19 +2,18 @@
   include('acciones/server.php');
   require 'acciones/adminpass.php';
   if (!isset($_SESSION['username'])) {
-    $_SESSION['msg'] = "You must log in first";
-    // header('location: index.php');
-    echo ' <script type="text/javascript">alert("No logeado")</script>';
+      $_SESSION['msg'] = "You must log in first";
+      // header('location: index.php');
+      // echo ' <script type="text/javascript">alert("No logeado")</script>';
   } else {
-    echo ' <script type="text/javascript">alert("Logeado")</script>';
+      // echo ' <script type="text/javascript">alert("Logeado")</script>';
   }
   if (isset($_GET['logout'])) {
-  		session_destroy();
-  		unset($_SESSION['username']);
-  		header("location: index.php");
-  	}
-  require 'db/conexiondb.php';
-
+      session_destroy();
+      unset($_SESSION['username']);
+      header("location: index.php");
+  }
+  require_once("db/conexiondb.php");
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -77,10 +76,11 @@
                     </div>
                     <div class="col s12 m2 l2 nav-wrapper">
                         <ul id="ul-div-nav-dropdown" class="hide-on-med-and-down right">
+                          <?php  if (isset($_SESSION['username'])) {?>
+                            <li style="color: black;"><a href="perfil.php"><i class="material-icons">person</i></a></li>
                             <li>
-                              <?php  if (isset($_SESSION['username'])) { ?>
                                 <a id="a-div-log-out" name="a-div-log-out" href="index.php?logout='1'">logout</a>
-                              <?php } else {?>
+                              <?php } else { ?>
                                 <a id="a-div-login" href="#">Login</a>
                               <?php } ?>
                             </li>

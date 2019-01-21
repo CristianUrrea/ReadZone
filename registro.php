@@ -40,13 +40,13 @@
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12">
-                        <input id="username" type="text" name="username" class="validate" aria-required="false" value="<?php  echo $username ?>">
+                        <input id="username" type="text" name="username" class="validate" aria-required="false" value="">
                         <label for="username">Nombre de usuario</label>
                     </div>
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12">
-                        <input id="useremail" type="email" name="useremail" class="validate" aria-required="false" value="<?php echo $useremail ?>">
+                        <input id="useremail" type="email" name="useremail" class="validate" aria-required="false" value="">
                         <label for="email">Email</label>
                     </div>
                 </div>

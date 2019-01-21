@@ -22,7 +22,7 @@
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <?php
-      include_once('db/conexiondb.php');
+      require_once("db/conexiondb.php");
       $id_book=$_REQUEST['id_book'];
      ?>
 </head>
@@ -41,13 +41,13 @@
                       $query = mysqli_query($conn, "SELECT * FROM Books WHERE id_book = '$id_book'");
                       if (mysqli_num_rows($query) > 0) {
                           while ($row = mysqli_fetch_assoc($query)) {
-                    ?>
-                        <img id="image-div-content-type-book" src="data:image/jpg;base64,<?php echo base64_encode($row['imagen']); ?>" class="center" height="200px">
+                              ?>
+                        <img id="image-div-content-type-book" src="<?php echo $row['imagen']; ?>" class="center" height="200px">
                         <div class="card-content center">
                             <p><?php echo $row['titulo']; ?></p>
                         </div>
                         <?php
-                      }
+                          }
                       }
                       $conn->close();
                       ?>

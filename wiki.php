@@ -53,7 +53,7 @@
                     <div class="col s12 m12 l12">
                         <div class="card horizontal">
                             <div class="card-image">
-                                <img id="image-div-content-type-book" src="imagenes/Wiki/fantasia.png" class="fadeIn">
+                                <img id="image-div-content-type-book" src="imagenes/wiki/fantasia.png" class="fadeIn">
                             </div>
                             <div class="card-stacked">
                                 <div class="card-content">
@@ -69,7 +69,7 @@
                     <div class="col s12 m12 l12">
                         <div class="card horizontal">
                             <div class="card-image">
-                                <img id="image-div-content-type-book" src="imagenes/Wiki/historico.png" class="fadeIn">
+                                <img id="image-div-content-type-book" src="imagenes/wiki/historico.png" class="fadeIn">
                             </div>
                             <div class="card-stacked">
                                 <div class="card-content">
@@ -85,7 +85,7 @@
                     <div class="col s12 m12 l12">
                         <div class="card horizontal">
                             <div class="card-image">
-                                <img id="image-div-content-type-book" src="imagenes/Wiki/cienciaficcion.png" class="fadeIn">
+                                <img id="image-div-content-type-book" src="imagenes/wiki/cienciaficcion.png" class="fadeIn">
                             </div>
                             <div class="card-stacked">
                                 <div class="card-content">
@@ -101,7 +101,7 @@
                     <div class="col s12 m12 l12">
                         <div class="card horizontal">
                             <div class="card-image">
-                                <img id="image-div-content-type-book" src="imagenes/Wiki/cyberpunk.png" class="fadeIn">
+                                <img id="image-div-content-type-book" src="imagenes/wiki/cyberpunk.png" class="fadeIn">
                             </div>
                             <div class="card-stacked">
                                 <div class="card-content">
@@ -117,7 +117,7 @@
                     <div class="col s12 m12 l12">
                         <div class="card horizontal">
                             <div class="card-image">
-                                <img id="image-div-content-type-book" src="imagenes/Wiki/terror.png" class="fadeIn">
+                                <img id="image-div-content-type-book" src="imagenes/wiki/terror.png" class="fadeIn">
                             </div>
                             <div class="card-stacked">
                                 <div class="card-content">
@@ -137,7 +137,7 @@
                   <div class="col s12 m12 l12">
                       <div class="card horizontal">
                           <div class="card-image">
-                              <img id="image-div-content-type-book" src="imagenes/Wiki/wuxia.png" class="fadeIn">
+                              <img id="image-div-content-type-book" src="imagenes/wiki/wuxia.png" class="fadeIn">
                           </div>
                           <div class="card-stacked">
                               <div class="card-content">
@@ -153,7 +153,7 @@
                   <div class="col s12 m12 l12">
                       <div class="card horizontal">
                           <div class="card-image">
-                              <img id="image-div-content-type-book" src="imagenes/Wiki/xianxia.png" class="fadeIn">
+                              <img id="image-div-content-type-book" src="imagenes/wiki/xianxia.png" class="fadeIn">
                           </div>
                           <div class="card-stacked">
                               <div class="card-content">
@@ -169,7 +169,7 @@
                   <div class="col s12 m12 l12">
                       <div class="card horizontal">
                           <div class="card-image">
-                              <img id="image-div-content-type-book" src="imagenes/Wiki/xuanhuan.png" class="fadeIn">
+                              <img id="image-div-content-type-book" src="imagenes/wiki/xuanhuan.png" class="fadeIn">
                           </div>
                           <div class="card-stacked">
                               <div class="card-content">

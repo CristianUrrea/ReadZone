@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
@@ -71,7 +71,7 @@
                 </div>
                 <!--################ RECOMENDATIONS NOVELAS ################-->
                 <div id="div-content-recomendations" class="row">
-                  <div style="margin-top: 10px;" class="col s12 m12 l8 offset-l2">
+                  <div id="div-content-recomendations-title" class="col s12 m12 l8 offset-l2">
                       <h5>Recomendaciones novelas</h5>
                   </div>
 
@@ -80,25 +80,25 @@
                       $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo = 'Novela'");
                       if (mysqli_num_rows($query) > 0) {
                           while ($row = mysqli_fetch_assoc($query)) {
-                    ?>
+                              ?>
                         <div class="gallery-cell">
                             <div class="card sticky-action">
                                 <div class="card-image ">
-                                    <a href="contenido.php?id_book=<?php echo $row['id_book'] ?>"><img class="center" src="data:image/jpg;base64,<?php echo base64_encode($row['imagen']); ?>" height="250px"></img>
+                                    <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
                                     </a>
                                 </div>
                                 <div class="card-content center">
-                                    <p style="font-size: 12px;"><?php echo $row['titulo']; ?></p>
+                                    <p id="div-content-recomendations-gallery-title-book"><?php echo $row['titulo']; ?></p>
                                 </div>
                             </div>
                         </div>
                         <?php
-                      }
+                          }
                       }
                       ?>
                     </div>
                     <!--################ RECOMENDATIONS MANGAS ################-->
-                    <div style="margin-top: 10px;" class="col s12 m12 l8 offset-l2">
+                    <div id="div-content-recomendations-title" class="col s12 m12 l8 offset-l2">
                         <h5>Recomendaciones mangas</h5>
                     </div>
                     <div id="div-content-recomendations-gallery" class="col s12 m12 l8 offset-l2 colgallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
@@ -106,25 +106,25 @@
                       $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo = 'Manga'");
                       if (mysqli_num_rows($query) > 0) {
                           while ($row = mysqli_fetch_assoc($query)) {
-                    ?>
+                              ?>
                         <div class="gallery-cell">
                             <div class="card sticky-action">
                                 <div class="card-image ">
-                                  <a href="contenido.php?id_book=<?php echo $row['id_book'] ?>"><img class="center" src="data:image/jpg;base64,<?php echo base64_encode($row['imagen']); ?>" height="250px"></img>
+                                  <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
                                     </a>
                                 </div>
                                 <div class="card-content center">
-                                    <p style="font-size: 12px;"><?php echo $row['titulo']; ?></p>
+                                    <p id="div-content-recomendations-gallery-title-book"><?php echo $row['titulo']; ?></p>
                                 </div>
                             </div>
                         </div>
                         <?php
-                      }
+                          }
                       }
                       ?>
                     </div>
                     <!--################ RECOMENDATIONS COMICS ################-->
-                    <div style="margin-top: 10px;" class="col s12 m12 l8 offset-l2">
+                    <div id="div-content-recomendations-title" class="col s12 m12 l8 offset-l2">
                         <h5>Recomendaciones comics</h5>
                     </div>
                     <div id="div-content-recomendations-gallery" class="col s12 m12 l8 offset-l2 colgallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
@@ -132,20 +132,20 @@
                       $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo = 'Comic'");
                       if (mysqli_num_rows($query) > 0) {
                           while ($row = mysqli_fetch_assoc($query)) {
-                    ?>
+                              ?>
                         <div class="gallery-cell">
                             <div class="card sticky-action">
                                 <div class="card-image ">
-                                  <a href="contenido.php?id_book=<?php echo $row['id_book'] ?>"><img class="center" src="data:image/jpg;base64,<?php echo base64_encode($row['imagen']); ?>" height="250px"></img>
+                                  <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
                                     </a>
                                 </div>
                                 <div class="card-content center">
-                                    <p style="font-size: 12px;"><?php echo $row['titulo']; ?></p>
+                                    <p id="div-content-recomendations-gallery-title-book"><?php echo $row['titulo']; ?></p>
                                 </div>
                             </div>
                         </div>
                         <?php
-                      }
+                          }
                       }
                       $conn->close();
                       ?>
