@@ -1,0 +1,14 @@
+/*################ MAIN ################*/
+
+#div-row-admin-panel {
+  margin-top: 20px;
+}
+
+/*################ FORMULARIO ################*/
+
+#form-div-admin {
+  background-color: white;
+  border-radius: 5px;
+  border: solid 1px;
+  border-color: #bdbdbd;
+}

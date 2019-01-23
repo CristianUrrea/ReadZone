@@ -84,7 +84,7 @@ nav,
 }
 
 #ul-div-nav-links li a:hover,
-#ul-div-nav-dropdown li a:hover {
+#ul-div-nav-dropdown li a:hover, #ul-div-nav-dropdown #a-div-login:hover{
   background-color: #ffffff;
   color: red;
 }
@@ -119,7 +119,7 @@ nav,
   display: inline-block;
 }
 
-#div-nav-login-form li a:hover {
+#div-nav-login-form li a:hover, #a-div-login:hover{
   color: red;
 }
 

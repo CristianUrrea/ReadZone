@@ -29,6 +29,11 @@
         if ($userpass_1 != $userpass_2) {
             array_push($errors, "The two passwords do not match");
         }
+        $query = "SELECT * FROM users WHERE nombre='$username' OR correo='$useremail'";
+        $results = mysqli_query($conn, $query);
+        if (mysqli_num_rows($results) != $username) {
+          array_push($errors, "El usuario o email existen, introdusca de nuevo los datos!");
+        }
 
         //Registrar usuario si no encuntra errores en el formulario
         if (count($errors) == 0) {

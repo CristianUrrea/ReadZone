@@ -1,0 +1,29 @@
+
+/*################ MAIN ################*/
+#div-row-edit-profile {
+  margin-top: 20px;
+}
+/*################ FORMULARIO ################*/
+
+#form-div-perfil {
+  background-color: white;
+  border-radius: 5px;
+  border: solid 1px;
+  border-color: #bdbdbd;
+}
+#form-div-input-form-perfil {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:before,
+[type="radio"].with-gap:checked + span:after {
+  border: 2px solid #ef5350 !important;
+}
+
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:after {
+  background-color: #ef5350 !important;
+}

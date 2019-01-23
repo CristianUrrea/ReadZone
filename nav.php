@@ -17,7 +17,9 @@
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<style media="screen">
 
+</style>
 <head>
     <meta charset="utf-8">
     <title>ReadZone</title>
@@ -77,7 +79,7 @@
                     <div class="col s12 m2 l2 nav-wrapper">
                         <ul id="ul-div-nav-dropdown" class="hide-on-med-and-down right">
                           <?php  if (isset($_SESSION['username'])) {?>
-                            <li style="color: black;"><a href="perfil.php"><i class="material-icons">person</i></a></li>
+                            <li style="color: black; margin-left: -35px;"><a href="perfil.php"><i class="material-icons">person</i></a></li>
                             <li>
                                 <a id="a-div-log-out" name="a-div-log-out" href="index.php?logout='1'">logout</a>
                               <?php } else { ?>
@@ -115,16 +117,17 @@
         <ul id="mobile-nav" class="sidenav right">
             <li id="li-nav-login-form">
                 <div id="div-nav-login-form" style="">
-                    <form action="acciones/logear.php" method="post">
+                    <form action="index.php" method="post">
+                      <?php include('acciones/errors.php'); ?>
                         <div class="input-field">
                             <i class="material-icons iconis prefix">account_box</i>
-                            <input id="useremail-login-mobile" type="email" name="useremail-login-mobile" placeholder="usuario">
+                            <input type="text" name="username-login" placeholder="nombre">
                         </div>
                         <div class="input-field">
                             <i class="material-icons iconis prefix">lock</i>
-                            <input id="userpass-login-mobile" type="password" name="userpass-login-mobile" placeholder="contraseña">
+                            <input type="password" name="userpass-login" placeholder="contraseña">
                         </div>
-                        <button id="btn-div-login-form-inicio-sesion-mobile" class="btn waves-effect waves-red white-text red" type="submit" name="btn-div-login-form-inicio-sesion-mobile">Inciar sesión</button>
+                        <button class="btn waves-effect waves-red white-text red" type="submit" name="btn-div-login-form-inicio-sesion">Inciar sesión</button>
                     </form>
                     <ul>
                         <li><a style="font-size: 13px;" href="registro.php">Registrar</a></li>

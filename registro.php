@@ -40,32 +40,32 @@
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12">
-                        <input id="username" type="text" name="username" class="validate" aria-required="false" value="">
+                        <input id="username" type="text" name="username" class="validate">
                         <label for="username">Nombre de usuario</label>
                     </div>
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12">
-                        <input id="useremail" type="email" name="useremail" class="validate" aria-required="false" value="">
+                        <input id="useremail" type="email" name="useremail" class="validate">
                         <label for="email">Email</label>
                     </div>
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12">
-                        <input id="userpass_1" type="password" name="userpass_1" class="validate" aria-required="false">
+                        <input id="userpass_1" type="password" name="userpass_1" class="validate">
                         <label for="password">Contraseña</label>
                     </div>
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12 m12">
-                        <input id="userpass_2" type="password" name="userpass_2" class="validate" aria-required="false">
+                        <input id="userpass_2" type="password" name="userpass_2" class="validate">
                         <label for="password-confirm">Confirma tu contraseña</label>
                     </div>
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="col s12 m12">
                       <label>
-                        <input type="checkbox" class="filled-in"  aria-required="false">
+                        <input type="checkbox" class="filled-in" class="validate">
                         <span>Aceptar términos y condiciones</span>
                       </label>
                     </div>

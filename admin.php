@@ -13,6 +13,7 @@
     <!-- Compiled and minified webuiPopover CSS -->
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css'>
     <!-- Mis css -->
+    <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="css/registro.css">
     <!--Let browser know website is optimized for mobile-->
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -24,8 +25,8 @@
 
 <body>
     <main>
-        <div style="margin-top: 20px;"class="row">
-            <form id="form-div-registro" class="col s12 m8 l4 offset-l4 offset-m2"  action="" method="post" enctype="multipart/form-data">
+        <div id="div-row-admin-panel"  class="row">
+            <form id="form-div-admin" class="col s12 m8 l4 offset-l4 offset-m2"  action="" method="post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col s12 m12 l12 center">
                         <h5>Administrador</h5>
