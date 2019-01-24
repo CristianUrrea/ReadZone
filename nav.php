@@ -1,5 +1,5 @@
 <?php
-  include('acciones/server.php');
+  include('acciones/loginRegistro.php');
   require 'acciones/adminpass.php';
   if (!isset($_SESSION['username'])) {
       $_SESSION['msg'] = "You must log in first";

@@ -1,4 +1,4 @@
-<?php include('acciones/server.php') ?>
+<?php include('acciones/loginRegistro.php') ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="row">
-            <form id="form-div-registro" class="col s12 m8 l4 offset-l4 offset-m2" action="registro.php" method="post">
+            <form id="form-div-registro" class="col s12 m8 l4 offset-l4 offset-m2" action="" method="post">
               <?php include('acciones/errors.php'); ?>
                 <div class="row">
                     <div class="col s12 m12 l12 center">

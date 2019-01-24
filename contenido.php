@@ -21,15 +21,16 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <?php
-      require_once("db/conexiondb.php");
-      $id_book=$_REQUEST['id_book'];
-     ?>
 </head>
 
 <body>
   <!--################ NAV ################-->
-  <?php include 'nav.php'; ?>
+  <?php
+    // require_once("db/conexiondb.php");
+    $id_book=$_REQUEST['id_book'];
+    include 'nav.php';
+    include_once('acciones/contenido.php');
+  ?>
       <!--################################-->
 
     <main>
@@ -64,17 +65,19 @@
                         </div>
                     </div>
                 </div>
+                <form class="" action="" method="post">
+
                 <div id="div-card-horizontal" class="card horizontal red">
                     <div class="card-stacked center">
                         <ul id="div-ul-like-favorite-add-list">
-                            <li><a href=""><i class="material-icons white-text">thumb_up</i></a></li>
-                            <li><a href=""><i class="material-icons white-text">thumb_down</i></a></li>
-                            <li><a href=""><i class="material-icons white-text">favorite</i></a></li>
-                            <li><a href=""><i class="material-icons white-text">library_add</i></a></li>
+                            <li><button type="submit" class="btn-flat"><i class="material-icons white-text">thumb_up</i></button></li>
+                            <li><button type="submit" class="btn-flat"><i class="material-icons white-text">thumb_down</i></button></li>
+                            <li><button type="submit" class="btn-flat"><i class="material-icons white-text">favorite</i></button></li>
+                            <li><button id="a-anadir-a-lista" type="submit" name="a-anadir-a-lista" class="btn-flat"><i class="material-icons white-text">library_add</i></button></li>
                         </ul>
                     </div>
-
                 </div>
+              </form>
             </div>
         </div>
         <div class="row">

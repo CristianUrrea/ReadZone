@@ -26,12 +26,21 @@
 
 <body>
     <!--################ NAV ################-->
-    <?php include 'nav.php';?>
+    <?php include 'nav.php';
+    include_once('acciones/perfil.php');
+    ?>
         <!--################################-->
 
         <main>
             <div id="div-row-edit-profile" class="row">
                 <form id="form-div-perfil" class="col s12 m8 l4 offset-l4 offset-m2" action="" method="post" enctype="multipart/form-data">
+                  <?php
+                   if (isset($_SESSION['username'])) {
+                       $user = $_SESSION['username'];
+                       $query = mysqli_query($conn, "SELECT * FROM Users WHERE nombre='$user' OR correo='$user'");
+                       if (mysqli_num_rows($query) > 0) {
+                           while ($row = mysqli_fetch_assoc($query)) {
+                               ?>
                     <div class="row">
                         <div class="col s12 m12 l12 center">
                             <h5>Perfil</h5>
@@ -39,38 +48,25 @@
                     </div>
                     <div id="form-div-input-form-perfil" class="row">
                         <div class="input-field col s12">
-                            <?php
-                             if (isset($_SESSION['username'])) {
-                                 $user = $_SESSION['username'];
-                                 $query = mysqli_query($conn, "SELECT * FROM Users WHERE nombre='$user' OR correo='$user'");
-                                 if (mysqli_num_rows($query) > 0) {
-                                     while ($row = mysqli_fetch_assoc($query)) {
-                                         ?>
-                                <input id="nombre_usuario" type="text" name="nombre_usuario" class="validate" value="<?php echo $row['nombre']?>">
-                                <label for="nombre_usuario">Nombre de usuario</label>
-
-                                <?php
-                                     }
-                                 }
-                             }
-                                ?>
+                                <input id="nombre_usuario_perfil" type="text" name="nombre_usuario_perfil" class="validate" value="<?php echo $row['nombre']?>">
+                                <label for="nombre_usuario_perfil">Nombre de usuario</label>
                         </div>
                     </div>
                     <div id="form-div-input-form-perfil" class="row">
                       <div class="col s12">
                         <label>
-                            <input class="with-gap" name="group1" type="radio" />
+                            <input class="with-gap" name="genero" type="radio" value="hombre"/>
                             <span>Hombre</span>
                         </label>
                         <label>
-                            <input class="with-gap" name="group1" type="radio" />
+                            <input class="with-gap" name="genero" type="radio" value="mujer"/>
                             <span>Mujer</span>
                         </label>
                       </div>
                     </div>
                     <div id="form-div-input-form-perfil" class="row">
                         <div class="input-field col s12">
-                            <input type="text" class="datepicker">
+                            <input type="text" name="fecha-cumpleanos" class="datepicker">
                             <label for="autor">Fecha de cumpleaños</label>
                         </div>
                     </div>
@@ -78,7 +74,7 @@
                         <div class="file-field input-field">
                             <div class="btn">
                                 <span>Imagen</span>
-                                <input id="imagen-book" type="file" name="fileimgbook">
+                                <input id="imagen-perfil-user" type="file" name="imagen-perfil-user">
                             </div>
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text">
@@ -86,10 +82,15 @@
                         </div>
                     </div>
                     <div id="form-div-input-form-perfil" class="row">
-                        <div class="input-field col s4 m4 l6 offset-l4 offset-s4 offset-m4">
-                            <button type="submit" name="btn-update-perfil-usuario" class="btn red">Guardar cambios</button>
+                        <div class="input-field col s4 m4 l6 offset-l3 offset-s4 offset-m4">
+                            <button id="btn-perfil" type="submit" name="btn-perfil" class="btn red">Guardar cambios</button>
                         </div>
                     </div>
+                    <?php
+                         }
+                     }
+                 }
+                    ?>
                 </form>
             </div>
             <!-- Back to top -->
