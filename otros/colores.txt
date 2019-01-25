@@ -1,9 +1,0 @@
-#f5f5f5, white, #424242, black, grey darken-4, #bdbdbd, red, #37474f
-
-SQL:
-
-
-SELECT B.id_book AS id_book, B.titulo AS titulo,
-A.nombre_lista AS nombre_lista ,A.id_list AS id_list FROM books B
-LEFT JOIN list_books A ON B.id_book = A.id_book
-;
