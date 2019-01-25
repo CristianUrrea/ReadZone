@@ -8,4 +8,7 @@ $(document).ready(function() {
     hidePageNumbers: false,
     perPage: 10
   });
+  $('.modal').modal();
+  $('select').formSelect();
+
 });

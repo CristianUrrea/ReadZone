@@ -1,0 +1,7 @@
+#f5f5f5, white, #424242, black, grey darken-4, #bdbdbd, red, #37474f
+
+SQL:
+
+
+
+SELECT imagen FROM books WHERE id_book > (SELECT id_book FROM list_books WHERE id_book = '8')

@@ -93,6 +93,56 @@
                     <div class="row">
                       <button id="btn-modal-add-list" data-target="modal1" class="btn modal-trigger">Modal</button>
                     </div>
+                    <div class="row">
+                      <div id="div-content-recomendations-title" class="col s12 m12 l8 offset-l2">
+
+                        <?php
+                        if (isset($_SESSION['username'])) {
+                          ?>
+                          <div id="div-content-recomendations-gallery" class="col s12 m12 l8 offset-l2 colgallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+                          <?php
+                          $user = $_SESSION['username'];
+
+                          $query = mysqli_query($conn, "SELECT * FROM Users WHERE nombre='$user' OR correo='$user'");
+                          if (mysqli_num_rows($query) > 0) {
+                              while ($row = mysqli_fetch_assoc($query)) {
+                                $id_user = $row['id_user'];
+                                $query2 = mysqli_query($conn, "SELECT nombre_lista, id_book FROM List_books WHERE id_user = '$id_user'");
+                                if (mysqli_num_rows($query2) > 0) {
+                                    while ($row2 = mysqli_fetch_assoc($query2)) {
+                                      $id_book = $row2['id_book'];
+                                      $query3 = mysqli_query($conn, "SELECT imagen, id_book FROM books WHERE id_book = '$id_book'");
+                                      if (mysqli_num_rows($query3) > 0) {
+                                        while ($row3 = mysqli_fetch_assoc($query3)) {
+                                    ?>
+                                    <h5><?php //echo $row2['nombre_lista'] ?></h5>
+
+
+                                        <div class="gallery-cell">
+                                            <div class="card sticky-action">
+                                                <div class="card-image ">
+
+                                                    <a href="contenido.php?id_book=<?php echo $row3['id_book']; ?>"><img class="center" src="<?php echo $row3['imagen']; ?>" height="250px"></img>
+                                                    </a>
+                                                </div>
+                                                <div class="card-content center">
+                                                    <p id="div-content-recomendations-gallery-title-book"><?php echo $row3['titulo']; ?></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php
+                                  }
+                                  }
+                                    }
+                                  }
+                              }
+                            }
+                          }
+                          ?>
+                        </div>
+
+                      </div>
+                    </div>
                 </div>
                 <!-- Modal Structure -->
                 <div id="modal1" class="modal">
@@ -133,7 +183,10 @@
             <!--Import jQuery before materialize.js -->
             <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <!--Import jQuery before webuiPopover.js -->
             <script src='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js'></script>
+            <!-- Import flickty -->
+            <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
             <script type="text/javascript" src="scripts/comun.js"></script>
             <script type="text/javascript" src="scripts/perfil.js"></script>
 </body>

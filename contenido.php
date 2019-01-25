@@ -50,7 +50,7 @@
                         <?php
                           }
                       }
-                      $conn->close();
+                      // $conn->close();
                       ?>
                     </div>
                     <div class="card-stacked">
@@ -65,20 +65,59 @@
                         </div>
                     </div>
                 </div>
-                <form class="" action="" method="post">
-
                 <div id="div-card-horizontal" class="card horizontal red">
                     <div class="card-stacked center">
                         <ul id="div-ul-like-favorite-add-list">
                             <li><button type="submit" class="btn-flat"><i class="material-icons white-text">thumb_up</i></button></li>
                             <li><button type="submit" class="btn-flat"><i class="material-icons white-text">thumb_down</i></button></li>
                             <li><button type="submit" class="btn-flat"><i class="material-icons white-text">favorite</i></button></li>
-                            <li><button id="a-anadir-a-lista" type="submit" name="a-anadir-a-lista" class="btn-flat"><i class="material-icons white-text">library_add</i></button></li>
+                            <li><button class="btn-flat modal-trigger" data-target="modal1"><i class="material-icons white-text">library_add</i></button></li>
                         </ul>
                     </div>
                 </div>
-              </form>
             </div>
+        </div>
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+          <form  action="" method="post" enctype="multipart/form-data">
+          <div class="modal-content">
+            <h4>Elegir lista</h4>
+              <div id="form-div-input-form" class="row">
+                <div class="input-field col s12">
+
+                     <select name="elegir-lista">
+                       <option value="" disabled selected>Elige la lista a añadir libro</option>
+                       <?php
+                       if (isset($_SESSION['username'])) {
+                         $user = $_SESSION['username'];
+                         $query = mysqli_query($conn, "SELECT * FROM Users WHERE nombre='$user' OR correo='$user'");
+                         if (mysqli_num_rows($query) > 0) {
+                             while ($row = mysqli_fetch_assoc($query)) {
+                               $id_user = $row['id_user'];
+                               $query2 = mysqli_query($conn, "SELECT nombre_lista FROM List_books WHERE id_user = '$id_user' GROUP BY nombre_lista");
+                               if (mysqli_num_rows($query2) > 0) {
+                                   while ($row2 = mysqli_fetch_assoc($query2)) {
+                                   ?>
+                                   <option value="<?php echo $row2['nombre_lista'] ?>"><?php echo $row2['nombre_lista'] ?></option>
+                                   <?php
+                                   }
+                                 }
+                             }
+                           }
+                         }
+                               ?>
+                     </select>
+                   </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <div id="form-div-input-form" class="row">
+                <div class="input-field col s12">
+                    <button id="btn-añadir-a-lista" type="submit"  name="btn-añadir-a-lista" class="btn red modal-close  waves-effect waves-red">Añadir a lista</button>
+                </div>
+            </div>
+          </div>
+        </form>
         </div>
         <div class="row">
             <div class="col s12 m12 l8 offset-l2">
