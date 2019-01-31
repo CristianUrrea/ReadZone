@@ -15,8 +15,9 @@
     <!-- Compiled and minified webuiPopover CSS -->
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css'>
     <!-- Mis css -->
-    <link rel="stylesheet" href="css/perfil.css">
     <link rel="stylesheet" href="css/comun.css">
+    <link rel="stylesheet" href="css/perfil.css">
+
     <!--Let browser know website is optimized for mobile-->
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="robots" content="noindex, nofollow">
@@ -82,12 +83,12 @@
                                      }
                                  }
                                     ?>
-                                                <!-- <p>El genero fantasía gira a entorno a representar mentalmente sucesos, historias o imágenes de cosas que no existen en la realidad o que son o fueron reales pero no están presentes. -->
-                                                <!-- </p> -->
+
                                     </div>
                                 </div>
                     </div>
                 </div>
+
                 <div id="listas" class="col s12 m12 l8 offset-l2">
                   <div class="row">
                       <button id="btn-modal-add-list" data-target="modal1" class="btn modal-trigger">Crear lista</button>
@@ -105,8 +106,14 @@
 
                   ?>
 
-                  <div id="<?php echo $row2['nombre_lista'] ?>" class="row" style="height: 200px; background-color: red;">
-                    <span style="color: white;"> <?php echo $row2['nombre_lista']?></span>
+                  <div id="<?php echo $row2['nombre_lista'] ?>" class="row">
+                    <div class="row">
+                      <span><b><?php echo $row2['nombre_lista']?></b></span>
+
+                    </div>
+                    <!-- <ul class="cards-container"> -->
+                    <div  id="<?php echo $row2['nombre_lista'] ?>" class="col s12 m12 l12 colgallery js-flickity" style="border: solid 2px;" data-flickity='{ "freeScroll": true, "wrapAround": true }'>
+
                     <?php
                     $nombre_lista = $row2['nombre_lista'];
                     $query3 = mysqli_query($conn, "SELECT nombre_lista, id_book FROM List_books WHERE id_user = '$id_user' AND nombre_lista = '$nombre_lista'");
@@ -119,15 +126,23 @@
                         $query4 = mysqli_query($conn, "SELECT imagen, id_book FROM books WHERE id_book = '$id_book'");
                         if (mysqli_num_rows($query4) > 0) {
                           while ($row4 = mysqli_fetch_assoc($query4)) {
-
                      ?>
-                      <!-- <p style="color: white;"><?php echo $row4['imagen'] ?></p> -->
+                      <div class="gallery-cell">
+                        <div class="card sticky-action">
+                          <div class="card-image">
+                            <a href="contenido.php?id_book=<?php echo $row4['id_book']; ?>"><img class="center" src="<?php echo $row4['imagen']; ?>" height="150px"></img>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
 
                      <?php
                         }
                       }
                     }
                       ?>
+                    </div>
+
                   </div>
                 <?php
                             }

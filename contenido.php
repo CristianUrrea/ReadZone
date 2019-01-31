@@ -21,6 +21,7 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 </head>
 
 <body>
@@ -37,33 +38,33 @@
         <div id="div-row-contenido-info" class="row">
             <div class="col s12 m12 l8 offset-l2">
                 <div class="card horizontal">
+                  <?php
+                  $query = mysqli_query($conn, "SELECT * FROM Books WHERE id_book = '$id_book'");
+                  if (mysqli_num_rows($query) > 0) {
+                      while ($row = mysqli_fetch_assoc($query)) {
+                          ?>
                     <div class="card-image" style="width: 200px;">
-                      <?php
-                      $query = mysqli_query($conn, "SELECT * FROM Books WHERE id_book = '$id_book'");
-                      if (mysqli_num_rows($query) > 0) {
-                          while ($row = mysqli_fetch_assoc($query)) {
-                              ?>
+
                         <img id="image-div-content-type-book" src="<?php echo $row['imagen']; ?>" class="center" height="200px">
                         <div class="card-content center">
                             <p><?php echo $row['titulo']; ?></p>
                         </div>
-                        <?php
-                          }
-                      }
-                      // $conn->close();
-                      ?>
+
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">
-                            <span class="card-title">Lorem fistrum</span>
-                            <p>amatomaa diodeno no puedor te va a hasé pupitaa sexuarl te voy a borrar el cerito no puedor a wan a peich. Te va a hasé pupitaa jarl la caidita a wan está la cosa muy malar
-                            </p>
+                            <span class="card-title"><?php  echo $row['titulo'];?></span>
+                            <p><?php echo $row['descripcion']; ?></p>
                         </div>
                         <div class="card-action">
                             <p>Generos</p>
                             <p>Autor</p>
                         </div>
                     </div>
+                    <?php
+                      }
+                  }
+                  ?>
                 </div>
                 <div id="div-card-horizontal" class="card horizontal red">
                     <div class="card-stacked center">

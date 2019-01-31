@@ -14,3 +14,11 @@ if (isset($_POST["btn-insertar-libro"])) {
     move_uploaded_file($archivo, $destino);
     mysqli_query($conn, "INSERT INTO Books (id_book, tipo, titulo, descripcion, autor, artista, imagen) VALUES ('','$tipo_libro','$titulo','$descripcion','$autor','$artista','$destino')");
 }
+
+if (isset($_POST['btn-update-libro'])) {
+  $titulo_libro= strip_tags($_POST['titulo-libro']);
+  $descripcion = $_POST['descripcion_update'];
+  $query1 = mysqli_query($conn, "UPDATE Books SET descripcion = '$descripcion' WHERE titulo = '$titulo_libro'");
+  mysqli_query($conn, $query1);
+
+}

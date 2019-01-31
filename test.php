@@ -20,8 +20,8 @@
             </button>
         </div>
         <div class="row">
-            <div id="div-content-recomendations-title" class="col s12 m12">
-                <ul id="example2" class="cards-container">
+            <div id="div-content-recomendations-title" class="col s12 m12 l12">
+                <ul class="cards-container">
 
                     <!-- <div id="div-content-recomendations-gallery" class="col s12 m12 l12 colgallery js-flickity" data-flickity-options='{ "wrapAround": true }'> -->
 

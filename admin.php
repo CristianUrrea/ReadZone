@@ -25,6 +25,15 @@
 
 <body>
     <main>
+      <div style="margin-top: 20px;" class="row">
+          <div class="col s12 m12 l8 offset-l2">
+              <ul class="tabs">
+                  <li class="tab col s6 m6 l6"><a class="red-text" href="#insertar_admin">Insertar</a></li>
+                  <li class="tab col s6 m6 l6"><a class="red-text" href="#update_admin">Actualizar</a></li>
+              </ul>
+          </div>
+      </div>
+      <div id="insertar_admin">
         <div id="div-row-admin-panel"  class="row">
             <form id="form-div-admin" class="col s12 m8 l4 offset-l4 offset-m2"  action="" method="post" enctype="multipart/form-data">
                 <div class="row">
@@ -50,7 +59,7 @@
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12">
-                        <input id="descripcion" name="descripcion" type="text" class="validate">
+                        <textarea class="materialize-textarea" name="name" rows="8" cols="80"></textarea>
                         <label for="descripcion">Descripción</label>
                     </div>
                 </div>
@@ -84,6 +93,49 @@
                 </div>
             </form>
         </div>
+      </div>
+      <div id="update_admin">
+        <div id="div-row-admin-panel"  class="row">
+          <form id="form-div-admin" class="col s12 m8 l4 offset-l4 offset-m2"  action="" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col s12 m12 l12 center">
+                    <h5>Administrador</h5>
+                </div>
+            </div>
+            <div id="form-div-input-form" class="row">
+              <div class="input-field col s12">
+                <select name="titulo-libro">
+                  <option value="" disabled selected>Seleccionar libro</option>
+                  <?php
+                  $query = mysqli_query($conn, "SELECT * FROM Books");
+                  if (mysqli_num_rows($query) > 0) {
+                    while ($row = mysqli_fetch_assoc($query)) {
+
+                   ?>
+                   <option value="<?php echo $row['titulo'];?>"><?php echo $row['titulo']; ?></option>
+                   <?php
+
+                  }
+                 }
+                    ?>
+                </select>
+              </div>
+            </div>
+            <div id="form-div-input-form" class="row">
+                <div class="input-field col s12">
+                    <textarea class="materialize-textarea" name="descripcion_update" rows="8" cols="80"></textarea>
+                    <label for="descripcion">Descripción</label>
+                </div>
+            </div>
+            <div id="form-div-input-form" class="row">
+                <div class="input-field col s4 m4 l4 offset-l4 offset-s4 offset-m4">
+                    <button type="submit" name="btn-update-libro" class="btn red">Update</button>
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
     </main>
 
     <!--Import jQuery before materialize.js-->
