@@ -32,6 +32,15 @@
         <!--################################-->
 
         <main>
+          <div style="margin-top: 20px;" class="row">
+              <div class="col s12 m12 l8 offset-l2">
+                  <ul class="tabs">
+                      <li class="tab col s6 m6 l6"><a class="red-text" href="#general">General</a></li>
+                      <li class="tab col s6 m6 l6"><a class="red-text" href="#imagen">Imagen</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div id="general">
             <div id="div-row-edit-profile" class="row">
                 <form id="form-div-perfil" class="col s12 m8 l4 offset-l4 offset-m2" action="" method="post" enctype="multipart/form-data">
                   <?php
@@ -43,7 +52,7 @@
                                ?>
                     <div class="row">
                         <div class="col s12 m12 l12 center">
-                            <h5>Perfil</h5>
+                            <!-- <h5>Perfil</h5> -->
                         </div>
                     </div>
                     <div id="form-div-input-form-perfil" class="row">
@@ -52,7 +61,7 @@
                                 <label for="nombre_usuario_perfil">Nombre de usuario</label>
                         </div>
                     </div>
-                    <div id="form-div-input-form-perfil" class="row">
+                    <!-- <div id="form-div-input-form-perfil" class="row">
                       <div class="col s12">
                         <label>
                             <input class="with-gap" name="genero" type="radio" value="hombre"/>
@@ -63,22 +72,11 @@
                             <span>Mujer</span>
                         </label>
                       </div>
-                    </div>
+                    </div> -->
                     <div id="form-div-input-form-perfil" class="row">
                         <div class="input-field col s12">
                             <input type="text" name="fecha-cumpleanos" class="datepicker">
                             <label for="autor">Fecha de cumpleaños</label>
-                        </div>
-                    </div>
-                    <div id="form-div-input-form-perfil" class="row">
-                        <div class="file-field input-field">
-                            <div class="btn">
-                                <span>Imagen</span>
-                                <input id="imagen-perfil-user" type="file" name="imagen-perfil-user">
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text">
-                            </div>
                         </div>
                     </div>
                     <div id="form-div-input-form-perfil" class="row">
@@ -93,6 +91,29 @@
                     ?>
                 </form>
             </div>
+          </div>
+          <div id="imagen">
+            <div id="div-row-edit-profile" class="row">
+              <form id="form-div-perfil" class="col s12 m8 l4 offset-l4 offset-m2" action="" method="post" enctype="multipart/form-data">
+                <div id="form-div-input-form-perfil" class="row">
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>Imagen</span>
+                            <input id="imagen-perfil-user" type="file" name="imagen-perfil-user">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div id="form-div-input-form-perfil" class="row">
+                    <div class="input-field col s4 m4 l6 offset-l3 offset-s4 offset-m4">
+                        <button id="btn-update-image" type="submit" name="btn-update-image" class="btn red">Actualizar</button>
+                    </div>
+                </div>
+              </form>
+            </div>
+          </div>
             <!-- Back to top -->
             <div class="fixed-action-btn">
                 <a id="back-to-top" class="btn-floating btn-large red scale-transition">

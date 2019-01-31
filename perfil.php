@@ -34,9 +34,8 @@
             <div style="margin-top: 20px;" class="row">
                 <div class="col s12 m12 l8 offset-l2">
                     <ul class="tabs">
-                        <li class="tab col s4 m4 l4"><a class="red-text" href="#perfil">Perfil</a></li>
-                        <li class="tab col s4 m4 l4"><a class="red-text" href="#listas">Listas</a></li>
-                        <li class="tab col s4 m4 l4"><a class="red-text" href="#imagen">Imagen</a></li>
+                        <li class="tab col s6 m6 l6"><a class="red-text" href="#perfil">Perfil</a></li>
+                        <li class="tab col s6 m6 l6"><a class="red-text" href="#listas">Listas</a></li>
                     </ul>
                 </div>
             </div>
@@ -90,80 +89,75 @@
                     </div>
                 </div>
                 <div id="listas" class="col s12 m12 l8 offset-l2">
-                    <div class="row">
-                      <button id="btn-modal-add-list" data-target="modal1" class="btn modal-trigger">Modal</button>
-                    </div>
-                    <div class="row">
-                      <div id="div-content-recomendations-title" class="col s12 m12 l8 offset-l2">
+                  <div class="row">
+                      <button id="btn-modal-add-list" data-target="modal1" class="btn modal-trigger">Crear lista</button>
+                  </div>
+                  <?php
+                  if (isset($_SESSION['username'])) {
+                    $user = $_SESSION['username'];
+                    $query = mysqli_query($conn, "SELECT * FROM Users WHERE nombre='$user' OR correo='$user'");
+                    if (mysqli_num_rows($query) > 0) {
+                      while ($row = mysqli_fetch_assoc($query)) {
+                        $id_user = $row['id_user'];
+                        $query2 = mysqli_query($conn, "SELECT nombre_lista, id_book FROM List_books WHERE id_user = '$id_user' GROUP BY nombre_lista");
+                        if (mysqli_num_rows($query2) > 0) {
+                          while ($row2 = mysqli_fetch_assoc($query2)) {
 
+                  ?>
+
+                  <div id="<?php echo $row2['nombre_lista'] ?>" class="row" style="height: 200px; background-color: red;">
+                    <span style="color: white;"> <?php echo $row2['nombre_lista']?></span>
+                    <?php
+                    $nombre_lista = $row2['nombre_lista'];
+                    $query3 = mysqli_query($conn, "SELECT nombre_lista, id_book FROM List_books WHERE id_user = '$id_user' AND nombre_lista = '$nombre_lista'");
+                    if (mysqli_num_rows($query3) > 0) {
+                      while ($row3 = mysqli_fetch_assoc($query3)) {
+                        $id_book = $row3['id_book'];
+                        ?>
+                        <!-- <p style="color: white;"><?php echo $row3['id_book'] ?></p> -->
                         <?php
-                        if (isset($_SESSION['username'])) {
-                          ?>
-                          <div id="div-content-recomendations-gallery" class="col s12 m12 l8 offset-l2 colgallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-                          <?php
-                          $user = $_SESSION['username'];
+                        $query4 = mysqli_query($conn, "SELECT imagen, id_book FROM books WHERE id_book = '$id_book'");
+                        if (mysqli_num_rows($query4) > 0) {
+                          while ($row4 = mysqli_fetch_assoc($query4)) {
 
-                          $query = mysqli_query($conn, "SELECT * FROM Users WHERE nombre='$user' OR correo='$user'");
-                          if (mysqli_num_rows($query) > 0) {
-                              while ($row = mysqli_fetch_assoc($query)) {
-                                $id_user = $row['id_user'];
-                                $query2 = mysqli_query($conn, "SELECT nombre_lista, id_book FROM List_books WHERE id_user = '$id_user'");
-                                if (mysqli_num_rows($query2) > 0) {
-                                    while ($row2 = mysqli_fetch_assoc($query2)) {
-                                      $id_book = $row2['id_book'];
-                                      $query3 = mysqli_query($conn, "SELECT imagen, id_book FROM books WHERE id_book = '$id_book'");
-                                      if (mysqli_num_rows($query3) > 0) {
-                                        while ($row3 = mysqli_fetch_assoc($query3)) {
-                                    ?>
-                                    <h5><?php //echo $row2['nombre_lista'] ?></h5>
+                     ?>
+                      <!-- <p style="color: white;"><?php echo $row4['imagen'] ?></p> -->
 
-
-                                        <div class="gallery-cell">
-                                            <div class="card sticky-action">
-                                                <div class="card-image ">
-
-                                                    <a href="contenido.php?id_book=<?php echo $row3['id_book']; ?>"><img class="center" src="<?php echo $row3['imagen']; ?>" height="250px"></img>
-                                                    </a>
-                                                </div>
-                                                <div class="card-content center">
-                                                    <p id="div-content-recomendations-gallery-title-book"><?php echo $row3['titulo']; ?></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <?php
-                                  }
-                                  }
-                                    }
-                                  }
-                              }
+                     <?php
+                        }
+                      }
+                    }
+                      ?>
+                  </div>
+                <?php
                             }
                           }
-                          ?>
-                        </div>
-
-                      </div>
-                    </div>
+                        }
+                      }
+                    }
+                  }
+               ?>
                 </div>
                 <!-- Modal Structure -->
                 <div id="modal1" class="modal">
-                  <form  action="" method="post" enctype="multipart/form-data">
-                  <div class="modal-content">
-                    <h4>Añadir nueva lista</h4>
-                      <div id="form-div-input-form" class="row">
-                          <div class="input-field col s12">
-                              <input id="nombre_lista"  name="nombre_lista" type="text" class="validate">
-                              <label for="nombre_lista">Nombre de la lista</label>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="modal-footer">
-                    <div id="form-div-input-form" class="row">
-                        <div class="input-field col s12">
-                            <button id="btn-nueva-lista" type="submit"  name="btn-nueva-lista" class="btn red modal-close  waves-effect waves-red">Añadir</button>
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <div class="modal-content">
+                            <h4>Añadir nueva lista</h4>
+                            <div id="form-div-input-form" class="row">
+                                <div class="input-field col s12">
+                                    <input id="nombre_lista" name="nombre_lista" type="text" class="validate">
+                                    <label for="nombre_lista">Nombre de la lista</label>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                  </div>
-                </form>
+                        <div class="modal-footer">
+                            <div id="form-div-input-form" class="row">
+                                <div class="input-field col s12">
+                                    <button id="btn-nueva-lista" type="submit" name="btn-nueva-lista" class="btn red modal-close  waves-effect waves-red">Añadir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
 
                 </div>
             </div>

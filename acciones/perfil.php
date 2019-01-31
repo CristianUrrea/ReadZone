@@ -11,24 +11,38 @@ if (isset($_SESSION['username'])) {
     // echo ' <script type="text/javascript">alert("BOTON")</script>';
     // // $username_profile = mysqli_real_escape_string($conn, $_POST['nombre_usuario_perfil']);
     // // $username_profile = mysqli_real_escape_string($conn, $_POST['nombre_usuario_perfil']);
-    $archivo = $_FILES['imagen-perfil-user']['tmp_name'];
-    $destino = "./imagenes/perfiles/".$_FILES['imagen-perfil-user']['name'];
+
+    $birthday_date = strtotime($_POST['fecha-cumpleanos']);
+    $date = date("Y-m-d",$birthday_date);
     move_uploaded_file($archivo, $destino);
 
-    $gender_user = $_POST['genero'];
-    if ($gender_user == 'hombre') {
-      $query = "UPDATE Users SET sexo='$gender_user', imagen_perfil='$destino' WHERE nombre='$user'";
-      mysqli_query($conn, $query);
-      // echo ' <script type="text/javascript">alert("hombre")</script>';
-    } else if($gender_user == 'mujer'){
-      $query = "UPDATE Users SET sexo='$gender_user', imagen_perfil='$destino' WHERE nombre='$user'";
-      mysqli_query($conn, $query);
-      // echo ' <script type="text/javascript">alert("mujer")</script>';
+    $query = "UPDATE Users SET fecha_cumpleanos='$date' WHERE nombre='$user'";
+    mysqli_query($conn, $query);
 
-      // echo $gender_user;
-      // echo ' <script type="text/javascript">alert("'+$gender_user+'")</script>';
-    }
-    $birthday_date = $_POST['fecha-cumpleanos'];
-    echo $birthday_date;
+    // // $gender_user = $_POST['genero'];
+    //
+    // // if ($gender_user == 'hombre') {
+    //   $query = "UPDATE Users SET sexo='$gender_user', imagen_perfil='$destino' WHERE nombre='$user'";
+    //   mysqli_query($conn, $query);
+    //   // echo ' <script type="text/javascript">alert("hombre")</script>';
+    // } else if($gender_user == 'mujer'){
+    //   $query = "UPDATE Users SET sexo='$gender_user', imagen_perfil='$destino' WHERE nombre='$user'";
+    //   mysqli_query($conn, $query);
+    //   // echo ' <script type="text/javascript">alert("mujer")</script>';
+    //
+    //   // echo $gender_user;
+    //   // echo ' <script type="text/javascript">alert("'+$gender_user+'")</script>';
+    // } else if (empty($gender_user)) {
+    //   echo ' <script type="text/javascript">alert("Elije un genero")</script>';
+    // }
+    // echo $birthday_date;
+  }
+
+  if (isset($_POST['btn-update-image'])) {
+    $archivo = $_FILES['imagen-perfil-user']['tmp_name'];
+    $destino = "./imagenes/perfiles/".$_FILES['imagen-perfil-user']['name'];
+
+    $query = "UPDATE Users SET imagen_perfil='$destino' WHERE nombre='$user'";
+    mysqli_query($conn, $query);
   }
 }

@@ -1,91 +1,79 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<div id="listas" class="col s12 m12 l8 offset-l2">
+    <div class="row">
+        <button id="btn-modal-add-list" data-target="modal1" class="btn modal-trigger">Crear lista</button>
+    </div>
+    <?php
+    if (isset($_SESSION['username'])) {
+      $user = $_SESSION['username'];
+      $query = mysqli_query($conn, "SELECT * FROM Users WHERE nombre='$user' OR correo='$user'");
+      if (mysqli_num_rows($query) > 0) {
+          while ($row = mysqli_fetch_assoc($query)) {
+            $id_user = $row['id_user'];
+            //Mira esto para mañana por la mañana
+            $query2 = mysqli_query($conn, "SELECT nombre_lista, id_book FROM List_books WHERE id_user = '$id_user' GROUP BY nombre_lista");
+            if (mysqli_num_rows($query2) > 0) {
+                while ($row2 = mysqli_fetch_assoc($query2)) {
+      ?>
+        <div class="row">
+            <button type="button" name="button" id="<?php echo $row2['nombre_lista']?>">
+                <?php echo $row2['nombre_lista'];?>
+            </button>
+        </div>
+        <div class="row">
+            <div id="div-content-recomendations-title" class="col s12 m12">
+                <ul id="example2" class="cards-container">
 
-<head>
-    <title>ReadZone</title>
-    <!-- other head stuff... -->
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    <!-- Import font googleapis -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+                    <!-- <div id="div-content-recomendations-gallery" class="col s12 m12 l12 colgallery js-flickity" data-flickity-options='{ "wrapAround": true }'> -->
 
-    <!-- Compiled and minified webuiPopover CSS -->
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css'>
-    <!-- Mis css -->
-    <!--Let browser know website is optimized for mobile-->
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="googlebot" content="noindex, nofollow">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style media="screen">
-    /* external css: flickity.css */
+                    <?php
+                      $id_book = $row2['id_book'];
+                      $query3 = mysqli_query($conn, "SELECT imagen, id_book FROM books WHERE id_book = '$id_book'");
+                      if (mysqli_num_rows($query3) > 0) {
+                        while ($row3 = mysqli_fetch_assoc($query3)) {
+                          ?>
 
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+                        <!-- <div class="gallery-cell">
+                            <div class="card sticky-action">
+                                <div class="card-image ">
+
+                                    <a href="contenido.php?id_book=<?php echo $row3['id_book']; ?>"><img class="center" src="<?php echo $row3['imagen']; ?>" height="250px"></img>
+                                    </a>
+                                </div>
+                                <div class="card-content center">
+                                    <p id="div-content-recomendations-gallery-title-book"><?php //echo $row3['titulo']; ?></p>
+                                </div>
+                            </div>
+                        </div> -->
+                        <li>
+                            <div class="card sticky-action">
+                                <div class="card-image center">
+                                    <form method="post">
+                                        <a href="contenido.php?id_book=<?php echo $row3['id_book']; ?>"><img class="center" src="<?php echo $row3['imagen']; ?>" height="250px"></img>
+                                    </a>
+                                    </form>
+                                </div>
+                                <div class="card-content">
+                                    <p id="p-div-title-book" style="font-size: 12px;">
+                                        <?php //echo $row3['titulo']; ?>
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <?php
+                  }
+                  }
+          ?>
+                </ul>
+                <!-- </div> -->
+
+            </div>
+        </div>
+
+        <?php
+  }
 }
-
-body { font-family: sans-serif; }
-
-.gallery {
-  background: #EEE;
 }
-
-.gallery-cell {
-  width: 100%;
-  height: 200px;
-  margin-right: 10px;
-  background: #8C8;
-  counter-increment: gallery-cell;
 }
-
-/* cell number */
-.gallery-cell:before {
-  display: block;
-  text-align: center;
-  content: counter(gallery-cell);
-  line-height: 200px;
-  font-size: 80px;
-  color: white;
 }
-
-
-
-
-
-/* position dots in gallery */
-.flickity-page-dots {
-  bottom: 0px;
-  display: none;
-}
-
-    </style>
-</head>
-
-<body>
-
-  <!-- Flickity HTML init -->
-  <div class="gallery js-flickity">
-    <div class="gallery-cell"></div>
-    <div class="gallery-cell"></div>
-    <div class="gallery-cell"></div>
-    <div class="gallery-cell"></div>
-    <div class="gallery-cell"></div>
-  </div>
-
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-
-    <!--Import jQuery before webuiPopover.js-->
-    <script src='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js'></script>
-
-    </script>
-</body>
-
-</html>
+    ?>
+</div>
