@@ -1,3 +1,4 @@
+<?php include('acciones/loginRegistro.php') ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -14,6 +15,7 @@
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css'>
     <!-- Mis css -->
     <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="css/comun.css">
     <!--Let browser know website is optimized for mobile-->
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="robots" content="noindex, nofollow">
@@ -29,9 +31,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col s12 m2 l4">
-            </div>
-            <form id="form-div-registro" class="col s12 m8 l4">
+            <form id="form-div-registro" class="col s12 m8 l4 offset-l4 offset-m2" action="" method="post">
+              <?php include('acciones/errors.php'); ?>
                 <div class="row">
                     <div class="col s12 m12 l12 center">
                         <h5>Registro</h5>
@@ -39,72 +40,49 @@
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12">
-                        <input id="first_name" type="text" class="validate">
-                        <label for="first_name">Nombre</label>
+                        <input id="username" type="text" name="username" class="validate">
+                        <label for="username">Nombre de usuario</label>
                     </div>
                 </div>
-                <!--<div id="form-div-input-form" class="row">
-                    <div class="input-field col s6">
-                      <p>
-                        <label>
-                          <input name="group1" type="radio"/>
-                          <span>Hombre</span>
-                        </label>
-                      </p>
-                    </div>
-                    <div class="input-field col s6">
-                      <p>
-                        <label>
-                          <input name="group1" type="radio"/>
-                          <span>Mujer</span>
-                        </label>
-                      </p>
-                    </div>
-                </div>
-              -->
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
+                        <input id="useremail" type="email" name="useremail" class="validate">
                         <label for="email">Email</label>
                     </div>
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12">
-                        <input id="password" type="password" class="validate">
+                        <input id="userpass_1" type="password" name="userpass_1" class="validate">
                         <label for="password">Contraseña</label>
                     </div>
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12 m12">
-                        <input id="password-confirm" type="password" class="validate">
+                        <input id="userpass_2" type="password" name="userpass_2" class="validate">
                         <label for="password-confirm">Confirma tu contraseña</label>
+                    </div>
+                </div>
+                <div id="form-div-input-form" class="row">
+                    <div class="col s12 m12">
+                      <label>
+                        <input type="checkbox" class="filled-in" class="validate">
+                        <span>Aceptar términos y condiciones</span>
+                      </label>
+                    </div>
+                </div>
+                <br>
+                <div id="form-div-input-form" class="row">
+                    <div class="input-field col s12 m12 l2 offset-l4">
+                        <button id="btn-registro" type="submit" name="btn-registro" class="btn red">Registrar</button>
                     </div>
                 </div>
             </form>
         </div>
     </main>
     <!--################ FOOTER ################-->
-    <footer id="footer" class="page-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-        </div>
-    </footer>
+    <?php include 'footer.php'; ?>
+        <!--################################-->
+
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

@@ -1,144 +1,110 @@
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    font-family: 'Roboto', sans-serif;
-}
-
-main {
-    flex: 1 0 auto;
-    margin-top: 20px;
-}
-
-footer {
-    margin-top: 20px;
-}
-
-nav,
-.page-footer,
-#btn-div-login-form-inicio-sesion {
-    background-color: #0288d1;
-}
-
-
-/*################ HEADER ################*/
-
-/*################ BAR NAV ################*/
-
-#input-div-nav-search {
-    width: 100%;
-    margin-top: 12px;
-    border-radius: 5px;
-    -webkit-appearance: none
-}
-
-#label-div-nav-icon-search {
-    margin-top: -10px;
-}
-
-#ul-div-nav-links {
-    text-align: center;
-}
-
-#ul-div-nav-links li {
-    display: inline;
-    float: none;
-}
-
-#ul-div-nav-links li a {
-    display: inline-block;
-}
-
-#a-div-nav-img-perfil {
-    width: 11%;
-}
-
-#ul-div-nav-dropdown li {
-    margin-left: 18%;
-}
-
-
-/*################ DROPDOWN CONTENT ################*/
-
-#btn-div-login-form-inicio-sesion {
-    width: 100%;
-    margin: auto;
-}
-
-#div-nav-login-form {
-    text-align: center;
-}
-
-#div-nav-login-form li {
-    display: inline;
-    float: none;
-}
-
-#div-nav-login-form li a {
-    font-size: 14px;
-    display: inline-block;
-}
-
-/*#######################################*/
-
-
 /*################ MAIN ################*/
 
+/*################ MEDIA QUERY CONTENT ################*/
 
-/*################ CONTENT  ################*/
-
-#div-content,
-#div-content-recomendations,
-#div-content-one-ranking {
-    height: 400px;
+@media only screen and (min-width: 990px) {
+  #div-content-recomendations div h5 {
+    margin-left: -12px;
+  }
+  #div-content-recomendations-gallery {
+    margin-left: 15.85%;
+    width: 68.1%; /*68.1%*/
+  }
 }
 
-#div-content-one-ranking {
-    background-color: grey;
+@media only screen and (min-width: 721px) {
+  .gallery-cell {
+    width: 28.1% !important;
+    margin-right: 15px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .gallery-cell {
+    width: 50.1% !important;
+    margin-right: 15px;
+  }
+}
+
+
+@media only screen and (min-width: 450px) and (max-width: 990px) {
+  #div-content-recomendations div h5 {
+    margin-left: -0px;
+  }
+}
+
+@media only screen and (max-width: 422px) {
+  #div-content-recomendations div h5 {
+    margin-left: -14px;
+  }
+}
+/*################ CONTENT  ################*/
+
+#div-content {
+  background-color: #ef9a9a;
+}
+
+#div-content,
+#div-content-recomendations {
+  height: 400px;
 }
 
 #div-content-recomendations {
-    background-color: blue;
-    margin-top: -20px;
+  margin-top: -20px;
+}
+#div-content-recomendations #div-content-recomendations-title {
+  margin-top: 10px;
 }
 
+#div-content-recomendations-gallery-title-book {
+  font-size: 12px;
+}
+
+.gallery-cell {
+  width: 25.4%;
+  margin-right: 15px;
+}
+.flickity-page-dots {
+  bottom: 0px;
+  display: none;
+}
+/* arrow color */
+.flickity-prev-next-button {
+  margin-top: -5px;
+}
 
 /*################ BARRA DE PROGRESO  ################*/
 
 .carousel-progress-bar-timer {
-    display: block;
-    height: 5px;
-    background-color: #039be5;
-    width: 0%;
-    margin: 0;
-    border: none;
-    z-index: 11;
-    position: fixed;
-    top: 0px;
+  display: block;
+  height: 5px;
+  background-color: red;
+  width: 0%;
+  margin: 0;
+  border: none;
+  z-index: 11;
+  position: fixed;
+  top: 0px;
 }
 
 .carousel-progress-bar-timer.animate {
-    /* We make the transition time shorter to avoid the slide transitioning
+  /* We make the transition time shorter to avoid the slide transitioning
     before the timer bar is "full" - change the 4.25s here to fit your
     carousel's transition time */
-    -webkit-transition: width 4s linear;
-    -moz-transition: width 4s linear;
-    -ms-transition: width 4s linear;
-    -o-transition: width 4s linear;
-    transition: width 4s linear;
+  -webkit-transition: width 4s linear;
+  -moz-transition: width 4s linear;
+  -ms-transition: width 4s linear;
+  -o-transition: width 4s linear;
+  transition: width 4s linear;
 }
 
 .carousel .transition-timer-carousel-left-progress-bar.stopanimation,
 .carousel .transition-timer-carousel-progress-bar.stopanimation {
-    /* class to fix IE bug that make transition continue even when you remove the class .animate */
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
+  /* class to fix IE bug that make transition continue even when you remove the class .animate */
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
 }
 
-
 /*#######################################*/
-
-
-/*################ FOOTER ################*/

@@ -1,0 +1,151 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+}
+
+main {
+  flex: 1 0 auto;
+  background-color: #f5f5f5;
+}
+
+nav,
+.page-footer,
+#btn-div-login-form-inicio-sesion,
+#btn-div-login-form-inicio-sesion-2 {
+  background-color: white;
+}
+
+/*################ MEDIA QUERY ################*/
+
+@media only screen and (max-width: 600px) {
+  .searchbarfix {
+    height: 56px !important;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #ul-div-nav-links {
+    margin-left: -28px;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .searchbarfix {
+    height: 40px !important;
+  }
+}
+
+.navfix {
+  position: relative;
+  margin-right: 0;
+}
+
+/*#######################################*/
+
+/*################ HEADER ################*/
+
+/*################ BAR NAV ################*/
+
+.nav-wrapper a,
+#div-nav-login-form a {
+  color: black;
+}
+
+#input-div-nav-search {
+  margin-right: -20px;
+  padding: 0 40px 0 15px;
+  width: 100%;
+  margin-top: 11px;
+  border-radius: 5px;
+  border: solid 1px;
+  border-color: #bdbdbd;
+  -webkit-appearance: none;
+}
+
+#i-div-nav-search {
+  margin-top: 3px;
+  margin-right: -25px;
+}
+
+#ul-div-nav-links {
+  text-align: center;
+  margin-left: -23px;
+}
+
+#ul-div-nav-links li {
+  display: inline;
+  float: none;
+}
+
+#ul-div-nav-links li a {
+  display: inline-block;
+}
+
+#ul-div-nav-links li a:hover,
+#ul-div-nav-dropdown li a:hover, #ul-div-nav-dropdown #a-div-login:hover{
+  background-color: #ffffff;
+  color: red;
+}
+
+#ul-div-nav-dropdown li a {
+  margin-right: -23px;
+}
+
+#nav-a-icon-menu-sidenav {
+  margin-right: -1.7%;
+}
+
+/*################ DROPDOWN CONTENT ################*/
+
+#btn-div-login-form-inicio-sesion,
+#btn-div-login-form-inicio-sesion-2 {
+  width: 100%;
+  margin: auto;
+}
+
+#div-nav-login-form {
+  text-align: center;
+}
+
+#div-nav-login-form li {
+  display: inline;
+  float: none;
+}
+
+#div-nav-login-form li a {
+  font-size: 14px;
+  display: inline-block;
+}
+
+#div-nav-login-form li a:hover, #a-div-login:hover{
+  color: red;
+}
+
+#div-nav-login-form i {
+  margin-left: -10px;
+}
+
+/*################ MENU SIDENAV ################*/
+
+#mobile-nav #li-nav-login-form {
+  border-bottom: solid;
+}
+
+#mobile-nav li #div-nav-login-form {
+  width: 90%;
+  margin-left: 15px;
+}
+
+#li-nav-login-form ul li a {
+  font-size: 10px;
+}
+
+/*#######################################*/
+
+/*################ FOOTER ################*/
+
+.page-footer {
+  background-color: #37474f;
+}

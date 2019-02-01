@@ -1,23 +1,12 @@
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    font-family: 'Roboto', sans-serif;
-}
-main {
-    margin-top: 5px;
-    flex: 1 0 auto;
-}
-.page-footer {
-    background-color: #0288d1;
-}
-
 /*################ MAIN ################*/
 
 /*################ FORMULARIO ################*/
+
 #form-div-registro {
+  background-color: white;
   border-radius: 5px;
   border: solid 1px;
+  border-color: #bdbdbd;
 }
 
 #form-div-input-form {
