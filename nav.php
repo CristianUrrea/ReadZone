@@ -1,6 +1,5 @@
 <?php
   include('acciones/loginRegistro.php');
-  require 'acciones/adminpass.php';
   if (!isset($_SESSION['username'])) {
       $_SESSION['msg'] = "You must log in first";
       // header('location: index.php');
@@ -97,7 +96,7 @@
               <?php include('acciones/errors.php'); ?>
                 <div class="input-field">
                     <i class="material-icons iconis prefix">account_box</i>
-                    <input id="username-login" type="text" name="username-login" placeholder="nombre">
+                    <input id="username-login" type="text" name="username-login" placeholder="email">
                 </div>
 
                 <div class="input-field">
@@ -121,7 +120,7 @@
                       <?php include('acciones/errors.php'); ?>
                         <div class="input-field">
                             <i class="material-icons iconis prefix">account_box</i>
-                            <input type="text" name="username-login" placeholder="nombre">
+                            <input type="text" name="username-login" placeholder="email">
                         </div>
                         <div class="input-field">
                             <i class="material-icons iconis prefix">lock</i>

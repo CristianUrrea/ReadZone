@@ -29,6 +29,8 @@
   <?php
     // require_once("db/conexiondb.php");
     $id_book=$_REQUEST['id_book'];
+    
+
     include 'nav.php';
     include_once('acciones/contenido.php');
   ?>

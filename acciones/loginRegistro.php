@@ -38,8 +38,9 @@
         //Registrar usuario si no encuntra errores en el formulario
         if (count($errors) == 0) {
             $userpass_encryp = md5($userpass_1);//encrypt the password before saving in the database
-            $query = "INSERT INTO users (nombre, correo, contrasena)
-					  VALUES('$username', '$useremail', '$userpass_encryp')";
+            $img_default = "./imagenes/perfiles/default.png";
+            $query = "INSERT INTO users (nombre, correo, contrasena,imagen_perfil)
+					  VALUES('$username', '$useremail', '$userpass_encryp','$img_default')";
             mysqli_query($conn, $query);
 
             $_SESSION['username'] = $username;
@@ -64,13 +65,17 @@
 
         if (count($errors) == 0) {
             $userpass_login_encryp = md5($userpass_login);
-            $query = "SELECT * FROM users WHERE nombre='$username_login' OR correo='$username_login' AND contrasena='$userpass_login_encryp'";
+             // nombre='$username_login' OR
+            $query = "SELECT * FROM users WHERE correo='$username_login' AND contrasena='$userpass_login_encryp'";
             $results = mysqli_query($conn, $query);
 
             if (mysqli_num_rows($results) == 1) {
                 $_SESSION['username'] = $username_login;
                 $_SESSION['success'] = "You are now logged in";
                 header('location: index.php');
+                if($username_login == 'Admin' || $username_login == 'admin@gmail.com' && $userpass_login_encryp == '123456'){
+                  header('location: admin.php');
+                }
             } else {
                 array_push($errors, "Wrong username/email/password combination");
             }

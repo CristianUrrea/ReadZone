@@ -189,12 +189,12 @@
                   <div class="col s12 m12 l12">
                       <div class="card horizontal">
                           <div class="card-image">
-                              <img id="image-div-content-type-book" src="http://placehold.it/1920/999/fff" class="fadeIn">
+                              <img id="image-div-content-type-book" src="imagenes/wiki/Shonen.png" class="fadeIn">
                           </div>
                           <div class="card-stacked">
                               <div class="card-content">
-                                  <span class="card-title">Lorem fistrum</span>
-                                  <p>amatomaa diodeno no puedor te va a hasé pupitaa sexuarl te voy a borrar el cerito no puedor a wan a peich. Te va a hasé pupitaa jarl la caidita a wan está la cosa muy malar
+                                  <span class="card-title">Shonen</span>
+                                  <p>Es una categoría del manga y anime dirigido básicamente a un público adolescente masculino.
                                   </p>
                               </div>
                           </div>
@@ -205,12 +205,12 @@
                   <div class="col s12 m12 l12">
                       <div class="card horizontal">
                           <div class="card-image">
-                              <img id="image-div-content-type-book" src="http://placehold.it/1920/999/fff" class="fadeIn">
+                              <img id="image-div-content-type-book" src="imagenes/wiki/Seinen.png" class="fadeIn">
                           </div>
                           <div class="card-stacked">
                               <div class="card-content">
-                                  <span class="card-title">Lorem fistrum</span>
-                                  <p>amatomaa diodeno no puedor te va a hasé pupitaa sexuarl te voy a borrar el cerito no puedor a wan a peich. Te va a hasé pupitaa jarl la caidita a wan está la cosa muy malar
+                                  <span class="card-title">Seinen</span>
+                                  <p>Es una categoría o genero de manga enfocada en la audiencia mayor de 18 años.
                                   </p>
                               </div>
                           </div>

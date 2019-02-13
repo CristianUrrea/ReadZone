@@ -51,19 +51,21 @@
                         <a href="contenido.php">
                             <div class="carousel-item amber white-text" href="#two!">
                                 <h2>Primer manga</h2>
-                                <p class="white-text">This is your second panel</p>
+                                <img src="imagenes/libros/6.png" alt="" height="100%">
+                                <!-- <p class="white-text">This is your second panel</p> -->
                             </div>
                         </a>
                         <a href="contenido.php">
                             <div class="carousel-item green white-text" href="#three!">
                                 <h2>Primera novela</h2>
-                                <p class="white-text">This is your third panel</p>
+                                <img src="imagenes/libros/2.png" alt="" height="100%">
+                                <!-- <p class="white-text">This is your third panel</p> -->
                             </div>
                         </a>
                         <a href="contenido.php">
                             <div class="carousel-item grey white-text" href="#four!">
                                 <h2>Primer comic</h2>
-                                <p class="white-text">This is your fourth panel</p>
+                                <img src="imagenes/libros/13.png" alt="" height="100%">
                             </div>
                         </a>
 

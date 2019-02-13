@@ -41,7 +41,7 @@
             <div id="div-row-search-input" class="row">
                 <div class="col s12 m12 l8 offset-l2">
                     <div class="col s3 m3 l3">
-                        <button id="btn-search-advanced" class='dropdown-trigger btn'data-target='dropdown1' type="button" name="button" data-activates="services-dropdown">
+                        <button id="btn-search-advanced" class="dropdown-trigger btn red white-text" data-target='dropdown1' type="button" name="button" data-activates="services-dropdown">
                           <span class="button-text"></span>
                         </button>
                     </div>
@@ -93,8 +93,10 @@
             </div>
         </div>
           <div id="example2-pagination" style="" class="col s12 m12 l6 offset-l4 center">
-            <a id="example2-previous" href="#">&laquo; Previous</a>
-            <a id="example2-next" href="#">Next &raquo;</a>
+
+
+            <a id="example2-previous" href="#" class="btn red white-text">&laquo; Previous</a>
+            <a id="example2-next" href="#" class="btn red white-text">Next &raquo;</a>
         </div>
 
         <!-- Back to top -->

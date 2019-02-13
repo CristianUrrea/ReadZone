@@ -51,16 +51,46 @@
                               if (mysqli_num_rows($query) > 0) {
                                   while ($row = mysqli_fetch_assoc($query)) {
                                       ?>
-                            <div class="card-image">
+                            <div class="card-image" style="padding: 20px;">
                                 <img id="" src="<?php echo $row['imagen_perfil'] ?>" height="200" width="300" class="fadeIn">
-                                <a href="editPerfil.php">
-                                    <div style="margin-bottom: -8px;" class="col s2 m2 l2 card-content">
-                                        <i class="material-icons red-text">settings</i>
-                                    </div>
-                                    <div style="margin-left: -10px;" class="col s8 m8 l8 card-content">
-                                        <p>Editar perfil</p>
-                                    </div>
-                                </a>
+                                  <div id="edit-row"class="row" style="margin-bottom: -20px;">
+                                    <a href="editPerfil.php">
+                                        <div class="col s2 m2 l2 card-content left" style="margin-left: -15px;">
+                                            <i class="material-icons red-text">settings</i>
+                                        </div>
+                                        <div class="col s8 m8 l8 card-content" style="margin-left: -30px;">
+                                            <p>Editar perfil</p>
+                                        </div>
+                                    </a>
+                                  </div>
+                                  <?php
+                                if($user == 'Admin' || $user == 'admin'|| $user == 'admin@gmail.com'){
+                                        ?>
+                                        <script type="text/javascript">
+                                          $('#edit-row').hide();
+                                        </script>
+                                        <div class="row" style="margin-bottom: -20px;">
+                                          <a href="editPerfil.php">
+                                              <div class="col s2 m2 l2 card-content left" style="margin-left: -15px;">
+                                                  <i class="material-icons red-text">settings</i>
+                                              </div>
+                                              <div class="col s8 m8 l5 card-content" style="margin-left: -20px;">
+                                                  <p>Editar perfil</p>
+                                              </div>
+                                          </a>
+                                          <a href="admin.php">
+                                            <div class="col s2 m2 l2 card-content left" style="margin-left: -15px;">
+                                                <i class="material-icons red-text">build</i>
+                                            </div>
+                                            <div class="col s8 m8 l5 card-content" style="margin-left: -20px;">
+                                                <p>Panel admin</p>
+                                            </div>
+                                          </a>
+                                        </div>
+                                        <?php
+                                      }
+
+                                   ?>
                             </div>
                             <?php
                                   }

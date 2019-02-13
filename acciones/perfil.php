@@ -12,9 +12,11 @@ if (isset($_SESSION['username'])) {
     // // $username_profile = mysqli_real_escape_string($conn, $_POST['nombre_usuario_perfil']);
     // // $username_profile = mysqli_real_escape_string($conn, $_POST['nombre_usuario_perfil']);
 
-    $birthday_date = strtotime($_POST['fecha-cumpleanos']);
-    $date = date("Y-m-d",$birthday_date);
-    move_uploaded_file($archivo, $destino);
+    $birthday_date = $_POST['fecha-cumpleanos'];
+
+    $date_birth = strtr($birthday_date,'/','-');
+    // $birthday_date = strtotime($_POST['fecha-cumpleanos']);
+    $date = date("Y-m-d", strtotime($date_birth));
 
     $query = "UPDATE Users SET fecha_cumpleanos='$date' WHERE nombre='$user'";
     mysqli_query($conn, $query);
@@ -41,6 +43,7 @@ if (isset($_SESSION['username'])) {
   if (isset($_POST['btn-update-image'])) {
     $archivo = $_FILES['imagen-perfil-user']['tmp_name'];
     $destino = "./imagenes/perfiles/".$_FILES['imagen-perfil-user']['name'];
+    move_uploaded_file($archivo, $destino);
 
     $query = "UPDATE Users SET imagen_perfil='$destino' WHERE nombre='$user'";
     mysqli_query($conn, $query);
