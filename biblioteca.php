@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -24,9 +25,9 @@
       include_once('db/conexiondb.php');
      ?>
      <style media="screen">
-     #example2-pagination {
+       #div-content-search-advanced {
          display: none;
-     }
+       }
 
      </style>
 </head>
@@ -38,10 +39,10 @@
 
     <main>
         <div id="div-search-type">
-            <div id="div-row-search-input" class="row">
-                <div class="col s12 m12 l8 offset-l2">
+            <div id="div-row-search-input" class="row" style="">
+                <div class="col s12 m12 l8 offset-l2 white">
                     <div class="col s3 m3 l3">
-                        <button id="btn-search-advanced" class="dropdown-trigger btn red white-text" data-target='dropdown1' type="button" name="button" data-activates="services-dropdown">
+                        <button id="btn-search-advanced" class="btn red white-text" type="button" name="button">
                           <span class="button-text"></span>
                         </button>
                     </div>
@@ -52,52 +53,233 @@
                         </div>
                     </div>
                 </div>
+                <div id="div-content-search-advanced" class="row" style="margin-bottom: -40px;">
+                  <div class="row">
+                    <form class="" method="post">
+                      <div class="col s12 m12 l8 offset-l2 white">
+                        <div class="input-field col l3" style="margin-top: 0px; margin-bottom: 0px; padding: 0;">
+                          <select name="tipo-libro">
+                            <option value="" disabled selected>Tipo</option>
+                            <option value="Novela">Novela</option>
+                            <option value="Manga">Manga</option>
+                            <option value="Comic">Comic</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col s3 m3 l2 offset-l2 white">
+                        <?php
+                        $query = mysqli_query($conn, "SELECT * FROM Genders LIMIT 0, 4");
+                        if (mysqli_num_rows($query) > 0) {
+                          while ($row = mysqli_fetch_assoc($query)) {
+                        ?>
+                        <p>
+                          <label>
+                            <input type="checkbox" class="filled-in" />
+                            <span> <?php echo $row['nombre']; ?></span>
+                          </label>
+                        </p>
+                        <?php
+                            }
+                          }
+                        ?>
+                      </div>
+                      <div class="col s3 m3 l2 white">
+                        <?php
+                        $query = mysqli_query($conn, "SELECT * FROM Genders LIMIT 4, 4");
+                        if (mysqli_num_rows($query) > 0) {
+                          while ($row = mysqli_fetch_assoc($query)) {
+                        ?>
+                        <p>
+                          <label>
+                            <input type="checkbox" class="filled-in" />
+                            <span> <?php echo $row['nombre']; ?></span>
+                          </label>
+                        </p>
+                        <?php
+                            }
+                          }
+                        ?>
+                      </div>
+                      <div class="col s3 m3 l2 white">
+                        <?php
+                        $query = mysqli_query($conn, "SELECT * FROM Genders LIMIT 8, 4");
+                        if (mysqli_num_rows($query) > 0) {
+                          while ($row = mysqli_fetch_assoc($query)) {
+                        ?>
+                        <p>
+                          <label>
+                            <input type="checkbox" class="filled-in" />
+                            <span> <?php echo $row['nombre']; ?></span>
+                          </label>
+                        </p>
+                        <?php
+                            }
+                          }
+                        ?>
+                      </div>
+                      <div class="col s3 m3 l2 white">
+                        <?php
+                        $query = mysqli_query($conn, "SELECT * FROM Genders LIMIT 12, 4");
+                        if (mysqli_num_rows($query) > 0) {
+                          while ($row = mysqli_fetch_assoc($query)) {
+                        ?>
+                        <p>
+                          <label>
+                            <input type="checkbox" class="filled-in" />
+                            <span> <?php echo $row['nombre']; ?></span>
+                          </label>
+                        </p>
+                        <?php
+                            }
+                          }
+                        ?>
+                      </div>
+                      <div id="div-row-aplicar" class="row">
+                        <div class="col s12 m12 l8 offset-l2 white" >
+                          <div class="col s4 m4 l4 offset-s4 offset-m4 offset-l4" style="margin-bottom: 15px;">
+                              <button class="btn red white-text" type="submit" name="btn-aplicar-cambios">Aplicar</button>
+                          </div>
+                        </div>
+                      </div>
+                  </form>
+                </div>
             </div>
-            <!-- Dropdown Structure -->
-            <ul id='dropdown1' class='dropdown-content'>
-              <li><a href="#!">one</a></li>
-              <li><a href="#!">two</a></li>
-              <li class="divider" tabindex="-1"></li>
-              <li><a href="#!">three</a></li>
-              <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-              <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
-            </ul>
-
+          </div>
             <div class="row">
-                <div id="div-biblioteca" style="" class="col s12 m12 l8 offset-l2">
+                <div id="div-biblioteca" class="col s12 m12 l8 offset-l2 white">
                   <ul id="example2" class="cards-container">
                   <?php
+                    if (isset($_POST['btn-aplicar-cambios'])) {
+
+                      if(empty($_POST['tipo-libro'])){
+
+                        $query = mysqli_query($conn, "SELECT * FROM Books");
+                        if (mysqli_num_rows($query) > 0) {
+                            while ($row = mysqli_fetch_assoc($query)) {
+                              ?>
+                              <li>
+                              <div class="card sticky-action">
+                                    <div class="card-image center">
+                                      <form method="post">
+                                        <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
+                                        </a>
+                                      </form>
+                                    </div>
+                                    <div class="card-content">
+                                        <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
+                                    </div>
+                                </div>
+                              </li>
+                              <?php
+                            }
+                          }
+                      } else if(!empty($_POST['tipo-libro'])) {
+
+                        $tipo_libro = strip_tags($_POST["tipo-libro"]);
+                        // $cookie_name = "tipo_libro";
+                        // $cookie_value = $tipo_libro;
+                        // setcookie($cookie_name, $cookie_value); // 86400 = 1 day
+
+                        if($tipo_libro == 'Novela'){
+                          
+                          $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo='Novela'");
+                          if (mysqli_num_rows($query) > 0) {
+                              while ($row = mysqli_fetch_assoc($query)) {
+                                ?>
+                                <li>
+                                <div class="card sticky-action">
+                                      <div class="card-image center">
+                                        <form method="post">
+                                          <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
+                                          </a>
+                                        </form>
+                                      </div>
+                                      <div class="card-content">
+                                          <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
+                                      </div>
+                                  </div>
+                                </li>
+                                <?php
+                              }
+                            }
+                        } else if($tipo_libro == 'Manga'){
+
+                          $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo='Manga'");
+                          if (mysqli_num_rows($query) > 0) {
+                              while ($row = mysqli_fetch_assoc($query)) {
+                                ?>
+                                <li>
+                                <div class="card sticky-action">
+                                      <div class="card-image center">
+                                        <form method="post">
+                                          <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
+                                          </a>
+                                        </form>
+                                      </div>
+                                      <div class="card-content">
+                                          <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
+                                      </div>
+                                  </div>
+                                </li>
+                                <?php
+                              }
+                            }
+                        } elseif($tipo_libro == 'Comic'){
+                          $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo='Comic'");
+                          if (mysqli_num_rows($query) > 0) {
+                              while ($row = mysqli_fetch_assoc($query)) {
+                                ?>
+                                <li>
+                                <div class="card sticky-action">
+                                      <div class="card-image center">
+                                        <form method="post">
+                                          <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
+                                          </a>
+                                        </form>
+                                      </div>
+                                      <div class="card-content">
+                                          <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
+                                      </div>
+                                  </div>
+                                </li>
+                                <?php
+                              }
+                            }
+                        }
+                      }
+                    } else {
                     $query = mysqli_query($conn, "SELECT * FROM Books");
                     if (mysqli_num_rows($query) > 0) {
                         while ($row = mysqli_fetch_assoc($query)) {
-                            ?>
-                <li>
-                  <div class="card sticky-action">
-                        <div class="card-image center">
-                          <form method="post">
-                            <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
-                            </a>
-                          </form>
-                        </div>
-                        <div class="card-content">
-                            <p id="p-div-title-book" style="font-size: 12px;"><?php echo $row['titulo']; ?></p>
-                        </div>
-                    </div>
-                  </li>
+                  ?>
+                  <div class="ocultar">
+                    <li class="li-gallery-display">
+                    <div class="card sticky-action">
+                          <div class="card-image center">
+                            <form method="post">
+                              <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
+                              </a>
+                            </form>
+                          </div>
+                          <div class="card-content">
+                              <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
+                          </div>
+                      </div>
+                    </li>
+                  </div>
                     <?php
                         }
                     }
+                  }
                   ?>
                 </ul>
-                </div>
+              </div>
             </div>
         </div>
           <div id="example2-pagination" style="" class="col s12 m12 l6 offset-l4 center">
-
-
             <a id="example2-previous" href="#" class="btn red white-text">&laquo; Previous</a>
             <a id="example2-next" href="#" class="btn red white-text">Next &raquo;</a>
-        </div>
+          </div>
 
         <!-- Back to top -->
         <div class="fixed-action-btn">
@@ -106,6 +288,7 @@
             </a>
         </div>
     </main>
+
     <!--################################-->
     <!--################ FOOTER ################-->
     <?php include 'footer.php'; ?>
@@ -117,19 +300,9 @@
     <!--Import jQuery before webuiPopover.js-->
     <script src='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js'></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/pinzon1992/materialize_table_pagination/f9a8478f/js/pagination.js"></script>
-
+    <script type="text/javascript" src="scripts/biblioteca.js"></script>
     <script type="text/javascript" src="scripts/comun.js"></script>
     <script type="text/javascript" src="scripts/jquery.paginate.js"></script>
-
-    <script type="text/javascript">
-    $(document).ready(function()    {
-      $('#example2').paginate({itemsPerPage: 12});
-      $('.dropdown-trigger').dropdown();
-      // $('#p-div-title-book').text(function(index, currentText) {
-      //   return currentText.substr(0, 10);
-      // });
-    });
-    </script>
 </body>
 
 </html>

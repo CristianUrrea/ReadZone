@@ -10,3 +10,34 @@
 .flickity-prev-next-button {
   margin-top: -5px;
 }
+
+#row-content {
+  margin-top: 20px;
+}
+
+#image-card {
+  padding: 20px;
+}
+
+#edit-row, #edit-row-admin {
+  margin-bottom: -20px;
+}
+
+#edit-settings, #edit-settings-admin {
+  margin-left: -15px;
+}
+
+#text-settings {
+  margin-left: -2.5%;
+}
+
+#text-settings-admin {
+  margin-left: -22px;
+}
+#build-admin {
+  margin-left: -15px;
+}
+
+#text-build {
+  margin-left: -15px;
+}

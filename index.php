@@ -68,7 +68,6 @@
                                 <img src="imagenes/libros/13.png" alt="" height="100%">
                             </div>
                         </a>
-
                     </div>
                 </div>
                 <!--################ RECOMENDATIONS NOVELAS ################-->
@@ -77,7 +76,7 @@
                       <h5>Recomendaciones novelas</h5>
                   </div>
 
-                    <div id="div-content-recomendations-gallery" class="col s12 m12 l8 offset-l2 colgallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+                    <div id="div-content-recomendations-gallery" class="col s12 m12 l8 offset-l2 colgallery js-flickity white" data-flickity-options='{ "wrapAround": true }'>
                       <?php
                       $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo = 'Novela'");
                       if (mysqli_num_rows($query) > 0) {
@@ -103,7 +102,7 @@
                     <div id="div-content-recomendations-title" class="col s12 m12 l8 offset-l2">
                         <h5>Recomendaciones mangas</h5>
                     </div>
-                    <div id="div-content-recomendations-gallery" class="col s12 m12 l8 offset-l2 colgallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+                    <div id="div-content-recomendations-gallery" class="col s12 m12 l8 offset-l2 colgallery js-flickity white" data-flickity-options='{ "wrapAround": true }'>
                       <?php
                       $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo = 'Manga'");
                       if (mysqli_num_rows($query) > 0) {
@@ -129,7 +128,7 @@
                     <div id="div-content-recomendations-title" class="col s12 m12 l8 offset-l2">
                         <h5>Recomendaciones comics</h5>
                     </div>
-                    <div id="div-content-recomendations-gallery" class="col s12 m12 l8 offset-l2 colgallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+                    <div id="div-content-recomendations-gallery" class="col s12 m12 l8 offset-l2 colgallery js-flickity white" data-flickity-options='{ "wrapAround": true }'>
                       <?php
                       $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo = 'Comic'");
                       if (mysqli_num_rows($query) > 0) {

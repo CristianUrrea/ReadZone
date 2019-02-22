@@ -15,6 +15,7 @@
     <!-- Mis css -->
     <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="css/registro.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <!--Let browser know website is optimized for mobile-->
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="robots" content="noindex, nofollow">
@@ -28,8 +29,9 @@
       <div style="margin-top: 20px;" class="row">
           <div class="col s12 m12 l8 offset-l2">
               <ul class="tabs">
-                  <li class="tab col s6 m6 l6"><a class="red-text" href="#insertar_admin">Insertar</a></li>
-                  <li class="tab col s6 m6 l6"><a class="red-text" href="#update_admin">Actualizar</a></li>
+                  <li class="tab col s6 m6 l4"><a class="red-text" href="#insertar_admin">Insertar</a></li>
+                  <li class="tab col s6 m6 l4"><a class="red-text" href="#update_admin">Actualizar</a></li>
+                  <li class="tab col s6 m6 l4"><a class="red-text" href="#provicional_admin">Provicional</a></li>
               </ul>
           </div>
       </div>
@@ -96,7 +98,7 @@
       </div>
       <div id="update_admin">
         <div id="div-row-admin-panel"  class="row">
-          <form id="form-div-admin" class="col s12 m8 l4 offset-l4 offset-m2"  action="" method="post" enctype="multipart/form-data">
+          <form id="form-div-admin" class="col s12 m8 l6 offset-l3 offset-m2"  action="" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col s12 m12 l12 center">
                     <h5>Administrador</h5>
@@ -104,13 +106,12 @@
             </div>
             <div id="form-div-input-form" class="row">
               <div class="input-field col s12">
-                <select name="titulo-libro">
+                <select id="titulo_libro2" name="titulo-libro" >
                   <option value="" disabled selected>Seleccionar libro</option>
                   <?php
                   $query = mysqli_query($conn, "SELECT * FROM Books");
                   if (mysqli_num_rows($query) > 0) {
                     while ($row = mysqli_fetch_assoc($query)) {
-
                    ?>
                    <option value="<?php echo $row['titulo'];?>"><?php echo $row['titulo']; ?></option>
                    <?php
@@ -121,15 +122,68 @@
                 </select>
               </div>
             </div>
+
+            <div id="form-div-input-form" class="row">
+              <div class="col s3 m3 l6">
+                <?php
+                $query = mysqli_query($conn, "SELECT * FROM Genders LIMIT 0, 8");
+                if (mysqli_num_rows($query) > 0) {
+                  while ($row = mysqli_fetch_assoc($query)) {
+                ?>
+                <p>
+                  <label>
+                    <input type="checkbox" name="checked_id[]" class="filled-in" value="<?php echo $row['id_genero'] ?>" />
+                    <span> <?php echo $row['nombre']; ?></span>
+                  </label>
+                </p>
+                <?php
+                    }
+                  }
+                ?>
+              </div>
+              <div class="col s3 m3 l6">
+                <?php
+                $query = mysqli_query($conn, "SELECT * FROM Genders LIMIT 0, 8");
+                if (mysqli_num_rows($query) > 0) {
+                  while ($row = mysqli_fetch_assoc($query)) {
+                ?>
+                <p>
+                  <label>
+                    <input type="checkbox" name="checked_id[]" class="filled-in" value="<?php echo $row['id_genero'] ?>" />
+                    <span> <?php echo $row['nombre']; ?></span>
+                  </label>
+                </p>
+                <?php
+                    }
+                  }
+                ?>
+              </div>
+            </div>
+            <div id="form-div-input-form" class="row">
+                <div class="input-field col s4 m4 l3 offset-l5 offset-s4 offset-m4">
+                    <button type="submit" name="btn-update-libro" class="btn red">Update</button>
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="provicional_admin">
+        <div id="div-row-admin-panel"  class="row">
+          <form id="form-div-admin" class="col s12 m8 l4 offset-l4 offset-m2"  action="" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col s12 m12 l12 center">
+                    <h5>Administrador</h5>
+                </div>
+            </div>
             <div id="form-div-input-form" class="row">
                 <div class="input-field col s12">
-                    <textarea class="materialize-textarea" name="descripcion_update" rows="8" cols="80"></textarea>
-                    <label for="descripcion">Descripción</label>
+                    <textarea class="materialize-textarea" name="genero" rows="8" cols="80"></textarea>
+                    <label for="descripcion">Género</label>
                 </div>
             </div>
             <div id="form-div-input-form" class="row">
                 <div class="input-field col s4 m4 l4 offset-l4 offset-s4 offset-m4">
-                    <button type="submit" name="btn-update-libro" class="btn red">Update</button>
+                    <button type="submit" name="btn-insertar-genero" class="btn red">Insertar genero</button>
                 </div>
             </div>
           </form>
@@ -139,11 +193,11 @@
     </main>
 
     <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!--Import jQuery before webuiPopover.js-->
     <script src='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js'></script>
     <script type="text/javascript" src="scripts/admin.js"></script>
+
 </body>
 
 </html>

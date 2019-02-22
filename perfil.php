@@ -32,7 +32,7 @@
     ?>
         <!--################################-->
         <main>
-            <div style="margin-top: 20px;" class="row">
+            <div id="row-content" class="row">
                 <div class="col s12 m12 l8 offset-l2">
                     <ul class="tabs">
                         <li class="tab col s6 m6 l6"><a class="red-text" href="#perfil">Perfil</a></li>
@@ -51,14 +51,14 @@
                               if (mysqli_num_rows($query) > 0) {
                                   while ($row = mysqli_fetch_assoc($query)) {
                                       ?>
-                            <div class="card-image" style="padding: 20px;">
-                                <img id="" src="<?php echo $row['imagen_perfil'] ?>" height="200" width="300" class="fadeIn">
-                                  <div id="edit-row"class="row" style="margin-bottom: -20px;">
+                            <div id="image-card" class="card-image">
+                                <img src="<?php echo $row['imagen_perfil'] ?>" height="200" width="300" class="fadeIn">
+                                  <div id="edit-row"class="row">
                                     <a href="editPerfil.php">
-                                        <div class="col s2 m2 l2 card-content left" style="margin-left: -15px;">
+                                        <div id="edit-settings" class="col s2 m2 l2 card-content left">
                                             <i class="material-icons red-text">settings</i>
                                         </div>
-                                        <div class="col s8 m8 l8 card-content" style="margin-left: -30px;">
+                                        <div id="text-settings" class="col s9 m8 l8 card-content">
                                             <p>Editar perfil</p>
                                         </div>
                                     </a>
@@ -69,20 +69,20 @@
                                         <script type="text/javascript">
                                           $('#edit-row').hide();
                                         </script>
-                                        <div class="row" style="margin-bottom: -20px;">
+                                        <div id="edit-row-admin" class="row">
                                           <a href="editPerfil.php">
-                                              <div class="col s2 m2 l2 card-content left" style="margin-left: -15px;">
+                                              <div id="edit-settings-admin" class="col s1 m2 l1 card-content left">
                                                   <i class="material-icons red-text">settings</i>
                                               </div>
-                                              <div class="col s8 m8 l5 card-content" style="margin-left: -20px;">
+                                              <div id="text-settings-admin" class="col s4 m5 l5 card-content">
                                                   <p>Editar perfil</p>
                                               </div>
                                           </a>
                                           <a href="admin.php">
-                                            <div class="col s2 m2 l2 card-content left" style="margin-left: -15px;">
+                                            <div id="build-admin" class="col s1 m2 l1 card-content left">
                                                 <i class="material-icons red-text">build</i>
                                             </div>
-                                            <div class="col s8 m8 l5 card-content" style="margin-left: -20px;">
+                                            <div id="text-build" class="col s4 m5 l5 card-content" >
                                                 <p>Panel admin</p>
                                             </div>
                                           </a>
