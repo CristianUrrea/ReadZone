@@ -3,7 +3,7 @@ require_once("./db/conexiondb.php");
 
 $user = $_SESSION['username'];
 if (isset($_POST['btn-nueva-lista'])) {
-  $query = mysqli_query($conn, "SELECT id_user FROM Users  WHERE nombre = '$user'");
+  $query = mysqli_query($conn, "SELECT id_user FROM Users  WHERE correo = '$user'");
   if (mysqli_num_rows($query) > 0) {
     while ($row = mysqli_fetch_assoc($query)) {
       if (isset($_SESSION['username'])) {

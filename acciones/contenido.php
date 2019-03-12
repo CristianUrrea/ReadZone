@@ -5,7 +5,8 @@ require_once("./db/conexiondb.php");
 if (isset($_SESSION['username'])) {
     $user = $_SESSION['username'];
     if (isset($_POST['btn-añadir-a-lista'])) {
-        $query = mysqli_query($conn, "SELECT id_user FROM Users  WHERE nombre = '$user'");
+        $query = mysqli_query($conn, "SELECT id_user FROM Users  WHERE correo = '$user'");
+        // echo ' <script type="text/javascript">alert("hola")</script>';
 
         if (mysqli_num_rows($query) > 0) {
             while ($row = mysqli_fetch_assoc($query)) {
@@ -19,7 +20,7 @@ if (isset($_SESSION['username'])) {
                 // if (mysqli_num_rows($results) != $id_book) {
                 //   echo "Repetido";
                 // } else {
-                //   echo "No Repetido";
+                  // echo "No Repetido";
 
                   $query2 = "INSERT INTO List_books (nombre_lista,id_user,id_book) VALUES('$nombre_lista','$id_user','$id_book')";
                   mysqli_query($conn, $query2);
