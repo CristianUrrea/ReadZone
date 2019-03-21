@@ -151,6 +151,7 @@
                   <?php
                     if (isset($_POST['btn-aplicar-cambios'])) {
 
+                      
                       if(empty($_POST['tipo-libro'])){
 
                         $query = mysqli_query($conn, "SELECT * FROM Books");
@@ -181,7 +182,7 @@
                         // setcookie($cookie_name, $cookie_value); // 86400 = 1 day
 
                         if($tipo_libro == 'Novela'){
-                          
+
                           $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo='Novela'");
                           if (mysqli_num_rows($query) > 0) {
                               while ($row = mysqli_fetch_assoc($query)) {

@@ -23,13 +23,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 </head>
-
+<style media="screen">
+  #list_genders li{
+    display: inline;
+  }
+</style>
 <body>
   <!--################ NAV ################-->
   <?php
     // require_once("db/conexiondb.php");
     $id_book=$_REQUEST['id_book'];
-    
+
 
     include 'nav.php';
     include_once('acciones/contenido.php');
@@ -59,8 +63,26 @@
                             <p><?php echo $row['descripcion']; ?></p>
                         </div>
                         <div class="card-action">
-                            <p>Generos</p>
-                            <p>Autor</p>
+                            <b>Generos</b>
+                            <ul id="list_genders">
+                              <?php
+                              $query = mysqli_query($conn, "SELECT * FROM Books_genders WHERE id_book = '$id_book'");
+                              if (mysqli_num_rows($query) > 0) {
+                                while ($row = mysqli_fetch_assoc($query)) {
+                                  $id_genero = $row['id_genero'];
+                                  $query2 = mysqli_query($conn, "SELECT * FROM Genders WHERE id_genero = '$id_genero'");
+                                  if (mysqli_num_rows($query2) > 0) {
+                                    while ($row2 = mysqli_fetch_assoc($query2)) {
+                               ?>
+                               <li style="margin-right: 20px;"><?php echo $row2['nombre']; ?></li>
+                               <?php
+                                    }
+                                  }
+                                }
+                               }
+                                ?>
+                            </ul>
+                            <b>Autor</b>
                         </div>
                     </div>
                     <?php
@@ -126,86 +148,29 @@
             <div class="col s12 m12 l8 offset-l2">
               <table cellpadding="1" cellspacing="1" class="table white table-hover" id="myTable">
           <tbody>
-            <tr>
-            	<td>Capitulo1</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo2</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo3</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo4</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo5</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo6</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo7</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo8</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo9</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo10</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo11</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo12</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo13</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo14</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo15</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo16</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-              <td>Capitulo17</td>
-              <td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo18</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo19</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo20</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
+            <?php
+            $query = mysqli_query($conn, "SELECT id_cap_libro FROM Books_chapter WHERE id_book = '$id_book'");
+            if (mysqli_num_rows($query) > 0) {
+              $count = 1;
+
+              while ($row = mysqli_fetch_assoc($query)) {
+             ?>
+             <tr>
+               <td>
+                  <a href="capitulo.php?id_cap_libro=<?php echo $row['id_cap_libro'];?>"> Capitulo <?php echo $count++; ?></a>
+                    <?php
+                    // $dirname = $row['capitulo'];
+                    // $images = glob( $dirname."*.jpg" );
+                    // foreach($images as $image) {
+                    //   echo '<a>"'.$image.'"</a>';
+                    // }
+                  ?>
+               </td>
+             </tr>
+             <?php
+              }
+            }
+              ?>
             </tbody>
           </table>
                 <!--<button id="btn-read-more" type="button" name="button" class="col s12 m12 l12 btn red white-text">Ver más</button>-->

@@ -29,10 +29,6 @@ if (isset($_POST['btn-update-libro'])) {
       }
     }
   }
-
-
-
-
 }
 
 if (isset($_POST['btn-insertar-genero'])) {

@@ -29,9 +29,10 @@
       <div style="margin-top: 20px;" class="row">
           <div class="col s12 m12 l8 offset-l2">
               <ul class="tabs">
-                  <li class="tab col s6 m6 l4"><a class="red-text" href="#insertar_admin">Insertar</a></li>
-                  <li class="tab col s6 m6 l4"><a class="red-text" href="#update_admin">Actualizar</a></li>
-                  <li class="tab col s6 m6 l4"><a class="red-text" href="#provicional_admin">Provicional</a></li>
+                  <li class="tab col s3 m3 l3"><a class="red-text" href="#insertar_admin">Insertar</a></li>
+                  <li class="tab col s3 m3 l3"><a class="red-text" href="#update_admin">Actualizar</a></li>
+                  <li class="tab col s3 m3 l3"><a class="red-text" href="#provicional_admin">Provicional</a></li>
+                  <li class="tab col s3 m3 l3"><a class="red-text" href="#capitulos_admin">Capitulos</a></li>
               </ul>
           </div>
       </div>
@@ -143,7 +144,7 @@
               </div>
               <div class="col s3 m3 l6">
                 <?php
-                $query = mysqli_query($conn, "SELECT * FROM Genders LIMIT 0, 8");
+                $query = mysqli_query($conn, "SELECT * FROM Genders LIMIT 8, 16");
                 if (mysqli_num_rows($query) > 0) {
                   while ($row = mysqli_fetch_assoc($query)) {
                 ?>
@@ -184,6 +185,70 @@
             <div id="form-div-input-form" class="row">
                 <div class="input-field col s4 m4 l4 offset-l4 offset-s4 offset-m4">
                     <button type="submit" name="btn-insertar-genero" class="btn red">Insertar genero</button>
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="capitulos_admin">
+        <div id="div-row-admin-panel"  class="row">
+          <form id="form-div-admin" class="col s12 m8 l6 offset-l3 offset-m2"  action="" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col s12 m12 l12 center">
+                    <h5>Administrador</h5>
+                </div>
+            </div>
+            <div id="form-div-input-form" class="row">
+              <div class="input-field col s12">
+                <select id="titulo_libro2" name="titulo-libro" >
+                  <option value="" disabled selected>Seleccionar libro</option>
+                  <?php
+                  $query = mysqli_query($conn, "SELECT * FROM Books");
+                  if (mysqli_num_rows($query) > 0) {
+                    while ($row = mysqli_fetch_assoc($query)) {
+                   ?>
+                   <option value="<?php echo $row['titulo'];?>"><?php echo $row['titulo']; ?></option>
+                   <?php
+
+                  }
+                 }
+                    ?>
+                </select>
+              </div>
+            </div>
+
+            <div id="form-div-input-form" class="row">
+
+              <div class="col s12 m12 l12">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Caperta capitulos</span>
+                        <input id="chapter-book" type="file" name="chaptersbook[]" webkitdirectory directory multiple mozdirectory>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+                <?php
+                $query = mysqli_query($conn, "SELECT * FROM Books_chapter");
+                if (mysqli_num_rows($query) > 0) {
+                  while ($row = mysqli_fetch_assoc($query)) {
+                 ?>
+                 <?php
+                 $dirname = $row['capitulo'];
+                 $images = glob( $dirname."*.jpg" );
+                 foreach($images as $image) {
+                   echo '<img src="'.$image.'" height="50" width="50"></><br>';
+                 }
+                }
+               }
+                                ?>
+              </div>
+
+            </div>
+            <div id="form-div-input-form" class="row">
+                <div class="input-field col s4 m4 l3 offset-l5 offset-s4 offset-m4">
+                    <button type="submit" name="btn-insert-chapter-libro" class="btn red">Insertar</button>
                 </div>
             </div>
           </form>
