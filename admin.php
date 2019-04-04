@@ -32,7 +32,7 @@
                   <li class="tab col s3 m3 l3"><a class="red-text" href="#insertar_admin">Insertar</a></li>
                   <li class="tab col s3 m3 l3"><a class="red-text" href="#update_admin">Actualizar</a></li>
                   <li class="tab col s3 m3 l3"><a class="red-text" href="#provicional_admin">Provicional</a></li>
-                  <li class="tab col s3 m3 l3"><a class="red-text" href="#capitulos_admin">Capitulos</a></li>
+                  <li class="tab col s3 m3 l3"><a class="red-text" href="#capitulos_admin">Añadir capitulo</a></li>
               </ul>
           </div>
       </div>
@@ -62,7 +62,7 @@
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12">
-                        <textarea class="materialize-textarea" name="name" rows="8" cols="80"></textarea>
+                        <textarea class="materialize-textarea" name="descripcion" rows="8" cols="80"></textarea>
                         <label for="descripcion">Descripción</label>
                     </div>
                 </div>
@@ -200,7 +200,7 @@
             </div>
             <div id="form-div-input-form" class="row">
               <div class="input-field col s12">
-                <select id="titulo_libro2" name="titulo-libro" >
+                <select id="titulo_libro2" name="titulo-libro-2" >
                   <option value="" disabled selected>Seleccionar libro</option>
                   <?php
                   $query = mysqli_query($conn, "SELECT * FROM Books");
@@ -216,33 +216,28 @@
                 </select>
               </div>
             </div>
+            <div id="form-div-input-form" class="row">
+                <div class="input-field col s12">
+                  <input type="number" name="num_capitulo" value="">
+                  <label for="artista">Numero capítulo</label>
 
+                </div>
+            </div>
             <div id="form-div-input-form" class="row">
 
               <div class="col s12 m12 l12">
                 <div class="file-field input-field">
                     <div class="btn">
-                        <span>Caperta capitulos</span>
-                        <input id="chapter-book" type="file" name="chaptersbook[]" webkitdirectory directory multiple mozdirectory>
+                        <span>Caperta capítulos</span>
+                        <!-- <input id="chapter-book" type="file" name="filedirname" webkitdirectory directory multiple mozdirectory msdi> -->
+                        <input name="upload[]" type="file" multiple="multiple" webkitdirectory/>
                     </div>
+
+
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text">
                     </div>
                 </div>
-                <?php
-                $query = mysqli_query($conn, "SELECT * FROM Books_chapter");
-                if (mysqli_num_rows($query) > 0) {
-                  while ($row = mysqli_fetch_assoc($query)) {
-                 ?>
-                 <?php
-                 $dirname = $row['capitulo'];
-                 $images = glob( $dirname."*.jpg" );
-                 foreach($images as $image) {
-                   echo '<img src="'.$image.'" height="50" width="50"></><br>';
-                 }
-                }
-               }
-                                ?>
               </div>
 
             </div>
@@ -262,7 +257,15 @@
     <!--Import jQuery before webuiPopover.js-->
     <script src='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js'></script>
     <script type="text/javascript" src="scripts/admin.js"></script>
-
+<script type="text/javascript">
+function selectFolder(e) {
+    var theFiles = e.target.files;
+    var relativePath = theFiles[0].webkitRelativePath;
+    var folder = relativePath.split("/");
+    alert(relativePath);
+  }
+  // document.getElementsByTagName('#FileUpload')[0].files[0].webkitRelativePath;
+</script>
 </body>
 
 </html>

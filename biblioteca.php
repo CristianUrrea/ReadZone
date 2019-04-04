@@ -23,6 +23,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <?php
       include_once('db/conexiondb.php');
+      // include_once('acciones/busqueda.php');
      ?>
      <style media="screen">
        #div-content-search-advanced {
@@ -74,7 +75,7 @@
                         ?>
                         <p>
                           <label>
-                            <input type="checkbox" class="filled-in" />
+                            <input type="checkbox" class="filled-in" name="gender_list[]" value="<?php echo $row['nombre']?>"/>
                             <span> <?php echo $row['nombre']; ?></span>
                           </label>
                         </p>
@@ -91,7 +92,7 @@
                         ?>
                         <p>
                           <label>
-                            <input type="checkbox" class="filled-in" />
+                            <input type="checkbox" class="filled-in" name="gender_list[]" value="<?php echo $row['nombre']?>"/>
                             <span> <?php echo $row['nombre']; ?></span>
                           </label>
                         </p>
@@ -108,7 +109,7 @@
                         ?>
                         <p>
                           <label>
-                            <input type="checkbox" class="filled-in" />
+                            <input type="checkbox" class="filled-in" name="gender_list[]" value="<?php echo $row['nombre']?>"/>
                             <span> <?php echo $row['nombre']; ?></span>
                           </label>
                         </p>
@@ -125,7 +126,7 @@
                         ?>
                         <p>
                           <label>
-                            <input type="checkbox" class="filled-in" />
+                            <input type="checkbox" class="filled-in" name="gender_list[]" value="<?php echo $row['nombre']?>"/>
                             <span> <?php echo $row['nombre']; ?></span>
                           </label>
                         </p>
@@ -151,27 +152,31 @@
                   <?php
                     if (isset($_POST['btn-aplicar-cambios'])) {
 
-                      
+
                       if(empty($_POST['tipo-libro'])){
 
                         $query = mysqli_query($conn, "SELECT * FROM Books");
                         if (mysqli_num_rows($query) > 0) {
                             while ($row = mysqli_fetch_assoc($query)) {
+                              if(empty($_POST['gender_list'])){
                               ?>
-                              <li>
-                              <div class="card sticky-action">
-                                    <div class="card-image center">
-                                      <form method="post">
-                                        <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
-                                        </a>
-                                      </form>
-                                    </div>
-                                    <div class="card-content">
-                                        <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
-                                    </div>
-                                </div>
-                              </li>
+                              <div id="ocultar_div_libros">
+                                <li>
+                                <div class="card sticky-action">
+                                      <div class="card-image center">
+                                        <form method="post">
+                                          <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
+                                          </a>
+                                        </form>
+                                      </div>
+                                      <div class="card-content">
+                                          <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
+                                      </div>
+                                  </div>
+                                </li>
+                              </div>
                               <?php
+                              }
                             }
                           }
                       } else if(!empty($_POST['tipo-libro'])) {
@@ -270,6 +275,55 @@
                   </div>
                     <?php
                         }
+                    }
+                  } if (isset($_POST['btn-aplicar-cambios'])){
+                    if(!empty($_POST['gender_list'])){
+                      foreach($_POST['gender_list'] as $selected){
+                        // echo $selected."</br>";
+
+                        $query = mysqli_query($conn, "SELECT id_genero FROM Genders WHERE nombre = '$selected'");
+                        if (mysqli_num_rows($query) > 0) {
+                          while ($row = mysqli_fetch_assoc($query)) {
+                            $id_genero_libro = $row['id_genero'];
+                            // echo $row['id_genero'];
+                            $query2 = mysqli_query($conn, "SELECT * FROM Books_genders WHERE id_genero = '$id_genero_libro'");
+                            if (mysqli_num_rows($query2) > 0) {
+                              // while ($row2 = mysqli_fetch_assoc($query2)) {
+                              $row2 = mysqli_fetch_assoc($query2);
+
+                                $id_book = $row2['id_book'];
+                                // echo $row2['id_book'];
+                                $query3 = mysqli_query($conn, "SELECT * FROM Books WHERE id_book = '$id_book'");
+                                // if (mysqli_num_rows($query3) > 0) {
+                                  $row3 = mysqli_fetch_assoc($query3);
+                                  // $t = $row3['titulo'];
+                                  // echo $t;
+                                  // while ($row3 = mysqli_fetch_assoc($query3)) {
+                                    // echo $row3['titulo'];
+                                    ?>
+                                    <!-- <div class="ocultar"> -->
+                                      <li class="li-gallery-display">
+                                      <div class="card sticky-action">
+                                            <div class="card-image center">
+                                              <form method="post">
+                                                <a href="contenido.php?id_book=<?php echo $row3['id_book']; ?>"><img class="center" src="<?php echo $row3['imagen']; ?>" height="250px"></img>
+                                                </a>
+                                              </form>
+                                            </div>
+                                            <div class="card-content">
+                                                <p id="p-div-title-book"><?php echo $row3['titulo']; ?></p>
+                                            </div>
+                                        </div>
+                                      </li>
+                                    <!-- </div> -->
+                                    <?php
+                                  // }
+                                // }
+                              // }
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                   ?>
