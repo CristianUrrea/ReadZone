@@ -6,6 +6,32 @@
 #div-row-contenido-info {
   margin-top: 20px;
 }
+/*################ LIKE DISLIKE ################*/
+.progressBar {
+  display: block;
+  width: 100px;
+  min-width: 100px;
+  height: 10px;
+  margin-left: 50px;
+}
+
+.likes {
+  background-color: #0F0;
+  float: left;
+  padding: 0px;
+  margin: 0px;
+  width: 0px;
+  height: 10px;
+}
+
+.dislikes {
+  background-color: #F00;
+  float: left;
+  padding: 0px;
+  margin: 0px;
+  width: 0px;
+  height: 10px;
+}
 /*################ UL LIKE FAVORITE ADD ################*/
 #div-card-horizontal {
   margin-top: -20px;
@@ -15,5 +41,3 @@
   float: none;
   margin: 5%;
 }
-
-/*################ LISTA CAPITULOS ################*/

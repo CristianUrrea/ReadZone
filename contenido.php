@@ -21,6 +21,7 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
 </head>
 <style media="screen">
@@ -55,7 +56,10 @@
                         <div class="card-content center">
                             <p><?php echo $row['titulo']; ?></p>
                         </div>
-
+                        <div class='progressBar'>
+                             <div class='likes'></div>
+                             <div class='dislikes'></div>
+                        </div>
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">
@@ -90,16 +94,61 @@
                   }
                   ?>
                 </div>
+
+                <?php  if (isset($_SESSION['username'])) {?>
+
                 <div id="div-card-horizontal" class="card horizontal red">
                     <div class="card-stacked center">
+                      <form  action="" method="post" enctype="multipart/form-data">
                         <ul id="div-ul-like-favorite-add-list">
-                            <li><button type="submit" class="btn-flat"><i class="material-icons white-text">thumb_up</i></button></li>
-                            <li><button type="submit" class="btn-flat"><i class="material-icons white-text">thumb_down</i></button></li>
+
+                          <?php
+                          $user = $_SESSION['username'];
+                          $query = mysqli_query($conn, "SELECT * FROM Users  WHERE correo = '$user'");
+                          if (mysqli_num_rows($query) > 0) {
+                            while ($row = mysqli_fetch_assoc($query)) {
+                              $id_user = $row['id_user'];
+                              $query2 = mysqli_query($conn, "SELECT * FROM Books_score  WHERE id_user = '$id_user' AND id_book = '$id_book'");
+                              if (mysqli_num_rows($query2) > 0) {
+                                while ($row2 = mysqli_fetch_assoc($query2)) {
+                                  $like = $row2['like_libro'];
+                                  $dislike = $row2['dislike_libro'];
+                                  if($like == 1){
+                                    echo 'like';
+                                    ?>
+                                    <li><button type="submit" class="btn-flat" name="btn-like-book-update"><i class="material-icons white-text">thumb_up</i></button></li>
+                                    <li><button type="submit" class="btn-flat" name="btn-dislike-book-update"><i class="material-icons white-text">thumb_down</i></button></li>
+                                    <?php
+                                  } else if($dislike == 1){
+                                    echo 'dislike';
+                                    ?>
+                                    <li><button type="submit" class="btn-flat" name="btn-like-book-update"><i class="material-icons white-text">thumb_up</i></button></li>
+                                    <li><button type="submit" class="btn-flat" name="btn-dislike-book-update"><i class="material-icons white-text">thumb_down</i></button></li>
+                                    <?php
+                                  } else if($like == 0 && $dislike == 0){
+                                    ?>
+                                    <li><button type="submit" class="btn-flat" name="btn-like-book-update-two"><i class="material-icons white-text">thumb_up</i></button></li>
+                                    <li><button type="submit" class="btn-flat" name="btn-dislike-book-update-two"><i class="material-icons white-text">thumb_down</i></button></li>
+                                    <?php
+                                  }
+                                }
+                              } else {
+                                ?>
+                                <li><button type="submit" class="btn-flat" id="btn-like-book" name="btn-like-book"><i class="material-icons white-text">thumb_up</i></button></li>
+                                <li><button type="submit" class="btn-flat" id="btn-dislike-book" name="btn-dislike-book"><i class="material-icons white-text">thumb_down</i></button></li>
+                                <?php
+                              }
+
+                            }
+                          }
+                          ?>
                             <li><button type="submit" class="btn-flat"><i class="material-icons white-text">favorite</i></button></li>
                             <li><button class="btn-flat modal-trigger" data-target="modal1"><i class="material-icons white-text">library_add</i></button></li>
                         </ul>
+                      </form>
                     </div>
                 </div>
+              <?php } ?>
             </div>
         </div>
         <!-- Modal Structure -->
@@ -144,6 +193,7 @@
           </div>
         </form>
         </div>
+
         <div class="row">
             <div class="col s12 m12 l8 offset-l2">
               <table cellpadding="1" cellspacing="1" class="table white table-hover" id="myTable">
@@ -185,6 +235,17 @@
                 <i class="large material-icons">keyboard_arrow_up</i>
             </a>
         </div>
+        <?php
+        $query = mysqli_query($conn, "SELECT SUM(like_libro) AS like_libro, SUM(dislike_libro) AS dislike_libro FROM Books_score  WHERE id_book = '$id_book'");
+
+        if (mysqli_num_rows($query) > 0) {
+          while ($row = mysqli_fetch_assoc($query)){
+            echo 'Likes: '.$row['like_libro'];
+            echo '<br>';
+            echo 'Dislikes: '.$row['dislike_libro'];
+          }
+        }
+        ?>
     </main>
     <!--################################-->
     <!--################ FOOTER ################-->
@@ -192,13 +253,38 @@
         <!--################################-->
 
     <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!--Import jQuery before webuiPopover.js-->
     <script src='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js'></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/pinzon1992/materialize_table_pagination/f9a8478f/js/pagination.js"></script>
     <script type="text/javascript" src="scripts/comun.js"></script>
     <script type="text/javascript" src="scripts/contenido.js"></script>
+
+    <script type="text/javascript">
+
+    <?php
+    $query = mysqli_query($conn, "SELECT SUM(like_libro) AS like_libro, SUM(dislike_libro) AS dislike_libro FROM Books_score  WHERE id_book = '$id_book'");
+
+    if (mysqli_num_rows($query) > 0) {
+      while ($row = mysqli_fetch_assoc($query)){
+        ?>
+        var likes = <?php echo $row['like_libro']?>;
+        var dislikes = <?php echo $row['dislike_libro']?>;
+        // var dislikes = 0;
+
+        var total = likes+dislikes;
+        var likePerc = (likes/total)*100;
+        var dislikePerc = (dislikes/total)*100;
+
+          $(".likes").css("width", likePerc);
+          $(".dislikes").css("width", dislikePerc);
+        <?php
+      }
+    }
+    ?>
+
+
+    </script>
 
 </body>
 
