@@ -10,9 +10,21 @@ if (isset($_POST["btn-insertar-libro"])) {
     // $imagen = addslashes(file_get_contents($_FILES['imagen-book']['tmp_name']));
     $archivo = $_FILES['fileimgbook']['tmp_name'];
     $destino = "./imagenes/libros/".$_FILES['fileimgbook']['name'];
+    $idArr = $_POST['checked_id'];
 
     move_uploaded_file($archivo, $destino);
     mysqli_query($conn, "INSERT INTO Books (id_book, tipo, titulo, descripcion, autor, artista, imagen) VALUES ('','$tipo_libro','$titulo','$descripcion','$autor','$artista','$destino')");
+    $query = mysqli_query($conn, "SELECT * FROM Books WHERE titulo = '$titulo'");
+    if (mysqli_num_rows($query) > 0) {
+      while ($row = mysqli_fetch_assoc($query)) {
+        $id_book = $row['id_book'];
+        foreach ($idArr as $id) {
+          $query1 = mysqli_query($conn, "INSERT INTO Books_genders (id_book, id_genero) VALUES ($id_book,$id)");
+          mysqli_query($conn, $query1);
+        }
+      }
+    }
+
 }
 
 if (isset($_POST['btn-update-libro'])) {
@@ -69,6 +81,7 @@ if (isset($_POST['btn-insert-chapter-libro'])) {
     }
   }
 }
+
 // if (isset($_POST['btn-insert-chapter-libro'])) {
 //   $titulo_libro= strip_tags($_POST['titulo-libro']);
 //   $query = mysqli_query($conn, "SELECT * FROM Books WHERE titulo = '$titulo_libro'");

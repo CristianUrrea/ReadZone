@@ -270,7 +270,6 @@
         ?>
         var likes = <?php echo $row['like_libro']?>;
         var dislikes = <?php echo $row['dislike_libro']?>;
-        // var dislikes = 0;
 
         var total = likes+dislikes;
         var likePerc = (likes/total)*100;

@@ -38,7 +38,7 @@
       </div>
       <div id="insertar_admin">
         <div id="div-row-admin-panel"  class="row">
-            <form id="form-div-admin" class="col s12 m8 l4 offset-l4 offset-m2"  action="" method="post" enctype="multipart/form-data">
+            <form id="form-div-admin" class="col s12 m8 l6 offset-l3 offset-m2"  action="" method="post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col s12 m12 l12 center">
                         <h5>Administrador</h5>
@@ -79,6 +79,42 @@
                     </div>
                 </div>
                 <div id="form-div-input-form" class="row">
+                  <div class="col s3 m3 l6">
+                    <?php
+                    $query = mysqli_query($conn, "SELECT * FROM Genders LIMIT 0, 8");
+                    if (mysqli_num_rows($query) > 0) {
+                      while ($row = mysqli_fetch_assoc($query)) {
+                    ?>
+                    <p>
+                      <label>
+                        <input type="checkbox" name="checked_id[]" class="filled-in" value="<?php echo $row['id_genero'] ?>" />
+                        <span> <?php echo $row['nombre']; ?></span>
+                      </label>
+                    </p>
+                    <?php
+                        }
+                      }
+                    ?>
+                  </div>
+                  <div class="col s3 m3 l6">
+                    <?php
+                    $query = mysqli_query($conn, "SELECT * FROM Genders LIMIT 8, 16");
+                    if (mysqli_num_rows($query) > 0) {
+                      while ($row = mysqli_fetch_assoc($query)) {
+                    ?>
+                    <p>
+                      <label>
+                        <input type="checkbox" name="checked_id[]" class="filled-in" value="<?php echo $row['id_genero'] ?>" />
+                        <span> <?php echo $row['nombre']; ?></span>
+                      </label>
+                    </p>
+                    <?php
+                        }
+                      }
+                    ?>
+                  </div>
+                </div>
+                <div id="form-div-input-form" class="row">
                     <div class="file-field input-field">
                         <div class="btn">
                             <span>Imagen</span>
@@ -89,6 +125,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s4 m4 l4 offset-l4 offset-s4 offset-m4">
                         <button type="submit" name="btn-insertar-libro" class="btn red">Insertar</button>
@@ -123,7 +160,71 @@
                 </select>
               </div>
             </div>
+            <div id="form-div-input-form" class="row">
+                <div class="input-field cols s12">
+                    <button id="btn-edit-libro" type="submit" name="btn-edit-libro" class="btn red" href='#update_admin'>Editar</button>
+                </div>
+            </div>
+            <div id="form-div-input-form" class="row">
+                <div class="input-field col s12">
+                  <?php if(isset($_POST['btn-edit-libro'])){
+                    echo '<script type="text/javascript">'.
+                          '$("ul.tabs").tabs();'.
+                          '$("ul.tabs").tabs("select", "update_admin");'.
+                          '</script>';
+                    if(isset($_POST['titulo-libro'])){
+                      $titulo_libro= strip_tags($_POST['titulo-libro']);
 
+                    $query = mysqli_query($conn, "SELECT * FROM Books WHERE titulo = '$titulo_libro'");
+                    if (mysqli_num_rows($query) > 0) {
+                      while ($row = mysqli_fetch_assoc($query)) {
+                    ?>
+                    <input id="titulo_libro_edit" type="text" name="titulo_libro_edit" class="validate" value="<?php echo $row['titulo']?>">
+                    <label for="titulo_libro_edit">Titulo del libro</label>
+                    <?php
+                        }
+                      }
+
+
+                  ?>
+                </div>
+            </div>
+
+            <div id="form-div-input-form" class="row">
+              <div class="col s3 m3 l6">
+                <?php
+                // $titulo_libro= strip_tags($_POST['titulo-libro']);
+                $query = mysqli_query($conn, "SELECT * FROM Books WHERE titulo = '$titulo_libro'");
+                if (mysqli_num_rows($query) > 0) {
+                  while ($row = mysqli_fetch_assoc($query)) {
+                    $id_book = $row['id_book'];
+                    $query2 = mysqli_query($conn, "SELECT * FROM Books_genders WHERE id_book = '$id_book'");
+                    if (mysqli_num_rows($query2) > 0) {
+                      while ($row2 = mysqli_fetch_assoc($query2)) {
+                        $id_genero = $row2['id_genero'];
+                        $query3 = mysqli_query($conn, "SELECT * FROM Genders WHERE id_genero = '$id_genero' LIMIT 0, 16");
+                        if (mysqli_num_rows($query3) > 0) {
+                          while ($row3 = mysqli_fetch_assoc($query3)) {
+                            ?>
+                            <p>
+                              <label>
+                                <input type="checkbox" name="checked_id[]" class="filled-in" value="<?php echo $row3['id_genero'] ?>"/>
+                                <span> <?php echo $row3['nombre']; ?></span>
+                              </label>
+                            </p>
+                            <?php
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+                ?>
+              </div>
+            </div>
+            <br>
             <div id="form-div-input-form" class="row">
               <div class="col s3 m3 l6">
                 <?php
@@ -264,6 +365,11 @@ function selectFolder(e) {
     var folder = relativePath.split("/");
     alert(relativePath);
   }
+  $('ul.tabs').tabs();
+  $('#btn-edit-libro').click(function(){
+    location.reload();
+    $('ul.tabs').tabs('select_tab', 'update_admin');
+  });
   // document.getElementsByTagName('#FileUpload')[0].files[0].webkitRelativePath;
 </script>
 </body>
