@@ -16,12 +16,19 @@
     <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="css/registro.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!--Let browser know website is optimized for mobile-->
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <?php include_once('acciones/libros.php') ?>
+    <style media="screen">
+      #check_genders_div p {
+        display: inline-block;
+      }
+    </style>
 </head>
 
 <body>
@@ -70,12 +77,6 @@
                     <div class="input-field col s12">
                         <input id="autor" name="autor" type="text" class="validate">
                         <label for="autor">Autor</label>
-                    </div>
-                </div>
-                <div id="form-div-input-form" class="row">
-                    <div class="input-field col s12">
-                        <input id="artista"  name="artista" type="text" class="validate">
-                        <label for="artista">Artista</label>
                     </div>
                 </div>
                 <div id="form-div-input-form" class="row">
@@ -179,20 +180,41 @@
                     if (mysqli_num_rows($query) > 0) {
                       while ($row = mysqli_fetch_assoc($query)) {
                     ?>
+                    <input type="text" name="id-book-edit" value="<?php echo $row['id_book']; ?>" hidden>
                     <input id="titulo_libro_edit" type="text" name="titulo_libro_edit" class="validate" value="<?php echo $row['titulo']?>">
                     <label for="titulo_libro_edit">Titulo del libro</label>
                     <?php
-                        }
-                      }
-
 
                   ?>
                 </div>
             </div>
-
             <div id="form-div-input-form" class="row">
-              <div class="col s3 m3 l6">
+              <div class="input-field col s12">
+                <select name="tipo-libro-edit">
+                  <option value="<?php echo $row['tipo']?>"><?php echo $row['tipo']?></option>
+                  <option value="Novela">Novela</option>
+                  <option value="Manga">Manga</option>
+                  <option value="Comic">Comic</option>
+                </select>
+              </div>
+            </div>
+            <div id="form-div-input-form" class="row">
+                <div class="input-field col s12">
+                    <textarea class="materialize-textarea" name="descripcion-edit" rows="8" cols="80"><?php echo $row['descripcion']?></textarea>
+                    <label for="descripcion">Descripción</label>
+                </div>
+            </div>
+            <div id="form-div-input-form" class="row">
+                <div class="input-field col s12">
+                    <input id="autor" name="autor-edit" type="text" class="validate" value="<?php echo $row['autor']?>">
+                    <label for="autor">Autor</label>
+                </div>
+            </div>
+            <div id="form-div-input-form" class="row">
+              <div id="check_genders_div" class="col s3 m3 l12">
                 <?php
+                  }
+                }
                 // $titulo_libro= strip_tags($_POST['titulo-libro']);
                 $query = mysqli_query($conn, "SELECT * FROM Books WHERE titulo = '$titulo_libro'");
                 if (mysqli_num_rows($query) > 0) {
@@ -208,7 +230,7 @@
                             ?>
                             <p>
                               <label>
-                                <input type="checkbox" name="checked_id[]" class="filled-in" value="<?php echo $row3['id_genero'] ?>"/>
+                                <input type="checkbox" name="checked_id[]" class="filled-in" value="<?php echo $row3['id_genero'] ?>" checked/>
                                 <span> <?php echo $row3['nombre']; ?></span>
                               </label>
                             </p>
@@ -234,7 +256,7 @@
                 ?>
                 <p>
                   <label>
-                    <input type="checkbox" name="checked_id[]" class="filled-in" value="<?php echo $row['id_genero'] ?>" />
+                    <input type="checkbox" name="checked_id_edit[]" class="filled-in" value="<?php echo $row['id_genero'] ?>" />
                     <span> <?php echo $row['nombre']; ?></span>
                   </label>
                 </p>
@@ -251,7 +273,7 @@
                 ?>
                 <p>
                   <label>
-                    <input type="checkbox" name="checked_id[]" class="filled-in" value="<?php echo $row['id_genero'] ?>" />
+                    <input type="checkbox" name="checked_id_edit[]" class="filled-in" value="<?php echo $row['id_genero'] ?>" />
                     <span> <?php echo $row['nombre']; ?></span>
                   </label>
                 </p>
@@ -353,8 +375,7 @@
 
     </main>
 
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <!--Import jQuery before webuiPopover.js-->
     <script src='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js'></script>
     <script type="text/javascript" src="scripts/admin.js"></script>
