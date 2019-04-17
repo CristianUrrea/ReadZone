@@ -41,6 +41,7 @@
                   <li class="tab col s3 m3 l3"><a class="red-text" href="#provicional_admin">Provicional</a></li>
                   <li class="tab col s3 m3 l3"><a class="red-text" href="#capitulos_admin">Añadir capitulo</a></li>
               </ul>
+
           </div>
       </div>
       <div id="insertar_admin">
@@ -180,22 +181,19 @@
                     if (mysqli_num_rows($query) > 0) {
                       while ($row = mysqli_fetch_assoc($query)) {
                     ?>
-                    <input type="text" name="id-book-edit" value="<?php echo $row['id_book']; ?>" hidden>
-                    <input id="titulo_libro_edit" type="text" name="titulo_libro_edit" class="validate" value="<?php echo $row['titulo']?>">
-                    <label for="titulo_libro_edit">Titulo del libro</label>
-                    <?php
-
-                  ?>
+                    <select name="tipo-libro-edit">
+                      <option value="<?php echo $row['tipo']?>"><?php echo $row['tipo']?></option>
+                      <option value="Novela">Novela</option>
+                      <option value="Manga">Manga</option>
+                      <option value="Comic">Comic</option>
+                    </select>
                 </div>
             </div>
             <div id="form-div-input-form" class="row">
               <div class="input-field col s12">
-                <select name="tipo-libro-edit">
-                  <option value="<?php echo $row['tipo']?>"><?php echo $row['tipo']?></option>
-                  <option value="Novela">Novela</option>
-                  <option value="Manga">Manga</option>
-                  <option value="Comic">Comic</option>
-                </select>
+                <input type="text" name="id-book-edit" value="<?php echo $row['id_book']; ?>" hidden>
+                <input id="titulo_libro_edit" type="text" name="titulo_libro_edit" class="validate" value="<?php echo $row['titulo']?>">
+                <label for="titulo_libro_edit">Titulo del libro</label>
               </div>
             </div>
             <div id="form-div-input-form" class="row">
@@ -210,6 +208,7 @@
                     <label for="autor">Autor</label>
                 </div>
             </div>
+
             <div id="form-div-input-form" class="row">
               <div id="check_genders_div" class="col s3 m3 l12">
                 <?php
@@ -282,6 +281,37 @@
                   }
                 ?>
               </div>
+              <?php
+                if(isset($_POST['btn-edit-libro'])){
+                  if(isset($_POST['titulo-libro'])){
+                    $titulo_libro= strip_tags($_POST['titulo-libro']);
+
+                  $query = mysqli_query($conn, "SELECT * FROM Books WHERE titulo = '$titulo_libro'");
+                  if (mysqli_num_rows($query) > 0) {
+                    while ($row = mysqli_fetch_assoc($query)) {
+               ?>
+               <div id="form-div-input-form" class="row">
+                   <div class="col s3 m3 l12">
+                       <img src="<?php echo $row['imagen'] ?>" alt="" height="200" width="200">
+                   </div>
+               </div>
+              <div id="form-div-input-form" class="row">
+                  <div class="file-field input-field">
+                      <div class="btn">
+                          <span>Cambiar imagen</span>
+                          <input id="imagen-book-edit" type="file" name="fileimgbookedit">
+                      </div>
+                      <div class="file-path-wrapper">
+                          <input class="file-path validate" type="text">
+                      </div>
+                  </div>
+              </div>
+            <?php
+                    }
+                  }
+                }
+              }
+             ?>
             </div>
             <div id="form-div-input-form" class="row">
                 <div class="input-field col s4 m4 l3 offset-l5 offset-s4 offset-m4">
@@ -372,6 +402,7 @@
           </form>
         </div>
       </div>
+      <a class="red-text" href="index.php">Ir a inicio</a></li>
 
     </main>
 

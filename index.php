@@ -33,6 +33,7 @@
             <div id="div-content">
                 <div class="row">
                     <!--################ POPULAR ################-->
+
                     <div id="div-content-carousel-popular" class="carousel carousel-slider center col s12 m12 l8 offset-l2">
                         <!--<div class="carousel-fixed-item center middle-indicator">
                         <div class="left">
@@ -43,31 +44,83 @@
                             <a href="Siguiente" class=" moveNextCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="material-icons right middle-indicator-text">chevron_right</i></a>
                         </div>
                     </div>
-                  -->
+                    -->
                         <div class="carousel-fixed-item center">
                             <!-- Timer "progress bar"-->
                             <hr class="carousel-progress-bar-timer animate" />
                         </div>
+                        <?php
+                        $query = mysqli_query($conn, "SELECT MAX(total_likes) AS total_likes, tipo FROM Books  WHERE tipo = 'Novela'");
+                        if (mysqli_num_rows($query) > 0) {
+                          while ($row = mysqli_fetch_assoc($query)){
+                            $total_likes_book = $row['total_likes'];
+
+                            $query2 = mysqli_query($conn, "SELECT titulo, imagen, tipo FROM Books  WHERE total_likes = $total_likes_book AND tipo = 'Novela'");
+                            if (mysqli_num_rows($query2) > 0) {
+                              while ($row2 = mysqli_fetch_assoc($query2)){
+                                echo $row2['titulo'];
+                         ?>
                         <a href="contenido.php">
-                            <div class="carousel-item amber white-text" href="#two!">
-                                <h2>Primer manga</h2>
-                                <img src="imagenes/libros/6.png" alt="" height="100%">
-                                <!-- <p class="white-text">This is your second panel</p> -->
+                            <div class="carousel-item orange white-text" href="#four!">
+                                <h2>Primer Novela</h2>
+                                <img src="<?php echo $row2['imagen'] ?>" alt="" height="100%">
                             </div>
                         </a>
-                        <a href="contenido.php">
-                            <div class="carousel-item green white-text" href="#three!">
-                                <h2>Primera novela</h2>
-                                <img src="imagenes/libros/2.png" alt="" height="100%">
-                                <!-- <p class="white-text">This is your third panel</p> -->
-                            </div>
-                        </a>
-                        <a href="contenido.php">
-                            <div class="carousel-item grey white-text" href="#four!">
-                                <h2>Primer comic</h2>
-                                <img src="imagenes/libros/13.png" alt="" height="100%">
-                            </div>
-                        </a>
+                        <?php
+                          }
+                        }
+                      }
+                    }
+                         ?>
+                         <?php
+                         $query = mysqli_query($conn, "SELECT MAX(total_likes) AS total_likes, tipo FROM Books  WHERE tipo = 'Manga'");
+                         if (mysqli_num_rows($query) > 0) {
+                           while ($row = mysqli_fetch_assoc($query)){
+                             $total_likes_book = $row['total_likes'];
+
+                             $query2 = mysqli_query($conn, "SELECT titulo, imagen, tipo FROM Books  WHERE total_likes = $total_likes_book AND tipo = 'Manga'");
+                             if (mysqli_num_rows($query2) > 0) {
+                               while ($row2 = mysqli_fetch_assoc($query2)){
+                                 echo $row2['titulo'];
+                          ?>
+                          <a href="contenido.php">
+                              <div class="carousel-item green white-text" href="#four!">
+                                  <h2>Primer Manga</h2>
+                                  <img src="<?php echo$row2['imagen'] ?>" alt="" height="100%">
+                              </div>
+                          </a>
+                         <?php
+                           }
+                         }
+                       }
+                     }
+                          ?>
+                          <?php
+                          $query = mysqli_query($conn, "SELECT MAX(total_likes) AS total_likes, tipo FROM Books  WHERE tipo = 'Comic'");
+                          if (mysqli_num_rows($query) > 0) {
+                            while ($row = mysqli_fetch_assoc($query)){
+                              $total_likes_book = $row['total_likes'];
+
+                              $query2 = mysqli_query($conn, "SELECT titulo, imagen, tipo FROM Books  WHERE total_likes = $total_likes_book AND tipo = 'Comic'");
+                              if (mysqli_num_rows($query2) > 0) {
+                                while ($row2 = mysqli_fetch_assoc($query2)){
+                                  echo $row2['titulo'];
+                           ?>
+                           <a href="contenido.php">
+                               <div class="carousel-item grey white-text" href="#four!">
+                                   <h2>Primer comic</h2>
+                                   <img src="<?php echo $row2['imagen'] ?>" alt="" height="100%">
+                               </div>
+                           </a>
+                          <?php
+                            }
+                          }
+                        }
+                      }
+                           ?>
+
+
+
                     </div>
                 </div>
                 <!--################ RECOMENDATIONS NOVELAS ################-->

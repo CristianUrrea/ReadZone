@@ -27,9 +27,11 @@ if (isset($_POST["btn-insertar-libro"])) {
 }
 
 if (isset($_POST['btn-update-libro'])){
+
   if(empty($_POST['id-book-edit'])){
-    echo '<script type="text/javascript">alert("vacio")</script>';
+    // echo '<script type="text/javascript">alert("vacio")</script>';
   } else if(!empty($_POST['id-book-edit'])){
+
     $id_book = $_POST['id-book-edit'];
     $titulo_libro = $_POST['titulo_libro_edit'];
     $tipo_libro = strip_tags($_POST['tipo-libro-edit']);
@@ -40,8 +42,16 @@ if (isset($_POST['btn-update-libro'])){
     if (mysqli_num_rows($query) > 0) {
       while ($row = mysqli_fetch_assoc($query)) {
         $id_book_edit = $row['id_book'];
+        if(empty($_FILES['fileimgbookedit']['tmp_name'])){
+          // echo "imagen vacia";
+        } else if(!empty($_FILES['fileimgbookedit']['tmp_name'])){
+          $archivo = $_FILES['fileimgbookedit']['tmp_name'];
+          $destino = "./imagenes/libros/".$_FILES['fileimgbookedit']['name'];
+          $query7 = "UPDATE Books SET tipo = '$tipo_libro', titulo = '$titulo_libro', descripcion = '$descripcion', autor = '$autor', imagen = '$destino' WHERE id_book='$id_book_edit'";
+          mysqli_query($conn, $query7);
+        }
         if(!empty($_POST['checked_id'])){
-          echo "lleno checked_id"."</br>";
+          // echo "lleno checked_id"."</br>";
           $query3 = "DELETE FROM Books_genders WHERE id_book='$id_book_edit'";
           mysqli_query($conn, $query3);
 
@@ -54,7 +64,7 @@ if (isset($_POST['btn-update-libro'])){
             echo $id;
           }
           if(empty($_POST['checked_id_edit'])){
-            echo "checked_id_edit vacio dentro de checked id";
+            // echo "checked_id_edit vacio dentro de checked id";
 
           } else if(!empty($_POST['checked_id_edit'])){
             $idArr2 = $_POST['checked_id_edit'];
@@ -68,21 +78,21 @@ if (isset($_POST['btn-update-libro'])){
         } else if(empty($_POST['checked_id'])){
           $query6 = "DELETE FROM Books_genders WHERE id_book='$id_book_edit'";
           mysqli_query($conn, $query6);
-          
-          echo "vacio checked_id"."</br>";
+
+          // echo "vacio checked_id"."</br>";
           if(!empty($_POST['checked_id_edit'])){
             $idArr2 = $_POST['checked_id_edit'];
             foreach ($idArr2 as $id) {
-              echo $id;
+              // echo $id;
               $query2 = "INSERT INTO Books_genders (id_book, id_genero) VALUES ($id_book,$id)";
               mysqli_query($conn, $query2);
             }
           } else if(empty($_POST['checked_id_edit'])){
-            echo "checked_id_edit vacio";
+            // echo "checked_id_edit vacio";
           }
 
         } else if(empty($_POST['checked_id_edit'])){
-          echo "vacio checked_id_edit";
+          // echo "vacio checked_id_edit";
         }
 
 

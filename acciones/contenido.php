@@ -61,6 +61,25 @@ if (isset($_SESSION['username'])) {
                 // }
                 $query3 = "INSERT INTO Books_score (like_libro, dislike_libro, id_user, id_book) VALUES('$like', '$dislike','$id_user','$id_book')";
                 mysqli_query($conn, $query3);
+                $query4 = mysqli_query($conn, "SELECT SUM(like_libro) AS like_libro, id_book FROM Books_score WHERE id_book = $id_book");
+                if (mysqli_num_rows($query4) > 0) {
+                  while($row4 = mysqli_fetch_assoc($query4)){
+                    $like = $row4['like_libro'];
+                    $id_book2 = $row4['id_book'];
+                    // echo '<script type="text/javascript">alert('.$like.')</script>'.'AQUI RESTA';
+
+                    $query6 = mysqli_query($conn, "SELECT * FROM Books WHERE id_book = $id_book2");
+                    if (mysqli_num_rows($query6) > 0) {
+                      $query7 = "UPDATE Books SET total_likes = '$like' WHERE id_book = '$id_book2'";
+                      mysqli_query($conn, $query7);
+
+                    } else {
+                      $query8 = "UPDATE Books SET total_likes = '$like' WHERE id_book = '$id_book2'";
+                      mysqli_query($conn, $query8);
+
+                    }
+                  }
+                }
             }
           }
         }
@@ -100,6 +119,25 @@ if (isset($_SESSION['username'])) {
                 // echo $id_book;
                 $query3 = "UPDATE Books_score SET like_libro = '0' WHERE id_book = '$id_book' AND id_user = '$id_user'";
                 mysqli_query($conn, $query3);
+                $query4 = mysqli_query($conn, "SELECT SUM(like_libro) AS like_libro, id_book FROM Books_score WHERE id_book = $id_book");
+                if (mysqli_num_rows($query4) > 0) {
+                  while($row4 = mysqli_fetch_assoc($query4)){
+                    $like = $row4['like_libro'];
+                    $id_book2 = $row4['id_book'];
+                    // echo '<script type="text/javascript">alert('.$like.')</script>'.'AQUI RESTA';
+
+                    $query6 = mysqli_query($conn, "SELECT * FROM Books WHERE id_book = $id_book2");
+                    if (mysqli_num_rows($query6) > 0) {
+                      $query7 = "UPDATE Books SET total_likes = '$like' WHERE id_book = '$id_book2'";
+                      mysqli_query($conn, $query7);
+
+                    } else {
+                      $query8 = "UPDATE Books SET total_likes = '$like' WHERE id_book = '$id_book2'";
+                      mysqli_query($conn, $query8);
+
+                    }
+                  }
+                }
             }
           }
         }
@@ -140,6 +178,26 @@ if (isset($_SESSION['username'])) {
                 // echo $id_book;
                 $query3 = "UPDATE Books_score SET like_libro = '1' WHERE id_book = '$id_book' AND id_user = '$id_user'";
                 mysqli_query($conn, $query3);
+                $query4 = mysqli_query($conn, "SELECT SUM(like_libro) AS like_libro, id_book FROM Books_score WHERE id_book = $id_book");
+
+                if (mysqli_num_rows($query4) > 0) {
+                  while($row4 = mysqli_fetch_assoc($query4)){
+                    $like = $row4['like_libro'];
+                    $id_book2 = $row4['id_book'];
+                    // echo '<script type="text/javascript">alert('.$like.')</script>'.'AQUI RESTA';
+
+                    $query6 = mysqli_query($conn, "SELECT * FROM Books WHERE id_book = $id_book2");
+                    if (mysqli_num_rows($query6) > 0) {
+                      $query7 = "UPDATE Books SET total_likes = '$like' WHERE id_book = '$id_book2'";
+                      mysqli_query($conn, $query7);
+
+                    } else {
+                      $query8 = "UPDATE Books SET total_likes = '$like' WHERE id_book = '$id_book2'";
+                      mysqli_query($conn, $query8);
+
+                    }
+                  }
+                }
             }
           }
         }
