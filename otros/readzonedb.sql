@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-04-2019 a las 18:02:19
+-- Tiempo de generación: 19-04-2019 a las 15:45:42
 -- Versión del servidor: 10.1.35-MariaDB
 -- Versión de PHP: 7.2.9
 
@@ -34,30 +34,31 @@ CREATE TABLE `books` (
   `titulo` varchar(50) NOT NULL,
   `descripcion` text NOT NULL,
   `autor` varchar(50) NOT NULL,
-  `imagen` text NOT NULL
+  `imagen` text NOT NULL,
+  `total_likes` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `books`
 --
 
-INSERT INTO `books` (`id_book`, `tipo`, `titulo`, `descripcion`, `autor`, `imagen`) VALUES
-(1, 'Novela', 'Againts the Gods', 'Un joven estÃ¡ siendo perseguido por varias personas porque Ã©l poseÃ­a un tesoro Ãºnico. Debido a ello decidiÃ³ saltar desde un acantilado para no dejar que ninguno de ellos lo obtuviera, en el momento en el que cayÃ³ despertÃ³ en el cuerpo de un niÃ±o con el mismo nombre en otro mundo. Afortunadamente, el tesoro con el que salto se mantuvo con el.', '', './imagenes/libros/1.png'),
-(2, 'Novela', 'Tales of Demons and Gods', 'Nie Li, el mÃ¡s fuerte espiritista demonÃ­aco. En su vida pasada estuvo en la cima del mundo marcial sin embargo, perdiÃ³ la vida durante su batalla con el Sabio Emperador, y fue devuelto al pasado cuando tenÃ­a 13 aÃ±os. Aunque Ã©l es el mÃ¡s dÃ©bil de su clase, con ayuda de los vastos conocimientos que acumulÃ³ en su vida anterior, se transformara en un guerrero como ninguno.\r\n\r\n', '', './imagenes/libros/2.png'),
-(3, 'Novela', 'Martial God Azure', 'En tÃ©rminos de potencial: incluso si no eres un genio,puedes aprender tÃ©cnicas y habilidades marciales incluso puedes aprender sin un instructor.\r\nEn tÃ©rminos de fuerza:incluso si tienes un millÃ³n de tesoros,nunca podrÃ¡s vencer mi grandiosa fuerza mundial espiritista.\r\nÂ¿QuÃ© quien soy yo? Todas las cosas vivientes me llaman Asura. Como sea, no sabia nada de eso.asÃ­ que como Asura,me convertÃ­ en Dios marcial.', '', './imagenes/libros/3.png'),
-(4, 'Novela', 'El SeÃ±or de los Anillos', 'En la Tierra Media, el SeÃ±or Oscuro SaurÃ³n ordenÃ³ a los Elfos que forjaran los Grandes Anillos de Poder. Tres para los reyes Elfos, siete para los SeÃ±ores Enanos, y nueve para los Hombres Mortales. Pero SaurÃ³n tambiÃ©n forjÃ³, en secreto, el Anillo Ãšnico, que tiene el poder de esclavizar toda la Tierra Media. Con la ayuda de sus amigos y de valientes aliados, el joven hobbit Frodo emprende un peligroso viaje con la misiÃ³n de destruir el Anillo Ãšnico. Pero el malvado Sauron ordena la persecuciÃ³n del grupo, compuesto por Frodo y sus leales amigos hobbits, un mago, un hombre, un elfo y un enano. La misiÃ³n es casi suicida pero necesaria, pues si Sauron con su ejÃ©rcito de orcos lograra recuperar el Anillo, serÃ­a el final de la Tierra Media. ', '', './imagenes/libros/4.png'),
-(5, 'Novela', 'Harry Potter', 'El dÃ­a en que cumple once aÃ±os, Harry Potter se entera de que es hijo de dos destacados hechiceros, de los que ha heredado poderes mÃ¡gicos. En la escuela Hogwarts de Magia y HechicerÃ­a, donde se educa con otros niÃ±os que tambiÃ©n tienen poderes especiales, aprenderÃ¡ todo lo necesario para ser mago. ', '', './imagenes/libros/5.png'),
-(6, 'Manga', 'One Piece', 'Una historia Ã©pica de piratas, donde narra la historia de \"Monkey D. Luffy\" quien cuado tenia 7 aÃ±os, comiÃ³ accidentalmente una \"Akuma no mi\"(Futa del diablo) la cual le dio poderes de goma. Por otra parte \"Gol D. Roger\" conocido como \"El rey de los Piratas\" quien fuera ejecutado por la Marine, hablÃ³ antes de morir, acerca de su famoso tesoro \"One Piece\" escondido en la \"Gran line\". Esta noticia desato la gran era de la piratas lanzando a incontables piratas a ese lugar, en busca de \"One Piece\" el tesoro perdido. Diez aÃ±os despuÃ©s, Luffy inspirado en \"Gol D. Roger\" y un pirata de nombre Akagami no Shanks (Shanks el pelirrojo) se convierte en pirata deseando ser el prÃ³ximo \"Rey de los Piratas\" y zarpar para conocer amigos y tener aventuras con ellos, teniendo como meta encontrar el \"One Piece\".\r\n', '', './imagenes/libros/6.png'),
-(7, 'Manga', 'Fairy Tail', 'Fairy Tail cuenta la historia de un joven mago llamado Natsu en la bÃºsqueda de su maestro y padre adoptivo Igneel que resulta ser un dragÃ³n. Por ello se uniÃ³ a Fairy Tail, un gremio de magos que es famoso por los destrozos y daÃ±os que provocan en diversas ciudades (lo cual no deberÃ­a ser asÃ­). El mundo de Fairy Tail gira alrededor de los magos (los cuales poco tienen que ver con la idea general del mago comÃºn) que realizan encargos a cambio de dinero, similar a un cazarecompensas. Natsu conoce a Lucy, una guapa muchacha cuyo sueÃ±o era ingresar a un gremio de magos, especÃ­ficamente, a Fairy Tail, lo cual consigue gracias a la ayuda de Natsu. De ahÃ­ en adelante, la historia sigue los movimientos de esta pareja de magos los cuales se ven envueltos en un sin nÃºmero de aventuras antes de conseguir la meta final de encontrar a Igneel.', '', './imagenes/libros/7.png'),
-(8, 'Manga', 'Bleach', 'Kurosaki Ichigo es un estudiante de instituto de 15 aÃ±os, que tiene una peculiaridad: es capaz de ver, oÃ­r y hablar con fantasmas. Pero no sabe hasta dÃ³nde puede abarcar la clasificaciÃ³n de espÃ­ritus, ni lo que conlleva el saberlo. Un buen dÃ­a, una extraÃ±a chica de pequeÃ±a estatura que viste ropas negras de samurai entra en su cuarto. Se llama Rukia Kuchiki, y es una Shinigami (Dios de la Muerte). Ante la incredulidad de Ichigo, le explica que su trabajo es mandar a las almas buenas o plus a un lugar llamado la Sociedad de Almas, y eliminar a las almas malignas o hollows. Luego junto a Inoue Orihime, Ishida Ury y Sado Yasutora se veran envueltos en diferentes batallas, las cuales iran desarrollando sus diferentes habilidades que le otorgaran a cada uno su importancia en la serie.', '', './imagenes/libros/8.png'),
-(9, 'Manga', 'Shokugeki no Souma', 'El sueÃ±o de Yukihira Souma es convertirse en un chef de tiempo completo en el restorÃ¡n de su padre y sobrepasar su habilidad culinaria. Cuando Yukihira se gradÃºa de secundaria, su padre, Yukihira Jouichirou, cierra su restorÃ¡n para ir a cocinar a europa. Aunque derrotado, el espÃ­ritu luchador de Souma es reavivado por un desafÃ­o de Jouchirou, el cual es sobrevivir en una escuela de Ã©lite culinario donde solo el 10% de los estudiantes logra graduarse. Â¿PodrÃ¡ Souma lograrlo?', '', './imagenes/libros/9.png'),
-(10, 'Manga', 'Tokyo Ghoul', 'ExtraÃ±os asesinatos se estÃ¡n sucediendo uno tras otro en Tokyo. Debido a las pruebas encontradas en las escenas, la policÃ­a concluye que los ataques son obra de ghouls que se comen a las personas. Kaneki y Hide, dos compaÃ±eros de clase, llegan a la conclusiÃ³n de que si nadie ha visto nunca a esos necrÃ³fagos es porque toman la apariencia de seres humanos para ocultarse. Poco sabÃ­an entonces de que su teorÃ­a serÃ­a mÃ¡s cierta de lo que pensaban cuando Kaneki es herido de gravedad por un monstruo y comienza a atraerle cada vez mÃ¡s la carne humanaâ€¦', '', './imagenes/libros/10.png'),
-(11, 'Comic', 'The Walking Dead', 'Herido por una bala durante el cumplimiento de su deber, el agente de policÃ­a de Kentucky Rick Grimes despierta en el hospital tras pasar meses en coma solo para encontrar su ciudad plagada de cadÃ¡veres andantes. Con el Ã¡nimo de volver a encontrar a su familia, el hombre viaja a Atlanta, Georgia en busca de su esposa e hijo, y los encuentra en un pequeÃ±o campamento de sobreviviente en las afueras de la ciudad en ruinas. Liderando a este pequeÃ±o grupo de personas, Rick harÃ¡ hasta lo imposible por continuar con vida y poco a poco se ira dando cuenta que existen cosas mucho peores que los cadÃ¡veres ansiosos de carne fresca.', '', './imagenes/libros/11.png'),
-(12, 'Comic', 'CapitÃ¡n AmÃ©rica', 'Un joven enclenque Steve Rogers estaba decidido en ayudar en la guerra. Pero no fue apto para el servicio.\r\nSte Rogers se presentÃ³ a unas pruebas con el profesor Reinstein para convertirse en un supersoldado. Un nazi disparÃ³ al profesor y Ã©l fue el Ãºnico supersoldado.\r\nEl gobierno lo convirtiÃ³ en el CapitÃ¡n AmÃ©rica, un idealista americano. Su escudo mÃ¡s tarde fue cambiado a uno circular.', '', './imagenes/libros/12.png'),
-(13, 'Comic', 'Spiderman', 'Un tÃ­mido estudiante se vuelve en un luchador contra el crimen, desde que la picadura de una araÃ±a mutante le da poderes extraordinarios.', '', './imagenes/libros/13.png'),
-(14, 'Comic', 'Viuda Negra', 'La primera y mÃ¡s conocida Viuda Negra, es una agente rusa entrenada como espÃ­a, artista marcial y francotiradora, y equipada con un arsenal de armas de alta tecnologÃ­a, que incluye un par de armas energÃ©ticas montadas en la muÃ±eca y apodada \"Piquete de la Viuda\". No usa vestimenta durante sus primeras apariciones, sino simplemente ropa de noche y un velo. Romanova eventualmente se transforma en estadounidense por razones que incluyen su amor por el arquero convertido en superhÃ©roe, Hawkeye.', '', './imagenes/libros/14.png'),
-(15, 'Comic', 'Batman', 'Cinta basada en el cÃ³mic homÃ³nimo. La oscura y peligrosa ciudad de Gotham tan sÃ³lo se halla protegida por su corrupto cuerpo de policÃ­a. A pesar de los esfuerzos del fiscal del distrito Harvey Dent y el comisionado de policÃ­a Jim Gordon, la ciudad es cada vez mÃ¡s insegura hasta que aparece Batman, el SeÃ±or de la Noche. La reputada periodista Vicky Vale intentarÃ¡ descubrir el secreto que se oculta tras el hombre murciÃ©lago.', '', './imagenes/libros/15.png'),
-(16, 'Manga', 'nuevo', 'nuevo test', 'test auto', './imagenes/libros/logo-meetmaps.jpg');
+INSERT INTO `books` (`id_book`, `tipo`, `titulo`, `descripcion`, `autor`, `imagen`, `total_likes`) VALUES
+(1, 'Novela', 'Againts the Gods', 'Un joven estÃ¡ siendo perseguido por varias personas porque Ã©l poseÃ­a un tesoro Ãºnico. Debido a ello decidiÃ³ saltar desde un acantilado para no dejar que ninguno de ellos lo obtuviera, en el momento en el que cayÃ³ despertÃ³ en el cuerpo de un niÃ±o con el mismo nombre en otro mundo. Afortunadamente, el tesoro con el que salto se mantuvo con el.', '', './imagenes/libros/1.png', 1),
+(2, 'Novela', 'Tales of Demons and Gods', 'Nie Li, el mÃ¡s fuerte espiritista demonÃ­aco. En su vida pasada estuvo en la cima del mundo marcial sin embargo, perdiÃ³ la vida durante su batalla con el Sabio Emperador, y fue devuelto al pasado cuando tenÃ­a 13 aÃ±os. Aunque Ã©l es el mÃ¡s dÃ©bil de su clase, con ayuda de los vastos conocimientos que acumulÃ³ en su vida anterior, se transformara en un guerrero como ninguno.\r\n\r\n', '', './imagenes/libros/2.png', 2),
+(3, 'Novela', 'Martial God Azure', 'En tÃ©rminos de potencial: incluso si no eres un genio,puedes aprender tÃ©cnicas y habilidades marciales incluso puedes aprender sin un instructor.\r\nEn tÃ©rminos de fuerza:incluso si tienes un millÃ³n de tesoros,nunca podrÃ¡s vencer mi grandiosa fuerza mundial espiritista.\r\nÂ¿QuÃ© quien soy yo? Todas las cosas vivientes me llaman Asura. Como sea, no sabia nada de eso.asÃ­ que como Asura,me convertÃ­ en Dios marcial.', '', './imagenes/libros/3.png', 3),
+(4, 'Novela', 'El SeÃ±or de los Anillos', 'En la Tierra Media, el SeÃ±or Oscuro SaurÃ³n ordenÃ³ a los Elfos que forjaran los Grandes Anillos de Poder. Tres para los reyes Elfos, siete para los SeÃ±ores Enanos, y nueve para los Hombres Mortales. Pero SaurÃ³n tambiÃ©n forjÃ³, en secreto, el Anillo Ãšnico, que tiene el poder de esclavizar toda la Tierra Media. Con la ayuda de sus amigos y de valientes aliados, el joven hobbit Frodo emprende un peligroso viaje con la misiÃ³n de destruir el Anillo Ãšnico. Pero el malvado Sauron ordena la persecuciÃ³n del grupo, compuesto por Frodo y sus leales amigos hobbits, un mago, un hombre, un elfo y un enano. La misiÃ³n es casi suicida pero necesaria, pues si Sauron con su ejÃ©rcito de orcos lograra recuperar el Anillo, serÃ­a el final de la Tierra Media. ', '', './imagenes/libros/4.png', 0),
+(5, 'Novela', 'Harry Potter', 'El dÃ­a en que cumple once aÃ±os, Harry Potter se entera de que es hijo de dos destacados hechiceros, de los que ha heredado poderes mÃ¡gicos. En la escuela Hogwarts de Magia y HechicerÃ­a, donde se educa con otros niÃ±os que tambiÃ©n tienen poderes especiales, aprenderÃ¡ todo lo necesario para ser mago. ', '', './imagenes/libros/5.png', 0),
+(6, 'Manga', 'One Piece', 'Una historia Ã©pica de piratas, donde narra la historia de \"Monkey D. Luffy\" quien cuado tenia 7 aÃ±os, comiÃ³ accidentalmente una \"Akuma no mi\"(Futa del diablo) la cual le dio poderes de goma. Por otra parte \"Gol D. Roger\" conocido como \"El rey de los Piratas\" quien fuera ejecutado por la Marine, hablÃ³ antes de morir, acerca de su famoso tesoro \"One Piece\" escondido en la \"Gran line\". Esta noticia desato la gran era de la piratas lanzando a incontables piratas a ese lugar, en busca de \"One Piece\" el tesoro perdido. Diez aÃ±os despuÃ©s, Luffy inspirado en \"Gol D. Roger\" y un pirata de nombre Akagami no Shanks (Shanks el pelirrojo) se convierte en pirata deseando ser el prÃ³ximo \"Rey de los Piratas\" y zarpar para conocer amigos y tener aventuras con ellos, teniendo como meta encontrar el \"One Piece\".\r\n', '', './imagenes/libros/6.png', 1),
+(7, 'Manga', 'Fairy Tail', 'Fairy Tail cuenta la historia de un joven mago llamado Natsu en la bÃºsqueda de su maestro y padre adoptivo Igneel que resulta ser un dragÃ³n. Por ello se uniÃ³ a Fairy Tail, un gremio de magos que es famoso por los destrozos y daÃ±os que provocan en diversas ciudades (lo cual no deberÃ­a ser asÃ­). El mundo de Fairy Tail gira alrededor de los magos (los cuales poco tienen que ver con la idea general del mago comÃºn) que realizan encargos a cambio de dinero, similar a un cazarecompensas. Natsu conoce a Lucy, una guapa muchacha cuyo sueÃ±o era ingresar a un gremio de magos, especÃ­ficamente, a Fairy Tail, lo cual consigue gracias a la ayuda de Natsu. De ahÃ­ en adelante, la historia sigue los movimientos de esta pareja de magos los cuales se ven envueltos en un sin nÃºmero de aventuras antes de conseguir la meta final de encontrar a Igneel.', '', './imagenes/libros/7.png', 0),
+(8, 'Manga', 'Bleach', 'Kurosaki Ichigo es un estudiante de instituto de 15 aÃ±os, que tiene una peculiaridad: es capaz de ver, oÃ­r y hablar con fantasmas. Pero no sabe hasta dÃ³nde puede abarcar la clasificaciÃ³n de espÃ­ritus, ni lo que conlleva el saberlo. Un buen dÃ­a, una extraÃ±a chica de pequeÃ±a estatura que viste ropas negras de samurai entra en su cuarto. Se llama Rukia Kuchiki, y es una Shinigami (Dios de la Muerte). Ante la incredulidad de Ichigo, le explica que su trabajo es mandar a las almas buenas o plus a un lugar llamado la Sociedad de Almas, y eliminar a las almas malignas o hollows. Luego junto a Inoue Orihime, Ishida Ury y Sado Yasutora se veran envueltos en diferentes batallas, las cuales iran desarrollando sus diferentes habilidades que le otorgaran a cada uno su importancia en la serie.', '', './imagenes/libros/8.png', 0),
+(9, 'Manga', 'Shokugeki no Souma', 'El sueÃ±o de Yukihira Souma es convertirse en un chef de tiempo completo en el restorÃ¡n de su padre y sobrepasar su habilidad culinaria. Cuando Yukihira se gradÃºa de secundaria, su padre, Yukihira Jouichirou, cierra su restorÃ¡n para ir a cocinar a europa. Aunque derrotado, el espÃ­ritu luchador de Souma es reavivado por un desafÃ­o de Jouchirou, el cual es sobrevivir en una escuela de Ã©lite culinario donde solo el 10% de los estudiantes logra graduarse. Â¿PodrÃ¡ Souma lograrlo?', '', './imagenes/libros/9.png', 0),
+(10, 'Manga', 'Tokyo Ghoul', 'ExtraÃ±os asesinatos se estÃ¡n sucediendo uno tras otro en Tokyo. Debido a las pruebas encontradas en las escenas, la policÃ­a concluye que los ataques son obra de ghouls que se comen a las personas. Kaneki y Hide, dos compaÃ±eros de clase, llegan a la conclusiÃ³n de que si nadie ha visto nunca a esos necrÃ³fagos es porque toman la apariencia de seres humanos para ocultarse. Poco sabÃ­an entonces de que su teorÃ­a serÃ­a mÃ¡s cierta de lo que pensaban cuando Kaneki es herido de gravedad por un monstruo y comienza a atraerle cada vez mÃ¡s la carne humanaâ€¦', '', './imagenes/libros/10.png', 0),
+(11, 'Comic', 'The Walking Dead', 'Herido por una bala durante el cumplimiento de su deber, el agente de policÃ­a de Kentucky Rick Grimes despierta en el hospital tras pasar meses en coma solo para encontrar su ciudad plagada de cadÃ¡veres andantes. Con el Ã¡nimo de volver a encontrar a su familia, el hombre viaja a Atlanta, Georgia en busca de su esposa e hijo, y los encuentra en un pequeÃ±o campamento de sobreviviente en las afueras de la ciudad en ruinas. Liderando a este pequeÃ±o grupo de personas, Rick harÃ¡ hasta lo imposible por continuar con vida y poco a poco se ira dando cuenta que existen cosas mucho peores que los cadÃ¡veres ansiosos de carne fresca.', '', './imagenes/libros/11.png', 1),
+(12, 'Comic', 'CapitÃ¡n AmÃ©rica', 'Un joven enclenque Steve Rogers estaba decidido en ayudar en la guerra. Pero no fue apto para el servicio.\r\nSte Rogers se presentÃ³ a unas pruebas con el profesor Reinstein para convertirse en un supersoldado. Un nazi disparÃ³ al profesor y Ã©l fue el Ãºnico supersoldado.\r\nEl gobierno lo convirtiÃ³ en el CapitÃ¡n AmÃ©rica, un idealista americano. Su escudo mÃ¡s tarde fue cambiado a uno circular.', '', './imagenes/libros/12.png', 0),
+(13, 'Comic', 'Spiderman', 'Un tÃ­mido estudiante se vuelve en un luchador contra el crimen, desde que la picadura de una araÃ±a mutante le da poderes extraordinarios.', '', './imagenes/libros/13.png', 0),
+(14, 'Comic', 'Viuda Negra', 'La primera y mÃ¡s conocida Viuda Negra, es una agente rusa entrenada como espÃ­a, artista marcial y francotiradora, y equipada con un arsenal de armas de alta tecnologÃ­a, que incluye un par de armas energÃ©ticas montadas en la muÃ±eca y apodada \"Piquete de la Viuda\". No usa vestimenta durante sus primeras apariciones, sino simplemente ropa de noche y un velo. Romanova eventualmente se transforma en estadounidense por razones que incluyen su amor por el arquero convertido en superhÃ©roe, Hawkeye.', '', './imagenes/libros/14.png', 0),
+(15, 'Comic', 'Batman', 'Cinta basada en el cÃ³mic homÃ³nimo. La oscura y peligrosa ciudad de Gotham tan sÃ³lo se halla protegida por su corrupto cuerpo de policÃ­a. A pesar de los esfuerzos del fiscal del distrito Harvey Dent y el comisionado de policÃ­a Jim Gordon, la ciudad es cada vez mÃ¡s insegura hasta que aparece Batman, el SeÃ±or de la Noche. La reputada periodista Vicky Vale intentarÃ¡ descubrir el secreto que se oculta tras el hombre murciÃ©lago.', '', './imagenes/libros/15.png', 0),
+(16, 'Novela', 'nuevotest test ', 'test test', 'teststestste', './imagenes/libros/Logo-TMB.svg.png', 0);
 
 -- --------------------------------------------------------
 
@@ -96,12 +97,9 @@ CREATE TABLE `books_genders` (
 --
 
 INSERT INTO `books_genders` (`id_librogenero`, `id_book`, `id_genero`) VALUES
-(1, 1, 6),
-(2, 2, 6),
-(3, 2, 6),
-(4, 5, 6),
-(5, 5, 6),
-(6, 5, 6);
+(17, 1, 5),
+(18, 1, 15),
+(19, 1, 16);
 
 -- --------------------------------------------------------
 
@@ -141,12 +139,15 @@ CREATE TABLE `books_score` (
 --
 
 INSERT INTO `books_score` (`id_book_score`, `like_libro`, `dislike_libro`, `id_user`, `id_book`) VALUES
-(1, 1, 0, 9, 1),
-(2, 0, 1, 1, 1),
+(1, 1, 0, 3, 2),
+(2, 1, 0, 3, 3),
 (3, 1, 0, 3, 1),
-(4, 1, 0, 3, 8),
-(5, 0, 1, 9, 8),
-(6, 1, 0, 9, 5);
+(4, 1, 0, 1, 2),
+(5, 1, 0, 1, 3),
+(6, 0, 0, 9, 2),
+(7, 1, 0, 9, 6),
+(8, 1, 0, 9, 11),
+(9, 1, 0, 9, 3);
 
 -- --------------------------------------------------------
 
@@ -226,7 +227,9 @@ INSERT INTO `list_books` (`id_list`, `nombre_lista`, `id_user`, `id_book`) VALUE
 (26, 'Testeo lista', 12, 7),
 (27, 'Lista 1', 9, NULL),
 (28, 'Lista 1', 9, 1),
-(29, 'Lista 1', 9, 5);
+(29, 'Lista 1', 9, 5),
+(30, 'Test', 13, NULL),
+(31, 'Test', 13, 4);
 
 -- --------------------------------------------------------
 
@@ -241,25 +244,30 @@ CREATE TABLE `users` (
   `contrasena` varchar(50) NOT NULL,
   `sexo` varchar(50) NOT NULL,
   `fecha_cumpleanos` date NOT NULL,
-  `imagen_perfil` text NOT NULL
+  `imagen_perfil` text NOT NULL,
+  `pregunta` varchar(100) NOT NULL,
+  `respuesta` varchar(100) NOT NULL,
+  `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id_user`, `nombre`, `correo`, `contrasena`, `sexo`, `fecha_cumpleanos`, `imagen_perfil`) VALUES
-(1, 'Cristian', 'cristian.urrea4@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'hombre', '1970-01-01', './imagenes/perfiles/5334107-wallpaper-mountain.jpg'),
-(3, 'Miyuki', 'miyuki@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'mujer', '0000-00-00', './imagenes/perfiles/maxresdefault.jpg'),
-(4, 'test', 'test@gmail.com', '202cb962ac59075b964b07152d234b70', 'hombre', '0000-00-00', './imagenes/perfiles/Logo-TMB.svg.png'),
-(5, 'juan', 'juan@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '', '2019-01-22', './imagenes/perfiles/Logo-TMB.svg.png'),
-(6, 'pablo', 'pablo@gmail.com', '202cb962ac59075b964b07152d234b70', '', '0000-00-00', './imagenes/perfiles/logo-meetmaps.jpg'),
-(7, 'test2', 'test2@gmail.com', '202cb962ac59075b964b07152d234b70', '', '0000-00-00', ''),
-(8, 'Oriol', 'oriollasalle@gmail.com', '202cb962ac59075b964b07152d234b70', '', '0000-00-00', './imagenes/perfiles/descarga.png'),
-(9, 'Admin', 'admin@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '', '0000-00-00', './imagenes/perfiles/descarga.png'),
-(10, 'Meetmaps', 'meetmaps@gmail.com', '202cb962ac59075b964b07152d234b70', '', '0000-00-00', ''),
-(11, 'prueba', 'prueba@p.com', '202cb962ac59075b964b07152d234b70', '', '0000-00-00', './imagenes/perfiles/descarga.png'),
-(12, 'testeo', 'testeo@hotmail.com', '202cb962ac59075b964b07152d234b70', '', '0000-00-00', './imagenes/perfiles/cue_localization__269496.png');
+INSERT INTO `users` (`id_user`, `nombre`, `correo`, `contrasena`, `sexo`, `fecha_cumpleanos`, `imagen_perfil`, `pregunta`, `respuesta`, `estado`) VALUES
+(1, 'Cristian', 'cristian.urrea4@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'hombre', '1970-01-01', './imagenes/perfiles/5334107-wallpaper-mountain.jpg', '', '', 0),
+(3, 'Miyuki', 'miyuki@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'mujer', '0000-00-00', './imagenes/perfiles/maxresdefault.jpg', '', '', 0),
+(4, 'test', 'test@gmail.com', '202cb962ac59075b964b07152d234b70', 'hombre', '0000-00-00', './imagenes/perfiles/Logo-TMB.svg.png', '', '', 0),
+(5, 'juan', 'juan@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '', '2019-01-22', './imagenes/perfiles/Logo-TMB.svg.png', '', '', 0),
+(6, 'pablo', 'pablo@gmail.com', '202cb962ac59075b964b07152d234b70', '', '0000-00-00', './imagenes/perfiles/logo-meetmaps.jpg', '', '', 0),
+(7, 'test2', 'test2@gmail.com', '202cb962ac59075b964b07152d234b70', '', '0000-00-00', '', '', '', 0),
+(8, 'Oriol', 'oriollasalle@gmail.com', '202cb962ac59075b964b07152d234b70', '', '0000-00-00', './imagenes/perfiles/descarga.png', '', '', 0),
+(9, 'Admin', 'admin@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '', '0000-00-00', './imagenes/perfiles/descarga.png', '', '', 0),
+(10, 'Meetmaps', 'meetmaps@gmail.com', '202cb962ac59075b964b07152d234b70', '', '0000-00-00', '', '', '', 0),
+(11, 'prueba', 'prueba@p.com', '202cb962ac59075b964b07152d234b70', '', '0000-00-00', './imagenes/perfiles/descarga.png', '', '', 0),
+(12, 'testeo', 'testeo@hotmail.com', '202cb962ac59075b964b07152d234b70', '', '0000-00-00', './imagenes/perfiles/cue_localization__269496.png', '', '', 0),
+(13, 'Saul', 'saul@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', '', '0000-00-00', './imagenes/perfiles/', 'Â¿Cual es el nombre de tu mascota?', 'mascota', 0),
+(14, 'pepe', 'pepe@gmail.com', 'c20ad4d76fe97759aa27a0c99bff6710', '', '0000-00-00', './imagenes/perfiles/default.png', 'Â¿Cual es el nombre de tu mascota?', 'mascota1', 0);
 
 --
 -- Índices para tablas volcadas
@@ -342,7 +350,7 @@ ALTER TABLE `books_chapter`
 -- AUTO_INCREMENT de la tabla `books_genders`
 --
 ALTER TABLE `books_genders`
-  MODIFY `id_librogenero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `id_librogenero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `books_likes`
@@ -354,7 +362,7 @@ ALTER TABLE `books_likes`
 -- AUTO_INCREMENT de la tabla `books_score`
 --
 ALTER TABLE `books_score`
-  MODIFY `id_book_score` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_book_score` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `genders`
@@ -366,13 +374,13 @@ ALTER TABLE `genders`
 -- AUTO_INCREMENT de la tabla `list_books`
 --
 ALTER TABLE `list_books`
-  MODIFY `id_list` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_list` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restricciones para tablas volcadas

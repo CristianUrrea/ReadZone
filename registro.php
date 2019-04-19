@@ -41,32 +41,49 @@
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12">
                         <input id="username" type="text" name="username" class="validate">
-                        <label for="username">Nombre de usuario</label>
+                        <label for="username">Nombre de usuario*</label>
                     </div>
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12">
                         <input id="useremail" type="email" name="useremail" class="validate">
-                        <label for="email">Email</label>
+                        <label for="email">Email*</label>
                     </div>
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12">
                         <input id="userpass_1" type="password" name="userpass_1" class="validate">
-                        <label for="password">Contraseña</label>
+                        <label for="password">Contraseña*</label>
                     </div>
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12 m12">
                         <input id="userpass_2" type="password" name="userpass_2" class="validate">
-                        <label for="password-confirm">Confirma tu contraseña</label>
+                        <label for="password-confirm">Confirma tu contraseña*</label>
+                    </div>
+                </div>
+                <div id="form-div-input-form" class="row">
+                  <div class="input-field col s12 m12">
+                    <select name="preguntas">
+                      <option value="" disabled selected>Seleccione una pregunta*</option>
+                      <option value="¿Cual es el nombre de tu mascota?">¿Cual es el nombre de tu mascota?</option>
+                      <option value="¿Cual es el nombre de tu mejor amigo?">¿Cual es el nombre de tu mejor amigo?</option>
+                      <option value="¿En que ciudad naciste?pregunta3">¿En que ciudad naciste?</option>
+                      <option value="¿Que juego es tu favorito">¿Que juego es tu favorito?</option>
+                    </select>
+                  </div>
+                </div>
+                <div id="form-div-input-form" class="row">
+                    <div class="input-field col s12">
+                        <input id="respuesta" type="text" name="respuesta" class="validate">
+                        <label for="respuesta">Su respuesta*</label>
                     </div>
                 </div>
                 <div id="form-div-input-form" class="row">
                     <div class="col s12 m12">
                       <label>
                         <input type="checkbox" class="filled-in" class="validate">
-                        <span>Aceptar términos y condiciones</span>
+                        <span>Aceptar términos y condiciones*</span>
                       </label>
                     </div>
                 </div>

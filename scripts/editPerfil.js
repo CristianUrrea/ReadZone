@@ -126,5 +126,6 @@ $(document).ready(function(){
   var instance = M.Datepicker.init(elem, options);
 
   $(".tabs").tabs();
+  $('.modal').modal();
 
   });

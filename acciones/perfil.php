@@ -48,4 +48,32 @@ if (isset($_SESSION['username'])) {
     $query = "UPDATE Users SET imagen_perfil='$destino' WHERE correo='$user'";
     mysqli_query($conn, $query);
   }
+  if(isset($_POST['btn-baja-usuario'])){
+    $password_confirmar = mysqli_real_escape_string($conn, $_POST['password-confirmar-dar-baja']);
+    if(empty($password_confirmar)){
+      echo "vacio";
+    } else {
+      $userpass_encryp = md5($password_confirmar);
+      // echo $user.' || '.$userpass_encryp.' || '.$password_confirmar;
+
+      $de_baja = true;
+      $query = mysqli_query($conn,"SELECT * FROM users WHERE correo='$user' AND contrasena = '$userpass_encryp'");
+      if (mysqli_num_rows($query) == 1) {
+        while ($row = mysqli_fetch_assoc($query)){
+
+          echo "password correcta".' '.$de_baja.' '.$user;
+
+
+          $query2 = "UPDATE Users SET estado = '$de_baja' WHERE correo = '$user'";
+          mysqli_query($conn, $query2);
+          session_destroy();
+          header("location: index.php");
+
+
+        }
+      } else {
+          echo " || password incorrecta";
+      }
+    }
+  }
 }

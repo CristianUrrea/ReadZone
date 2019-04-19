@@ -1,5 +1,8 @@
 <?php
   include('acciones/loginRegistro.php');
+  include('acciones/cambiarPass.php');
+  include('acciones/perfil.php');
+
   if (!isset($_SESSION['username'])) {
       $_SESSION['msg'] = "You must log in first";
       // header('location: index.php');
@@ -41,6 +44,7 @@
 </head>
 <body>
     <header>
+
         <!--################ BAR NAV ################-->
         <nav class="nav-border">
             <div class="row">
@@ -103,13 +107,13 @@
                     <i class="material-icons iconis prefix">lock</i>
                     <input id="userpass-login" type="password" name="userpass-login" placeholder="contraseña">
                 </div>
-                <button id="btn-div-login-form-inicio-sesion" class="btn waves-effect waves-red white-text red" type="submit" name="btn-div-login-form-inicio-sesion">Inciar sesión</button>
+                <button id="btn-div-login-form-inicio-sesion" class="btn waves-effect waves-red white-text modal-trigger red" type="submit" name="btn-div-login-form-inicio-sesion" href="#modal1">Inciar sesión</button>
             </form>
             <br>
             <ul>
                 <li><a href="registro.php">Registrar</a></li>
                 <li>&nbsp</li>
-                <li><a href="#">¿Olvidates tu contraseña? </a></li>
+                <li><a href="recuperar.php">¿Olvidates tu contraseña? </a></li>
             </ul>
         </div>
         <!-- Bar nav mobile -->

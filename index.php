@@ -34,7 +34,7 @@
                 <div class="row">
                     <!--################ POPULAR ################-->
 
-                    <div id="div-content-carousel-popular" class="carousel carousel-slider center col s12 m12 l8 offset-l2">
+                    <div id="div-content-carousel-popular" class="carousel carousel-slider center col s12 m12 l8 offset-l2" style="height: 100px;">
                         <!--<div class="carousel-fixed-item center middle-indicator">
                         <div class="left">
                             <a href="Previo" class="movePrevCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="material-icons left  middle-indicator-text">chevron_left</i></a>
@@ -55,15 +55,15 @@
                           while ($row = mysqli_fetch_assoc($query)){
                             $total_likes_book = $row['total_likes'];
 
-                            $query2 = mysqli_query($conn, "SELECT titulo, imagen, tipo FROM Books  WHERE total_likes = $total_likes_book AND tipo = 'Novela'");
+                            $query2 = mysqli_query($conn, "SELECT titulo, imagen, tipo, id_book FROM Books  WHERE total_likes = $total_likes_book AND tipo = 'Novela'");
                             if (mysqli_num_rows($query2) > 0) {
                               while ($row2 = mysqli_fetch_assoc($query2)){
-                                echo $row2['titulo'];
+                                // echo $row2['titulo'];
                          ?>
                         <a href="contenido.php">
-                            <div class="carousel-item orange white-text" href="#four!">
-                                <h2>Primer Novela</h2>
-                                <img src="<?php echo $row2['imagen'] ?>" alt="" height="100%">
+                            <div class="carousel-item orange white-text" href="#four!" >
+                                <h2>Primera Novela</h2>
+                                <a href="contenido.php?id_book=<?php echo $row2['id_book']; ?>"><img src="<?php echo $row2['imagen'] ?>" alt="" height="100%" width="100%"></a>
                             </div>
                         </a>
                         <?php
@@ -78,15 +78,16 @@
                            while ($row = mysqli_fetch_assoc($query)){
                              $total_likes_book = $row['total_likes'];
 
-                             $query2 = mysqli_query($conn, "SELECT titulo, imagen, tipo FROM Books  WHERE total_likes = $total_likes_book AND tipo = 'Manga'");
+                             $query2 = mysqli_query($conn, "SELECT titulo, imagen, tipo, id_book FROM Books  WHERE total_likes = $total_likes_book AND tipo = 'Manga'");
                              if (mysqli_num_rows($query2) > 0) {
                                while ($row2 = mysqli_fetch_assoc($query2)){
-                                 echo $row2['titulo'];
+                                 // echo $row2['titulo'];
                           ?>
                           <a href="contenido.php">
                               <div class="carousel-item green white-text" href="#four!">
                                   <h2>Primer Manga</h2>
-                                  <img src="<?php echo$row2['imagen'] ?>" alt="" height="100%">
+                                  <a href="contenido.php?id_book=<?php echo $row2['id_book']; ?>">
+                                    <img src="<?php echo$row2['imagen'] ?>" alt="" height="100%" width="100%"></a>
                               </div>
                           </a>
                          <?php
@@ -101,15 +102,15 @@
                             while ($row = mysqli_fetch_assoc($query)){
                               $total_likes_book = $row['total_likes'];
 
-                              $query2 = mysqli_query($conn, "SELECT titulo, imagen, tipo FROM Books  WHERE total_likes = $total_likes_book AND tipo = 'Comic'");
+                              $query2 = mysqli_query($conn, "SELECT titulo, imagen, tipo, id_book FROM Books  WHERE total_likes = $total_likes_book AND tipo = 'Comic'");
                               if (mysqli_num_rows($query2) > 0) {
                                 while ($row2 = mysqli_fetch_assoc($query2)){
-                                  echo $row2['titulo'];
+                                  // echo $row2['titulo'];
                            ?>
                            <a href="contenido.php">
                                <div class="carousel-item grey white-text" href="#four!">
                                    <h2>Primer comic</h2>
-                                   <img src="<?php echo $row2['imagen'] ?>" alt="" height="100%">
+                                   <a href="contenido.php?id_book=<?php echo $row2['id_book']; ?>"><img src="<?php echo $row2['imagen'] ?>" alt="" height="100%" width="100%"></a>
                                </div>
                            </a>
                           <?php

@@ -35,8 +35,9 @@
           <div style="margin-top: 20px;" class="row">
               <div class="col s12 m12 l8 offset-l2">
                   <ul class="tabs">
-                      <li class="tab col s6 m6 l6"><a class="red-text" href="#general">General</a></li>
-                      <li class="tab col s6 m6 l6"><a class="red-text" href="#imagen">Imagen</a></li>
+                      <li class="tab col s6 m6 l4"><a class="red-text" href="#general">General</a></li>
+                      <li class="tab col s6 m6 l4"><a class="red-text" href="#imagen">Imagen</a></li>
+                      <li class="tab col s6 m6 l4"><a class="red-text" href="#baja">Dar de baja</a></li>
                   </ul>
               </div>
           </div>
@@ -113,6 +114,37 @@
                 </div>
               </form>
             </div>
+          </div>
+          <div id="baja">
+            <div id="div-row-edit-profile" class="row">
+              <form id="form-div-perfil" class="col s12 m8 l4 offset-l4 offset-m2" action="" method="post" enctype="multipart/form-data">
+                <div id="form-div-input-form-perfil" class="row">
+                    <div class="input-field col s4 m4 l6 offset-l3 offset-s4 offset-m4">
+                      <button type="button" class="btn-flat modal-trigger" data-target="modal">Dar de baja</button>
+                    </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div id="modal" class="modal">
+            <form  action="" method="post" enctype="multipart/form-data">
+            <div class="modal-content">
+              <h5>¿Esta seguro que desea dar de baja a esta cuenta?</h5>
+              <div id="form-div-input-form-perfil" class="row">
+                  <div class="input-field col s12">
+                    <input id="password_confirmar_dar_baja" type="password" name="password-confirmar-dar-baja">
+                    <label for="password-confirmar-dar-baja">Introdusca contraseña</label>
+                  </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div id="form-div-input-form" class="row">
+                  <div class="input-field col s12">
+                    <button id="btn-baja-usuario" type="submit"  name="btn-baja-usuario" class="btn red modal-close  waves-effect waves-red">Acceptar</button>
+                  </div>
+              </div>
+            </div>
+          </form>
           </div>
             <!-- Back to top -->
             <div class="fixed-action-btn">
