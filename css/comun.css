@@ -65,8 +65,8 @@ nav,
 }
 
 #i-div-nav-search {
-  margin-top: 3px;
-  margin-right: -25px;
+  margin-top: 3px !important;
+  margin-right: -25px !important;
 }
 
 #ul-div-nav-links {

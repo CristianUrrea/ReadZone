@@ -10,4 +10,15 @@ if (isset($_POST['btn-aplicar-cambios'])) {
     }
   }
 }
+
+if(isset($_POST['input-div-nav-search'])){
+  // echo '<script type="text/javascript">alert("funciona")<script>';
+  $text = mysqli_real_escape_string($conn, $_POST['input-div-nav-search']);
+  // echo '<script type="text/javascript">alert("asdas")</script>';
+  $cookie_name = "titulo_libro";
+  $cookie_value = $text;
+  setcookie($cookie_name, $cookie_value, time() + (1), "/"); // 86400 = 1 day
+
+  header('location: biblioteca.php');
+}
  ?>

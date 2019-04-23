@@ -2,6 +2,7 @@
   include('acciones/loginRegistro.php');
   include('acciones/cambiarPass.php');
   include('acciones/perfil.php');
+  include('acciones/busqueda.php');
 
   if (!isset($_SESSION['username'])) {
       $_SESSION['msg'] = "You must log in first";
@@ -71,12 +72,16 @@
                     </div>
                     <div class="col s12 m2 l4">
                         <div class="hide-on-med-and-down">
+                          <form action="" method="post">
                             <div id="nav-div-search" class="search-wrapper">
                                 <div class="input-field">
-                                    <input id="input-div-nav-search" type="search" placeholder="Buscar..." class="right searchbarfix white">
+                                    <input id="input-div-nav-search" type="search" name="input-div-nav-search" placeholder="Buscar..." class="right searchbarfix white">
                                     <i id="i-div-nav-search" class="material-icons grey-text">search</i>
+
                                 </div>
                             </div>
+                          </form>
+
                         </div>
                     </div>
                     <div class="col s12 m2 l2 nav-wrapper">

@@ -1,8 +1,6 @@
 <?php
 
 // VARIABLES
-$errors = array();
-$_SESSION['success'] = "";
 require_once("./db/conexiondb.php");
 if (isset($_SESSION['username'])) {
   $user = $_SESSION['username'];
@@ -76,4 +74,5 @@ if (isset($_SESSION['username'])) {
       }
     }
   }
+
 }

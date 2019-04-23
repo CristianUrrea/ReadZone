@@ -23,7 +23,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <?php
       include_once('db/conexiondb.php');
-      // include_once('acciones/busqueda.php');
+
+      include_once('acciones/busqueda.php');
      ?>
      <style media="screen">
        #div-content-search-advanced {
@@ -39,6 +40,7 @@
       <!--################################-->
 
     <main>
+
         <div id="div-search-type">
             <div id="div-row-search-input" class="row" style="">
                 <div class="col s12 m12 l8 offset-l2 white">
@@ -47,12 +49,17 @@
                           <span class="button-text"></span>
                         </button>
                     </div>
+                    <form class="" action="" method="post">
+
                     <div class="search-wrapper">
                         <div id="div-type-search-one" class="input-field col s9 m9 l9">
-                            <input id="input-div-search" type="search" placeholder="Buscar..." class="right searchbarfix white">
+                            <input id="input-div-search" type="search" name="input-div-search" placeholder="Buscar..." class="right searchbarfix white">
                             <i id="i-div-search-two" class="material-icons grey-text">search</i>
                         </div>
+
                     </div>
+                  </form>
+
                 </div>
                 <div id="div-content-search-advanced" class="row" style="margin-bottom: -40px;">
                   <div class="row">
@@ -150,14 +157,350 @@
                 <div id="div-biblioteca" class="col s12 m12 l8 offset-l2 white">
                   <ul id="example2" class="cards-container">
                   <?php
-                    if (isset($_POST['btn-aplicar-cambios'])) {
+                  if(!isset($_COOKIE["titulo_libro"])) {
+                    // echo "vacio";
+                    if(isset($_POST['input-div-search'])){
+                      $text = mysqli_real_escape_string($conn, $_POST['input-div-search']);
+                      $query7 = mysqli_query($conn, "SELECT * FROM Books WHERE titulo LIKE '%$text%'");
+                      if (mysqli_num_rows($query7) > 0) {
+                          while ($row7 = mysqli_fetch_assoc($query7)) {
+                            if(empty($_POST['gender_list'])){
+                            ?>
+                            <div id="ocultar_div_libros">
+                              <li>
+                              <div class="card sticky-action">
+                                    <div class="card-image center">
+                                      <form method="post">
+                                        <a href="contenido.php?id_book=<?php echo $row7['id_book']; ?>"><img class="center" src="<?php echo $row7['imagen']; ?>" height="250px"></img>
+                                        </a>
+                                      </form>
+                                    </div>
+                                    <div class="card-content">
+                                        <p id="p-div-title-book"><?php echo $row7['titulo']; ?></p>
+                                    </div>
+                                </div>
+                              </li>
+                            </div>
+                            <?php
+                            }
+                          }
+                        }
+
+                    } else {
+                      if (isset($_POST['btn-aplicar-cambios'])) {
 
 
-                      if(empty($_POST['tipo-libro'])){
+                        if(empty($_POST['tipo-libro'])){
 
-                        $query = mysqli_query($conn, "SELECT * FROM Books");
-                        if (mysqli_num_rows($query) > 0) {
+                          $query = mysqli_query($conn, "SELECT * FROM Books");
+                          if (mysqli_num_rows($query) > 0) {
+                              while ($row = mysqli_fetch_assoc($query)) {
+                                if(empty($_POST['gender_list'])){
+                                ?>
+                                <div id="ocultar_div_libros">
+                                  <li>
+                                  <div class="card sticky-action">
+                                        <div class="card-image center">
+                                          <form method="post">
+                                            <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
+                                            </a>
+                                          </form>
+                                        </div>
+                                        <div class="card-content">
+                                            <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
+                                        </div>
+                                    </div>
+                                  </li>
+                                </div>
+                                <?php
+                                }
+                              }
+                            }
+                        } else if(!empty($_POST['tipo-libro'])) {
+
+                          $tipo_libro = strip_tags($_POST["tipo-libro"]);
+                          // $cookie_name = "tipo_libro";
+                          // $cookie_value = $tipo_libro;
+                          // setcookie($cookie_name, $cookie_value); // 86400 = 1 day
+
+                          if($tipo_libro == 'Novela'){
+
+                            $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo='Novela'");
+                            if (mysqli_num_rows($query) > 0) {
+                                while ($row = mysqli_fetch_assoc($query)) {
+                                  ?>
+                                  <li>
+                                  <div class="card sticky-action">
+                                        <div class="card-image center">
+                                          <form method="post">
+                                            <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
+                                            </a>
+                                          </form>
+                                        </div>
+                                        <div class="card-content">
+                                            <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
+                                        </div>
+                                    </div>
+                                  </li>
+                                  <?php
+                                }
+                              }
+                          } else if($tipo_libro == 'Manga'){
+
+                            $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo='Manga'");
+                            if (mysqli_num_rows($query) > 0) {
+                                while ($row = mysqli_fetch_assoc($query)) {
+                                  ?>
+                                  <li>
+                                  <div class="card sticky-action">
+                                        <div class="card-image center">
+                                          <form method="post">
+                                            <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
+                                            </a>
+                                          </form>
+                                        </div>
+                                        <div class="card-content">
+                                            <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
+                                        </div>
+                                    </div>
+                                  </li>
+                                  <?php
+                                }
+                              }
+                          } elseif($tipo_libro == 'Comic'){
+                            $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo='Comic'");
+                            if (mysqli_num_rows($query) > 0) {
+                                while ($row = mysqli_fetch_assoc($query)) {
+                                  ?>
+                                  <li>
+                                  <div class="card sticky-action">
+                                        <div class="card-image center">
+                                          <form method="post">
+                                            <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
+                                            </a>
+                                          </form>
+                                        </div>
+                                        <div class="card-content">
+                                            <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
+                                        </div>
+                                    </div>
+                                  </li>
+                                  <?php
+                                }
+                              }
+                          }
+                        }
+                      } else {
+                      $query = mysqli_query($conn, "SELECT * FROM Books");
+                      if (mysqli_num_rows($query) > 0) {
+                          while ($row = mysqli_fetch_assoc($query)) {
+                    ?>
+                    <div class="ocultar">
+                      <li class="li-gallery-display">
+                      <div class="card sticky-action">
+                            <div class="card-image center">
+                              <form method="post">
+                                <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
+                                </a>
+                              </form>
+                            </div>
+                            <div class="card-content">
+                                <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
+                            </div>
+                        </div>
+                      </li>
+                    </div>
+                      <?php
+                          }
+                      }
+                    } if (isset($_POST['btn-aplicar-cambios'])){
+                      if(!empty($_POST['gender_list'])){
+                        foreach($_POST['gender_list'] as $selected){
+                          // echo $selected."</br>";
+
+                          $query = mysqli_query($conn, "SELECT id_genero FROM Genders WHERE nombre = '$selected'");
+                          if (mysqli_num_rows($query) > 0) {
                             while ($row = mysqli_fetch_assoc($query)) {
+                              $id_genero_libro = $row['id_genero'];
+                              // echo $row['id_genero'];
+                              $query2 = mysqli_query($conn, "SELECT * FROM Books_genders WHERE id_genero = '$id_genero_libro'");
+                              if (mysqli_num_rows($query2) > 0) {
+                                // while ($row2 = mysqli_fetch_assoc($query2)) {
+                                $row2 = mysqli_fetch_assoc($query2);
+
+                                  $id_book = $row2['id_book'];
+                                  // echo $row2['id_book'];
+                                  $query3 = mysqli_query($conn, "SELECT * FROM Books WHERE id_book = '$id_book'");
+                                  // if (mysqli_num_rows($query3) > 0) {
+                                    $row3 = mysqli_fetch_assoc($query3);
+                                    // $t = $row3['titulo'];
+                                    // echo $t;
+                                    // while ($row3 = mysqli_fetch_assoc($query3)) {
+                                      // echo $row3['titulo'];
+                                      ?>
+                                      <!-- <div class="ocultar"> -->
+                                        <li class="li-gallery-display">
+                                        <div class="card sticky-action">
+                                              <div class="card-image center">
+                                                <form method="post">
+                                                  <a href="contenido.php?id_book=<?php echo $row3['id_book']; ?>"><img class="center" src="<?php echo $row3['imagen']; ?>" height="250px"></img>
+                                                  </a>
+                                                </form>
+                                              </div>
+                                              <div class="card-content">
+                                                  <p id="p-div-title-book"><?php echo $row3['titulo']; ?></p>
+                                              </div>
+                                          </div>
+                                        </li>
+                                      <!-- </div> -->
+                                      <?php
+                                    // }
+                                  // }
+                                // }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                  } else {
+                    if(isset($_POST['input-div-search'])){
+                      $text = mysqli_real_escape_string($conn, $_POST['input-div-search']);
+                      $query7 = mysqli_query($conn, "SELECT * FROM Books WHERE titulo LIKE '%$text%'");
+                      if (mysqli_num_rows($query7) > 0) {
+                          while ($row7 = mysqli_fetch_assoc($query7)) {
+                            if(empty($_POST['gender_list'])){
+                            ?>
+                            <div id="ocultar_div_libros">
+                              <li>
+                              <div class="card sticky-action">
+                                    <div class="card-image center">
+                                      <form method="post">
+                                        <a href="contenido.php?id_book=<?php echo $row7['id_book']; ?>"><img class="center" src="<?php echo $row7['imagen']; ?>" height="250px"></img>
+                                        </a>
+                                      </form>
+                                    </div>
+                                    <div class="card-content">
+                                        <p id="p-div-title-book"><?php echo $row7['titulo']; ?></p>
+                                    </div>
+                                </div>
+                              </li>
+                            </div>
+                            <?php
+                            }
+                          }
+                        }
+
+                    } else {
+                      if (isset($_POST['btn-aplicar-cambios'])) {
+
+
+                        if(empty($_POST['tipo-libro'])){
+
+                          $query = mysqli_query($conn, "SELECT * FROM Books");
+                          if (mysqli_num_rows($query) > 0) {
+                              while ($row = mysqli_fetch_assoc($query)) {
+                                if(empty($_POST['gender_list'])){
+                                ?>
+                                <div id="ocultar_div_libros">
+                                  <li>
+                                  <div class="card sticky-action">
+                                        <div class="card-image center">
+                                          <form method="post">
+                                            <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
+                                            </a>
+                                          </form>
+                                        </div>
+                                        <div class="card-content">
+                                            <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
+                                        </div>
+                                    </div>
+                                  </li>
+                                </div>
+                                <?php
+                                }
+                              }
+                            }
+                        } else if(!empty($_POST['tipo-libro'])) {
+
+                          $tipo_libro = strip_tags($_POST["tipo-libro"]);
+                          // $cookie_name = "tipo_libro";
+                          // $cookie_value = $tipo_libro;
+                          // setcookie($cookie_name, $cookie_value); // 86400 = 1 day
+
+                          if($tipo_libro == 'Novela'){
+
+                            $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo='Novela'");
+                            if (mysqli_num_rows($query) > 0) {
+                                while ($row = mysqli_fetch_assoc($query)) {
+                                  ?>
+                                  <li>
+                                  <div class="card sticky-action">
+                                        <div class="card-image center">
+                                          <form method="post">
+                                            <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
+                                            </a>
+                                          </form>
+                                        </div>
+                                        <div class="card-content">
+                                            <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
+                                        </div>
+                                    </div>
+                                  </li>
+                                  <?php
+                                }
+                              }
+                          } else if($tipo_libro == 'Manga'){
+
+                            $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo='Manga'");
+                            if (mysqli_num_rows($query) > 0) {
+                                while ($row = mysqli_fetch_assoc($query)) {
+                                  ?>
+                                  <li>
+                                  <div class="card sticky-action">
+                                        <div class="card-image center">
+                                          <form method="post">
+                                            <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
+                                            </a>
+                                          </form>
+                                        </div>
+                                        <div class="card-content">
+                                            <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
+                                        </div>
+                                    </div>
+                                  </li>
+                                  <?php
+                                }
+                              }
+                          } elseif($tipo_libro == 'Comic'){
+                            $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo='Comic'");
+                            if (mysqli_num_rows($query) > 0) {
+                                while ($row = mysqli_fetch_assoc($query)) {
+                                  ?>
+                                  <li>
+                                  <div class="card sticky-action">
+                                        <div class="card-image center">
+                                          <form method="post">
+                                            <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
+                                            </a>
+                                          </form>
+                                        </div>
+                                        <div class="card-content">
+                                            <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
+                                        </div>
+                                    </div>
+                                  </li>
+                                  <?php
+                                }
+                              }
+                          }
+                        }
+                      } else {
+                        $titulo_libro = $_COOKIE["titulo_libro"];
+                        $query8 = mysqli_query($conn, "SELECT * FROM Books WHERE titulo LIKE '%$titulo_libro%'");
+                        if (mysqli_num_rows($query8) > 0) {
+                            while ($row8 = mysqli_fetch_assoc($query8)) {
                               if(empty($_POST['gender_list'])){
                               ?>
                               <div id="ocultar_div_libros">
@@ -165,12 +508,12 @@
                                 <div class="card sticky-action">
                                       <div class="card-image center">
                                         <form method="post">
-                                          <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
+                                          <a href="contenido.php?id_book=<?php echo $row8['id_book']; ?>"><img class="center" src="<?php echo $row8['imagen']; ?>" height="250px"></img>
                                           </a>
                                         </form>
                                       </div>
                                       <div class="card-content">
-                                          <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
+                                          <p id="p-div-title-book"><?php echo $row8['titulo']; ?></p>
                                       </div>
                                   </div>
                                 </li>
@@ -179,153 +522,62 @@
                               }
                             }
                           }
-                      } else if(!empty($_POST['tipo-libro'])) {
 
-                        $tipo_libro = strip_tags($_POST["tipo-libro"]);
-                        // $cookie_name = "tipo_libro";
-                        // $cookie_value = $tipo_libro;
-                        // setcookie($cookie_name, $cookie_value); // 86400 = 1 day
+                    } if (isset($_POST['btn-aplicar-cambios'])){
+                      if(!empty($_POST['gender_list'])){
+                        foreach($_POST['gender_list'] as $selected){
+                          // echo $selected."</br>";
 
-                        if($tipo_libro == 'Novela'){
-
-                          $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo='Novela'");
+                          $query = mysqli_query($conn, "SELECT id_genero FROM Genders WHERE nombre = '$selected'");
                           if (mysqli_num_rows($query) > 0) {
-                              while ($row = mysqli_fetch_assoc($query)) {
-                                ?>
-                                <li>
-                                <div class="card sticky-action">
-                                      <div class="card-image center">
-                                        <form method="post">
-                                          <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
-                                          </a>
-                                        </form>
-                                      </div>
-                                      <div class="card-content">
-                                          <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
-                                      </div>
-                                  </div>
-                                </li>
-                                <?php
-                              }
-                            }
-                        } else if($tipo_libro == 'Manga'){
+                            while ($row = mysqli_fetch_assoc($query)) {
+                              $id_genero_libro = $row['id_genero'];
+                              // echo $row['id_genero'];
+                              $query2 = mysqli_query($conn, "SELECT * FROM Books_genders WHERE id_genero = '$id_genero_libro'");
+                              if (mysqli_num_rows($query2) > 0) {
+                                // while ($row2 = mysqli_fetch_assoc($query2)) {
+                                $row2 = mysqli_fetch_assoc($query2);
 
-                          $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo='Manga'");
-                          if (mysqli_num_rows($query) > 0) {
-                              while ($row = mysqli_fetch_assoc($query)) {
-                                ?>
-                                <li>
-                                <div class="card sticky-action">
-                                      <div class="card-image center">
-                                        <form method="post">
-                                          <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
-                                          </a>
-                                        </form>
-                                      </div>
-                                      <div class="card-content">
-                                          <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
-                                      </div>
-                                  </div>
-                                </li>
-                                <?php
-                              }
-                            }
-                        } elseif($tipo_libro == 'Comic'){
-                          $query = mysqli_query($conn, "SELECT * FROM Books WHERE tipo='Comic'");
-                          if (mysqli_num_rows($query) > 0) {
-                              while ($row = mysqli_fetch_assoc($query)) {
-                                ?>
-                                <li>
-                                <div class="card sticky-action">
-                                      <div class="card-image center">
-                                        <form method="post">
-                                          <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
-                                          </a>
-                                        </form>
-                                      </div>
-                                      <div class="card-content">
-                                          <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
-                                      </div>
-                                  </div>
-                                </li>
-                                <?php
-                              }
-                            }
-                        }
-                      }
-                    } else {
-                    $query = mysqli_query($conn, "SELECT * FROM Books");
-                    if (mysqli_num_rows($query) > 0) {
-                        while ($row = mysqli_fetch_assoc($query)) {
-                  ?>
-                  <div class="ocultar">
-                    <li class="li-gallery-display">
-                    <div class="card sticky-action">
-                          <div class="card-image center">
-                            <form method="post">
-                              <a href="contenido.php?id_book=<?php echo $row['id_book']; ?>"><img class="center" src="<?php echo $row['imagen']; ?>" height="250px"></img>
-                              </a>
-                            </form>
-                          </div>
-                          <div class="card-content">
-                              <p id="p-div-title-book"><?php echo $row['titulo']; ?></p>
-                          </div>
-                      </div>
-                    </li>
-                  </div>
-                    <?php
-                        }
-                    }
-                  } if (isset($_POST['btn-aplicar-cambios'])){
-                    if(!empty($_POST['gender_list'])){
-                      foreach($_POST['gender_list'] as $selected){
-                        // echo $selected."</br>";
-
-                        $query = mysqli_query($conn, "SELECT id_genero FROM Genders WHERE nombre = '$selected'");
-                        if (mysqli_num_rows($query) > 0) {
-                          while ($row = mysqli_fetch_assoc($query)) {
-                            $id_genero_libro = $row['id_genero'];
-                            // echo $row['id_genero'];
-                            $query2 = mysqli_query($conn, "SELECT * FROM Books_genders WHERE id_genero = '$id_genero_libro'");
-                            if (mysqli_num_rows($query2) > 0) {
-                              // while ($row2 = mysqli_fetch_assoc($query2)) {
-                              $row2 = mysqli_fetch_assoc($query2);
-
-                                $id_book = $row2['id_book'];
-                                // echo $row2['id_book'];
-                                $query3 = mysqli_query($conn, "SELECT * FROM Books WHERE id_book = '$id_book'");
-                                // if (mysqli_num_rows($query3) > 0) {
-                                  $row3 = mysqli_fetch_assoc($query3);
-                                  // $t = $row3['titulo'];
-                                  // echo $t;
-                                  // while ($row3 = mysqli_fetch_assoc($query3)) {
-                                    // echo $row3['titulo'];
-                                    ?>
-                                    <!-- <div class="ocultar"> -->
-                                      <li class="li-gallery-display">
-                                      <div class="card sticky-action">
-                                            <div class="card-image center">
-                                              <form method="post">
-                                                <a href="contenido.php?id_book=<?php echo $row3['id_book']; ?>"><img class="center" src="<?php echo $row3['imagen']; ?>" height="250px"></img>
-                                                </a>
-                                              </form>
-                                            </div>
-                                            <div class="card-content">
-                                                <p id="p-div-title-book"><?php echo $row3['titulo']; ?></p>
-                                            </div>
-                                        </div>
-                                      </li>
-                                    <!-- </div> -->
-                                    <?php
+                                  $id_book = $row2['id_book'];
+                                  // echo $row2['id_book'];
+                                  $query3 = mysqli_query($conn, "SELECT * FROM Books WHERE id_book = '$id_book'");
+                                  // if (mysqli_num_rows($query3) > 0) {
+                                    $row3 = mysqli_fetch_assoc($query3);
+                                    // $t = $row3['titulo'];
+                                    // echo $t;
+                                    // while ($row3 = mysqli_fetch_assoc($query3)) {
+                                      // echo $row3['titulo'];
+                                      ?>
+                                      <!-- <div class="ocultar"> -->
+                                        <li class="li-gallery-display">
+                                        <div class="card sticky-action">
+                                              <div class="card-image center">
+                                                <form method="post">
+                                                  <a href="contenido.php?id_book=<?php echo $row3['id_book']; ?>"><img class="center" src="<?php echo $row3['imagen']; ?>" height="250px"></img>
+                                                  </a>
+                                                </form>
+                                              </div>
+                                              <div class="card-content">
+                                                  <p id="p-div-title-book"><?php echo $row3['titulo']; ?></p>
+                                              </div>
+                                          </div>
+                                        </li>
+                                      <!-- </div> -->
+                                      <?php
+                                    // }
                                   // }
                                 // }
-                              // }
+                              }
                             }
                           }
                         }
                       }
                     }
                   }
+                    // echo $_COOKIE["titulo_libro"];
+
+                  }
+
                   ?>
                 </ul>
               </div>

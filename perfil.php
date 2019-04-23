@@ -17,6 +17,7 @@
     <!-- Mis css -->
     <link rel="stylesheet" href="css/comun.css">
     <link rel="stylesheet" href="css/perfil.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 
     <!--Let browser know website is optimized for mobile-->
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -141,9 +142,9 @@
                       <span><b><?php echo $row2['nombre_lista']?></b></span>
 
                     </div>
-                    <!-- <ul class="cards-container"> -->
-                    <div  id="<?php echo $row2['nombre_lista'] ?>" class="col s12 m12 l12 colgallery js-flickity" style="border: solid 2px;" data-flickity='{ "freeScroll": true, "wrapAround": true }'>
 
+                    <!-- <ul class="cards-container"> -->
+                    <div id="<?php echo $row2['nombre_lista'] ?>"class="col s12 m12 l12 colgallery card" style="" data-flickity='{ "freeScroll": true, "groupCells": true }'>
                     <?php
                     $nombre_lista = $row2['nombre_lista'];
                     $query3 = mysqli_query($conn, "SELECT nombre_lista, id_book FROM List_books WHERE id_user = '$id_user' AND nombre_lista = '$nombre_lista'");
@@ -155,19 +156,52 @@
                         <?php
                         $query4 = mysqli_query($conn, "SELECT imagen, id_book FROM books WHERE id_book = '$id_book'");
                         if (mysqli_num_rows($query4) > 0) {
-                          while ($row4 = mysqli_fetch_assoc($query4)) {
+                          // while ($row4 = mysqli_fetch_assoc($query4)) {
+
+                          $row4 = mysqli_fetch_assoc($query4);
                      ?>
+
                       <div class="gallery-cell">
                         <div class="card sticky-action">
+                          <div class="header red" style="height: 37px;">&nbsp
+                            <span class="card-title right">
+                              <a href="perfil.php?id_book=<?php echo $row4['id_book']; ?>" id="i_delete_item_list<?php echo $id_book ?>" class="provando material-icons" type="submit" name="i_delete_item_list" style="color:white; cursor:pointer; background-color: Transparent; background-repeat:no-repeat; border: none; z-index: 3; position: relative;">cancel</a>
+                            </span>
+                          </div>
+
                           <div class="card-image">
                             <a href="contenido.php?id_book=<?php echo $row4['id_book']; ?>"><img class="center" src="<?php echo $row4['imagen']; ?>" height="150px"></img>
+
                             </a>
                           </div>
+                          <?php
+
+                           ?>
+
+                           <script type="text/javascript">
+                           $('#i_delete_item_list<?php echo $id_book ?>').click(function(){
+                             <?php
+                             $id_book = $_REQUEST['id_book'];
+                             $query5 = mysqli_query($conn, "SELECT * FROM list_books WHERE id_book = '$id_book' AND id_user = '$id_user' AND nombre_lista = '$nombre_lista'");
+                             if (mysqli_num_rows($query5) > 0) {
+                               while ($row5 = mysqli_fetch_assoc($query5)) {
+                                 $id_user_list = $row5['id_user'];
+                                 $id_book_list = $row5['id_book'];
+                                 $query6 = mysqli_query($conn, "DELETE FROM list_books WHERE id_book = '$id_book' AND id_user = '$id_user' AND nombre_lista = '$nombre_lista'");
+                                 mysqli_query($conn, $query6);
+                               }
+                             }
+                              ?>
+
+
+                              });
+
+                           </script>
                         </div>
                       </div>
 
                      <?php
-                        }
+                        // }
                       }
                     }
                       ?>
@@ -206,7 +240,6 @@
 
                 </div>
             </div>
-
             <!-- Back to top -->
             <div class="fixed-action-btn">
                 <a id="back-to-top" class="btn-floating btn-large red scale-transition">
@@ -228,6 +261,12 @@
             <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
             <script type="text/javascript" src="scripts/comun.js"></script>
             <script type="text/javascript" src="scripts/perfil.js"></script>
+            <!-- <script type="text/javascript">
+              $('#i_delete_item_list').click(function(){
+                alert("probando boton delete tag i");
+              });
+            </script> -->
+
 </body>
 
 </html>

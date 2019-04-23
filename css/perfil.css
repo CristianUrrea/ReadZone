@@ -1,14 +1,17 @@
-
+.carousel-cell {
+  /* width: 28% !important;
+  height: 200px !important; */
+}
 .gallery-cell {
   width: 30% !important;
   margin-right: 15px;
-}
+}/*
 .flickity-page-dots {
-  bottom: 0px;
-  display: none;
+  /* bottom: 0px;
+  display: none; */
 }
 .flickity-prev-next-button {
-  margin-top: -5px;
+  /* margin-top: -5px; */
 }
 
 #row-content {
