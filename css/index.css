@@ -7,8 +7,8 @@
     margin-left: -12px;
   }
   #div-content-recomendations-gallery {
-    margin-left: 15.85%;
-    width: 68.1%; /*68.1%*/
+    margin-left: 16.65%; /*15.85*/
+    width: 66.7% !important; /*68.1%*/
   }
 }
 
@@ -41,7 +41,7 @@
 /*################ CONTENT  ################*/
 
 #div-content {
-  background-color: #ef9a9a;
+  /* background-color: #ef9a9a; */
 }
 
 #div-content,

@@ -37,6 +37,8 @@ $(document).ready(function() {
       .addClass("animate");
     $(".carousel-progress-bar-timer").css("width", 100 + "%");
   }
+  $('.modal').modal();
+
   /*################ CAROUSEL DEL COTENIDO DE RECOMENDACIONES ################*/
   // $("#div-content-carousel-recomendations.carousel").carousel({
   //   dist: 0,

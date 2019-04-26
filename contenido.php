@@ -21,14 +21,22 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
 </head>
+<style media="screen">
+  #list_genders li{
+    display: inline;
+  }
 
+</style>
 <body>
   <!--################ NAV ################-->
   <?php
     // require_once("db/conexiondb.php");
     $id_book=$_REQUEST['id_book'];
+
+
     include 'nav.php';
     include_once('acciones/contenido.php');
   ?>
@@ -43,13 +51,16 @@
                   if (mysqli_num_rows($query) > 0) {
                       while ($row = mysqli_fetch_assoc($query)) {
                           ?>
-                    <div class="card-image" style="width: 200px;">
+                    <div class="card-image center" style="">
 
-                        <img id="image-div-content-type-book" src="<?php echo $row['imagen']; ?>" class="center" height="200px">
-                        <div class="card-content center">
+                        <img id="image-div-content-type-book" src="<?php echo $row['imagen']; ?>" class="" width="200px"height="200px">
+                        <div class="card-content">
                             <p><?php echo $row['titulo']; ?></p>
                         </div>
-
+                        <div class='progressBar' style="margin: 0px; margin-left: 15%;">
+                             <div class='likes'></div>
+                             <div class='dislikes'></div>
+                        </div>
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">
@@ -57,8 +68,27 @@
                             <p><?php echo $row['descripcion']; ?></p>
                         </div>
                         <div class="card-action">
-                            <p>Generos</p>
-                            <p>Autor</p>
+                            <b>Generos</b>
+                            <ul id="list_genders">
+                              <?php
+                              $query = mysqli_query($conn, "SELECT * FROM Books_genders WHERE id_book = '$id_book'");
+                              if (mysqli_num_rows($query) > 0) {
+                                while ($row3 = mysqli_fetch_assoc($query)) {
+                                  $id_genero = $row3['id_genero'];
+                                  $query2 = mysqli_query($conn, "SELECT * FROM Genders WHERE id_genero = '$id_genero'");
+                                  if (mysqli_num_rows($query2) > 0) {
+                                    while ($row2 = mysqli_fetch_assoc($query2)) {
+                               ?>
+                               <li style="margin-right: 20px;"><?php echo $row2['nombre']; ?></li>
+                               <?php
+                                    }
+                                  }
+                                }
+                               }
+                                ?>
+                            </ul>
+                            <b>Autor</b>
+                            <p><?php echo $row['autor'] ?></p>
                         </div>
                     </div>
                     <?php
@@ -66,16 +96,61 @@
                   }
                   ?>
                 </div>
+
+                <?php  if (isset($_SESSION['username'])) {?>
+
                 <div id="div-card-horizontal" class="card horizontal red">
                     <div class="card-stacked center">
+                      <form  action="" method="post" enctype="multipart/form-data">
                         <ul id="div-ul-like-favorite-add-list">
-                            <li><button type="submit" class="btn-flat"><i class="material-icons white-text">thumb_up</i></button></li>
-                            <li><button type="submit" class="btn-flat"><i class="material-icons white-text">thumb_down</i></button></li>
-                            <li><button type="submit" class="btn-flat"><i class="material-icons white-text">favorite</i></button></li>
+
+                          <?php
+                          $user = $_SESSION['username'];
+                          $query = mysqli_query($conn, "SELECT * FROM Users  WHERE correo = '$user'");
+                          if (mysqli_num_rows($query) > 0) {
+                            while ($row = mysqli_fetch_assoc($query)) {
+                              $id_user = $row['id_user'];
+                              $query2 = mysqli_query($conn, "SELECT * FROM Books_score  WHERE id_user = '$id_user' AND id_book = '$id_book'");
+                              if (mysqli_num_rows($query2) > 0) {
+                                while ($row2 = mysqli_fetch_assoc($query2)) {
+                                  $like = $row2['like_libro'];
+                                  $dislike = $row2['dislike_libro'];
+                                  if($like == 1){
+                                    // echo 'like';
+                                    ?>
+                                    <li><button type="submit" class="btn-flat" name="btn-like-book-update"><i class="material-icons green-text text-darken-3">thumb_up</i></button></li>
+                                    <li><button type="submit" class="btn-flat" name="btn-dislike-book-update"><i class="material-icons white-text">thumb_down</i></button></li>
+                                    <?php
+                                  } else if($dislike == 1){
+                                    // echo 'dislike';
+                                    ?>
+                                    <li><button type="submit" class="btn-flat" name="btn-like-book-update"><i class="material-icons white-text">thumb_up</i></button></li>
+                                    <li><button type="submit" class="btn-flat" name="btn-dislike-book-update"><i class="material-icons green-text text-darken-3">thumb_down</i></button></li>
+                                    <?php
+                                  } else if($like == 0 && $dislike == 0){
+                                    ?>
+                                    <li><button type="submit" class="btn-flat" name="btn-like-book-update-two"><i class="material-icons white-text">thumb_up</i></button></li>
+                                    <li><button type="submit" class="btn-flat" name="btn-dislike-book-update-two"><i class="material-icons white-text">thumb_down</i></button></li>
+                                    <?php
+                                  }
+                                }
+                              } else {
+                                ?>
+                                <li><button type="submit" class="btn-flat" id="btn-like-book" name="btn-like-book"><i class="material-icons white-text">thumb_up</i></button></li>
+                                <li><button type="submit" class="btn-flat" id="btn-dislike-book" name="btn-dislike-book"><i class="material-icons white-text">thumb_down</i></button></li>
+                                <?php
+                              }
+
+                            }
+                          }
+                          ?>
+                            <!-- <li><button type="submit" class="btn-flat"><i class="material-icons white-text">favorite</i></button></li> -->
                             <li><button class="btn-flat modal-trigger" data-target="modal1"><i class="material-icons white-text">library_add</i></button></li>
                         </ul>
+                      </form>
                     </div>
                 </div>
+              <?php } ?>
             </div>
         </div>
         <!-- Modal Structure -->
@@ -120,90 +195,34 @@
           </div>
         </form>
         </div>
+
         <div class="row">
             <div class="col s12 m12 l8 offset-l2">
               <table cellpadding="1" cellspacing="1" class="table white table-hover" id="myTable">
           <tbody>
-            <tr>
-            	<td>Capitulo1</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo2</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo3</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo4</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo5</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo6</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo7</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo8</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo9</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo10</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo11</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo12</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo13</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo14</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo15</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo16</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-              <td>Capitulo17</td>
-              <td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo18</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo19</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
-            <tr>
-            	<td>Capitulo20</td>
-            	<td><a href="#!" class="secondary-content"><i class="material-icons">visibility_off</i></a></td>
-            </tr>
+            <?php
+            $query = mysqli_query($conn, "SELECT id_cap_libro FROM Books_chapter WHERE id_book = '$id_book'");
+            if (mysqli_num_rows($query) > 0) {
+              $count = 1;
+
+              while ($row = mysqli_fetch_assoc($query)) {
+             ?>
+             <tr>
+               <td>
+                  <a href="capitulo.php?id_cap_libro=<?php echo $row['id_cap_libro'];?>"> Capitulo <?php echo $count++; ?></a>
+                    <?php
+                    // $dirname = $row['capitulo'];
+                    // $images = glob( $dirname."*.jpg" );
+                    // foreach($images as $image) {
+                    //   echo '<a>"'.$image.'"</a>';
+                    // }
+                  ?>
+               </td>
+             </tr>
+             <?php
+              }
+            }
+              ?>
             </tbody>
           </table>
                 <!--<button id="btn-read-more" type="button" name="button" class="col s12 m12 l12 btn red white-text">Ver más</button>-->
@@ -218,6 +237,17 @@
                 <i class="large material-icons">keyboard_arrow_up</i>
             </a>
         </div>
+        <?php
+        $query = mysqli_query($conn, "SELECT SUM(like_libro) AS like_libro, SUM(dislike_libro) AS dislike_libro FROM Books_score  WHERE id_book = '$id_book'");
+
+        if (mysqli_num_rows($query) > 0) {
+          while ($row = mysqli_fetch_assoc($query)){
+            // echo 'Likes: '.$row['like_libro'];
+            // echo '<br>';
+            // echo 'Dislikes: '.$row['dislike_libro'];
+          }
+        }
+        ?>
     </main>
     <!--################################-->
     <!--################ FOOTER ################-->
@@ -225,13 +255,37 @@
         <!--################################-->
 
     <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!--Import jQuery before webuiPopover.js-->
     <script src='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js'></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/pinzon1992/materialize_table_pagination/f9a8478f/js/pagination.js"></script>
     <script type="text/javascript" src="scripts/comun.js"></script>
     <script type="text/javascript" src="scripts/contenido.js"></script>
+
+    <script type="text/javascript">
+
+    <?php
+    $query = mysqli_query($conn, "SELECT SUM(like_libro) AS like_libro, SUM(dislike_libro) AS dislike_libro FROM Books_score  WHERE id_book = '$id_book'");
+
+    if (mysqli_num_rows($query) > 0) {
+      while ($row = mysqli_fetch_assoc($query)){
+        ?>
+        var likes = <?php echo $row['like_libro']?>;
+        var dislikes = <?php echo $row['dislike_libro']?>;
+
+        var total = likes+dislikes;
+        var likePerc = (likes/total)*100;
+        var dislikePerc = (dislikes/total)*100;
+
+          $(".likes").css("width", likePerc);
+          $(".dislikes").css("width", dislikePerc);
+        <?php
+      }
+    }
+    ?>
+
+
+    </script>
 
 </body>
 

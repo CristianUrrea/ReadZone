@@ -1,12 +1,59 @@
+.carousel-cell {
+  /* width: 28% !important;
+  height: 200px !important; */
+}
+@media only screen and (min-width: 721px) {
+  .gallery-cell {
+    width: 30% !important;
+    margin-right: 15px;
+  }
+}
 
-.gallery-cell {
+@media only screen and (max-width: 720px) {
+  .gallery-cell {
+    width: 50.1% !important;
+    margin-right: 15px;
+  }
+}
+/* .gallery-cell {
   width: 30% !important;
   margin-right: 15px;
-}
+} */
 .flickity-page-dots {
   bottom: 0px;
   display: none;
 }
 .flickity-prev-next-button {
   margin-top: -5px;
+}
+
+#row-content {
+  margin-top: 20px;
+}
+
+#image-card {
+  padding: 20px;
+}
+
+#edit-row, #edit-row-admin {
+  margin-bottom: -20px;
+}
+
+#edit-settings, #edit-settings-admin {
+  margin-left: -15px;
+}
+
+#text-settings {
+  margin-left: -2.5%;
+}
+
+#text-settings-admin {
+  margin-left: -22px;
+}
+#build-admin {
+  margin-left: -15px;
+}
+
+#text-build {
+  margin-left: -15px;
 }

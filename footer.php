@@ -30,20 +30,20 @@
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="white-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                    <h5 class="white-text">Contenidos</h5>
+                    <p class="white-text text-lighten-4">ReadZone es una base de datos de Mangas entre otros, creada por y para la comunidad. No olvide que gracias a la comunidad de la que formas parte, podemos aumentar esta gran base de datos para el disfrute de todos. Gracias por su visita.</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                    </ul>
+                  <h5>Redes sociales</h5>
+<a href="https://es-es.facebook.com/"><img src="https://img.icons8.com/color/48/000000/facebook.png"></a>
+<a href="http://aboutme.google.com"><img src="https://img.icons8.com/color/48/000000/google-plus.png">
+<a href="http://www.twitter.com"><img src="https://img.icons8.com/color/48/000000/twitter.png">
                 </div>
             </div>
         </div>
         <div class="footer-copyright">
             <div class="container">
-                © 2018 Copyright
-                <a class="white-text text-lighten-4 right" href="#!">More Links</a>
+                © 2018-2019 Copyright
             </div>
         </div>
     </footer>

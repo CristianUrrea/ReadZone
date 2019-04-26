@@ -1,6 +1,9 @@
 <?php
   include('acciones/loginRegistro.php');
-  require 'acciones/adminpass.php';
+  include('acciones/cambiarPass.php');
+  include('acciones/perfil.php');
+  include('acciones/busqueda.php');
+
   if (!isset($_SESSION['username'])) {
       $_SESSION['msg'] = "You must log in first";
       // header('location: index.php');
@@ -42,6 +45,7 @@
 </head>
 <body>
     <header>
+
         <!--################ BAR NAV ################-->
         <nav class="nav-border">
             <div class="row">
@@ -61,19 +65,20 @@
                             <li>
                                 <a class="search-hide" href="wiki.php">Wiki</a>
                             </li>
-                            <li>
-                                <a class="search-hide" href="#">Noticias</a>
-                            </li>
                         </ul>
                     </div>
                     <div class="col s12 m2 l4">
                         <div class="hide-on-med-and-down">
+                          <form action="" method="post">
                             <div id="nav-div-search" class="search-wrapper">
                                 <div class="input-field">
-                                    <input id="input-div-nav-search" type="search" placeholder="Buscar..." class="right searchbarfix white">
+                                    <input id="input-div-nav-search" type="search" name="input-div-nav-search" placeholder="Buscar..." class="right searchbarfix white">
                                     <i id="i-div-nav-search" class="material-icons grey-text">search</i>
+
                                 </div>
                             </div>
+                          </form>
+
                         </div>
                     </div>
                     <div class="col s12 m2 l2 nav-wrapper">
@@ -97,23 +102,63 @@
               <?php include('acciones/errors.php'); ?>
                 <div class="input-field">
                     <i class="material-icons iconis prefix">account_box</i>
-                    <input id="username-login" type="text" name="username-login" placeholder="nombre">
+                    <input id="username-login" type="text" name="username-login" placeholder="email">
                 </div>
 
                 <div class="input-field">
                     <i class="material-icons iconis prefix">lock</i>
                     <input id="userpass-login" type="password" name="userpass-login" placeholder="contraseña">
                 </div>
-                <button id="btn-div-login-form-inicio-sesion" class="btn waves-effect waves-red white-text red" type="submit" name="btn-div-login-form-inicio-sesion">Inciar sesión</button>
+                <button id="btn-div-login-form-inicio-sesion" class="btn waves-effect waves-red white-text modal-trigger red" type="submit" name="btn-div-login-form-inicio-sesion" href="#modal1">Inciar sesión</button>
             </form>
             <br>
             <ul>
                 <li><a href="registro.php">Registrar</a></li>
                 <li>&nbsp</li>
-                <li><a href="#">¿Olvidates tu contraseña? </a></li>
+                <li><a href="recuperar.php">¿Olvidates tu contraseña? </a></li>
             </ul>
         </div>
         <!-- Bar nav mobile -->
+        <?php  if (isset($_SESSION['username'])) {
+          $email_user = $_SESSION['username'];
+          $query = mysqli_query($conn, "SELECT * FROM Users WHERE correo = '$email_user'");
+          if (mysqli_num_rows($query) == 1) {
+            while ($row = mysqli_fetch_assoc($query)){
+          ?>
+          <ul id="mobile-nav" class="sidenav right">
+            <li class="sidenav-header" style="background-image: url(<?php echo $row['imagen_perfil'] ?>); background-position: center; background-repeat: no-repeat; background-size: cover; position: relative;">
+         <div class="row" style="background: rgb(33,150,243, 80%);">
+           <div class="col s4" style="margin-top: 20px;">
+               <img src="<?php echo $row['imagen_perfil']; ?>" width="100" height="100" alt="" class="circle">
+           </div>
+           <div class="col s8" style="margin-top: 85px;">
+               <a class="btn-flat dropdown-button waves-effect waves-light white-text" href="#" data-activates="profile-dropdown"><?php echo $row['nombre']; ?><i class="mdi-navigation-arrow-drop-down right"></i></a>
+           </div>
+         </div>
+       </li>
+       <li>
+         <div class="row">
+             <form action="" method="post">
+               <div id="nav-div-search" class="search-wrapper col s10 offset-s1">
+                   <div class="input-field">
+                       <input id="input-div-nav-search_mobile" type="search" name="input-div-nav-search" placeholder="Buscar..." class="right searchbarfix white">
+                   </div>
+               </div>
+             </form>
+         </div>
+       </li>
+       <li><a href="perfil.php">Perfil</a></li>
+       <li>
+         <a id="a-div-log-out" name="a-div-log-out" href="index.php?logout='1'">logout</a>
+       </li>
+
+          </ul>
+
+        <?php
+          }
+        }
+      } else {
+        ?>
         <ul id="mobile-nav" class="sidenav right">
             <li id="li-nav-login-form">
                 <div id="div-nav-login-form" style="">
@@ -121,7 +166,7 @@
                       <?php include('acciones/errors.php'); ?>
                         <div class="input-field">
                             <i class="material-icons iconis prefix">account_box</i>
-                            <input type="text" name="username-login" placeholder="nombre">
+                            <input type="text" name="username-login" placeholder="email">
                         </div>
                         <div class="input-field">
                             <i class="material-icons iconis prefix">lock</i>
@@ -131,15 +176,17 @@
                     </form>
                     <ul>
                         <li><a style="font-size: 13px;" href="registro.php">Registrar</a></li>
-                        <li><a style="font-size: 13px;" href="#">¿Olvidates tu contraseña? </a></li>
+                        <li><a style="font-size: 13px;" href="recuperar.php">¿Olvidates tu contraseña? </a></li>
                     </ul>
                 </div>
             </li>
             <li><a href="biblioteca.php">Biblioteca</a></li>
-            <li><a href="#">Wiki</a></li>
-            <li><a href="#">Noticas</a></li>
+            <li><a href="wiki.php">Wiki</a></li>
 
         </ul>
+        <?php
+      }
+         ?>
     </header>
     <!--################################-->
 
