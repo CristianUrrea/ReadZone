@@ -12,17 +12,28 @@ if (isset($_SESSION['username'])) {
             while ($row = mysqli_fetch_assoc($query)) {
                 $id_user = $row['id_user'];
                 $id_book = $_REQUEST['id_book'];
-                $nombre_lista = strip_tags($_POST['elegir-lista']);
+                if(empty($_POST['elegir-lista'])){
+                  echo '<script type="text/javascript">alert("¡Seleccione una lista!")</script';
 
-                $query3 = "SELECT * FROM List_books WHERE id_book = '$id_book' AND nombre_lista = '$nombre_lista'";
-                $results = mysqli_query($conn, $query3);
+                } else {
+                  $nombre_lista = strip_tags($_POST['elegir-lista']);
+                  // echo $id_book;
+                  // echo $nombre_lista;
+                  $query3 = mysqli_query($conn, "SELECT * FROM List_books WHERE id_book = '$id_book' AND nombre_lista = '$nombre_lista' AND id_user = '$id_user'");
+                  // $results = mysqli_query($conn, $query3);
+                  if (mysqli_num_rows($query3) > 0) {
+                    while ($row3 = mysqli_fetch_assoc($query3)){
+                      echo '<script type="text/javascript">alert("¡El libro ya está en la lista seleccionada!")</script';
 
-                // if (mysqli_num_rows($results) != $id_book) {
-                //   echo "Repetido";
-                // } else {
+                  }
+                  } else {
+                  echo '<script type="text/javascript">alert("¡Libro añadido!")</script';
                   $query2 = "INSERT INTO List_books (nombre_lista,id_user,id_book) VALUES('$nombre_lista','$id_user','$id_book')";
-                  mysqli_query($conn, $query2);
-                // }
+                   mysqli_query($conn, $query2);
+                  }
+                }
+
+
             }
         }
     }

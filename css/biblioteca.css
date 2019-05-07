@@ -146,12 +146,12 @@
 
 @media only screen and (min-width: 993px) {
   #p-div-title-book {
-    font-size: 13px;
+    font-size: 12px !important;
   }
   .cards-container {
-    -webkit-column-count: 4;
-    -moz-column-count: 4;
-    column-count: 4;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3 !important;
   }
 }
 
@@ -162,6 +162,7 @@
 /*################ SEARCH ADVANCED ################*/
 #example2-pagination {
     margin-bottom: 40px;
+
 }
 .select-wrapper input.select-dropdown {
   border: none !important;

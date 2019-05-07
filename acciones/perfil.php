@@ -2,12 +2,15 @@
 
 // VARIABLES
 require_once("./db/conexiondb.php");
+
 if (isset($_SESSION['username'])) {
+
+
   $user = $_SESSION['username'];
   // INSERTAR DATOS DE PERFIL
   if (isset($_POST['btn-perfil'])) {
     // echo ' <script type="text/javascript">alert("BOTON")</script>';
-    // // $username_profile = mysqli_real_escape_string($conn, $_POST['nombre_usuario_perfil']);
+    $username_profile = $_POST['nombre_usuario_perfil'];
     // // $username_profile = mysqli_real_escape_string($conn, $_POST['nombre_usuario_perfil']);
 
     $birthday_date = $_POST['fecha-cumpleanos'];
@@ -16,8 +19,10 @@ if (isset($_SESSION['username'])) {
     // $birthday_date = strtotime($_POST['fecha-cumpleanos']);
     $date = date("Y-m-d", strtotime($date_birth));
 
-    $query = "UPDATE Users SET fecha_cumpleanos='$date' WHERE correo='$user'";
+    $query = "UPDATE Users SET fecha_cumpleanos='$date', nombre = '$username_profile' WHERE correo='$user'";
     mysqli_query($conn, $query);
+
+    // header('location: nav.php');
 
     // // $gender_user = $_POST['genero'];
     //
@@ -49,7 +54,7 @@ if (isset($_SESSION['username'])) {
   if(isset($_POST['btn-baja-usuario'])){
     $password_confirmar = mysqli_real_escape_string($conn, $_POST['password-confirmar-dar-baja']);
     if(empty($password_confirmar)){
-      echo "vacio";
+      // echo "vacio";
     } else {
       $userpass_encryp = md5($password_confirmar);
       // echo $user.' || '.$userpass_encryp.' || '.$password_confirmar;
@@ -61,18 +66,21 @@ if (isset($_SESSION['username'])) {
 
           echo "password correcta".' '.$de_baja.' '.$user;
 
-
+          //
           $query2 = "UPDATE Users SET estado = '$de_baja' WHERE correo = '$user'";
           mysqli_query($conn, $query2);
+          // header("location: index.php");
           session_destroy();
-          header("location: index.php");
+          echo "<script type='text/javascript'>window.location.replace(\"index.php\");</script>";
 
 
         }
       } else {
-          echo " || password incorrecta";
+        echo '<script type="text/javascript">alert("Password incorrecta");</script>';
       }
     }
   }
+} else {
+  // header('location: index.php');
 
 }

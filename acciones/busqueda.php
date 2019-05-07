@@ -6,7 +6,7 @@ if (isset($_POST['btn-aplicar-cambios'])) {
   if(!empty($_POST['gender_list'])){
   // Loop to store and display values of individual checked checkbox.
     foreach($_POST['gender_list'] as $selected){
-      echo $selected."</br>";
+      // echo $selected."</br>";
     }
   }
 }

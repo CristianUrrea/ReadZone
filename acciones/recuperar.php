@@ -30,7 +30,7 @@ if(isset($_POST['btn-respuesta-submit'])){
 
                 <div id="form-div-input-form" class="row">
                     <div class="input-field col s12">
-                        <input id="nueva-password" type="text" name="nueva-password">
+                        <input id="nueva-password" type="password" name="nueva-password">
                         <label for="nueva-password">Contraseña nueva</label>
                     </div>
                 </div>

@@ -27,15 +27,21 @@
     <main>
         <div class="row">
             <div class="col s12 m12 l12 center">
-                <a hef="#!" class="brand-logo"><i class="material-icons">tag_faces</i></a>
+                <!-- <a hef="#!" class="brand-logo"><i class="material-icons">tag_faces</i></a> -->
             </div>
         </div>
         <div class="row">
             <form id="form-div-registro" class="col s12 m8 l4 offset-l4 offset-m2" action="" method="post">
-              <?php include('acciones/errors.php'); ?>
+
                 <div class="row">
-                    <div class="col s12 m12 l12 center">
+                    <div class="col s12 m12 l12 center red white-text">
                         <h5>Registro</h5>
+                    </div>
+                </div>
+                <div id="form-div-input-form" class="row">
+                    <div class="input-field col s12 red-text">
+                      <?php include('acciones/errors.php'); ?>
+
                     </div>
                 </div>
                 <div id="form-div-input-form" class="row">
@@ -66,10 +72,10 @@
                   <div class="input-field col s12 m12">
                     <select name="preguntas">
                       <option value="" disabled selected>Seleccione una pregunta*</option>
-                      <option value="¿Cual es el nombre de tu mascota?">¿Cual es el nombre de tu mascota?</option>
-                      <option value="¿Cual es el nombre de tu mejor amigo?">¿Cual es el nombre de tu mejor amigo?</option>
+                      <option value="¿Cual es el nombre de tu mascota?">¿Cuál es el nombre de tu mascota?</option>
+                      <option value="¿Cual es el nombre de tu mejor amigo?">¿Cuál es el nombre de tu mejor amigo?</option>
                       <option value="¿En que ciudad naciste?pregunta3">¿En que ciudad naciste?</option>
-                      <option value="¿Que juego es tu favorito">¿Que juego es tu favorito?</option>
+                      <option value="¿Que juego es tu favorito">¿Qué juego es tu favorito?</option>
                     </select>
                   </div>
                 </div>
@@ -82,7 +88,7 @@
                 <div id="form-div-input-form" class="row">
                     <div class="col s12 m12">
                       <label>
-                        <input type="checkbox" class="filled-in" class="validate">
+                        <input type="checkbox" class="filled-in" name="termsconditions" class="validate">
                         <span>Aceptar términos y condiciones*</span>
                       </label>
                     </div>
@@ -106,6 +112,7 @@
     <!--Import jQuery before webuiPopover.js-->
     <script src='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js'></script>
     <script type="text/javascript" src="scripts/registro.js"></script>
+
 </body>
 
 </html>

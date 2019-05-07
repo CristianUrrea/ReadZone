@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+session_start();
+
+ ?>
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
@@ -25,7 +29,11 @@
 
 <body>
     <!--################ NAV ################-->
-    <?php include 'nav.php';?>
+    <?php
+
+     include 'nav.php';
+
+     ?>
         <!--################################-->
 
         <main>
@@ -60,12 +68,13 @@
                               while ($row2 = mysqli_fetch_assoc($query2)){
                                 // echo $row2['titulo'];
                          ?>
-                        <a href="contenido.php">
-                            <div class="carousel-item orange white-text" href="#four!" >
-                                <h2>Primera Novela</h2>
+                            <div class="carousel-item">
+                              <div class="col s12 l12 white-text" style="position: absolute; background: rgb(244,67,54, 90%); ">
+                                <h2>Novela Popular</h2>
+
+                              </div>
                                 <a href="contenido.php?id_book=<?php echo $row2['id_book']; ?>"><img src="<?php echo $row2['imagen'] ?>" alt="" height="100%" width="100%"></a>
                             </div>
-                        </a>
                         <?php
                           }
                         }
@@ -83,13 +92,14 @@
                                while ($row2 = mysqli_fetch_assoc($query2)){
                                  // echo $row2['titulo'];
                           ?>
-                          <a href="contenido.php">
-                              <div class="carousel-item green white-text" href="#four!">
-                                  <h2>Primer Manga</h2>
+                              <div class="carousel-item">
+                                <div class="col s12 l12 white-text" style="position: absolute; background: rgb(244,67,54, 90%); ">
+                                  <h2>Manga popular</h2>
+
+                                </div>
                                   <a href="contenido.php?id_book=<?php echo $row2['id_book']; ?>">
                                     <img src="<?php echo$row2['imagen'] ?>" alt="" height="100%" width="100%"></a>
                               </div>
-                          </a>
                          <?php
                            }
                          }
@@ -107,12 +117,13 @@
                                 while ($row2 = mysqli_fetch_assoc($query2)){
                                   // echo $row2['titulo'];
                            ?>
-                           <a href="contenido.php">
-                               <div class="carousel-item grey white-text" href="#four!">
-                                   <h2>Primer comic</h2>
+                               <div class="carousel-item">
+                                 <div class="col s12 l12 white-text" style="position: absolute; z-index: 1; background: rgb(244,67,54, 90%); ">
+                                   <h2>Comic popular</h2>
+
+                                 </div>
                                    <a href="contenido.php?id_book=<?php echo $row2['id_book']; ?>"><img src="<?php echo $row2['imagen'] ?>" alt="" height="100%" width="100%"></a>
                                </div>
-                           </a>
                           <?php
                             }
                           }
@@ -126,8 +137,8 @@
                 </div>
                 <!--################ RECOMENDATIONS NOVELAS ################-->
                 <div id="div-content-recomendations" class="row">
-                  <div id="div-content-recomendations-title" class="col s12 m12 l8 offset-l2">
-                      <h5>Recomendaciones novelas</h5>
+                  <div id="div-content-recomendations-title" class="col s12 m12 l8 offset-l2 red lighten-1 white-text ">
+                      <h5 style="margin-left: 20px;">Recomendaciones novelas</h5>
                   </div>
 
                     <div id="div-content-recomendations-gallery" class="col s12 m12 l8 offset-l2 colgallery js-flickity white" data-flickity-options='{ "wrapAround": true }'>
@@ -153,8 +164,8 @@
                       ?>
                     </div>
                     <!--################ RECOMENDATIONS MANGAS ################-->
-                    <div id="div-content-recomendations-title" class="col s12 m12 l8 offset-l2">
-                        <h5>Recomendaciones mangas</h5>
+                    <div id="div-content-recomendations-title" class="col s12 m12 l8 offset-l2 red lighten-1 white-text">
+                        <h5 style="margin-left: 20px;">Recomendaciones mangas</h5>
                     </div>
                     <div id="div-content-recomendations-gallery" class="col s12 m12 l8 offset-l2 colgallery js-flickity white" data-flickity-options='{ "wrapAround": true }'>
                       <?php
@@ -179,8 +190,8 @@
                       ?>
                     </div>
                     <!--################ RECOMENDATIONS COMICS ################-->
-                    <div id="div-content-recomendations-title" class="col s12 m12 l8 offset-l2">
-                        <h5>Recomendaciones comics</h5>
+                    <div id="div-content-recomendations-title" class="col s12 m12 l8 offset-l2 red lighten-1 white-text">
+                        <h5 style="margin-left: 20px;">Recomendaciones comics</h5>
                     </div>
                     <div id="div-content-recomendations-gallery" class="col s12 m12 l8 offset-l2 colgallery js-flickity white" data-flickity-options='{ "wrapAround": true }'>
                       <?php

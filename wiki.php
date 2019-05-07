@@ -32,7 +32,10 @@
 
 <body>
     <!--################ NAV ################-->
-    <?php include 'nav.php'; ?>
+    <?php
+    session_start();
+
+     include 'nav.php'; ?>
         <!--################################-->
 
         <main>
@@ -218,6 +221,12 @@
                   </div>
               </div>
             </div>
+          </div>
+          <!-- Back to top -->
+          <div class="fixed-action-btn">
+              <a id="back-to-top" class="btn-floating btn-large red scale-transition">
+                  <i class="large material-icons">keyboard_arrow_up</i>
+              </a>
           </div>
         </main>
         <!--################################-->

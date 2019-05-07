@@ -12,7 +12,7 @@ if(isset($_POST['btn-respuesta-submit'])){
     while ($row = mysqli_fetch_assoc($query)) {
       $respuesta_correcta = $row['respuesta'];
       $_SESSION['respuesta'] = $respuesta_correcta;
-      echo $respuesta_correcta;
+      // echo $respuesta_correcta;
       $query = "UPDATE Users SET estado = 0 WHERE correo='$email' AND respuesta = '$respuesta'";
       mysqli_query($conn, $query);
       $_SESSION['username'] = $email;
@@ -20,7 +20,7 @@ if(isset($_POST['btn-respuesta-submit'])){
       header('location: index.php');
     }
   } else {
-    echo "la respuesta no es correcta";
+    echo '<script type="text/javascript">alert("La respuesta es incorrecta");</script>';
   }
 }
 

@@ -28,10 +28,13 @@
   #list_genders li{
     display: inline;
   }
+
 </style>
 <body>
   <!--################ NAV ################-->
   <?php
+  session_start();
+
     // require_once("db/conexiondb.php");
     $id_book=$_REQUEST['id_book'];
 
@@ -50,13 +53,13 @@
                   if (mysqli_num_rows($query) > 0) {
                       while ($row = mysqli_fetch_assoc($query)) {
                           ?>
-                    <div class="card-image" style="width: 200px;">
+                    <div class="card-image center" style="">
 
-                        <img id="image-div-content-type-book" src="<?php echo $row['imagen']; ?>" class="center" height="200px">
-                        <div class="card-content center">
+                        <img id="image-div-content-type-book" src="<?php echo $row['imagen']; ?>" class="" width="200px"height="200px">
+                        <div class="card-content">
                             <p><?php echo $row['titulo']; ?></p>
                         </div>
-                        <div class='progressBar'>
+                        <div class='progressBar' style="margin: 0px; margin-left: 15%;">
                              <div class='likes'></div>
                              <div class='dislikes'></div>
                         </div>
@@ -70,15 +73,15 @@
                             <b>Generos</b>
                             <ul id="list_genders">
                               <?php
-                              $query = mysqli_query($conn, "SELECT * FROM Books_genders WHERE id_book = '$id_book'");
-                              if (mysqli_num_rows($query) > 0) {
-                                while ($row = mysqli_fetch_assoc($query)) {
-                                  $id_genero = $row['id_genero'];
-                                  $query2 = mysqli_query($conn, "SELECT * FROM Genders WHERE id_genero = '$id_genero'");
-                                  if (mysqli_num_rows($query2) > 0) {
-                                    while ($row2 = mysqli_fetch_assoc($query2)) {
+                              $query2 = mysqli_query($conn, "SELECT * FROM Books_genders WHERE id_book = '$id_book'");
+                             if (mysqli_num_rows($query2) > 0) {
+                               while ($row2 = mysqli_fetch_assoc($query2)) {
+                                 $id_genero = $row2['id_genero'];
+                                 $query3 = mysqli_query($conn, "SELECT * FROM Genders WHERE id_genero = '$id_genero'");
+                                 if (mysqli_num_rows($query3) > 0) {
+                                   while ($row3 = mysqli_fetch_assoc($query3)) {
                                ?>
-                               <li style="margin-right: 20px;"><?php echo $row2['nombre']; ?></li>
+                               <li style="margin-right: 20px;"><?php echo $row3['nombre']; ?></li>
                                <?php
                                     }
                                   }
@@ -87,6 +90,7 @@
                                 ?>
                             </ul>
                             <b>Autor</b>
+                            <p><?php echo $row['autor'] ?></p>
                         </div>
                     </div>
                     <?php
@@ -114,16 +118,16 @@
                                   $like = $row2['like_libro'];
                                   $dislike = $row2['dislike_libro'];
                                   if($like == 1){
-                                    echo 'like';
+                                    // echo 'like';
                                     ?>
-                                    <li><button type="submit" class="btn-flat" name="btn-like-book-update"><i class="material-icons white-text">thumb_up</i></button></li>
+                                    <li><button type="submit" class="btn-flat" name="btn-like-book-update"><i class="material-icons green-text text-darken-3">thumb_up</i></button></li>
                                     <li><button type="submit" class="btn-flat" name="btn-dislike-book-update"><i class="material-icons white-text">thumb_down</i></button></li>
                                     <?php
                                   } else if($dislike == 1){
-                                    echo 'dislike';
+                                    // echo 'dislike';
                                     ?>
                                     <li><button type="submit" class="btn-flat" name="btn-like-book-update"><i class="material-icons white-text">thumb_up</i></button></li>
-                                    <li><button type="submit" class="btn-flat" name="btn-dislike-book-update"><i class="material-icons white-text">thumb_down</i></button></li>
+                                    <li><button type="submit" class="btn-flat" name="btn-dislike-book-update"><i class="material-icons green-text text-darken-3">thumb_down</i></button></li>
                                     <?php
                                   } else if($like == 0 && $dislike == 0){
                                     ?>
@@ -142,7 +146,7 @@
                             }
                           }
                           ?>
-                            <li><button type="submit" class="btn-flat"><i class="material-icons white-text">favorite</i></button></li>
+                            <!-- <li><button type="submit" class="btn-flat"><i class="material-icons white-text">favorite</i></button></li> -->
                             <li><button class="btn-flat modal-trigger" data-target="modal1"><i class="material-icons white-text">library_add</i></button></li>
                         </ul>
                       </form>
@@ -240,9 +244,9 @@
 
         if (mysqli_num_rows($query) > 0) {
           while ($row = mysqli_fetch_assoc($query)){
-            echo 'Likes: '.$row['like_libro'];
-            echo '<br>';
-            echo 'Dislikes: '.$row['dislike_libro'];
+            // echo 'Likes: '.$row['like_libro'];
+            // echo '<br>';
+            // echo 'Dislikes: '.$row['dislike_libro'];
           }
         }
         ?>

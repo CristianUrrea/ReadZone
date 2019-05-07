@@ -1,11 +1,11 @@
 
 /*################ MAIN ################*/
-#div-row-edit-profile {
+#div-row-edit-profile, #div-row-edit-profile-general {
   margin-top: 20px;
 }
 /*################ FORMULARIO ################*/
 
-#form-div-perfil {
+#form-div-perfil, #form-div-perfil-general {
   background-color: white;
   border-radius: 5px;
   border: solid 1px;

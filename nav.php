@@ -1,23 +1,3 @@
-<?php
-  include('acciones/loginRegistro.php');
-  include('acciones/cambiarPass.php');
-  include('acciones/perfil.php');
-  include('acciones/busqueda.php');
-
-  if (!isset($_SESSION['username'])) {
-      $_SESSION['msg'] = "You must log in first";
-      // header('location: index.php');
-      // echo ' <script type="text/javascript">alert("No logeado")</script>';
-  } else {
-      // echo ' <script type="text/javascript">alert("Logeado")</script>';
-  }
-  if (isset($_GET['logout'])) {
-      session_destroy();
-      unset($_SESSION['username']);
-      header("location: index.php");
-  }
-  require_once("db/conexiondb.php");
-?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <style media="screen">
@@ -43,6 +23,33 @@
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
+<?php
+// session_start();
+
+require_once("db/conexiondb.php");
+include('acciones/loginRegistro.php');
+include('acciones/busqueda.php');
+
+  //
+  // if (isset($_SESSION['username'])) {
+  //     // $_SESSION['msg'] = "You must log in first";
+  //     // header('location: perfil.php');
+  //
+  //
+  //     echo ' <script type="text/javascript">alert("Logeado")</script>';
+  // } else {
+  //     // echo ' <script type="text/javascript">alert("Logeado")</script>';
+  //     // include('acciones/cambiarPass.php');
+  //     // include('acciones/perfil.php');
+  //     // include('acciones/busqueda.php');
+  // }
+  if (isset($_GET['logout'])) {
+      session_destroy();
+      unset($_SESSION['username']);
+      header("location: index.php");
+  }
+
+?>
 <body>
     <header>
 
@@ -65,9 +72,6 @@
                             <li>
                                 <a class="search-hide" href="wiki.php">Wiki</a>
                             </li>
-                            <li>
-                                <a class="search-hide" href="#">Noticias</a>
-                            </li>
                         </ul>
                     </div>
                     <div class="col s12 m2 l4">
@@ -89,7 +93,7 @@
                           <?php  if (isset($_SESSION['username'])) {?>
                             <li style="color: black; margin-left: -35px;"><a href="perfil.php"><i class="material-icons">person</i></a></li>
                             <li>
-                                <a id="a-div-log-out" name="a-div-log-out" href="index.php?logout='1'">logout</a>
+                                <a id="a-div-log-out" name="a-div-log-out" href="index.php?logout">logout</a>
                               <?php } else { ?>
                                 <a id="a-div-login" href="#">Login</a>
                               <?php } ?>
@@ -102,7 +106,7 @@
         <!-- Div content login -->
         <div id="div-nav-login-form" class="webui-popover-content">
             <form action="index.php" method="post">
-              <?php include('acciones/errors.php'); ?>
+              <span class="red-text"><?php include('acciones/errors.php'); ?></span>
                 <div class="input-field">
                     <i class="material-icons iconis prefix">account_box</i>
                     <input id="username-login" type="text" name="username-login" placeholder="email">
@@ -122,6 +126,46 @@
             </ul>
         </div>
         <!-- Bar nav mobile -->
+        <?php  if (isset($_SESSION['username'])) {
+          $email_user = $_SESSION['username'];
+          $query = mysqli_query($conn, "SELECT * FROM Users WHERE correo = '$email_user'");
+          if (mysqli_num_rows($query) == 1) {
+            while ($row = mysqli_fetch_assoc($query)){
+          ?>
+          <ul id="mobile-nav" class="sidenav right">
+            <li class="sidenav-header" style="background-image: url(<?php echo $row['imagen_perfil'] ?>); background-position: center; background-repeat: no-repeat; background-size: cover; position: relative;">
+         <div class="row" style="background: rgb(33,150,243, 60%);">
+           <div class="col s4" style="margin-top: 20px;">
+               <img src="<?php echo $row['imagen_perfil']; ?>" width="100" height="100" alt="" class="circle">
+           </div>
+           <div class="col s8" style="margin-top: 85px;">
+               <a class="btn-flat dropdown-button waves-effect waves-light white-text" href="#" data-activates="profile-dropdown"><?php echo $row['nombre']; ?><i class="mdi-navigation-arrow-drop-down right"></i></a>
+           </div>
+         </div>
+       </li>
+       <li>
+         <div class="row">
+             <form action="" method="post">
+               <div id="nav-div-search" class="search-wrapper col s10 offset-s1">
+                   <div class="input-field">
+                       <input id="input-div-nav-search_mobile" type="search" name="input-div-nav-search" placeholder="Buscar..." class="right searchbarfix white">
+                   </div>
+               </div>
+             </form>
+         </div>
+       </li>
+       <li><a href="perfil.php">Perfil</a></li>
+       <li>
+         <a id="a-div-log-out" name="a-div-log-out" href="index.php?logout='1'">logout</a>
+       </li>
+
+          </ul>
+
+        <?php
+          }
+        }
+      } else {
+        ?>
         <ul id="mobile-nav" class="sidenav right">
             <li id="li-nav-login-form">
                 <div id="div-nav-login-form" style="">
@@ -139,15 +183,17 @@
                     </form>
                     <ul>
                         <li><a style="font-size: 13px;" href="registro.php">Registrar</a></li>
-                        <li><a style="font-size: 13px;" href="#">¿Olvidates tu contraseña? </a></li>
+                        <li><a style="font-size: 13px;" href="recuperar.php">¿Olvidates tu contraseña? </a></li>
                     </ul>
                 </div>
             </li>
             <li><a href="biblioteca.php">Biblioteca</a></li>
-            <li><a href="#">Wiki</a></li>
-            <li><a href="#">Noticas</a></li>
+            <li><a href="wiki.php">Wiki</a></li>
 
         </ul>
+        <?php
+      }
+         ?>
     </header>
     <!--################################-->
 

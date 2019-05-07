@@ -2,16 +2,29 @@
   /* width: 28% !important;
   height: 200px !important; */
 }
-.gallery-cell {
+@media only screen and (min-width: 721px) {
+  .gallery-cell {
+    width: 30% !important;
+    margin-right: 15px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .gallery-cell {
+    width: 50.1% !important;
+    margin-right: 15px;
+  }
+}
+/* .gallery-cell {
   width: 30% !important;
   margin-right: 15px;
-}/*
+} */
 .flickity-page-dots {
-  /* bottom: 0px;
-  display: none; */
+  bottom: 0px;
+  display: none;
 }
 .flickity-prev-next-button {
-  /* margin-top: -5px; */
+  margin-top: -5px;
 }
 
 #row-content {

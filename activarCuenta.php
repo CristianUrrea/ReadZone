@@ -67,7 +67,7 @@ session_start();
         $query = mysqli_query($conn, "SELECT * FROM Users WHERE correo = '$email'");
         if (mysqli_num_rows($query) == 1) {
           while ($row = mysqli_fetch_assoc($query)) {
-            echo $row['nombre'];
+            // echo $row['nombre'];
             ?>
             <style media="screen">
               .div-introducir-email {
