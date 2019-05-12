@@ -15,7 +15,7 @@ if (isset($_SESSION['username'])) {
                 if(empty($_POST['elegir-lista'])){
                   // echo '<script type="text/javascript">alert("¡Seleccione una lista!")</script';
 
-                  echo '<script type="text/javascript">M.toast({html: `¡Seleccione una lista!`, classes: `rounded red`})</script>';
+                  echo '<script type="text/javascript">M.toast({html: `¡Seleccione una lista!`, classes: `red`, inDuration: 1000, displayLength: 2000})</script>';
 
                 } else {
                   $nombre_lista = strip_tags($_POST['elegir-lista']);
@@ -26,11 +26,11 @@ if (isset($_SESSION['username'])) {
                   if (mysqli_num_rows($query3) > 0) {
                     while ($row3 = mysqli_fetch_assoc($query3)){
                       // echo '<script type="text/javascript">alert("¡El libro ya está en la lista seleccionada!")</script';
-                      echo '<script type="text/javascript">M.toast({html: `¡El libro ya está en la lista seleccionada!`, classes: `rounded red`})</script';
+                      echo '<script type="text/javascript">M.toast({html: `¡El libro ya está en la lista seleccionada!`, classes: `red`, inDuration: 1000, displayLength: 2000})</script>';
 
                   }
                   } else {
-                    echo '<script type="text/javascript">M.toast({html: `¡Libro añadido!`, classes: `rounded green`})</script';
+                    echo '<script type="text/javascript">M.toast({html: `¡Libro añadido!`, classes: `green`, inDuration: 1000, displayLength: 2000})</script>';
 
                   // echo '<script type="text/javascript">alert("¡Libro añadido!")</script';
                   $query2 = "INSERT INTO List_books (nombre_lista,id_user,id_book) VALUES('$nombre_lista','$id_user','$id_book')";
@@ -200,7 +200,8 @@ if (isset($_SESSION['username'])) {
                   while($row4 = mysqli_fetch_assoc($query4)){
                     $like = $row4['like_libro'];
                     $id_book2 = $row4['id_book'];
-                    // echo '<script type="text/javascript">alert('.$like.')</script>'.'AQUI RESTA';
+                    // echo '<script type="text/javascript">alert('.$like.')</script>'.'AQUI NO RESTA';
+                    echo '<script type="text/javascript">M.toast({html: `¡Like!`, classes: `green`, inDuration: 1000, displayLength: 2000})</script>';
 
                     $query6 = mysqli_query($conn, "SELECT * FROM Books WHERE id_book = $id_book2");
                     if (mysqli_num_rows($query6) > 0) {
@@ -232,6 +233,8 @@ if (isset($_SESSION['username'])) {
             while ($row2 = mysqli_fetch_assoc($query2)){
                 $id_book = $row2['id_book'];
                 // echo $id_book;
+                echo '<script type="text/javascript">M.toast({html: `¡Dislike!`, classes: `red`, inDuration: 1000, displayLength: 2000})</script>';
+
                 $query3 = "UPDATE Books_score SET dislike_libro = '1' WHERE id_book = '$id_book' AND id_user = '$id_user'";
                 mysqli_query($conn, $query3);
             }

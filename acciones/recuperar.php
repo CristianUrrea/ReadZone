@@ -46,7 +46,7 @@ if(isset($_POST['btn-respuesta-submit'])){
 
     }
   } else {
-    echo "la respuesta no es correcta";
+    echo '<script type="text/javascript">alert("Respuesta incorrecta!")</script>';
   }
 }
 

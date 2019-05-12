@@ -66,6 +66,7 @@
 
     ?>
         <!--################################-->
+        
         <main>
             <div id="row-content" class="row">
                 <div class="col s12 m12 l8 offset-l2">
@@ -89,13 +90,13 @@
                                   while ($row = mysqli_fetch_assoc($query)) {
                                       ?>
                             <div id="image-card" class="card-image">
-                                <img src="<?php echo $row['imagen_perfil'] ?>" height="200" width="200" class="fadeIn center" style="border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
+                                <img src="<?php echo $row['imagen_perfil'] ?>" class="circle fadeIn center" height="200" width="200">
                                   <div id="edit-row"class="row">
                                     <a href="editPerfil.php">
                                         <div id="edit-settings" class="col s2 m2 l2 card-content">
                                             <i class="material-icons red-text">settings</i>
                                         </div>
-                                        <div id="text-settings" class="col s9 m8 l8 card-content center">
+                                        <div id="text-settings" class="col s9 m8 l8 card-content left">
                                             <p>Editar perfil</p>
                                         </div>
                                     </a>
@@ -143,9 +144,9 @@
                                      if (mysqli_num_rows($query) > 0) {
                                          while ($row = mysqli_fetch_assoc($query)) {
                                              ?>
-                                            <span class="card-title"><img src="https://img.icons8.com/material/24/000000/user.png" style="position: absolute; margin-top: 3px;"><span style="margin-left: 4%;">: <?php echo $row['nombre']?></span></span>
+                                            <span class="card-title"><img src="https://img.icons8.com/material/24/000000/user.png" style="position: absolute; margin-top: 3px;"><span style="margin-left: 10%;"><?php echo $row['nombre']?></span></span>
 <br>
-                                            <p><img src="https://img.icons8.com/material/24/000000/birthday.png" style="position: absolute; margin-top: -5px;"><span style="margin-left: 4%;">: <?php echo $row['fecha_cumpleanos']?></span></p>
+                                            <p><img src="https://img.icons8.com/material/24/000000/birthday.png" style="position: absolute; margin-top: -5px;"><span style="margin-left: 10%;"><?php echo $row['fecha_cumpleanos']?></span></p>
                                             <?php
                                          }
                                      }
@@ -184,8 +185,8 @@
                     </div>
                     </div>
                     <!-- <ul class="cards-container"> -->
-                  
-                    <div id="<?php echo $row2['nombre_lista'] ?>" class="col s12 m12 l12 colgallery card provando" style="" data-flickity='{ "freeScroll": true, "groupCells": true }'>
+
+                    <div id="<?php echo $row2['nombre_lista'] ?>" class="col s12 m12 l12 colgallery card provando" data-flickity='{ "freeScroll": true, "groupCells": true }'>
                     <?php
                     $nombre_lista = $row2['nombre_lista'];
                     $query3 = mysqli_query($conn, "SELECT nombre_lista, id_book FROM List_books WHERE id_user = '$id_user' AND nombre_lista = '$nombre_lista'");

@@ -2,9 +2,10 @@
 require_once("./db/conexiondb.php");
 
 if (isset($_POST["btn-insertar-libro"])) {
-  if(empty($_POST['titulo_libro']) || empty($_POST['checked_id'])){
-    echo '<script type="text/javascript">alert("Seleccione el tipo de libro y los generos")</script>';
+  if(empty($_POST['titulo_libro']) || empty($_POST['checked_id']) || empty($_POST['tipo-libro'])){
+    echo '<script type="text/javascript">alert("Seleccione el tipo de libro, el titulo y los generos")</script>';
   } else {
+
     $tipo_libro = strip_tags($_POST["tipo-libro"]);
     $titulo = $_POST["titulo_libro"];
     $descripcion = $_POST["descripcion"];
@@ -14,6 +15,8 @@ if (isset($_POST["btn-insertar-libro"])) {
     $destino = "./imagenes/libros/".$_FILES['fileimgbook']['name'];
     $idArr = $_POST['checked_id'];
     move_uploaded_file($archivo, $destino);
+    echo '<script type="text/javascript">alert("¡Libro insertado!")</script>';
+
     mysqli_query($conn, "INSERT INTO Books (id_book, tipo, titulo, descripcion, autor, imagen) VALUES ('','$tipo_libro','$titulo','$descripcion','$autor','$destino')");
     $query = mysqli_query($conn, "SELECT * FROM Books WHERE titulo = '$titulo'");
     if (mysqli_num_rows($query) > 0) {
@@ -21,6 +24,7 @@ if (isset($_POST["btn-insertar-libro"])) {
         $id_book = $row['id_book'];
         foreach ($idArr as $id) {
           $query1 = mysqli_query($conn, "INSERT INTO Books_genders (id_book, id_genero) VALUES ($id_book,$id)");
+
           mysqli_query($conn, $query1);
         }
       }
@@ -51,6 +55,8 @@ if (isset($_POST['btn-update-libro'])){
           $destino = "./imagenes/libros/".$_FILES['fileimgbookedit']['name'];
           // mysqli_query($conn, "INSERT INTO Books (imagen) VALUES ('$destino')");
           // move_uploaded_file($archivo, $destino);
+          echo '<script type="text/javascript">alert("¡Libro actualizado!")</script>';
+
           $query7 = "UPDATE Books SET tipo = '$tipo_libro', titulo = '$titulo_libro', descripcion = '$descripcion', autor = '$autor' WHERE id_book='$id_book_edit'";
           mysqli_query($conn, $query7);
 
@@ -58,6 +64,7 @@ if (isset($_POST['btn-update-libro'])){
           $archivo = $_FILES['fileimgbookedit']['tmp_name'];
           $destino = "./imagenes/libros/".$_FILES['fileimgbookedit']['name'];
           // mysqli_query($conn, "INSERT INTO Books (imagen) VALUES ('$destino')");
+          echo '<script type="text/javascript">alert("¡Libro actualizado!")</script>';
           move_uploaded_file($archivo, $destino);
           $query7 = "UPDATE Books SET tipo = '$tipo_libro', titulo = '$titulo_libro', descripcion = '$descripcion', autor = '$autor', imagen = '$destino' WHERE id_book='$id_book_edit'";
           mysqli_query($conn, $query7);
@@ -164,7 +171,7 @@ if (isset($_POST['btn-insertar-genero'])) {
 }
 if (isset($_POST['btn-insert-chapter-libro'])) {
   // echo 'boton insertar capitulo';
-  if(empty($_POST['titulo_libro2'])){
+  if(empty($_POST['titulo-libro-2'])){
     echo '<script type="text/javascript">alert("¡Seleccione un libro!")</script>';
 
   } else {

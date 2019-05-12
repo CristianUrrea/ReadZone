@@ -28,7 +28,36 @@
   #list_genders li{
     display: inline;
   }
+  #toast-container {
+    top: auto !important;
+    left: auto !important;
+    bottom: 10%;
+    left:7%;
+  }
+  .material-icons {
+    height: 36px;
+    width: 35px;
 
+  }
+  .material-icons:hover {
+    animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+  }
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
 </style>
 <body>
   <!--################ NAV ################-->
@@ -53,13 +82,13 @@
                   if (mysqli_num_rows($query) > 0) {
                       while ($row = mysqli_fetch_assoc($query)) {
                           ?>
-                    <div class="card-image center" style="">
+                    <div class="card-image" style="">
 
-                        <img id="image-div-content-type-book" src="<?php echo $row['imagen']; ?>" class="" width="200px"height="200px">
-                        <div class="card-content">
+                        <img id="image-div-content-type-book" src="<?php echo $row['imagen']; ?>" class="fade" style="height: 225px; width: 300px;">
+                        <div class="card-content center">
                             <p><?php echo $row['titulo']; ?></p>
                         </div>
-                        <div class='progressBar' style="margin: 0px; margin-left: 15%;">
+                        <div class='progressBar'>
                              <div class='likes'></div>
                              <div class='dislikes'></div>
                         </div>
@@ -120,26 +149,26 @@
                                   if($like == 1){
                                     // echo 'like';
                                     ?>
-                                    <li><button type="submit" class="btn-flat" name="btn-like-book-update"><i class="material-icons green-text text-darken-3">thumb_up</i></button></li>
-                                    <li><button type="submit" class="btn-flat" name="btn-dislike-book-update"><i class="material-icons white-text">thumb_down</i></button></li>
+                                    <li><button type="submit" class="btn-flat" name="btn-like-book-update"><i class="material-icons white circle green-text text-green" >thumb_up</i></button></li>
+                                    <li><button type="submit" class="btn-flat" name="btn-dislike-book-update"><i class="material-icons white circle red-text">thumb_down</i></button></li>
                                     <?php
                                   } else if($dislike == 1){
                                     // echo 'dislike';
                                     ?>
-                                    <li><button type="submit" class="btn-flat" name="btn-like-book-update"><i class="material-icons white-text">thumb_up</i></button></li>
-                                    <li><button type="submit" class="btn-flat" name="btn-dislike-book-update"><i class="material-icons green-text text-darken-3">thumb_down</i></button></li>
+                                    <li><button type="submit" class="btn-flat" name="btn-like-book-update"><i class="material-icons white circle red-text">thumb_up</i></button></li>
+                                    <li><button type="submit" class="btn-flat" name="btn-dislike-book-update"><i class="material-icons white circle red-text text-darken-4">thumb_down</i></button></li>
                                     <?php
                                   } else if($like == 0 && $dislike == 0){
                                     ?>
-                                    <li><button type="submit" class="btn-flat" name="btn-like-book-update-two"><i class="material-icons white-text">thumb_up</i></button></li>
-                                    <li><button type="submit" class="btn-flat" name="btn-dislike-book-update-two"><i class="material-icons white-text">thumb_down</i></button></li>
+                                    <li><button type="submit" class="btn-flat" name="btn-like-book-update-two"><i class="material-icons white circle red-text">thumb_up</i></button></li>
+                                    <li><button type="submit" class="btn-flat" name="btn-dislike-book-update-two"><i class="material-icons white circle red-text">thumb_down</i></button></li>
                                     <?php
                                   }
                                 }
                               } else {
                                 ?>
-                                <li><button type="submit" class="btn-flat" id="btn-like-book" name="btn-like-book"><i class="material-icons white-text">thumb_up</i></button></li>
-                                <li><button type="submit" class="btn-flat" id="btn-dislike-book" name="btn-dislike-book"><i class="material-icons white-text">thumb_down</i></button></li>
+                                <li><button type="submit" class="btn-flat" id="btn-like-book" name="btn-like-book"><i class="material-icons white circle red-text">thumb_up</i></button></li>
+                                <li><button type="submit" class="btn-flat" id="btn-dislike-book" name="btn-dislike-book"><i class="material-icons white circle red-text">thumb_down</i></button></li>
                                 <?php
                               }
 
@@ -147,7 +176,7 @@
                           }
                           ?>
                             <!-- <li><button type="submit" class="btn-flat"><i class="material-icons white-text">favorite</i></button></li> -->
-                            <li><button class="btn-flat modal-trigger" data-target="modal1"><i class="material-icons white-text">library_add</i></button></li>
+                            <li><button class="btn-flat modal-trigger" data-target="modal1"><i class="material-icons white circle red-text">library_add</i></button></li>
                         </ul>
                       </form>
                     </div>
@@ -276,8 +305,8 @@
         var dislikes = <?php echo $row['dislike_libro']?>;
 
         var total = likes+dislikes;
-        var likePerc = (likes/total)*100;
-        var dislikePerc = (dislikes/total)*100;
+        var likePerc = (likes/total)*200;
+        var dislikePerc = (dislikes/total)*200;
 
           $(".likes").css("width", likePerc);
           $(".dislikes").css("width", dislikePerc);

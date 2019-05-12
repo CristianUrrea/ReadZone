@@ -38,6 +38,13 @@
          display: inline;
          float: none;
        } */
+       #input-div-search:hover::placeholder {
+         color: red;
+       }
+       #input-div-search:hover{
+         border: 1px solid #f44336;
+
+       }
      </style>
 </head>
 
@@ -161,7 +168,7 @@
             </div>
           </div>
             <div class="row">
-                <div id="div-biblioteca" class="col s12 m12 l8 offset-l2 white">
+                <div id="div-biblioteca" class="col s12 m12 l8 offset-l2 white center">
                   <ul id="example2" class="cards-container">
                   <?php
                   if(!isset($_COOKIE["titulo_libro"])) {
