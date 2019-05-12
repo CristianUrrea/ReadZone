@@ -52,35 +52,25 @@ if (isset($_POST['btn-nueva-lista'])) {
           // echo $id_book_request;
           $query7 = "UPDATE List_books SET id_book = NULL WHERE nombre_lista = $nombre_lista_request AND id_user = '$id_user' AND id_book = '$id_book_request'";
           mysqli_query($conn, $query7);
+          echo "<script type='text/javascript'>window.location.replace(\"perfil.php\");</script>";
 
         }
       }
     }
 
 
+    ################################################## UPDATE NAME LISTA ##################################################
 
 
-  if(isset($_POST['btn-nueva-lista-update'])){
-      // echo ' <script type="text/javascript">alert("update")</script>';
-      // $query = mysqli_query($conn, "SELECT id_user FROM Users  WHERE correo = '$user'");
-      // if (mysqli_num_rows($query) > 0) {
-      //   while ($row = mysqli_fetch_assoc($query)) {
-      //     if (isset($_SESSION['username'])) {
-      //       $lista_nombre_update = $_POST['nombre_lista_update'];
-      //       $id_user = $row['id_user'];
-      //       // echo $id_user;
-      //       // echo $lista_nombre;
-      //       // echo ' <script type="text/javascript">alert("hola")</script>';
-      //       // echo $user;
-      //
-      //       $query = "UPDATE List_books SET nombre_lista = '$lista_nombre_update' WHERE id_user = '$id_user'";
-      //       mysqli_query($conn, $query);
-      //     }
-      //   }
-      // }
-  }
-
-// }
+  // if(isset($_POST['a-update-list-profile'])){
+  //   if(empty($_REQUEST['nombre_lista'])){
+  //   } else {
+  //     $nombre_lista = $_REQUEST['nombre_lista'];
+  //     echo '<div id="modal2" class="modal"><div class="modal-content"></div><div class="modal-footer"></div></div>';
+  //     echo $nombre_lista;
+  //
+  //   }
+  // }
 
 ################################################## BORRAR LISTA ##################################################
 

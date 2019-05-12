@@ -184,7 +184,8 @@
                     </div>
                     </div>
                     <!-- <ul class="cards-container"> -->
-                    <div id="<?php echo $row2['nombre_lista'] ?>"class="col s12 m12 l12 colgallery card" style="" data-flickity='{ "freeScroll": true, "groupCells": true }'>
+                  
+                    <div id="<?php echo $row2['nombre_lista'] ?>" class="col s12 m12 l12 colgallery card provando" style="" data-flickity='{ "freeScroll": true, "groupCells": true }'>
                     <?php
                     $nombre_lista = $row2['nombre_lista'];
                     $query3 = mysqli_query($conn, "SELECT nombre_lista, id_book FROM List_books WHERE id_user = '$id_user' AND nombre_lista = '$nombre_lista'");
@@ -223,18 +224,15 @@
                     }
                       ?>
                     </div>
-                    <div class="row">
                         <form class="" action="perfil.php?nombre_lista=<?php echo $nombre_lista ?>" method="post">
-                          <button class="btn red right" type="submit" name="a-delete-list-profile" style="margin-right: 10px;">DELETE
-                          </button>
+                          <button class="btn red right" type="submit" name="a-delete-list-profile" style="margin-right: 10px;">DELETE</button>
 
-                          <!-- <button class="btn-flat modal-trigger red white-text right" data-target="modal2">EDITAR</button> -->
+                          <!-- <button class="btn red white-text right modal-trigger" type="submit" name="a-update-list-profile" style="margin-right: 10px;" data-target="modal2">EDITAR</button> -->
 
                         </form>
-
-                    </div>
-
                   </div>
+                  <!-- Modal Structure -->
+
                 <?php
                             }
                           }
@@ -245,28 +243,7 @@
                ?>
 
                 </div>
-                <!-- Modal Structure -->
-                <div id="modal2" class="modal">
-                    <form action="" method="post" enctype="multipart/form-data">
-                        <div class="modal-content">
-                            <h4>Editar lista</h4>
-                            <div id="form-div-input-form" class="row">
-                                <div class="input-field col s12">
-                                    <input id="nombre_lista_update" name="nombre_lista_update" type="text" class="validate">
-                                    <label for="nombre_lista_update">Nuevo nombre</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <div id="form-div-input-form" class="row">
-                                <div class="input-field col s12">
-                                    <button id="btn-nueva-lista-update" type="submit" name="btn-nueva-lista-update" class="btn red modal-close  waves-effect waves-red">CAMBIAR</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
 
-                </div>
                 <div id="modal1" class="modal">
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="modal-content">
@@ -309,51 +286,7 @@
             <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
             <script type="text/javascript" src="scripts/comun.js"></script>
             <script type="text/javascript" src="scripts/perfil.js"></script>
-            <script type="text/javascript">
-            // $('#i_delete_item_list<?php echo $id_book ?>').click(function(){
-            //   <?php
-            //   if(isset($_REQUEST['id_book'])){
-            //
-            //   } else {
-            //     echo $_REQUEST['id_book'];
-            //     echo ' <script type="text/javascript">alert("hola")</script>';
-            //
-            //     $query5 = mysqli_query($conn, "SELECT * FROM list_books WHERE id_book = '$id_book' AND id_user = '$id_user' AND nombre_lista = '$nombre_lista'");
-            //     if (mysqli_num_rows($query5) > 0) {
-            //       while ($row5 = mysqli_fetch_assoc($query5)) {
-            //         $id_user_list = $row5['id_user'];
-            //         $id_book_list = $row5['id_book'];
-            //         // $query6 = mysqli_query($conn, "DELETE FROM list_books WHERE id_book = '$id_book' AND id_user = '$id_user' AND nombre_lista = '$nombre_lista'");
-            //         mysqli_query($conn, $query6);
-            //         }
-            //     }
-            //     header("Refresh:0; url=page2.php");
-            //     die();
-            //    }
-            //     ?>
-            //
-            //
-            //    alert('¡Libro eliminado!');
-            //
-            //    });
-            </script>
 
-            <!-- <script type="text/javascript">
-              $('#i_delete_list_perfil').click(function(){
-                <?php
-                // $nombre_lista = $_REQUEST['nombre_lista'];
-                // $query6 = mysqli_query($conn, "SELECT * FROM list_books WHERE id_user = '$id_user' AND nombre_lista = '$nombre_lista'");
-                // if (mysqli_num_rows($query6) > 0) {
-                //   $row6 = mysqli_fetch_assoc($query6);
-                //     $id_user_list = $row6['id_user'];
-                //     $id_book_list = $row6['id_book'];
-                //     $query7 = mysqli_query($conn, "DELETE FROM list_books WHERE id_user = '$id_user_list' AND nombre_lista = '$nombre_lista'");
-                //     mysqli_query($conn, $query7);
-                // }
-                 ?>
-                 alert('¡Lista eliminada!')
-              });
-            </script> -->
 
 </body>
 

@@ -100,8 +100,11 @@
                     $_SESSION['username'] = $username_login;
                     $_SESSION['success'] = "Yo  u are now logged in";
                     // header('location: index.php');
+                    echo '<script type="text/javascript">M.toast({html: `¡Logeado!`, classes: `rounded green`})</script>';
+
                     if($username_login == 'Admin' || $username_login == 'admin@gmail.com' && $userpass_login_encryp == '123456'){
                       // header('location: admin.php');
+
                     }
                   }
 
@@ -110,6 +113,7 @@
               }
 
             } else {
+              echo '<script type="text/javascript">M.toast({html: `¡Datos incorrectos!`, classes: `rounded red`})</script>';
                 array_push($errors, "¡Email o contraseña incorrectas!");
             }
         }

@@ -34,10 +34,10 @@
        #p-div-title-book {
          font-size: 12px;
        }
-       ul li {
+       /* ul li {
          display: inline;
          float: none;
-       }
+       } */
      </style>
 </head>
 
@@ -335,30 +335,25 @@
                       }
                     } if (isset($_POST['btn-aplicar-cambios'])){
                       if(!empty($_POST['gender_list'])){
-                        foreach($_POST['gender_list'] as $selected){
-                          // echo $selected."</br>";
 
-                          $query = mysqli_query($conn, "SELECT b.* FROM books as b, Books_genders as bg, genders as g WHERE b.id_book=bg.id_book AND bg.id_genero=g.id_genero AND g.nombre IN ('$selected') GROUP BY b.id_book");
-                          if (mysqli_num_rows($query) > 0) {
-                            while ($row = mysqli_fetch_assoc($query)) {
-                              // echo $row['titulo'];
-                          //     $id_genero_libro = $row['id_genero'];
-                          //     // echo $row['id_genero'];
-                          //     $query2 = mysqli_query($conn, "SELECT * FROM Books_genders WHERE id_genero = '$id_genero_libro'");
-                          //     if (mysqli_num_rows($query2) > 0) {
-                          //       // while ($row2 = mysqli_fetch_assoc($query2)) {
-                          //       $row2 = mysqli_fetch_assoc($query2);
-                          //
-                          //         $id_book = $row2['id_book'];
-                          //         echo $row2['id_book'];
-                          //
-                          //         $query3 = mysqli_query($conn, "SELECT * FROM Books WHERE id_book = '$id_book'");
-                          //         // if (mysqli_num_rows($query3) > 0) {
-                          //           $row3 = mysqli_fetch_assoc($query3);
-                                    // echo $row3['titulo'];
 
-                                    // while ($row3 = mysqli_fetch_assoc($query3)) {
-                                      // echo $row3['titulo'];
+                          // $query = mysqli_query($conn, "SELECT b.* FROM books as b, Books_genders as bg, genders as g WHERE b.id_book=bg.id_book AND bg.id_genero=g.id_genero AND g.nombre IN('$selected') GROUP BY b.id_book");
+                          $count = 0;
+                          $sql = "SELECT b.* FROM books as b, Books_genders as bg, genders as g WHERE b.id_book=bg.id_book AND bg.id_genero=g.id_genero AND g.nombre IN (";
+                          $chk = $_POST['gender_list'];
+                            foreach($chk as $value){
+                              $sql .= "'$value',";
+                              $count++;
+                            }
+                            if ($count > 0){
+                              $sql = substr($sql,0,-1) . ') GROUP BY b.id_book;';
+                              ;
+                            }
+                            $result = mysqli_query($conn, $sql);
+                          if (mysqli_num_rows($result) > 0) {
+
+                            while ($row = mysqli_fetch_assoc($result)) {
+
                                       ?>
                                       <!-- <div class="ocultar"> -->
                                       <ul>
@@ -386,7 +381,7 @@
                           //     }
                             }
                           }
-                        }
+                        // }
                       }
 
                     }

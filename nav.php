@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<style media="screen">
 
-</style>
 <head>
     <meta charset="utf-8">
     <title>ReadZone</title>
@@ -18,6 +16,8 @@
     <!-- <link rel="stylesheet" href="css/index.css"> -->
     <link rel="stylesheet" href="css/comun.css">
     <!--Let browser know website is optimized for mobile-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
@@ -166,6 +166,7 @@ include('acciones/busqueda.php');
         }
       } else {
         ?>
+
         <ul id="mobile-nav" class="sidenav right">
             <li id="li-nav-login-form">
                 <div id="div-nav-login-form" style="">
@@ -179,7 +180,7 @@ include('acciones/busqueda.php');
                             <i class="material-icons iconis prefix">lock</i>
                             <input type="password" name="userpass-login" placeholder="contraseña">
                         </div>
-                        <button class="btn waves-effect waves-red white-text red" type="submit" name="btn-div-login-form-inicio-sesion">Inciar sesión</button>
+                        <button id="btn-div-login-form-inicio-sesion-2" class="btn waves-effect waves-red white-text red" type="submit" name="btn-div-login-form-inicio-sesion">Inciar sesión</button>
                     </form>
                     <ul>
                         <li><a style="font-size: 13px;" href="registro.php">Registrar</a></li>
@@ -198,11 +199,11 @@ include('acciones/busqueda.php');
     <!--################################-->
 
     <!--Import jQuery before materialize.js -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <!--Import jQuery before webuiPopover.js -->
     <script src='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js'></script>
     <script type="text/javascript" src="scripts/comun.js"></script>
+
 </body>
 
 </html>

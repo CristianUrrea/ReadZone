@@ -191,7 +191,7 @@
           <div class="modal-footer">
             <div id="form-div-input-form" class="row">
                 <div class="input-field col s12">
-                    <button id="btn-añadir-a-lista" type="submit"  name="btn-añadir-a-lista" class="btn red modal-close  waves-effect waves-red">Añadir a lista</button>
+                    <button id="btn-añadir-a-lista" type="submit" name="btn-añadir-a-lista" class="btn red modal-close  waves-effect waves-red">Añadir a lista</button>
                 </div>
             </div>
           </div>

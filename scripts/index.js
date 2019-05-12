@@ -16,7 +16,6 @@ $(document).ready(function() {
     setTimeout(autoplay, 4000);
   }
 
-  /* Kick off the initial slide animation when the document is ready */
   var hrWidth = 100;
 
   $(".carousel-progress-bar-timer").css("width", hrWidth + "%");
