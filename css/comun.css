@@ -19,6 +19,7 @@ nav,
 
 /*################ MEDIA QUERY ################*/
 
+
 @media only screen and (max-width: 600px) {
   .searchbarfix {
     height: 56px !important;
@@ -90,7 +91,8 @@ nav,
 }
 
 #ul-div-nav-dropdown li a {
-  margin-right: -23px;
+  /* display: inline-block !important;
+  float: right !important; */
 }
 
 #nav-a-icon-menu-sidenav {

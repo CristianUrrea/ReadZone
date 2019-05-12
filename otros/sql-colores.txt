@@ -1,0 +1,21 @@
+#f5f5f5, white, #424242, black, grey darken-4, #bdbdbd, red, #37474f
+
+SQL:
+
+
+
+SELECT imagen FROM books WHERE id_book > (SELECT id_book FROM list_books WHERE id_book = '8')
+
+
+Arreglar lo comentado, busqueda avanzada, insertar y update admin y insert capitulos
+
+Lista CRUD delte y update
+
+Recomendaciones populares de cada genero por usuario
+
+
+
+for $sql  "OR concat"
+
+
+En capitulos tengo que crear la caperta y guardame las imagenes dentro y depues cojer su pach para luego guardame esa ruta en la base de datos

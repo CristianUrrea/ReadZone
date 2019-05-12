@@ -16,13 +16,29 @@
     <!-- <link rel="stylesheet" href="css/index.css"> -->
     <link rel="stylesheet" href="css/comun.css">
     <!--Let browser know website is optimized for mobile-->
+    <link rel="shortcut icon" type="image/png" href="imagenes/IconWeb.png" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 </head>
+<style media="screen">
+
+#input-div-nav-search:hover::placeholder {
+  color: red;
+
+}
+
+#input-div-nav-search:hover {
+  border: 1px solid #f44336;
+
+}
+
+
+</style>
 <?php
 // session_start();
 
@@ -64,7 +80,7 @@ include('acciones/busqueda.php');
                         <!--<a href="#"><i class="material-icons right hide-on-large-only">search</i></a>-->
                         <ul id="ul-div-nav-links" class="left">
                             <li>
-                                <a class="search-hide" href="index.php">Logo</a>
+                                <a class="search-hide" href="index.php"><img style="position: relative; margin: -10px;" src="imagenes/IconWeb.png" alt="" height="30" width="30"> </a>
                             </li>
                             <li>
                                 <a class="search-hide" href="biblioteca.php">Biblioteca</a>
@@ -91,7 +107,17 @@ include('acciones/busqueda.php');
                     <div class="col s12 m2 l2 nav-wrapper">
                         <ul id="ul-div-nav-dropdown" class="hide-on-med-and-down right">
                           <?php  if (isset($_SESSION['username'])) {?>
-                            <li style="color: black; margin-left: -35px;"><a href="perfil.php"><i class="material-icons">person</i></a></li>
+                            <?php
+                            $userSession = $_SESSION['username'];
+                            $query = mysqli_query($conn, "SELECT * FROM Users WHERE correo = '$userSession'");
+                            if (mysqli_num_rows($query) > 0) {
+                              while ($row = mysqli_fetch_assoc($query)) {
+                            ?>
+                              <li class="" style="margin-left: 10px;"><a href="perfil.php"><img style="position: relative; margin: -7px;" class="circle" style=""src="<?php echo $row['imagen_perfil']; ?>" alt="" height="25" width="25"></a></li>
+                            <?php
+                              }
+                            }
+                             ?>
                             <li>
                                 <a id="a-div-log-out" name="a-div-log-out" href="index.php?logout">logout</a>
                               <?php } else { ?>

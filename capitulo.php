@@ -35,6 +35,29 @@
     float: none;
     margin: 20px;
   }
+  .material-icons {
+    height: 32px;
+    width: 35px;
+  }
+  .material-icons:hover {
+    animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+  }
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
 </style>
 <body>
   <!--################ NAV ################-->
@@ -52,11 +75,11 @@
         <div class="col s12 red center">
           <div class="div_buttons_mode" style="margin-top: 5px;">
             <ul id="ul_li_icons">
-              <li>            <i id="return"><img class="white circle" src="https://img.icons8.com/material/30/000000/home-page.png"><i>
+              <li>            <i id="return" class="small material-icons white circle red-text">keyboard_backspace</i>
 </li>
-              <li>            <i id="mode_cascada" class="small material-icons white circle">pages</i>
+              <li>            <i id="mode_cascada" class="small material-icons white circle red-text">pages</i>
 </li>
-              <li>            <i id="mode_pagination"><img class="white circle" src="https://img.icons8.com/material/30/000000/file.png"></i>
+              <li>            <i id="mode_pagination" class="small material-icons white circle red-text">description</i>
 </li>
             </ul>
           </div>

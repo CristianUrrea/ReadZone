@@ -7,16 +7,49 @@
   margin-top: 20px;
 }
 /*################ LIKE DISLIKE ################*/
-.progressBar {
-  display: block;
-  width: 100px;
-  min-width: 100px;
-  height: 10px;
-  margin-left: 50px;
+@media only screen and (min-width: 993px) {
+  .progressBar {
+    display: block;
+    width: 200px;
+    min-width: 200px;
+    height: 10px;
+    margin-left: 17.25%;
+
+  }
+}
+@media only screen and (min-width: 719px) {
+  .progressBar {
+    display: block;
+    width: 200px;
+    min-width: 200px;
+    height: 10px;
+    margin-left: 17.25%;
+  }
 }
 
+@media only screen and (max-width: 718px) {
+  .progressBar {
+    display: block;
+    width: 200px;
+    min-width: 200px;
+    height: 10px;
+    margin-left: 17.25%;
+  }
+}
+@media only screen and (max-width: 501px) {
+  .progressBar {
+    display: block;
+    width: 200px;
+    min-width: 200px;
+    height: 10px;
+    margin-left: 8%;
+
+  }
+}
+
+
 .likes {
-  background-color: #0F0;
+  background-color: #4caf50 ;
   float: left;
   padding: 0px;
   margin: 0px;
@@ -25,7 +58,7 @@
 }
 
 .dislikes {
-  background-color: #F00;
+  background-color: #b71c1c;
   float: left;
   padding: 0px;
   margin: 0px;

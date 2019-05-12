@@ -34,9 +34,16 @@
        #p-div-title-book {
          font-size: 12px;
        }
-       ul li {
+       /* ul li {
          display: inline;
          float: none;
+       } */
+       #input-div-search:hover::placeholder {
+         color: red;
+       }
+       #input-div-search:hover{
+         border: 1px solid #f44336;
+
        }
      </style>
 </head>
@@ -161,7 +168,7 @@
             </div>
           </div>
             <div class="row">
-                <div id="div-biblioteca" class="col s12 m12 l8 offset-l2 white">
+                <div id="div-biblioteca" class="col s12 m12 l8 offset-l2 white center">
                   <ul id="example2" class="cards-container">
                   <?php
                   if(!isset($_COOKIE["titulo_libro"])) {
@@ -337,11 +344,22 @@
                       if(!empty($_POST['gender_list'])){
 
 
-                          $query = mysqli_query($conn, "SELECT b.* FROM books as b, Books_genders as bg, genders as g WHERE b.id_book=bg.id_book AND bg.id_genero=g.id_genero AND g.nombre IN('$selected') GROUP BY b.id_book");
+                          // $query = mysqli_query($conn, "SELECT b.* FROM books as b, Books_genders as bg, genders as g WHERE b.id_book=bg.id_book AND bg.id_genero=g.id_genero AND g.nombre IN('$selected') GROUP BY b.id_book");
+                          $count = 0;
+                          $sql = "SELECT b.* FROM books as b, Books_genders as bg, genders as g WHERE b.id_book=bg.id_book AND bg.id_genero=g.id_genero AND g.nombre IN (";
+                          $chk = $_POST['gender_list'];
+                            foreach($chk as $value){
+                              $sql .= "'$value',";
+                              $count++;
+                            }
+                            if ($count > 0){
+                              $sql = substr($sql,0,-1) . ') GROUP BY b.id_book;';
+                              ;
+                            }
+                            $result = mysqli_query($conn, $sql);
+                          if (mysqli_num_rows($result) > 0) {
 
-
-                          if (mysqli_num_rows($query) > 0) {
-                            while ($row = mysqli_fetch_assoc($query)) {
+                            while ($row = mysqli_fetch_assoc($result)) {
 
                                       ?>
                                       <!-- <div class="ocultar"> -->
