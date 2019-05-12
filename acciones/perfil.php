@@ -1,3 +1,11 @@
+<style media="screen">
+#toast-container {
+  top: auto !important;
+  left: auto !important;
+  bottom: 10%;
+  left:7%;
+}
+</style>
 <?php
 
 // VARIABLES
@@ -55,6 +63,8 @@ if (isset($_SESSION['username'])) {
     $password_confirmar = mysqli_real_escape_string($conn, $_POST['password-confirmar-dar-baja']);
     if(empty($password_confirmar)){
       // echo "vacio";
+      echo '<script type="text/javascript">M.toast({html: `¡Introduca dato!`, classes: `red`, inDuration: 1000, displayLength: 2000})</script>';
+
     } else {
       $userpass_encryp = md5($password_confirmar);
       // echo $user.' || '.$userpass_encryp.' || '.$password_confirmar;
@@ -64,7 +74,6 @@ if (isset($_SESSION['username'])) {
       if (mysqli_num_rows($query) == 1) {
         while ($row = mysqli_fetch_assoc($query)){
 
-          echo "password correcta".' '.$de_baja.' '.$user;
 
           //
           $query2 = "UPDATE Users SET estado = '$de_baja' WHERE correo = '$user'";
@@ -76,7 +85,8 @@ if (isset($_SESSION['username'])) {
 
         }
       } else {
-        echo '<script type="text/javascript">alert("Password incorrecta");</script>';
+        echo '<script type="text/javascript">M.toast({html: `¡Password incorrecta!`, classes: `red`, inDuration: 1000, displayLength: 2000})</script>';
+
       }
     }
   }

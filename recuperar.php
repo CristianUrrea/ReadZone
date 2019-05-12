@@ -32,7 +32,6 @@ session_start();
   <main>
       <div class="row">
           <div class="col s12 m12 l12 center">
-              <a hef="#!" class="brand-logo"><i class="material-icons">tag_faces</i></a>
           </div>
       </div>
 
@@ -40,7 +39,9 @@ session_start();
         <div class="row">
             <form id="form-div-registro" class="col s12 m8 l4 offset-l4 offset-m2" action="" method="post">
                 <div class="row">
-                    <div class="col s12 m12 l12 center">
+                    <div class="col s12 m12 l12 center red white-text">
+                      <h5>Recuperar contraseña</h5>
+
                     </div>
                 </div>
 
@@ -61,76 +62,81 @@ session_start();
       <?php
       if(isset($_POST['btn-submit-recuperar-email'])){
         $email = $_POST['email-recuperar'];
-        // echo $email;
-        $_SESSION['email'] = $email;
-        $query2 = mysqli_query($conn,"SELECT estado FROM users WHERE correo='$email'");
-        if (mysqli_num_rows($query2) > 0) {
-          while ($row2 = mysqli_fetch_assoc($query2)){
-            $estado= $row2['estado'];
-            if($estado == 1) {
-              $message = '¿Quiere usted recuperar su cuenta?';
-              echo "<script type='text/javascript'> //not showing me this
-                  if(confirm('$message')){
-                    window.location.replace(\"activarCuenta.php\");
-
-                  } else {
-                    window.location.replace(\"index.php\");
-                  }
-              </script>";
-            } else {
-
-
-
-        $query = mysqli_query($conn, "SELECT * FROM Users WHERE correo = '$email'");
-        if (mysqli_num_rows($query) == 1) {
-          while ($row = mysqli_fetch_assoc($query)) {
-            // echo $row['nombre'];
-            ?>
-            <style media="screen">
-              .div-introducir-email {
-                display: none !important;
-
-              }
-            </style>
-            <div class="div-introducir-respuesta">
-              <div class="row">
-                  <form id="form-div-registro" class="col s12 m8 l4 offset-l4 offset-m2" action="" method="post">
-                      <div class="row">
-                          <div class="col s12 m12 l12 center">
-                              <h5>Recuperar contraseña</h5>
-                          </div>
-                      </div>
-                      <div id="form-div-input-form" class="row">
-                        <div class="input-field col s12 m12">
-                          <select name="preguntas">
-
-                            <option value="<?php echo $row['pregunta']?>" disabled selected><?php echo $row['pregunta'] ?></option>
-                          </select>
-                        </div>
-                      </div>
-                      <div id="form-div-input-form" class="row">
-                          <div class="input-field col s12">
-                              <input id="respuesta" type="text" name="respuesta">
-                              <label for="respueta">Respuesta*</label>
-                          </div>
-                      </div>
-                      <div id="form-div-input-form" class="row">
-                          <div class="input-field col s12 m12 l2 offset-l4">
-                              <button id="btn-respuesta-submit" type="submit" name="btn-respuesta-submit" class="btn red">Aceptar</button>
-                          </div>
-                      </div>
-                  </form>
-              </div>
-            </div>
-
-            <?php
-          }
-        } else {
+        if(empty($email)){
           echo '<script type="text/javascript">alert("El correo es introducido es incorrecto o vacio")</script>';
+        } else {
+          // echo $email;
+          $_SESSION['email'] = $email;
+          $query2 = mysqli_query($conn,"SELECT estado FROM users WHERE correo='$email'");
+          if (mysqli_num_rows($query2) > 0) {
+            while ($row2 = mysqli_fetch_assoc($query2)){
+              $estado= $row2['estado'];
+              if($estado == 1) {
+                $message = '¿Quiere usted recuperar su cuenta?';
+                echo "<script type='text/javascript'> //not showing me this
+                    if(confirm('$message')){
+                      window.location.replace(\"activarCuenta.php\");
+
+                    } else {
+                      window.location.replace(\"index.php\");
+                    }
+                </script>";
+              } else {
+
+
+
+          $query = mysqli_query($conn, "SELECT * FROM Users WHERE correo = '$email'");
+          if (mysqli_num_rows($query) == 1) {
+            while ($row = mysqli_fetch_assoc($query)) {
+              // echo $row['nombre'];
+              ?>
+              <style media="screen">
+                .div-introducir-email {
+                  display: none !important;
+
+                }
+              </style>
+              <div class="div-introducir-respuesta">
+                <div class="row">
+                    <form id="form-div-registro" class="col s12 m8 l4 offset-l4 offset-m2" action="" method="post">
+                        <div class="row">
+                            <div class="col s12 m12 l12 center">
+                                <h5>Recuperar contraseña</h5>
+                            </div>
+                        </div>
+                        <div id="form-div-input-form" class="row">
+                          <div class="input-field col s12 m12">
+                            <select name="preguntas">
+
+                              <option value="<?php echo $row['pregunta']?>" disabled selected><?php echo $row['pregunta'] ?></option>
+                            </select>
+                          </div>
+                        </div>
+                        <div id="form-div-input-form" class="row">
+                            <div class="input-field col s12">
+                                <input id="respuesta" type="text" name="respuesta">
+                                <label for="respueta">Respuesta*</label>
+                            </div>
+                        </div>
+                        <div id="form-div-input-form" class="row">
+                            <div class="input-field col s12 m12 l2 offset-l4">
+                                <button id="btn-respuesta-submit" type="submit" name="btn-respuesta-submit" class="btn red">Aceptar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+              </div>
+
+              <?php
+            }
+          } else {
+            echo '<script type="text/javascript">alert("El correo es introducido es incorrecto o vacio")</script>';
+          }
         }
-      }
-      }
-      }
+        }
+        }
+        }
+
       }
       include('acciones/recuperar.php');
 

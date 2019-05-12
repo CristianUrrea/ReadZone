@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-05-2019 a las 19:54:34
+-- Tiempo de generación: 12-05-2019 a las 21:46:07
 -- Versión del servidor: 10.1.35-MariaDB
 -- Versión de PHP: 7.2.9
 
@@ -64,7 +64,8 @@ INSERT INTO `books` (`id_book`, `tipo`, `titulo`, `descripcion`, `autor`, `image
 (20, 'Manga', 'Darling in the FranXX', 'La historia se desarrolla en un futuro distante donde la tierra esta arruinada y la humanidad se ha establecido en un fuerte mobil llamado Ciudad Plantation. Los pilotos producidos dentro de Plantation viven en Mistilteinn tambiÃ©n conocida como \"la jaula de pÃ¡jaros,\" los niÃ±os viven ahÃ­ ignorando por completo el mundo exterior o la libertad del cielo. Sus vidas consisten en realizar misiones en contra de sus enemigos, quienes son unas formas de vida gigantes y misteriosas llamadas Kyouryuu y son los niÃ±os quienes pilotean los robots FranXX los cuales deben enfrentarse a ellos. Para los niÃ±os montar a los FranXX no es mas que una prueba de su existencia. Un chico llamado cÃ³digo 016, fue alguna vez conocido como un prodigio, sin embargo, se ha quedado detrÃ¡s y su existencia parece ser innecesaria. \"No pilotear un FranXX es lo mismo que dejar de existir.\" Un dÃ­a, una misteriosa chica conocida como \"Zero Two\" aparece frente a el, con dos cuernos en su cabeza...', 'Kentaro Yabuki', './imagenes/libros/19.png', 0),
 (21, 'Comic', 'Capitana Marvel', 'Carol Susan Jane Danvers comenzÃ³ su carrera en la fuerza aÃ©rea de Estados Unidos y llegÃ³ hasta el puesto de jefe de seguridad de Cabo CaÃ±averal. AllÃ­ se vio relacionada con el CapitÃ¡n Marvel, un soldado Kree que desertarÃ­a de sus funciones para proteger a la Tierra de su propio mundo.', 'Marvel Comics', './imagenes/libros/20.jpg', 0),
 (22, 'Comic', 'Superman', 'Cuando Clark madurÃ³, la gravedad de la Tierra (mÃ¡s leve que la de Krypton) y los rayos de su sol amarillo le dieron poderes mucho mÃ¡s allÃ¡ de los de la gente normal, poderes que explorÃ³ durante un viaje alrededor del mundo en busca de pistas acerca de su origen. MÃ¡s tarde, diseÃ±Ã³ un disfraz basado en lo que habÃ­a aprendido de su herencia kryptoniana y adoptÃ³ el nombre que le dio la reportera Lois Lane, luchando por la verdad y la justicia como \"Superman\". Ocultando su identidad de Superman, concienzuda tarea, Clark (que habÃ­a desarrollado un gusto por el periodismo) consiguiÃ³ un trabajo en el Daily Planet de Metropolis. AhÃ­, Ã©l y Lois comenzaron como rivales pero se hicieron compaÃ±eros.', 'Marvel Comics', './imagenes/libros/21.jpg', 0),
-(26, 'Novela', 'Overlord', 'En el aÃ±o 2126, se decide descontinuar el DMMORPG Yggdrasil, un juego que ha sido el mÃ¡s popular durante los Ãºltimos doce aÃ±os, pero que ha caÃ­do en desuso con el tiempo. El dÃ­a que debÃ­an cerrarse los servidores del juego, Momonga, lÃ­der del gremio Ainz Ooal Gown, una vez compuesto por 41 miembros y acreditado como uno de los gremios mÃ¡s fuertes del juego, decide permanecer en lÃ­nea hasta que el juego sea cerrado a modo de despedida de ese lugar tan especial para Ã©l.', 'Maruyama Kugane', './imagenes/libros/5.jpg', 0);
+(26, 'Novela', 'Overlord', 'En el aÃ±o 2126, se decide descontinuar el DMMORPG Yggdrasil, un juego que ha sido el mÃ¡s popular durante los Ãºltimos doce aÃ±os, pero que ha caÃ­do en desuso con el tiempo. El dÃ­a que debÃ­an cerrarse los servidores del juego, Momonga, lÃ­der del gremio Ainz Ooal Gown, una vez compuesto por 41 miembros y acreditado como uno de los gremios mÃ¡s fuertes del juego, decide permanecer en lÃ­nea hasta que el juego sea cerrado a modo de despedida de ese lugar tan especial para Ã©l.', 'Maruyama Kugane', './imagenes/libros/5.jpg', 0),
+(49, 'Manga', 'Tester libro manga update', 'update desc tester', 'autor tester update', './imagenes/libros/Dafault.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -83,10 +84,7 @@ CREATE TABLE `books_chapter` (
 --
 
 INSERT INTO `books_chapter` (`id_cap_libro`, `id_book`, `capitulo`) VALUES
-(1, 1, './imagenes/capitulos/Againts the Gods/2/'),
-(2, 12, './imagenes/capitulos/CapitÃ¡n AmÃ©rica/1/'),
-(4, 17, './imagenes/capitulos/Sword Art Online/9/'),
-(6, 6, './imagenes/capitulos/One Piece/1/');
+(8, 49, './imagenes/capitulos/Tester libro manga update/2/');
 
 -- --------------------------------------------------------
 
@@ -199,7 +197,11 @@ INSERT INTO `books_genders` (`id_librogenero`, `id_book`, `id_genero`) VALUES
 (305, 26, 8),
 (306, 26, 9),
 (307, 26, 12),
-(308, 26, 16);
+(308, 26, 16),
+(350, 49, 1),
+(351, 49, 16),
+(352, 49, 7),
+(353, 49, 12);
 
 -- --------------------------------------------------------
 
@@ -272,7 +274,8 @@ INSERT INTO `books_score` (`id_book_score`, `like_libro`, `dislike_libro`, `id_u
 (28, 0, 0, 9, 26),
 (29, 1, 0, 9, 13),
 (30, 0, 1, 9, 11),
-(31, 1, 0, 1, 13);
+(31, 1, 0, 1, 13),
+(32, 0, 1, 28, 1);
 
 -- --------------------------------------------------------
 
@@ -337,7 +340,9 @@ INSERT INTO `list_books` (`id_list`, `nombre_lista`, `id_user`, `id_book`) VALUE
 (178, 'Lista 2', 22, 9),
 (207, 'Lista 2 admin', 9, NULL),
 (208, 'Lista 1 admin', 9, 1),
-(209, 'Lista 1 admin', 9, 5);
+(209, 'Lista 1 admin', 9, 5),
+(211, 'Lista 2 tester', 28, NULL),
+(213, 'Lista 2 tester', 28, 1);
 
 -- --------------------------------------------------------
 
@@ -384,7 +389,8 @@ INSERT INTO `users` (`id_user`, `nombre`, `correo`, `contrasena`, `sexo`, `fecha
 (20, 'testeo55 update', 'testeo55@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '', '2019-04-16', './imagenes/perfiles/7.png', 'Â¿Cual es el nombre de tu mascota?', 'Pepe', 1),
 (21, 'dasdasd eeee', 'asdasd@gmail.com', 'c20ad4d76fe97759aa27a0c99bff6710', '', '2019-04-23', './imagenes/perfiles/1.png', 'Â¿Cual es el nombre de tu mascota?', '123', 0),
 (22, 'kirito 2', 'kirito@gmail.com', '202cb962ac59075b964b07152d234b70', '', '2014-05-22', './imagenes/perfiles/5.png', 'Â¿Cual es el nombre de tu mascota?', 'mascota kirito', 0),
-(27, 'prueva33', 'prueva33@gmail.com', 'c20ad4d76fe97759aa27a0c99bff6710', '', '0000-00-00', './imagenes/perfiles/default.png', 'Â¿Cual es el nombre de tu mascota?', 'mascota', 0);
+(27, 'prueva33', 'prueva33@gmail.com', 'c20ad4d76fe97759aa27a0c99bff6710', '', '0000-00-00', './imagenes/perfiles/default.png', 'Â¿Cual es el nombre de tu mascota?', 'mascota', 0),
+(28, 'Tester Editado', 'tester@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '', '2019-05-02', './imagenes/perfiles/default.png', 'Â¿Cual es el nombre de tu mascota?', 'mascota', 0);
 
 --
 -- Índices para tablas volcadas
@@ -462,19 +468,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `books`
 --
 ALTER TABLE `books`
-  MODIFY `id_book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT de la tabla `books_chapter`
 --
 ALTER TABLE `books_chapter`
-  MODIFY `id_cap_libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_cap_libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `books_genders`
 --
 ALTER TABLE `books_genders`
-  MODIFY `id_librogenero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=309;
+  MODIFY `id_librogenero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=354;
 
 --
 -- AUTO_INCREMENT de la tabla `books_genders_values`
@@ -492,7 +498,7 @@ ALTER TABLE `books_likes`
 -- AUTO_INCREMENT de la tabla `books_score`
 --
 ALTER TABLE `books_score`
-  MODIFY `id_book_score` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_book_score` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `genders`
@@ -504,13 +510,13 @@ ALTER TABLE `genders`
 -- AUTO_INCREMENT de la tabla `list_books`
 --
 ALTER TABLE `list_books`
-  MODIFY `id_list` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=210;
+  MODIFY `id_list` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=215;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Restricciones para tablas volcadas

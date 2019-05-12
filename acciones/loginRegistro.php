@@ -117,5 +117,8 @@
 
                 array_push($errors, "¡Email o contraseña incorrectas!");
             }
+        } else {
+          echo '<script type="text/javascript">M.toast({html: `¡Introdusca los datos!`, classes: `red`, inDuration: 1000, displayLength: 2000})</script>';
+
         }
     }

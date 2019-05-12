@@ -6,7 +6,7 @@ $_SESSION['success'] = "";
 
 
 if(isset($_POST['btn-cambiar-password-submit'])){
-  
+
   $email = $_SESSION['email'];
   $respuesta = $_SESSION['respuesta'];
   $password = mysqli_real_escape_string($conn, $_POST['nueva-password']);

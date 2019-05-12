@@ -20,7 +20,8 @@ if(isset($_POST['btn-respuesta-submit'])){
       header('location: index.php');
     }
   } else {
-    echo '<script type="text/javascript">alert("La respuesta es incorrecta");</script>';
+    echo '<script type="text/javascript">alert("¡La respuesta es incorrecta!")</script>';
+
   }
 }
 

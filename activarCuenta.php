@@ -32,7 +32,6 @@ session_start();
   <main>
       <div class="row">
           <div class="col s12 m12 l12 center">
-              <a hef="#!" class="brand-logo"><i class="material-icons">tag_faces</i></a>
           </div>
       </div>
 
@@ -40,7 +39,8 @@ session_start();
         <div class="row">
             <form id="form-div-registro" class="col s12 m8 l4 offset-l4 offset-m2" action="" method="post">
                 <div class="row">
-                    <div class="col s12 m12 l12 center">
+                    <div class="col s12 m12 l12 center red white-text">
+                      <h5>Recuperar cuenta</h5>
                     </div>
                 </div>
 
@@ -109,7 +109,8 @@ session_start();
             <?php
           }
         } else {
-          echo "El correo es introducido es incorrecto o vacio";
+          echo '<script type="text/javascript">alert("El correo es introducido es incorrecto o vacio")</script>';
+
         }
 
       }

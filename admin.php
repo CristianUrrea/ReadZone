@@ -46,7 +46,7 @@ if($_SESSION['username'] != 'admin@gmail.com'){
                    <li class="tab col s3 m3 l4"><a class="red-text" href="#insertar_admin">Insertar</a></li>
                    <li class="tab col s3 m3 l4"><a class="red-text" href="#update_admin">Actualizar</a></li>
                    <!-- <li class="tab col s3 m3 l3"><a class="red-text" href="#provicional_admin">Provicional</a></li> -->
-                   <li class="tab col s3 m3 l4"><a class="red-text" href="#capitulos_admin">Añadir capitulo</a></li>
+                   <li class="tab col s3 m3 l4"><a class="red-text" href="#capitulos_admin">Añadir capítulo</a></li>
                </ul>
 
            </div>
@@ -55,14 +55,14 @@ if($_SESSION['username'] != 'admin@gmail.com'){
          <div id="div-row-admin-panel"  class="row">
              <form id="form-div-admin" class="col s12 m8 l6 offset-l3 offset-m2"  action="" method="post" enctype="multipart/form-data">
                  <div class="row">
-                     <div class="col s12 m12 l12 center">
-                         <h5>Administrador</h5>
+                     <div class="col s12 m12 l12 center red white-text">
+                         <h5>Insertar</h5>
                      </div>
                  </div>
                  <div id="form-div-input-form" class="row">
                    <div class="input-field col s12">
                      <select name="tipo-libro">
-                       <option value="" disabled selected>Tipo de libro</option>
+                       <option value="" disabled selected>Tipo de libro*</option>
                        <option value="Novela">Novela</option>
                        <option value="Manga">Manga</option>
                        <option value="Comic">Comic</option>
@@ -72,7 +72,7 @@ if($_SESSION['username'] != 'admin@gmail.com'){
                  <div id="form-div-input-form" class="row">
                      <div class="input-field col s12">
                          <input id="titulo_libro" type="text" name="titulo_libro" class="validate">
-                         <label for="titulo_libro">Titulo del libro</label>
+                         <label for="titulo_libro">Titulo del libro*</label>
                      </div>
                  </div>
                  <div id="form-div-input-form" class="row">
@@ -88,7 +88,14 @@ if($_SESSION['username'] != 'admin@gmail.com'){
                      </div>
                  </div>
                  <div id="form-div-input-form" class="row">
+                   <div class="input-field col s12">
+
+                 <span>Generos:*</span>
+               </div>
+               </div>
+                 <div id="form-div-input-form" class="row">
                    <div class="col s3 m3 l6">
+
                      <?php
                      $query = mysqli_query($conn, "SELECT * FROM Genders LIMIT 0, 8");
                      if (mysqli_num_rows($query) > 0) {
@@ -147,8 +154,8 @@ if($_SESSION['username'] != 'admin@gmail.com'){
          <div id="div-row-admin-panel"  class="row">
            <form id="form-div-admin" class="col s12 m8 l6 offset-l3 offset-m2"  action="" method="post" enctype="multipart/form-data">
              <div class="row">
-                 <div class="col s12 m12 l12 center">
-                     <h5>Administrador</h5>
+                 <div class="col s12 m12 l12 center red white-text">
+                     <h5>Actualizar</h5>
                  </div>
              </div>
              <div id="form-div-input-form" class="row">
@@ -351,8 +358,8 @@ if($_SESSION['username'] != 'admin@gmail.com'){
          <div id="div-row-admin-panel"  class="row">
            <form id="form-div-admin" class="col s12 m8 l6 offset-l3 offset-m2"  action="" method="post" enctype="multipart/form-data">
              <div class="row">
-                 <div class="col s12 m12 l12 center">
-                     <h5>Administrador</h5>
+                 <div class="col s12 m12 l12 center red white-text">
+                     <h5>Añadir capítulo</h5>
                  </div>
              </div>
              <div id="form-div-input-form" class="row">
