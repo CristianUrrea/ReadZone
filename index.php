@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+session_start();
+
+ ?>
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
@@ -25,7 +29,11 @@
 
 <body>
     <!--################ NAV ################-->
-    <?php include 'nav.php';?>
+    <?php
+
+     include 'nav.php';
+
+     ?>
         <!--################################-->
 
         <main>

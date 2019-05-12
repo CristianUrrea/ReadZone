@@ -33,6 +33,8 @@
 <body>
   <!--################ NAV ################-->
   <?php
+  session_start();
+
     // require_once("db/conexiondb.php");
     $id_book=$_REQUEST['id_book'];
 
@@ -71,15 +73,15 @@
                             <b>Generos</b>
                             <ul id="list_genders">
                               <?php
-                              $query = mysqli_query($conn, "SELECT * FROM Books_genders WHERE id_book = '$id_book'");
-                              if (mysqli_num_rows($query) > 0) {
-                                while ($row3 = mysqli_fetch_assoc($query)) {
-                                  $id_genero = $row3['id_genero'];
-                                  $query2 = mysqli_query($conn, "SELECT * FROM Genders WHERE id_genero = '$id_genero'");
-                                  if (mysqli_num_rows($query2) > 0) {
-                                    while ($row2 = mysqli_fetch_assoc($query2)) {
+                              $query2 = mysqli_query($conn, "SELECT * FROM Books_genders WHERE id_book = '$id_book'");
+                             if (mysqli_num_rows($query2) > 0) {
+                               while ($row2 = mysqli_fetch_assoc($query2)) {
+                                 $id_genero = $row2['id_genero'];
+                                 $query3 = mysqli_query($conn, "SELECT * FROM Genders WHERE id_genero = '$id_genero'");
+                                 if (mysqli_num_rows($query3) > 0) {
+                                   while ($row3 = mysqli_fetch_assoc($query3)) {
                                ?>
-                               <li style="margin-right: 20px;"><?php echo $row2['nombre']; ?></li>
+                               <li style="margin-right: 20px;"><?php echo $row3['nombre']; ?></li>
                                <?php
                                     }
                                   }
@@ -189,7 +191,7 @@
           <div class="modal-footer">
             <div id="form-div-input-form" class="row">
                 <div class="input-field col s12">
-                    <button id="btn-añadir-a-lista" type="submit"  name="btn-añadir-a-lista" class="btn red modal-close  waves-effect waves-red">Añadir a lista</button>
+                    <button id="btn-añadir-a-lista" type="submit" name="btn-añadir-a-lista" class="btn red modal-close  waves-effect waves-red">Añadir a lista</button>
                 </div>
             </div>
           </div>

@@ -1,28 +1,6 @@
-<?php
-  include('acciones/loginRegistro.php');
-  include('acciones/cambiarPass.php');
-  include('acciones/perfil.php');
-  include('acciones/busqueda.php');
-
-  if (!isset($_SESSION['username'])) {
-      $_SESSION['msg'] = "You must log in first";
-      // header('location: index.php');
-      // echo ' <script type="text/javascript">alert("No logeado")</script>';
-  } else {
-      // echo ' <script type="text/javascript">alert("Logeado")</script>';
-  }
-  if (isset($_GET['logout'])) {
-      session_destroy();
-      unset($_SESSION['username']);
-      header("location: index.php");
-  }
-  require_once("db/conexiondb.php");
-?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<style media="screen">
 
-</style>
 <head>
     <meta charset="utf-8">
     <title>ReadZone</title>
@@ -38,11 +16,40 @@
     <!-- <link rel="stylesheet" href="css/index.css"> -->
     <link rel="stylesheet" href="css/comun.css">
     <!--Let browser know website is optimized for mobile-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
+<?php
+// session_start();
+
+require_once("db/conexiondb.php");
+include('acciones/loginRegistro.php');
+include('acciones/busqueda.php');
+
+  //
+  // if (isset($_SESSION['username'])) {
+  //     // $_SESSION['msg'] = "You must log in first";
+  //     // header('location: perfil.php');
+  //
+  //
+  //     echo ' <script type="text/javascript">alert("Logeado")</script>';
+  // } else {
+  //     // echo ' <script type="text/javascript">alert("Logeado")</script>';
+  //     // include('acciones/cambiarPass.php');
+  //     // include('acciones/perfil.php');
+  //     // include('acciones/busqueda.php');
+  // }
+  if (isset($_GET['logout'])) {
+      session_destroy();
+      unset($_SESSION['username']);
+      header("location: index.php");
+  }
+
+?>
 <body>
     <header>
 
@@ -86,7 +93,7 @@
                           <?php  if (isset($_SESSION['username'])) {?>
                             <li style="color: black; margin-left: -35px;"><a href="perfil.php"><i class="material-icons">person</i></a></li>
                             <li>
-                                <a id="a-div-log-out" name="a-div-log-out" href="index.php?logout='1'">logout</a>
+                                <a id="a-div-log-out" name="a-div-log-out" href="index.php?logout">logout</a>
                               <?php } else { ?>
                                 <a id="a-div-login" href="#">Login</a>
                               <?php } ?>
@@ -99,7 +106,7 @@
         <!-- Div content login -->
         <div id="div-nav-login-form" class="webui-popover-content">
             <form action="index.php" method="post">
-              <?php include('acciones/errors.php'); ?>
+              <span class="red-text"><?php include('acciones/errors.php'); ?></span>
                 <div class="input-field">
                     <i class="material-icons iconis prefix">account_box</i>
                     <input id="username-login" type="text" name="username-login" placeholder="email">
@@ -127,7 +134,7 @@
           ?>
           <ul id="mobile-nav" class="sidenav right">
             <li class="sidenav-header" style="background-image: url(<?php echo $row['imagen_perfil'] ?>); background-position: center; background-repeat: no-repeat; background-size: cover; position: relative;">
-         <div class="row" style="background: rgb(33,150,243, 80%);">
+         <div class="row" style="background: rgb(33,150,243, 60%);">
            <div class="col s4" style="margin-top: 20px;">
                <img src="<?php echo $row['imagen_perfil']; ?>" width="100" height="100" alt="" class="circle">
            </div>
@@ -159,6 +166,7 @@
         }
       } else {
         ?>
+
         <ul id="mobile-nav" class="sidenav right">
             <li id="li-nav-login-form">
                 <div id="div-nav-login-form" style="">
@@ -172,7 +180,7 @@
                             <i class="material-icons iconis prefix">lock</i>
                             <input type="password" name="userpass-login" placeholder="contraseña">
                         </div>
-                        <button class="btn waves-effect waves-red white-text red" type="submit" name="btn-div-login-form-inicio-sesion">Inciar sesión</button>
+                        <button id="btn-div-login-form-inicio-sesion-2" class="btn waves-effect waves-red white-text red" type="submit" name="btn-div-login-form-inicio-sesion">Inciar sesión</button>
                     </form>
                     <ul>
                         <li><a style="font-size: 13px;" href="registro.php">Registrar</a></li>
@@ -191,11 +199,11 @@
     <!--################################-->
 
     <!--Import jQuery before materialize.js -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <!--Import jQuery before webuiPopover.js -->
     <script src='https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js'></script>
     <script type="text/javascript" src="scripts/comun.js"></script>
+
 </body>
 
 </html>

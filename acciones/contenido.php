@@ -13,7 +13,9 @@ if (isset($_SESSION['username'])) {
                 $id_user = $row['id_user'];
                 $id_book = $_REQUEST['id_book'];
                 if(empty($_POST['elegir-lista'])){
-                  echo '<script type="text/javascript">alert("¡Seleccione una lista!")</script';
+                  // echo '<script type="text/javascript">alert("¡Seleccione una lista!")</script';
+
+                  echo '<script type="text/javascript">M.toast({html: `¡Seleccione una lista!`, classes: `rounded red`})</script>';
 
                 } else {
                   $nombre_lista = strip_tags($_POST['elegir-lista']);
@@ -23,11 +25,14 @@ if (isset($_SESSION['username'])) {
                   // $results = mysqli_query($conn, $query3);
                   if (mysqli_num_rows($query3) > 0) {
                     while ($row3 = mysqli_fetch_assoc($query3)){
-                      echo '<script type="text/javascript">alert("¡El libro ya está en la lista seleccionada!")</script';
+                      // echo '<script type="text/javascript">alert("¡El libro ya está en la lista seleccionada!")</script';
+                      echo '<script type="text/javascript">M.toast({html: `¡El libro ya está en la lista seleccionada!`, classes: `rounded red`})</script';
 
                   }
                   } else {
-                  echo '<script type="text/javascript">alert("¡Libro añadido!")</script';
+                    echo '<script type="text/javascript">M.toast({html: `¡Libro añadido!`, classes: `rounded green`})</script';
+
+                  // echo '<script type="text/javascript">alert("¡Libro añadido!")</script';
                   $query2 = "INSERT INTO List_books (nombre_lista,id_user,id_book) VALUES('$nombre_lista','$id_user','$id_book')";
                    mysqli_query($conn, $query2);
                   }

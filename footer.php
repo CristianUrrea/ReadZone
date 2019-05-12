@@ -36,8 +36,8 @@
                 <div class="col l4 offset-l2 s12">
                   <h5>Redes sociales</h5>
 <a href="https://es-es.facebook.com/"><img src="https://img.icons8.com/color/48/000000/facebook.png"></a>
-<a href="http://aboutme.google.com"><img src="https://img.icons8.com/color/48/000000/google-plus.png">
-<a href="http://www.twitter.com"><img src="https://img.icons8.com/color/48/000000/twitter.png">
+<a href="http://aboutme.google.com"><img src="https://img.icons8.com/color/48/000000/google-plus.png"></a>
+<a href="http://www.twitter.com"><img src="https://img.icons8.com/color/48/000000/twitter.png"></a>
                 </div>
             </div>
         </div>

@@ -26,8 +26,13 @@
 
 <body>
     <!--################ NAV ################-->
-    <?php include 'nav.php';
+    <?php
+    session_start();
+
+    include 'nav.php';
     include_once('acciones/perfil.php');
+
+
     ?>
         <!--################################-->
 
@@ -42,8 +47,8 @@
               </div>
           </div>
           <div id="general">
-            <div id="div-row-edit-profile" class="row">
-                <form id="form-div-perfil" class="col s12 m8 l4 offset-l4 offset-m2" action="" method="post" enctype="multipart/form-data">
+            <div id="div-row-edit-profile-general" class="row">
+                <form id="form-div-perfil-general" class="col s12 m8 l4 offset-l4 offset-m2" action="" method="post" enctype="multipart/form-data">
                   <?php
                    if (isset($_SESSION['username'])) {
                        $user = $_SESSION['username'];
@@ -95,7 +100,7 @@
           </div>
           <div id="imagen">
             <div id="div-row-edit-profile" class="row">
-              <form id="form-div-perfil" class="col s12 m8 l4 offset-l4 offset-m2" action="" method="post" enctype="multipart/form-data">
+              <form id="form-div-perfil-imagen" class="col s12 m8 l4 offset-l4 offset-m2" action="" method="post" enctype="multipart/form-data">
                 <div id="form-div-input-form-perfil" class="row">
                     <div class="file-field input-field">
                         <div class="btn">
@@ -117,7 +122,7 @@
           </div>
           <div id="baja">
             <div id="div-row-edit-profile" class="row">
-              <form id="form-div-perfil" class="col s12 m8 l4 offset-l4 offset-m2" action="" method="post" enctype="multipart/form-data">
+              <form id="form-div-perfil-baja" class="col s12 m8 l4 offset-l4 offset-m2" action="" method="post" enctype="multipart/form-data">
                 <div id="form-div-input-form-perfil" class="row">
                     <div class="input-field col s12 m12 l12 center">
                       <button type="button" class="btn red modal-trigger center" data-target="modal">Dar de baja</button>

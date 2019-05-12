@@ -2,7 +2,10 @@
 
 // VARIABLES
 require_once("./db/conexiondb.php");
+
 if (isset($_SESSION['username'])) {
+
+
   $user = $_SESSION['username'];
   // INSERTAR DATOS DE PERFIL
   if (isset($_POST['btn-perfil'])) {
@@ -18,6 +21,8 @@ if (isset($_SESSION['username'])) {
 
     $query = "UPDATE Users SET fecha_cumpleanos='$date', nombre = '$username_profile' WHERE correo='$user'";
     mysqli_query($conn, $query);
+
+    // header('location: nav.php');
 
     // // $gender_user = $_POST['genero'];
     //
@@ -49,7 +54,7 @@ if (isset($_SESSION['username'])) {
   if(isset($_POST['btn-baja-usuario'])){
     $password_confirmar = mysqli_real_escape_string($conn, $_POST['password-confirmar-dar-baja']);
     if(empty($password_confirmar)){
-      echo "vacio";
+      // echo "vacio";
     } else {
       $userpass_encryp = md5($password_confirmar);
       // echo $user.' || '.$userpass_encryp.' || '.$password_confirmar;
@@ -61,11 +66,12 @@ if (isset($_SESSION['username'])) {
 
           echo "password correcta".' '.$de_baja.' '.$user;
 
-
+          //
           $query2 = "UPDATE Users SET estado = '$de_baja' WHERE correo = '$user'";
           mysqli_query($conn, $query2);
+          // header("location: index.php");
           session_destroy();
-          header("location: index.php");
+          echo "<script type='text/javascript'>window.location.replace(\"index.php\");</script>";
 
 
         }
@@ -74,5 +80,7 @@ if (isset($_SESSION['username'])) {
       }
     }
   }
+} else {
+  // header('location: index.php');
 
 }

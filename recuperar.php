@@ -63,6 +63,23 @@ session_start();
         $email = $_POST['email-recuperar'];
         // echo $email;
         $_SESSION['email'] = $email;
+        $query2 = mysqli_query($conn,"SELECT estado FROM users WHERE correo='$email'");
+        if (mysqli_num_rows($query2) > 0) {
+          while ($row2 = mysqli_fetch_assoc($query2)){
+            $estado= $row2['estado'];
+            if($estado == 1) {
+              $message = '¿Quiere usted recuperar su cuenta?';
+              echo "<script type='text/javascript'> //not showing me this
+                  if(confirm('$message')){
+                    window.location.replace(\"activarCuenta.php\");
+
+                  } else {
+                    window.location.replace(\"index.php\");
+                  }
+              </script>";
+            } else {
+
+
 
         $query = mysqli_query($conn, "SELECT * FROM Users WHERE correo = '$email'");
         if (mysqli_num_rows($query) == 1) {
@@ -111,7 +128,9 @@ session_start();
         } else {
           echo '<script type="text/javascript">alert("El correo es introducido es incorrecto o vacio")</script>';
         }
-
+      }
+      }
+      }
       }
       include('acciones/recuperar.php');
 

@@ -39,6 +39,8 @@
 <body>
   <!--################ NAV ################-->
   <?php
+  session_start();
+
     // require_once("db/conexiondb.php");
     $id_cap_libro=$_REQUEST['id_cap_libro'];
     include 'nav.php';
